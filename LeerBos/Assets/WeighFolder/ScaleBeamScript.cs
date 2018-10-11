@@ -8,13 +8,15 @@ public class ScaleBeamScript : MonoBehaviour
     public float MaxZRotation;
     public float RotateSpeed;
 
-    public List<WeightedObjectScript> LeftObjects;
-    public List<WeightedObjectScript> RightObjects;
+    public ScaleHandScript LeftHand;
+    public ScaleHandScript RightHand;
+
+    private Quaternion targetRotation;
 
     // Use this for initialization
     void Start()
     {
-        CheckWeights();
+
     }
 
     // Update is called once per frame
@@ -43,16 +45,16 @@ public class ScaleBeamScript : MonoBehaviour
     }
 
 
-    void CheckWeights()
+    public void CheckWeights()
     {
         int leftMass = 0;
         int rightMass = 0;
 
-        foreach (WeightedObjectScript weight in LeftObjects)
+        foreach (WeightedObjectScript weight in LeftHand.Objects)
         {
             leftMass += weight.Mass;
         }
-        foreach (WeightedObjectScript weight in RightObjects)
+        foreach (WeightedObjectScript weight in RightHand.Objects)
         {
             rightMass += weight.Mass;
         }
@@ -70,18 +72,26 @@ public class ScaleBeamScript : MonoBehaviour
             difference = -30;
         }
 
-        StartCoroutine(_RotateBeam(difference));
+        if (difference != transform.rotation.eulerAngles.z)
+        {
+            print("start coroutine");
+
+            Vector3 rotation = transform.rotation.eulerAngles;
+            targetRotation = Quaternion.Euler(rotation.x, rotation.y, difference);
+
+            StartCoroutine(_RotateBeam());
+        }
     }
 
-    IEnumerator _RotateBeam(int difference)
+    IEnumerator _RotateBeam()
     {
-        Vector3 rotation = transform.rotation.eulerAngles;
+        Quaternion currentTarget = targetRotation;
 
-        while (transform.rotation.z != difference)
+        while (transform.rotation != targetRotation && currentTarget == targetRotation)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(rotation.x, rotation.y, difference),
-                Time.deltaTime * RotateSpeed);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * RotateSpeed);
             yield return null;
         }
+        
     }
 }
