@@ -17,6 +17,7 @@ public class PrefabSpawnButtonScript : Interactable
 		
 	}
 
+    //gets the manager to spawn the button's associated prefab
     protected override void Click(Vector3 clickposition)
     {
         manager.SpawnPrefab(prefab);

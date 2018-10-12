@@ -14,11 +14,10 @@ public class WeightPrefabScript : WeightedObjectScript {
 		
 	}
 
+    //remove weight from game
     protected override void Click(Vector3 clickposition)
     {
-        if (RemoveFromList())
-        {
-            Destroy(gameObject);
-        }
+        RemoveFromList();
+        Destroy(gameObject);
     }
 }

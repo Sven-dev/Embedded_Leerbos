@@ -6,6 +6,7 @@ public class ManagerScript : MonoBehaviour
 {
     public GameObject WeightParent;
     public ScaleHandScript LeftHand;
+    public WeightedObjectScript ObjectToWeigh;
 
 	// Use this for initialization
 	void Start () {
@@ -17,13 +18,13 @@ public class ManagerScript : MonoBehaviour
 		
 	}
 
+    //spawn the submitted prefab above the left scale
     public void SpawnPrefab(GameObject prefab)
     {
         Instantiate(prefab, new Vector2(GetLeftHandX(), 10),Quaternion.Euler(0,0,0),WeightParent.transform);
-
-
     }
 
+    //get x position of the left scale
     float GetLeftHandX()
     {
         return LeftHand.gameObject.transform.position.x;

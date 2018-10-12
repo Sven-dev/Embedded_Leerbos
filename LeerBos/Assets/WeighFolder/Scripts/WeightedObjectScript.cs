@@ -20,17 +20,20 @@ public class WeightedObjectScript : Interactable
 		
 	}
 
+    //collide with an object; might activate scale
     void OnCollisionEnter2D(Collision2D collision)
     {
         colliding = true;
         CheckConditions();
     }
 
+    //collision ends, remove chance of activating scale
     void OnCollisionExit2D(Collision2D collision)
     {
         colliding = false;
     }
 
+    //enter scale trigger area, get collider
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("ScaleHand"))
@@ -41,11 +44,11 @@ public class WeightedObjectScript : Interactable
         }
     }
 
+    //remove from the scale's list of objects
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("ScaleHand"))
         {
-            inTrigger = false;
             RemoveFromList();
         }
     }
@@ -53,21 +56,24 @@ public class WeightedObjectScript : Interactable
     //check the two bools and add to the hand's weighted object list if true
     void CheckConditions()
     {
+        //make sure the object is currently inside the trigger and is colliding
+        //impossible to pass if collider hasnt been gained
         if (inTrigger && colliding)
         {
+            //activate the scales
             handCollider.GetComponent<ScaleHandScript>().ActivateWeights(this);
         }
     }
 
     //for removing from the hand's list later
-    protected bool RemoveFromList()
+    protected void RemoveFromList()
     {
-        if (!inTrigger)
+        //impossible to pass if the collider hasnt been gained
+        if (inTrigger)
         {
             handCollider.GetComponent<ScaleHandScript>().RemoveFromList(this);
-            return true;
+            inTrigger = false;
         }
-        return false;
     }
 
     protected override void Click(Vector3 clickposition)
