@@ -61,8 +61,6 @@ public class ScaleBeamScript : MonoBehaviour
 
         int difference = leftMass - rightMass;
 
-        print(difference);
-
         if (difference > 30)
         {
             difference = 30;
@@ -74,8 +72,6 @@ public class ScaleBeamScript : MonoBehaviour
 
         if (difference != transform.rotation.eulerAngles.z)
         {
-            print("start coroutine");
-
             Vector3 rotation = transform.rotation.eulerAngles;
             targetRotation = Quaternion.Euler(rotation.x, rotation.y, difference);
 

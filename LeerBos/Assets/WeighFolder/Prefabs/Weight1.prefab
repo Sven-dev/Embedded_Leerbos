@@ -40,8 +40,8 @@ GameObject:
   - component: {fileID: 114672580036994050}
   - component: {fileID: 50990929547202102}
   - component: {fileID: 61447643174665286}
-  - component: {fileID: 114870249394780528}
   - component: {fileID: 23199426550635376}
+  - component: {fileID: 114900595860327404}
   m_Layer: 5
   m_Name: Weight1
   m_TagString: Untagged
@@ -188,7 +188,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 50g
---- !u!114 &114870249394780528
+--- !u!114 &114900595860327404
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -196,9 +196,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1663167491006646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73e2728b2af275940b75a22a67e12c4b, type: 3}
+  m_Script: {fileID: 11500000, guid: fe263c34b6406ab45996fc630c0813fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cooldown: 20
   Mass: 1
 --- !u!222 &222333031172206606
 CanvasRenderer:
