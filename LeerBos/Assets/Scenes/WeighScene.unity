@@ -279,6 +279,11 @@ Prefab:
       propertyPath: WeightParent
       value: 
       objectReference: {fileID: 1537037179}
+    - target: {fileID: 114781817959002930, guid: 956fb879223aca94a9c93931be1d52c1,
+        type: 2}
+      propertyPath: ObjectToWeigh
+      value: 
+      objectReference: {fileID: 1672052539}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 956fb879223aca94a9c93931be1d52c1, type: 2}
   m_IsPrefabParent: 0
@@ -809,6 +814,16 @@ Prefab:
     - target: {fileID: 4819835379777006, guid: e7574c9f71800504a8d1639fb380cb85, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114494432113721798, guid: e7574c9f71800504a8d1639fb380cb85,
+        type: 2}
+      propertyPath: layer.m_Bits
+      value: 4294966783
+      objectReference: {fileID: 0}
+    - target: {fileID: 114494432113721798, guid: e7574c9f71800504a8d1639fb380cb85,
+        type: 2}
+      propertyPath: collisionType
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7574c9f71800504a8d1639fb380cb85, type: 2}
