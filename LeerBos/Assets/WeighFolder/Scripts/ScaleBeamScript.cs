@@ -24,7 +24,8 @@ public class ScaleBeamScript : MonoBehaviour
     {
         //CheckRotation();
     }
-
+    
+    //deprecated rotation method
     void CheckRotation()
     {
         if (transform.rotation.eulerAngles.z < 360 + MinZRotation && transform.rotation.eulerAngles.z > MaxZRotation)
@@ -44,12 +45,13 @@ public class ScaleBeamScript : MonoBehaviour
 
     }
 
-
+    //calculate the total mass of Weighted Objects on both hands, then compare and animate the scales accordingly
     public void CheckWeights()
     {
         int leftMass = 0;
         int rightMass = 0;
 
+        //calculate total mass of both scales
         foreach (WeightedObjectScript weight in LeftHand.Objects)
         {
             leftMass += weight.Mass;
@@ -59,34 +61,37 @@ public class ScaleBeamScript : MonoBehaviour
             rightMass += weight.Mass;
         }
 
-        int difference = leftMass - rightMass;
+        //get the difference. a negative difference means the right scale is heavier
+        float difference = leftMass - rightMass;
 
-        print(difference);
-
-        if (difference > 30)
+        //bound the difference
+        if (difference > MaxZRotation)
         {
-            difference = 30;
+            difference = MaxZRotation;
         }
-        else if (difference < -30)
+        else if (difference < -MinZRotation)
         {
-            difference = -30;
+            difference = MinZRotation;
         }
 
+        //handle the possibility that the rotation is already correct
         if (difference != transform.rotation.eulerAngles.z)
         {
-            print("start coroutine");
-
+            //assemble target rotation
             Vector3 rotation = transform.rotation.eulerAngles;
             targetRotation = Quaternion.Euler(rotation.x, rotation.y, difference);
 
+            //rotate the boy
             StartCoroutine(_RotateBeam());
         }
     }
 
     IEnumerator _RotateBeam()
     {
+        //hold onto start rotation
         Quaternion currentTarget = targetRotation;
 
+        //rotate the beam. if targetRotation field changes, the coroutine is stopped to make way for the new target rotation
         while (transform.rotation != targetRotation && currentTarget == targetRotation)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * RotateSpeed);

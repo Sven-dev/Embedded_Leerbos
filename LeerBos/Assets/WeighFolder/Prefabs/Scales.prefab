@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4518229527587880}
+  - component: {fileID: 114781817959002930}
   m_Layer: 0
   m_Name: Scales
   m_TagString: Untagged
@@ -43,7 +44,7 @@ GameObject:
   - component: {fileID: 114471334002355296}
   m_Layer: 5
   m_Name: HandLeft
-  m_TagString: Untagged
+  m_TagString: ScaleHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +85,7 @@ GameObject:
   - component: {fileID: 114316628175334344}
   m_Layer: 5
   m_Name: HandRight
-  m_TagString: Untagged
+  m_TagString: ScaleHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +98,7 @@ Transform:
   m_GameObject: {fileID: 1149418786808206}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 104.06796, y: 453.01724, z: 600.70306}
-  m_LocalScale: {x: 120, y: 120, z: 120}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 224132004223425692}
   - {fileID: 224659836608906316}
@@ -202,7 +203,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 177.86522}
+  m_Offset: {x: 0, y: 250}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -213,7 +214,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 100, y: 455.7305}
+  m_Size: {x: 100, y: 600}
   m_EdgeRadius: 0
 --- !u!61 &61815639201160618
 BoxCollider2D:
@@ -252,7 +253,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 177.86522}
+  m_Offset: {x: 0, y: 250}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -263,7 +264,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 100, y: 455.7305}
+  m_Size: {x: 100, y: 600}
   m_EdgeRadius: 0
 --- !u!114 &114170321247467088
 MonoBehaviour:
@@ -388,6 +389,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114781817959002930
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1149418786808206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a4a6a29cf126640b521deabb930672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeightParent: {fileID: 0}
+  LeftHand: {fileID: 114471334002355296}
 --- !u!222 &222379569082655280
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -432,7 +446,7 @@ RectTransform:
   m_GameObject: {fileID: 1275471801648218}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -5.005859}
-  m_LocalScale: {x: 0.09166667, y: 0.004166667, z: 0.008333334}
+  m_LocalScale: {x: 0.09166667, y: 0.004166667, z: 0.1}
   m_Children: []
   m_Father: {fileID: 4518229527587880}
   m_RootOrder: 0
