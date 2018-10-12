@@ -18,6 +18,7 @@ public class ProductSpawner : MonoBehaviour {
     public delegate void ShoppingListChanged();
     public event ShoppingListChanged ShoppingListChange;
     public ShoppingListManager Shoppinglist;
+    private GrammarManager GrammarManager;
 
     // Use this for initialization
     void Start ()
@@ -30,6 +31,7 @@ public class ProductSpawner : MonoBehaviour {
 
         Shoppinglist.Link(this);
         ProductClones = new List<Product>();
+        GrammarManager = GetComponent<GrammarManager>();
         StartCoroutine(Loop());
 	}
 
@@ -37,28 +39,18 @@ public class ProductSpawner : MonoBehaviour {
     {
         while (Active)
         {
-            SpawnItems();
             while (ProductClones.Count > 0)
             {
                 yield return null;
             }
 
+            if (Products.Count > 0)
+            {
+                SpawnItems();
+            }
+
             yield return null;
         }
-    }
-
-    //Scrambles the letters in a word
-    string Scramble(string word)
-    {
-        string scrambledword = "";
-        for (int i = 0; i < word.Length; i++)
-        {
-            int rnd = Random.Range(0, word.Length -1);
-
-            scrambledword += word.Substring(rnd, 1);
-        }
-
-        return scrambledword;
     }
 
     //Gets a number of random locations, the amount based on SpawnAmount.
@@ -80,14 +72,16 @@ public class ProductSpawner : MonoBehaviour {
     //Spawns a set of items
     void SpawnItems()
     {
+        List<Transform> locations = GetSpawnLocations();
+
         Product prefab = ProductPrefabs[Random.Range(0, ProductPrefabs.Count - 1)];
         string text = Products[0];
-
-        List<Transform> locations = GetSpawnLocations();
         SpawnItem(locations[0], prefab, text);
+
+        List<string> misspelledwords = GrammarManager.MessUpGrammar(text, SpawnAmount);
         for (int i = 1; i < SpawnAmount; i++)
         {
-            SpawnItem(locations[i], prefab, Scramble(text));
+            SpawnItem(locations[i], prefab, misspelledwords[i]);
         }
     }
 
