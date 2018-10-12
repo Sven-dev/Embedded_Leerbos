@@ -100,7 +100,7 @@ public class DetectionManager : MonoBehaviour
         Ray ray = new Ray(position, Vector3.forward);
 
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 5);
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(position.x,position.y), Vector2.down, Mathf.Infinity);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(position.x,position.y), Vector2.down, Mathf.Infinity, layerMask);
 
         return hit;
     }
