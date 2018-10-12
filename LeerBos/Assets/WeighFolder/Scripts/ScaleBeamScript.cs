@@ -69,7 +69,7 @@ public class ScaleBeamScript : MonoBehaviour
         {
             difference = MaxZRotation;
         }
-        else if (difference < -MinZRotation)
+        else if (difference < MinZRotation)
         {
             difference = MinZRotation;
         }

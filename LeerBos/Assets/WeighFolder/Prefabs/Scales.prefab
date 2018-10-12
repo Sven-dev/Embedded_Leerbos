@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 61209650447314018}
   - component: {fileID: 61748184520557056}
   - component: {fileID: 114471334002355296}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: HandLeft
   m_TagString: ScaleHand
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 61815639201160618}
   - component: {fileID: 61917793293394310}
   - component: {fileID: 114316628175334344}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: HandRight
   m_TagString: ScaleHand
   m_Icon: {fileID: 0}
@@ -304,8 +304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d535cc6eab75344fb20c1d035a0b647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinZRotation: -25
-  MaxZRotation: 25
+  MinZRotation: -30
+  MaxZRotation: 30
   RotateSpeed: 25
   LeftHand: {fileID: 114471334002355296}
   RightHand: {fileID: 114316628175334344}
@@ -402,6 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeightParent: {fileID: 0}
   LeftHand: {fileID: 114471334002355296}
+  ObjectToWeigh: {fileID: 0}
 --- !u!222 &222379569082655280
 CanvasRenderer:
   m_ObjectHideFlags: 1
