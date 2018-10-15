@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GrammarManager : MonoBehaviour
 {
-    public int Methods;
-
     //Replaces the last letter of a word with either a d or a t
     private string ReplaceDT(string word)
     {
@@ -41,61 +39,51 @@ public class GrammarManager : MonoBehaviour
         throw new System.NotImplementedException();
     }
 
-    string GetGrammarMethod(string word)
+    string GetGrammarMethod(int index, string word)
     {
-        switch(Methods)
+        switch(index)
         {
-            case 1:
+            case 0:
                 return ReplaceDT(word);
-            case 2:
+            case 1:
                 return ReplaceDoubleLetters(word);
             default:
                 throw new System.NotImplementedException();
         }
     }
 
+    //Returns a list of 1 correct answer and and a number of wrong answers
     public List<string> MessUpGrammar(string word, int amount)
     {
         List<bool> grammar = Analyse(word);
         List<string> words = new List<string>();
-        List<int> usedmethods = new List<int>();
 
-        foreach(bool b in grammar)
-        {
-            print(b);
-        }
-        
+        //Add the correct word
+        words.Add(word);
+        amount--;
+
         for (int i = 0; i < amount; i++)
         {
+            //Check if there's any misspellings possible
             if (grammar.Contains(true))
             {
-                int index;
+                int index = 0;
                 bool active = true;
+
+                //Select a random possible misspelling
                 while (active)
                 {
-                    index = Random.Range(0, grammar.Count - 1);
+                    index = Random.Range(0, grammar.Count);
                     if (grammar[index] == true )
                     {
+                        grammar[index] = false;
                         active = false;
                     }
                 }
 
-                index = Random.Range(1, grammar.Count);
-                if (grammar[index] == true && !usedmethods.Contains(index))
-                {
-                    if (Methods > index)
-                    {
-                        words.Add(GetGrammarMethod(word));
-                        usedmethods.Add(index);
-                        active = false;
-                    }
-                    else
-                    {
-                        words.Add(Scramble(word));
-                        active = false;
-                    }
-                }
+                words.Add(GetGrammarMethod(index, word));     
             }
+            //If there's no misspelling possible, scramble the letters of the word
             else
             {
                 words.Add(Scramble(word));

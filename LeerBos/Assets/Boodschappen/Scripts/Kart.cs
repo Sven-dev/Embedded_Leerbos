@@ -35,22 +35,16 @@ public class Kart : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("Kart collision entered");
         Product p = collision.transform.GetComponent<Product>();
         if (p != null)
         {
-            print(1);
             if (ShoppingList.ProductCollected(p))
             {
-                print(2);
-                p.transform.parent = transform;
                 p.FallInCart(this);
                 return;
             }
 
-            print("adding force");
-            p.GetComponent<Rigidbody2D>().AddForce((Vector2.up + Vector2.left) * 500);
-            //p.GetComponent<Rigidbody2D>().AddRelativeForce()
+            p.GetComponent<Rigidbody2D>().AddForce((Vector2.up * 2 + Vector2.left) * 500);
         }       
     }
 }

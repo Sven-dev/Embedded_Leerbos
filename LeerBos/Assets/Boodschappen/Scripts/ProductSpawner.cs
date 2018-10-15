@@ -7,7 +7,7 @@ public class ProductSpawner : MonoBehaviour {
     public bool Active;
     [Space]
     public int SpawnAmount;
-    private List<Transform> SpawnLocations;
+    public List<Transform> SpawnLocations;
     [Space]
     public List<string> Products;
     public List<Product> ProductPrefabs;
@@ -72,16 +72,20 @@ public class ProductSpawner : MonoBehaviour {
     //Spawns a set of items
     void SpawnItems()
     {
+        //get random spawn-locations
         List<Transform> locations = GetSpawnLocations();
 
+        //Get a product prefab, generate the correct answer & a number of misspellings
         Product prefab = ProductPrefabs[Random.Range(0, ProductPrefabs.Count - 1)];
-        string text = Products[0];
-        SpawnItem(locations[0], prefab, text);
+        List<string> words = GrammarManager.MessUpGrammar(Products[0], SpawnAmount);
 
-        List<string> misspelledwords = GrammarManager.MessUpGrammar(text, SpawnAmount);
-        for (int i = 1; i < SpawnAmount; i++)
+        //Instantiate the products
+        for (int i = 0; i < words.Count; i++)
         {
-            SpawnItem(locations[i], prefab, misspelledwords[i]);
+            SpawnItem(
+                locations[i],
+                prefab,
+                words[i]);
         }
     }
 
