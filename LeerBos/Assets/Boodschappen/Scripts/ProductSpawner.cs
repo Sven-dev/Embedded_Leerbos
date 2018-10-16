@@ -17,8 +17,6 @@ public class ProductSpawner : MonoBehaviour {
 
     public delegate void ShoppingListChanged();
     public event ShoppingListChanged ShoppingListChange;
-    public delegate void Victory();
-    public event Victory OnVictory;
 
     public ShoppingListManager Shoppinglist;
     private GrammarManager GrammarManager;

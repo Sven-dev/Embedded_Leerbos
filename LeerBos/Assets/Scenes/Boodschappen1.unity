@@ -882,7 +882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShoppingList: {fileID: 1421812530}
   ProductHolder: {fileID: 0}
-  Speed: 3.5
+  Speed: 4.5
 --- !u!1 &576416342
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,7 +2222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2097258138
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2284,8 +2284,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -541}
-  m_SizeDelta: {x: 400, y: 75}
+  m_AnchoredPosition: {x: 0, y: -520}
+  m_SizeDelta: {x: 502.4, y: 117.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2105750785
 MonoBehaviour:
@@ -2344,7 +2344,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 6.0644684, y: 0.6381149}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2355,7 +2355,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 421.54037, y: 104.38327}
+  m_Size: {x: 563.61975, y: 161.30164}
   m_EdgeRadius: 0
 --- !u!1 &2126823014
 GameObject:
