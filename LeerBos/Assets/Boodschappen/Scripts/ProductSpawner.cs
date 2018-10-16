@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProductSpawner : MonoBehaviour {
 
-    public bool Active;
+    public int ProductsToGo;
     [Space]
     public int SpawnAmount;
     public List<Transform> SpawnLocations;
@@ -17,6 +17,9 @@ public class ProductSpawner : MonoBehaviour {
 
     public delegate void ShoppingListChanged();
     public event ShoppingListChanged ShoppingListChange;
+    public delegate void Victory();
+    public event Victory OnVictory;
+
     public ShoppingListManager Shoppinglist;
     private GrammarManager GrammarManager;
 
@@ -37,7 +40,7 @@ public class ProductSpawner : MonoBehaviour {
 
     IEnumerator Loop()
     {
-        while (Active)
+        while (ProductsToGo > 0)
         {
             while (ProductClones.Count > 0)
             {
@@ -75,17 +78,12 @@ public class ProductSpawner : MonoBehaviour {
         //get random spawn-locations
         List<Transform> locations = GetSpawnLocations();
 
-        //Get a product prefab, generate the correct answer & a number of misspellings
-        Product prefab = ProductPrefabs[Random.Range(0, ProductPrefabs.Count - 1)];
+        //Ggenerate the correct answer & a number of misspellings
         List<string> words = GrammarManager.MessUpGrammar(Products[0], SpawnAmount);
-
         //Instantiate the products
         for (int i = 0; i < words.Count; i++)
         {
-            SpawnItem(
-                locations[i],
-                prefab,
-                words[i]);
+            SpawnItem(locations[i], ProductPrefabs[0], words[i]);
         }
     }
 
@@ -94,24 +92,22 @@ public class ProductSpawner : MonoBehaviour {
     {
         Product p = Instantiate(prefab, spawn);
         ProductClones.Add(p);
-        p.ProductName = text;
+        p.SetProduct(text);
     }
 
     public bool ProductCollected(Product product)
     {
+        print(Products[0]);
+        print(product.ProductName);
         if (Products[0] == product.ProductName)
         {
             Products.RemoveAt(0);
-            ProductClones.Remove(product);
+            ProductPrefabs.RemoveAt(0);
+            ProductClones.RemoveAt(0);
             ShoppingListChange();
             return true;
         }
 
         return false;
-    }
-
-    public void Victory()
-    {
-        Active = false;
     }
 }

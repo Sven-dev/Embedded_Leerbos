@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShoppingListManager : MonoBehaviour {
-
-    public Text CurrentItem;
-    public Text NextItem;
+public class ShoppingListManager : MonoBehaviour
+{
     public GameObject VictoryCanvas;
 
+    List<Image> Items;
     ProductSpawner Spawner;
 
     // Use this for initialization
     void Awake ()
     {
-        CurrentItem = transform.GetChild(0).GetComponent<Text>();
-        NextItem = transform.GetChild(1).GetComponent<Text>();
+        Items = new List<Image>();
+        Items.AddRange(GetComponentsInChildren<Image>());
+        Items.RemoveAt(0);
     }
 	
     public void Link(ProductSpawner spawner)
     {
         Spawner = spawner;
         Spawner.ShoppingListChange += UpdateShoppingList;
+        spawner.OnVictory += Victory;
         StartCoroutine(_ShowNextItem());
     }
 
@@ -30,45 +31,53 @@ public class ShoppingListManager : MonoBehaviour {
         StartCoroutine(_RemoveCurrentItem());
     }
 
+    void Victory()
+    {
+        StartCoroutine(_Victory());
+    }
+
+    IEnumerator _Victory()
+    {
+        yield return new WaitForSeconds(1);
+        VictoryCanvas.SetActive(true);
+    }
+
     IEnumerator _RemoveCurrentItem()
     {
-        while (CurrentItem.color.a > 0)
+        print("removecurrentitem");
+        Image currentitem = Items[0];
+        while (currentitem.color.a < 1)
         {
-            CurrentItem.color = new Color(0,0,0, CurrentItem.color.a - 0.05f);
+            currentitem.color = new Color(
+                currentitem.color.r,
+                currentitem.color.g,
+                currentitem.color.b, 
+                currentitem.color.a + 0.05f);
             yield return null;
         }
 
-        CurrentItem.text = "";
-        CurrentItem.color = new Color(0, 0, 0, 1);
+
+        yield return new WaitForSeconds(0.75f);
+        currentitem.transform.localScale = new Vector3(1, 1, 1);
+        Items.Remove(currentitem);
 
         if (Spawner.Products.Count > 0)
         {
             StartCoroutine(_ShowNextItem());
-        }
-        else
-        {
-            Spawner.Victory();
-            yield return new WaitForSeconds(1);
-            VictoryCanvas.SetActive(true);
-        }
-        
+        }      
     }
 
     IEnumerator _ShowNextItem()
     {
-        CurrentItem.text = "";
-        NextItem.text = Spawner.Products[0];
-        Vector3 NextItemPosition = NextItem.transform.position;
-
-        //Move nextitem to currentitem
-        while (NextItem.transform.localPosition.y > CurrentItem.transform.localPosition.y)
+        yield return new WaitForSeconds(0.5f);
+        Image currentitem = Items[0];
+        while (currentitem.transform.localScale.x < 1.25f)
         {
-            NextItem.transform.Translate(Vector3.down * Time.deltaTime, transform);
+            //currentitem.transform.localScale += new Vector3(0.05f, 0.05f);
+            currentitem.transform.localScale += new Vector3(0.05f, 0.05f);
             yield return null;
         }
 
-        //Replace currentitem with nextitem & move nextitem back
-        CurrentItem.text = NextItem.text;
-        NextItem.transform.position = NextItemPosition;
+        currentitem.transform.localScale = new Vector3(1.25f, 1.25f, 1);
     }
 }
