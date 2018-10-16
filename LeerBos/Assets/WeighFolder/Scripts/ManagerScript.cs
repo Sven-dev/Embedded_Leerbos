@@ -10,6 +10,7 @@ public class ManagerScript : MonoBehaviour
     public ScaleHandScript LeftHand;
     public ScaleHandScript RightHand;
     public List<GameObject> ObjectsToWeigh;
+    public GameObject VictoryLabel;
 
     private GameObject currentObject;
     private bool gameOver;
@@ -43,6 +44,7 @@ public class ManagerScript : MonoBehaviour
                 {
                     gameOver = true;
                     print("A WINNER IS YOU");
+                    VictoryLabel.SetActive(true);
                 }
                 else
                 {

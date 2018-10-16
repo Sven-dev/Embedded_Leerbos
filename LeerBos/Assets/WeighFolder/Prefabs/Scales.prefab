@@ -406,6 +406,7 @@ MonoBehaviour:
   ObjectsToWeigh:
   - {fileID: 1187317331560976, guid: 44e7cf27b5a2d564387fd7e7fb28b435, type: 2}
   - {fileID: 1310486329856068, guid: 7f3756e138f46684cbc89d4249dbedc8, type: 2}
+  VictoryLabel: {fileID: 0}
 --- !u!222 &222379569082655280
 CanvasRenderer:
   m_ObjectHideFlags: 1
