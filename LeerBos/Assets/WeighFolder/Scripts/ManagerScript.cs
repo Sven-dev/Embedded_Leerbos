@@ -11,15 +11,16 @@ public class ManagerScript : MonoBehaviour
     public ScaleHandScript RightHand;
     public List<GameObject> ObjectsToWeigh;
 
-    private GameObject CurrentObject;
-    private GameState gameState;
+    private GameObject currentObject;
+    private bool gameOver;
     private int objectsWeighed;
 
 	// Use this for initialization
-	void Start () {
-		gameState = GameState.Idle;
+	void Start ()
+	{
+	    gameOver = false;
 	    objectsWeighed = 0;
-        CheckGameState();
+        ResetGame();
 	}
 	
 	// Update is called once per frame
@@ -27,63 +28,44 @@ public class ManagerScript : MonoBehaviour
 		
 	}
 
-    public void SetGameState(GameState gameState)
+    public void CheckAnswer()
     {
-        this.gameState = gameState;
-    }
-
-    public GameState GetGameState()
-    {
-        return gameState;
-    }
-
-    public void CheckGameState()
-    {
-        switch (gameState)
+        if (gameOver == false)
         {
-                case GameState.Idle:
-                    //if you've successfully weighed 5 things
-                    if (objectsWeighed >= 5 || ObjectsToWeigh.Count == 0)
-                    {
-                        gameState = GameState.Victory;
-                        CheckGameState();
-                    }
-                    else
-                    {
-                        SetGameState(GameState.Resetting);
-                        ResetGame();
-                }
-                    break;
-                case GameState.Playing:
-                    //if the scales are equal
-                    if (LeftHand.GetTotalMass() == RightHand.GetTotalMass())
-                    {
-                        objectsWeighed++;
-                        SetGameState(GameState.Idle);
-                        CheckGameState();
-                    }
-                    break;
-                case GameState.Victory:
-                    gameState = GameState.GameOver;
+            int leftMass = LeftHand.GetTotalMass();
+            int rightMass = RightHand.GetTotalMass();
+
+            if (leftMass == rightMass && leftMass + rightMass > 0)
+            {
+                objectsWeighed++;
+
+                if (objectsWeighed >= 5 || ObjectsToWeigh.Count == 0)
+                {
+                    gameOver = true;
                     print("A WINNER IS YOU");
-                    break;
+                }
+                else
+                {
+                    ResetGame();
+                }
+            }
         }
     }
 
     public void ResetGame()
     {
         //if not first rotation
-        if (CurrentObject != null)
+        if (currentObject != null)
         {
-            RightHand.Objects.Remove(CurrentObject.GetComponent<WeightedObjectScript>());
             foreach (WeightedObjectScript weight in WeightParent.GetComponentsInChildren<WeightedObjectScript>())
             {
                 weight.SelfDestruct();
             }
         }
-        CurrentObject = ObjectsToWeigh[Random.Range(0, ObjectsToWeigh.Count)];
-        CurrentObject = SpawnPrefab(CurrentObject,ScaleHand.Right);
-        ObjectsToWeigh.Remove(CurrentObject);
+        currentObject = ObjectsToWeigh[Random.Range(0, ObjectsToWeigh.Count)];
+        ObjectsToWeigh.Remove(currentObject);
+        currentObject = SpawnPrefab(currentObject,ScaleHand.Right);
+        
     }
 
     //spawn the submitted prefab above one of the scales
@@ -110,15 +92,6 @@ public class ManagerScript : MonoBehaviour
     {
         return hand.gameObject.transform.position.x;
     }
-}
-
-public enum GameState
-{
-    Idle,
-    Resetting,
-    Playing,
-    Victory,
-    GameOver
 }
 
 public enum ScaleHand

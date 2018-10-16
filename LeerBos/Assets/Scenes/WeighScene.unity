@@ -124,12 +124,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 290314932}
   m_Script: {fileID: 11500000, guid: 47a4a6a29cf126640b521deabb930672, type: 3}
---- !u!114 &125074830 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114316628175334344, guid: 956fb879223aca94a9c93931be1d52c1,
-    type: 2}
-  m_PrefabInternal: {fileID: 290314932}
-  m_Script: {fileID: 11500000, guid: dcf42d531be5f6e4fa713fa42440f478, type: 3}
 --- !u!1 &202608089
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,11 +212,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1437606132}
     m_Modifications:
-    - target: {fileID: 114781817959002930, guid: 956fb879223aca94a9c93931be1d52c1,
-        type: 2}
-      propertyPath: ObjectsToWeigh.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4518229527587880, guid: 956fb879223aca94a9c93931be1d52c1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 104.06796
@@ -260,58 +249,6 @@ Prefab:
       propertyPath: WeightParent
       value: 
       objectReference: {fileID: 1537037179}
-    - target: {fileID: 114781817959002930, guid: 956fb879223aca94a9c93931be1d52c1,
-        type: 2}
-      propertyPath: ObjectToWeigh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114285215288218722, guid: 956fb879223aca94a9c93931be1d52c1,
-        type: 2}
-      propertyPath: MinZRotation
-      value: -35
-      objectReference: {fileID: 0}
-    - target: {fileID: 114285215288218722, guid: 956fb879223aca94a9c93931be1d52c1,
-        type: 2}
-      propertyPath: MaxZRotation
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 61748184520557056, guid: 956fb879223aca94a9c93931be1d52c1,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 800
-      objectReference: {fileID: 0}
-    - target: {fileID: 61748184520557056, guid: 956fb879223aca94a9c93931be1d52c1,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: 350
-      objectReference: {fileID: 0}
-    - target: {fileID: 61917793293394310, guid: 956fb879223aca94a9c93931be1d52c1,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 800
-      objectReference: {fileID: 0}
-    - target: {fileID: 61917793293394310, guid: 956fb879223aca94a9c93931be1d52c1,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: 350
-      objectReference: {fileID: 0}
-    - target: {fileID: 114781817959002930, guid: 956fb879223aca94a9c93931be1d52c1,
-        type: 2}
-      propertyPath: RightHand
-      value: 
-      objectReference: {fileID: 125074830}
-    - target: {fileID: 114781817959002930, guid: 956fb879223aca94a9c93931be1d52c1,
-        type: 2}
-      propertyPath: ObjectsToWeigh.Array.data[0]
-      value: 
-      objectReference: {fileID: 1187317331560976, guid: 44e7cf27b5a2d564387fd7e7fb28b435,
-        type: 2}
-    - target: {fileID: 114781817959002930, guid: 956fb879223aca94a9c93931be1d52c1,
-        type: 2}
-      propertyPath: ObjectsToWeigh.Array.data[1]
-      value: 
-      objectReference: {fileID: 1310486329856068, guid: 7f3756e138f46684cbc89d4249dbedc8,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 956fb879223aca94a9c93931be1d52c1, type: 2}
   m_IsPrefabParent: 0
@@ -365,7 +302,7 @@ Prefab:
     - target: {fileID: 224615908274692794, guid: 69da99445d0321c4eac1b322d1b08803,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -626
+      value: -454
       objectReference: {fileID: 0}
     - target: {fileID: 224615908274692794, guid: 69da99445d0321c4eac1b322d1b08803,
         type: 2}
@@ -512,7 +449,7 @@ Prefab:
     - target: {fileID: 224643239135664116, guid: 7c6189538fad3414da78cfb624a181c2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 217.00003
+      value: 389.00006
       objectReference: {fileID: 0}
     - target: {fileID: 224643239135664116, guid: 7c6189538fad3414da78cfb624a181c2,
         type: 2}
@@ -622,7 +559,7 @@ Prefab:
     - target: {fileID: 224227950941920594, guid: a6985af0286dba24e9e57592ec7ad881,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -115.99997
+      value: 56.000053
       objectReference: {fileID: 0}
     - target: {fileID: 224227950941920594, guid: a6985af0286dba24e9e57592ec7ad881,
         type: 2}
@@ -784,7 +721,7 @@ Prefab:
     - target: {fileID: 224235454517821266, guid: 239c140e249f19e418aed2f872a7a7bb,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -385.99997
+      value: -213.99995
       objectReference: {fileID: 0}
     - target: {fileID: 224235454517821266, guid: 239c140e249f19e418aed2f872a7a7bb,
         type: 2}
