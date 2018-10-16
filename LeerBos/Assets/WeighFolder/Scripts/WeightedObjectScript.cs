@@ -76,6 +76,11 @@ public class WeightedObjectScript : Interactable
         }
     }
 
+    public void SelfDestruct()
+    {
+        Destroy(gameObject);
+    }
+
     protected override void Click(Vector3 clickposition)
     {
 

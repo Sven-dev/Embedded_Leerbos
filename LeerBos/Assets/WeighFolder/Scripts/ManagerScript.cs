@@ -17,7 +17,7 @@ public class ManagerScript : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
-		gameState = GameState.Resetting;
+		gameState = GameState.Idle;
 	    objectsWeighed = 0;
         CheckGameState();
 	}
@@ -27,35 +27,44 @@ public class ManagerScript : MonoBehaviour
 		
 	}
 
+    public void SetGameState(GameState gameState)
+    {
+        this.gameState = gameState;
+    }
+
+    public GameState GetGameState()
+    {
+        return gameState;
+    }
+
     public void CheckGameState()
     {
         switch (gameState)
         {
-                case GameState.Resetting:
+                case GameState.Idle:
                     //if you've successfully weighed 5 things
-                    if (objectsWeighed >= 5)
+                    if (objectsWeighed >= 5 || ObjectsToWeigh.Count == 0)
                     {
                         gameState = GameState.Victory;
                         CheckGameState();
                     }
-                    ResetGame();
-                    gameState = GameState.Playing;
+                    else
+                    {
+                        SetGameState(GameState.Resetting);
+                        ResetGame();
+                }
                     break;
                 case GameState.Playing:
                     //if the scales are equal
                     if (LeftHand.GetTotalMass() == RightHand.GetTotalMass())
                     {
                         objectsWeighed++;
-                        gameState = GameState.Resetting;
+                        SetGameState(GameState.Idle);
                         CheckGameState();
-                    }
-                    else
-                    {
-                        //wrong answer feedback
-                        print("wrong");
                     }
                     break;
                 case GameState.Victory:
+                    gameState = GameState.GameOver;
                     print("A WINNER IS YOU");
                     break;
         }
@@ -67,15 +76,18 @@ public class ManagerScript : MonoBehaviour
         if (CurrentObject != null)
         {
             RightHand.Objects.Remove(CurrentObject.GetComponent<WeightedObjectScript>());
-            Destroy(CurrentObject);
+            foreach (WeightedObjectScript weight in WeightParent.GetComponentsInChildren<WeightedObjectScript>())
+            {
+                weight.SelfDestruct();
+            }
         }
         CurrentObject = ObjectsToWeigh[Random.Range(0, ObjectsToWeigh.Count)];
+        CurrentObject = SpawnPrefab(CurrentObject,ScaleHand.Right);
         ObjectsToWeigh.Remove(CurrentObject);
-        SpawnPrefab(CurrentObject,ScaleHand.Right);
     }
 
     //spawn the submitted prefab above one of the scales
-    public void SpawnPrefab(GameObject prefab,ScaleHand hand)
+    public GameObject SpawnPrefab(GameObject prefab,ScaleHand hand)
     {
         float x;
         switch (hand)
@@ -90,7 +102,7 @@ public class ManagerScript : MonoBehaviour
                 print("how the heck did you get here with an invalid enum");
                 throw new ArgumentException();
         }
-        Instantiate(prefab, new Vector2(x, 10),Quaternion.Euler(0,0,0),WeightParent.transform);
+        return Instantiate(prefab, new Vector2(x, 10),Quaternion.Euler(0,0,0),WeightParent.transform);
     }
 
     //get x position of the left scale
@@ -102,9 +114,11 @@ public class ManagerScript : MonoBehaviour
 
 public enum GameState
 {
+    Idle,
     Resetting,
     Playing,
-    Victory
+    Victory,
+    GameOver
 }
 
 public enum ScaleHand

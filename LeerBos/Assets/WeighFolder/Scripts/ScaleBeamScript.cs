@@ -8,6 +8,7 @@ public class ScaleBeamScript : MonoBehaviour
     public float MaxZRotation;
     public float RotateSpeed;
 
+    private ManagerScript manager;
     public ScaleHandScript LeftHand;
     public ScaleHandScript RightHand;
 
@@ -16,7 +17,7 @@ public class ScaleBeamScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        manager = transform.parent.GetComponent<ManagerScript>();
     }
 
     // Update is called once per frame
@@ -88,6 +89,11 @@ public class ScaleBeamScript : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * RotateSpeed);
             yield return null;
         }
-        
+        //check if this is the correct answer
+        if (manager.GetGameState() != GameState.GameOver)
+        {
+            manager.SetGameState(GameState.Playing);
+            manager.CheckGameState();
+        }
     }
 }
