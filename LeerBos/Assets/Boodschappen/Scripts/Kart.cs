@@ -44,7 +44,8 @@ public class Kart : MonoBehaviour {
                 return;
             }
 
-            p.GetComponent<Rigidbody2D>().AddForce((Vector2.up * 2 + Vector2.left) * 500);
+            p.transform.Translate(Vector3.up);
+            p.GetComponent<Rigidbody2D>().AddForce((Vector2.up + Vector2.left) * 500);
         }       
     }
 }
