@@ -15,12 +15,15 @@ public class ManagerScript : MonoBehaviour
     private GameObject currentObject;
     private bool gameOver;
     private int objectsWeighed;
+    private string currentMassString;
+    private int coroutineId;
 
 	// Use this for initialization
 	void Start ()
 	{
 	    gameOver = false;
 	    objectsWeighed = 0;
+	    coroutineId = 0;
         ResetGame();
 	}
 	
@@ -36,23 +39,44 @@ public class ManagerScript : MonoBehaviour
             int leftMass = LeftHand.GetTotalMass();
             int rightMass = RightHand.GetTotalMass();
 
+            currentMassString = leftMass.ToString() + rightMass.ToString();
+
             if (leftMass == rightMass && leftMass + rightMass > 0)
             {
-                objectsWeighed++;
-
-                if (objectsWeighed >= 5 || ObjectsToWeigh.Count == 0)
-                {
-                    gameOver = true;
-                    print("A WINNER IS YOU");
-                    VictoryLabel.SetActive(true);
-                }
-                else
-                {
-                    ResetGame();
-                }
+                coroutineId++;
+                StartCoroutine(_CheckAnswer(currentMassString,coroutineId));
             }
         }
     }
+
+    IEnumerator _CheckAnswer(string submittedMassString,int id)
+    {
+        yield return new WaitForSeconds(3);
+        //cancel if a new check is initiated
+        if (submittedMassString == currentMassString && coroutineId == id)
+        {
+            CorrectAnswer();
+        }
+    }
+
+    public void CorrectAnswer()
+    {
+        objectsWeighed++;
+        
+
+        if (objectsWeighed >= 5)
+        {
+            gameOver = true;
+            print("A WINNER IS YOU");
+            VictoryLabel.SetActive(true);
+        }
+        else
+        {
+            ResetGame();
+        }
+    }
+
+    
 
     public void ResetGame()
     {
@@ -64,10 +88,14 @@ public class ManagerScript : MonoBehaviour
                 weight.SelfDestruct();
             }
         }
-        currentObject = ObjectsToWeigh[Random.Range(0, ObjectsToWeigh.Count)];
+        int rnd = Random.Range(0, ObjectsToWeigh.Count);
+        print(rnd);
+        currentObject = ObjectsToWeigh[rnd];
+        print(currentObject);
         ObjectsToWeigh.Remove(currentObject);
         currentObject = SpawnPrefab(currentObject,ScaleHand.Right);
         
+
     }
 
     //spawn the submitted prefab above one of the scales

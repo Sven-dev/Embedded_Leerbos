@@ -165,7 +165,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 0.8081136, b: 0.6838235, a: 0}
+  m_BackGroundColor: {r: 1, g: 0, b: 0.8068967, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -212,6 +212,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1437606132}
     m_Modifications:
+    - target: {fileID: 114781817959002930, guid: 956fb879223aca94a9c93931be1d52c1,
+        type: 2}
+      propertyPath: ObjectsToWeigh.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4518229527587880, guid: 956fb879223aca94a9c93931be1d52c1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 104.06796
@@ -226,15 +231,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4518229527587880, guid: 956fb879223aca94a9c93931be1d52c1, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4518229527587880, guid: 956fb879223aca94a9c93931be1d52c1, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4518229527587880, guid: 956fb879223aca94a9c93931be1d52c1, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4518229527587880, guid: 956fb879223aca94a9c93931be1d52c1, type: 2}
       propertyPath: m_LocalRotation.w
@@ -254,6 +259,34 @@ Prefab:
       propertyPath: VictoryLabel
       value: 
       objectReference: {fileID: 2114646155}
+    - target: {fileID: 114781817959002930, guid: 956fb879223aca94a9c93931be1d52c1,
+        type: 2}
+      propertyPath: ObjectsToWeigh.Array.data[2]
+      value: 
+      objectReference: {fileID: 1310486329856068, guid: 029ab845ae076314eb9595ec854446cb,
+        type: 2}
+    - target: {fileID: 114781817959002930, guid: 956fb879223aca94a9c93931be1d52c1,
+        type: 2}
+      propertyPath: ObjectsToWeigh.Array.data[3]
+      value: 
+      objectReference: {fileID: 1310486329856068, guid: ed17983c5eb731a42b2c3f92efe2f10e,
+        type: 2}
+    - target: {fileID: 114781817959002930, guid: 956fb879223aca94a9c93931be1d52c1,
+        type: 2}
+      propertyPath: ObjectsToWeigh.Array.data[4]
+      value: 
+      objectReference: {fileID: 1310486329856068, guid: 7f3756e138f46684cbc89d4249dbedc8,
+        type: 2}
+    - target: {fileID: 114781817959002930, guid: 956fb879223aca94a9c93931be1d52c1,
+        type: 2}
+      propertyPath: ObjectsToWeigh.Array.data[1]
+      value: 
+      objectReference: {fileID: 1310486329856068, guid: 9830dd4d47b30644e8b51e3feb6d248e,
+        type: 2}
+    - target: {fileID: 4518229527587880, guid: 956fb879223aca94a9c93931be1d52c1, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 956fb879223aca94a9c93931be1d52c1, type: 2}
   m_IsPrefabParent: 0
