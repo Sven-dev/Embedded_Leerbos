@@ -48,18 +48,9 @@ public class ScaleBeamScript : MonoBehaviour
     //calculate the total mass of Weighted Objects on both hands, then compare and animate the scales accordingly
     public void CheckWeights()
     {
-        int leftMass = 0;
-        int rightMass = 0;
-
         //calculate total mass of both scales
-        foreach (WeightedObjectScript weight in LeftHand.Objects)
-        {
-            leftMass += weight.Mass;
-        }
-        foreach (WeightedObjectScript weight in RightHand.Objects)
-        {
-            rightMass += weight.Mass;
-        }
+        int leftMass = LeftHand.GetTotalMass();
+        int rightMass = RightHand.GetTotalMass();
 
         //get the difference. a negative difference means the right scale is heavier
         float difference = leftMass - rightMass;

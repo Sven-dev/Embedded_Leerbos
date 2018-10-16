@@ -39,6 +39,7 @@ public class DetectionManager : MonoBehaviour
 
         if (DeveloperMode && Input.GetMouseButtonDown(0))
         {
+            print(GetMousePosition());
             GetCollisionType(GetMousePosition());
         }
     }

@@ -17,17 +17,30 @@ public class ScaleHandScript : MonoBehaviour
 		
 	}
 
+    public int GetTotalMass()
+    {
+        int mass = 0;
+
+        foreach (WeightedObjectScript weight in Objects)
+        {
+            mass += weight.Mass;
+        }
+
+        return mass;
+    }
+
+    //add weight to calculation if it isn't in it already, and calculate
     public void ActivateWeights(WeightedObjectScript weight)
     {
         if (!Objects.Contains(weight))
         {
-            print("add to list");
             Objects.Add(weight);
         }
 
         BeamScript.CheckWeights();
     }
 
+    //remove weight from calculation and calculate
     public void RemoveFromList(WeightedObjectScript weight)
     {
         Objects.Remove(weight);
