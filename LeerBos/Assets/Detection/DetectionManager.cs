@@ -48,11 +48,11 @@ public class DetectionManager : MonoBehaviour
     {
         switch (collisionType)
         {
-            case CollisionType.TwoDimentional:
+            case CollisionType._2D:
                 //2D
                 Click2D(Raycast2D(layer, position));
                 break;
-            case CollisionType.ThreeDimentional:
+            case CollisionType._3D:
                 //3D
                 Click3D(Raycast3D(layer, position));
                 break;
@@ -100,7 +100,7 @@ public class DetectionManager : MonoBehaviour
         Ray ray = new Ray(position, Vector3.forward);
 
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 5);
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(position.x,position.y), Vector2.down, Mathf.Infinity, layerMask);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(position.x,position.y), Vector3.forward, Mathf.Infinity, layerMask);
 
         return hit;
     }
@@ -149,7 +149,7 @@ public class DetectionManager : MonoBehaviour
 
 public enum CollisionType
 {
-    TwoDimentional,
-    ThreeDimentional,
+    _2D,
+    _3D,
     Both
 }
