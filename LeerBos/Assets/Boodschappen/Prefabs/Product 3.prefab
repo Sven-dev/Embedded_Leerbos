@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224045340466070876}
   - component: {fileID: 222463291223834226}
   - component: {fileID: 114716708236312032}
+  - component: {fileID: 114337141018678654}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -62,7 +63,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.1
+  m_GravityScale: 0.05
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -93,6 +94,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 75, y: 87.667114}
   m_EdgeRadius: 0
+--- !u!114 &114337141018678654
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265453676624600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.20588237, g: 0.20588237, b: 0.20588237, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114476202563982814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.9485294, g: 0.9485294, b: 0.9485294, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -149,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1764706, g: 0.8235294, b: 0.18039216, a: 1}
+  m_Color: {r: 0.39484212, g: 0.8014706, b: 0.39730653, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
