@@ -84,16 +84,17 @@ public class ScaleBeamScript : MonoBehaviour
         Quaternion currentTarget = targetRotation;
 
         //rotate the beam. if targetRotation field changes, the coroutine is stopped to make way for the new target rotation
-        while (transform.rotation != targetRotation && currentTarget == targetRotation)
+        while (currentTarget == targetRotation && transform.rotation != targetRotation)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * RotateSpeed);
             yield return null;
         }
-        //check if this is the correct answer
-        if (manager.GetGameState() != GameState.GameOver)
+        //if the loop wasn't interrupted
+        if (currentTarget == targetRotation)
         {
-            manager.SetGameState(GameState.Playing);
-            manager.CheckGameState();
+            yield return new WaitForSeconds(2);
+            //check if this is the correct answer
+            manager.CheckAnswer();
         }
     }
 }
