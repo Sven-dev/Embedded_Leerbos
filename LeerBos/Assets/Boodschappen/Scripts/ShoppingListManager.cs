@@ -10,6 +10,8 @@ public class ShoppingListManager : MonoBehaviour
     List<Image> Items;
     ProductSpawner Spawner;
 
+    public AudioSource VictorySFX;
+
     // Use this for initialization
     void Awake ()
     {
@@ -21,8 +23,21 @@ public class ShoppingListManager : MonoBehaviour
     public void Link(ProductSpawner spawner)
     {
         Spawner = spawner;
+        PopulateList();
         Spawner.ShoppingListChange += UpdateShoppingList;
         StartCoroutine(_ShowNextItem());
+    }
+
+    //Gets the shopping items from spawner and adds them to the list
+    void PopulateList()
+    {
+        for(int i = 0; i < Spawner.ProductPrefabs.Count || i < Items.Count; i++)
+        {
+            Image source = Spawner.ProductPrefabs[i].GetComponent<Image>();
+            Items[i].sprite = source.sprite;
+            Items[i].SetNativeSize();
+            Items[i].color = new Color(source.color.r, source.color.g, source.color.b, 0.5f);
+        }
     }
 
     void UpdateShoppingList()
@@ -38,6 +53,7 @@ public class ShoppingListManager : MonoBehaviour
     IEnumerator _Victory()
     {
         yield return new WaitForSeconds(1);
+        VictorySFX.Play();
         VictoryCanvas.SetActive(true);
     }
 
@@ -54,12 +70,11 @@ public class ShoppingListManager : MonoBehaviour
             yield return null;
         }
 
-
-        yield return new WaitForSeconds(0.5f);
-        currentitem.transform.localScale = new Vector3(1, 1, 1);
+        yield return new WaitForSeconds(0.75f);
+        currentitem.transform.localScale = new Vector3(.15f, .15f, 1);
         Items.Remove(currentitem);
 
-        if (Spawner.Products.Count > 0)
+        if (Spawner.ProductPrefabs.Count > 0)
         {
             StartCoroutine(_ShowNextItem());
         }  
@@ -72,14 +87,16 @@ public class ShoppingListManager : MonoBehaviour
     IEnumerator _ShowNextItem()
     {
         Image currentitem = Items[0];
-        yield return new WaitForSeconds(0.25f);
+        float targetscale = currentitem.transform.localScale.x * 1.5f;
+        yield return new WaitForSeconds(0.5f);
 
-        while (currentitem.transform.localScale.x < 1.25f)
+        float percentage = (targetscale - currentitem.transform.localScale.x) / 100 * 25;
+        while (currentitem.transform.localScale.x < targetscale)
         {
-            currentitem.transform.localScale += new Vector3(0.05f, 0.05f);
+            currentitem.transform.localScale += new Vector3(percentage, percentage);
             yield return null;
         }
 
-        currentitem.transform.localScale = new Vector3(1.25f, 1.25f, 1);
+        currentitem.transform.localScale = new Vector3(targetscale, targetscale, 1);
     }
 }

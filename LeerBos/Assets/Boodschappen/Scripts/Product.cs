@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Product : MonoBehaviour {
-
+public class Product : MonoBehaviour
+{
     private Rigidbody2D Rigidbody;
     private Collider2D Collider;
     private Text Label;
+    [HideInInspector]
+    public AudioSource NameSFX;
+    bool IncreasedGravity;
 
     public string ProductName
     {
@@ -21,6 +24,9 @@ public class Product : MonoBehaviour {
         Label = transform.GetChild(0).GetComponent<Text>();
         Rigidbody = GetComponent<Rigidbody2D>();
         Collider = GetComponent<Collider2D>();
+        NameSFX = GetComponent<AudioSource>();
+
+        IncreasedGravity = false;
 	}
 
     public void FallInCart(Kart k)
@@ -33,5 +39,14 @@ public class Product : MonoBehaviour {
     public void SetProduct(string name)
     {
         ProductName = name;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!IncreasedGravity)
+        {
+            Rigidbody.gravityScale *= 4;
+            IncreasedGravity = true;
+        }
     }
 }

@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class ProductSpawner : MonoBehaviour {
 
-    public int ProductsToGo;
+    public string CorrectProduct;
     [Space]
     public int SpawnAmount;
     public List<Transform> SpawnLocations;
     [Space]
-    public List<string> Products;
     public List<Product> ProductPrefabs;
 
     [HideInInspector]
@@ -17,6 +16,7 @@ public class ProductSpawner : MonoBehaviour {
 
     public delegate void ShoppingListChanged();
     public event ShoppingListChanged ShoppingListChange;
+    private bool CorrectItemWait;
 
     public ShoppingListManager Shoppinglist;
     private GrammarManager GrammarManager;
@@ -31,6 +31,7 @@ public class ProductSpawner : MonoBehaviour {
         }
 
         Shoppinglist.Link(this);
+        CorrectItemWait = false;
         ProductClones = new List<Product>();
         GrammarManager = GetComponent<GrammarManager>();
         StartCoroutine(Loop());
@@ -38,19 +39,13 @@ public class ProductSpawner : MonoBehaviour {
 
     IEnumerator Loop()
     {
-        while (ProductsToGo > 0)
+        while (ProductPrefabs.Count > 0)
         {
-            while (ProductClones.Count > 0)
+            SpawnItems();
+            while (ProductClones.Count > 0 || CorrectItemWait)
             {
                 yield return null;
             }
-
-            if (Products.Count > 0)
-            {
-                SpawnItems();
-            }
-
-            yield return null;
         }
     }
 
@@ -76,36 +71,56 @@ public class ProductSpawner : MonoBehaviour {
         //get random spawn-locations
         List<Transform> locations = GetSpawnLocations();
 
-        //Ggenerate the correct answer & a number of misspellings
-        List<string> words = GrammarManager.MessUpGrammar(Products[0], SpawnAmount);
         //Instantiate the products
-        for (int i = 0; i < words.Count; i++)
+        for (int i = 0; i < SpawnAmount; i++)
         {
-            SpawnItem(locations[i], ProductPrefabs[0], words[i]);
+            SpawnItem(locations[i], ProductPrefabs[0]);
         }
+
+        //Generate the correct answer & a number of misspellings
+        List<string> words = GrammarManager.MessUpGrammar(ProductClones[0].ProductName, SpawnAmount);
+
+        for (int i = 0; i < SpawnAmount; i++)
+        {
+            ProductClones[i].SetProduct(words[i]);
+        }
+
+        CorrectProduct = ProductClones[0].ProductName;
+        ProductClones[0].NameSFX.Play();
     }
 
     //spawns 3 products, 1 spelled correctly and 2 with scrambled letters
-    void SpawnItem(Transform spawn, Product prefab, string text)
+    void SpawnItem(Transform spawn, Product prefab)
     {
+        float rnd = Random.Range(0f, 1f);
         Product p = Instantiate(prefab, spawn);
+        p.transform.position = new Vector3(spawn.position.x, spawn.position.y + rnd, spawn.position.z);
+
         ProductClones.Add(p);
-        p.SetProduct(text);
     }
 
     public bool ProductCollected(Product product)
     {
-        print(Products[0]);
-        print(product.ProductName);
-        if (Products[0] == product.ProductName)
+        if (ProductClones.Count == 0)
         {
-            Products.RemoveAt(0);
+            return false;
+        }
+        else if (product.ProductName == CorrectProduct)
+        {
             ProductPrefabs.RemoveAt(0);
-            ProductClones.RemoveAt(0);
+            ProductClones.Clear();
+            StartCoroutine(_CorrectItem());
             ShoppingListChange();
             return true;
         }
 
         return false;
+    }
+
+    IEnumerator _CorrectItem()
+    {
+        CorrectItemWait = true;
+        yield return new WaitForSeconds(1);
+        CorrectItemWait = false;
     }
 }

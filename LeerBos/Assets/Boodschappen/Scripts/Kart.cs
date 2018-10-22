@@ -5,32 +5,19 @@ using UnityEngine;
 public class Kart : MonoBehaviour {
 
     public ProductSpawner ShoppingList;
+    [HideInInspector]
     public Transform ProductHolder;
+    private KartMover Movement;
+    public AudioSource CorrectSFX;
+    public AudioSource IncorrectSFX;
 
-    public float Speed;
-
-    private Vector2 TargetPosition;
+    public float XBoundMin;
+    public float XBoundMax;
 
     private void Start()
     {
-        ProductHolder = transform.GetChild(2);
-    }
-
-    public void Move(Vector3 position)
-    {
-        position.y = transform.position.y;
-        TargetPosition = position;
-        StartCoroutine(_Move());
-    }
-
-    IEnumerator _Move()
-    {
-        Vector2 currentmove = TargetPosition;
-        while (transform.position.x != TargetPosition.x && currentmove == TargetPosition)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, TargetPosition, Speed * Time.deltaTime);
-            yield return null;
-        }
+        ProductHolder = transform.GetChild(3);
+        Movement = GetComponentInChildren<KartMover>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,12 +27,35 @@ public class Kart : MonoBehaviour {
         {
             if (ShoppingList.ProductCollected(p))
             {
+                CorrectSFX.Play();
                 p.FallInCart(this);
                 return;
             }
 
+            Destroy(p.GetComponent<Collider2D>());
             p.transform.Translate(Vector3.up);
-            p.GetComponent<Rigidbody2D>().AddForce((Vector2.up + Vector2.left) * 500);
-        }       
+            Rigidbody2D rigidbody = p.GetComponent<Rigidbody2D>();
+            rigidbody.AddForce((Vector2.up * 2 + Vector2.left) * 25000);
+            rigidbody.AddTorque(35);
+            rigidbody.gravityScale = 1;
+
+            IncorrectSFX.Play();
+        }
+    }
+
+    //Clamps the plane to the upper and right boundaries, meaning the plane can't leave those sides of the screen
+    public bool Clamp()
+    {
+        bool clamped = false;
+        if (transform.position.x <= XBoundMin || transform.position.x >= XBoundMax)
+        {
+            clamped = true;
+        }
+
+        transform.position = new Vector2(
+            Mathf.Clamp(transform.position.x, XBoundMin, XBoundMax),
+            transform.position.y);
+
+        return clamped;
     }
 }
