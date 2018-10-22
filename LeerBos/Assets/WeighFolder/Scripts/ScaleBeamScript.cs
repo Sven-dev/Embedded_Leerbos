@@ -92,7 +92,6 @@ public class ScaleBeamScript : MonoBehaviour
         //if the loop wasn't interrupted
         if (currentTarget == targetRotation)
         {
-            yield return new WaitForSeconds(2);
             //check if this is the correct answer
             manager.CheckAnswer();
         }

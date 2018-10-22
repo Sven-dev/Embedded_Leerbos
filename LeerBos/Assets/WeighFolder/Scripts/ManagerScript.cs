@@ -11,12 +11,16 @@ public class ManagerScript : MonoBehaviour
     public ScaleHandScript RightHand;
     public List<GameObject> ObjectsToWeigh;
     public GameObject VictoryLabel;
+    public ProgressBarScript ProgressBar;
+    public float CountDownTime;
 
+    private int coroutinesRunning = 0; 
     private GameObject currentObject;
     private bool gameOver;
     private int objectsWeighed;
     private string currentMassString;
     private int coroutineId;
+    private bool coroutineRunning;
 
 	// Use this for initialization
 	void Start ()
@@ -39,23 +43,38 @@ public class ManagerScript : MonoBehaviour
             int leftMass = LeftHand.GetTotalMass();
             int rightMass = RightHand.GetTotalMass();
 
-            currentMassString = leftMass.ToString() + rightMass.ToString();
-
-            if (leftMass == rightMass && leftMass + rightMass > 0)
+            string massString = leftMass.ToString() + rightMass.ToString();
+            if (currentMassString != massString)
             {
-                coroutineId++;
-                StartCoroutine(_CheckAnswer(currentMassString,coroutineId));
+                currentMassString = massString;
+                if (leftMass == rightMass && leftMass + rightMass > 0)
+                {
+                    coroutineId++;
+                    StartCoroutine(_CheckAnswer(currentMassString, coroutineId));
+                }
             }
         }
     }
 
     IEnumerator _CheckAnswer(string submittedMassString,int id)
     {
-        yield return new WaitForSeconds(3);
-        //cancel if a new check is initiated
-        if (submittedMassString == currentMassString && coroutineId == id)
+        ProgressBar.gameObject.SetActive(true);
+
+        float animationTime = CountDownTime;
+        while (submittedMassString == currentMassString && animationTime > 0)
         {
-            CorrectAnswer();
+            animationTime -= Time.deltaTime;
+            ProgressBar.SetProgress(1 - (animationTime / CountDownTime));
+            yield return null;
+        }
+        //cancel if a new check was initiated
+        if (coroutineId == id)
+        {
+            ProgressBar.gameObject.SetActive(false);
+            if (submittedMassString == currentMassString)
+            {
+                CorrectAnswer();
+            }
         }
     }
 
