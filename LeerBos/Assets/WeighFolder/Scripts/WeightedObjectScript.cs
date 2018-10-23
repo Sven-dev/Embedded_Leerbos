@@ -6,29 +6,32 @@ public class WeightedObjectScript : Interactable
 {
     public int Mass;
     private Collider2D handCollider;
+	private AudioSource aSource;
 
     private bool colliding;
     private bool inTrigger;
 
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		aSource = GetComponent<AudioSource>();
+		aSource.pitch = 3 - (Mass * 0.2f);
 	}
 
     //collide with an object; might activate scale
     void OnCollisionEnter2D(Collision2D collision)
     {
         colliding = true;
+		PlayImpactSound();
         CheckConditions();
     }
 
-    //collision ends, remove chance of activating scale
-    void OnCollisionExit2D(Collision2D collision)
+	void PlayImpactSound()
+	{
+		aSource.Play();
+	}
+
+	//collision ends, remove chance of activating scale
+	void OnCollisionExit2D(Collision2D collision)
     {
         colliding = false;
     }
