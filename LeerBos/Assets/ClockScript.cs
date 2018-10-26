@@ -18,16 +18,20 @@ public class ClockScript : Interactable {
     public int TimeSpeed;
     private DateTime currentTime;
     private DateTime targetTime;
+    private DateTime newTarget;
 
     private bool active = true;
 
     // Use this for initialization
     void Start()
     {
+        //set starting time: 12:00
         currentTime = new DateTime(2018, 1, 1, 12, 0, 0);
+        //set the first target time
         NewTargetTime();
+        //set hour hand on target time in advance
         HourHand.localRotation = Quaternion.Euler(0f, 0f, targetTime.Hour * -hoursToDegrees);
-        MinuteHand.localRotation = Quaternion.Euler(0f, 0f, currentTime.Minute * -minutesToDegrees);
+        //start movement of minute hand
         StartCoroutine(moveHands());
         StartCoroutine(updateCurrentTime());
     }
@@ -39,23 +43,30 @@ public class ClockScript : Interactable {
 
     protected override void Click(Vector3 clickposition)
     {
-        print("click");
+        //detect click on clock, check current time shown
         CheckAnswer();
     }
 
     void NewTargetTime()
     {
+        //get a random time modifier
         int typeSum = Enum.GetNames(typeof(TimeModifier)).Length;
         int rnd = UnityEngine.Random.Range(0, typeSum);
         TimeModifier modifier = (TimeModifier)rnd;
+        //get a random hour (1-12)
         rnd = UnityEngine.Random.Range(1, 13);
+        //string of the written-out time to put in the label
         string targetTimeText;
-
-        targetTime = ProduceTime(modifier, rnd, out targetTimeText);
+        //produce the new target time
+        newTarget = ProduceTime(modifier, rnd, out targetTimeText);
         TargetLabel.text = targetTimeText;
-    }
+        targetTime = newTarget;
+        //set hour hand on target time. animate later?
+        HourHand.localRotation = Quaternion.Euler(0f, 0f, targetTime.Hour * -hoursToDegrees);
 
-    
+        //broken method. saved for later
+        //StartCoroutine(TransitionToTarget());
+    }
 
     DateTime ProduceTime(TimeModifier type, int hour, out string text)
     {
@@ -70,7 +81,7 @@ public class ClockScript : Interactable {
                 text = "Kwart over " + text;
                 return new DateTime(2018, 1, 1, hour, 15, 0);
             case TimeModifier.KwartVoor:
-                text = "Kwart over " + text;
+                text = "Kwart voor " + text;
                 return new DateTime(2018, 1, 1, hour-1, 45, 0);
             case TimeModifier.Uur:
                 text = text + " Uur";
@@ -86,18 +97,19 @@ public class ClockScript : Interactable {
         int currentMinute = currentTime.Minute;
         int targetMinute = targetTime.Minute;
 
+        //margin of error of 5 minutes
         if (targetMinute - 5 < currentMinute && currentMinute < targetMinute + 5)
         {
             print("correct!");
+            //loop
+            NewTargetTime();
         }
         else
         {
             print("incorrect");
         }
     }
-
     
-
     void IncreaseCurrentTime()
     {
         currentTime = currentTime.Add(new TimeSpan(0, 5, 0));
@@ -107,8 +119,20 @@ public class ClockScript : Interactable {
     {
         while (active)
         {
+            //continuously turn towards the current time. will stop when reached. will move again when it changes.
             MinuteHand.rotation = Quaternion.RotateTowards(MinuteHand.localRotation, Quaternion.Euler(0f, 0f, currentTime.Minute * -minutesToDegrees), TimeSpeed);
-            //HourHand.Rotate(new Vector3(0f, 0f, targetTime.Hour * -hoursToDegrees));
+
+            //rotating hour hand = too much work for prototype. commented for use later?
+            
+            //float target = Quaternion.Euler(0f, 0f, targetTime.Hour * -hoursToDegrees).eulerAngles.z;
+
+            //if (HourHand.rotation.eulerAngles.z < target + 1 && HourHand.rotation.eulerAngles.z > target -1) {
+            //    HourHand.Rotate(Vector3.back, Time.deltaTime * (TimeSpeed * 200));
+
+            //}
+            ////HourHand.rotation = Quaternion.RotateTowards(HourHand.localRotation, Quaternion.Euler(0f, 0f, targetTime.Hour * -hoursToDegrees), TimeSpeed * 2);
+
+
             yield return null;
         }
     }
@@ -117,11 +141,35 @@ public class ClockScript : Interactable {
     {
         while (active)
         {
+            //change the current time every few seconds to keep the minute hand moving
             yield return new WaitForSeconds(1);
             IncreaseCurrentTime();
             yield return null;
         }
     }
+
+    //finnicky coroutine for moving hour hand bit by bit. too complex for prototype. saved for later
+    //IEnumerator TransitionToTarget()
+    //{
+    //    DateTime thisTarget = newTarget;
+    //    int currentHour = targetTime.Hour;
+
+    //    while (currentHour != newTarget.Hour && thisTarget == newTarget)
+    //    {
+    //        currentHour++;
+    //        if (currentHour > 12)
+    //        {
+    //            currentHour = 1;
+    //        }
+    //        targetTime = new DateTime(2018, 1, 1, currentHour, newTarget.Minute, 0);
+
+    //        yield return new WaitForSeconds(0.5f);
+    //    }
+    //    if (thisTarget == newTarget)
+    //    {
+    //        targetTime = new DateTime(2018, 1, 1, currentHour, newTarget.Minute, 0);
+    //    }
+    //}
 
     string IntToWord(int nr)
     {
