@@ -51,6 +51,7 @@ public class GridManager : MonoBehaviour
         foreach (CoinSpawner s in Spawners)
         {
             s.Connector.Power();
+            s.Connector.PowerUsed = false;
         }
 
         foreach (Block b in Grid)
@@ -60,11 +61,6 @@ public class GridManager : MonoBehaviour
                 ConveyorBlock cb = b as ConveyorBlock;
                 cb.Connector.PowerUsed = false;
             }
-        }
-
-        foreach (CoinSpawner s in Spawners)
-        {
-            s.Connector.PowerUsed = false;
         }
     }
 
