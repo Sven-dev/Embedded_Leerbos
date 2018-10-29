@@ -13,8 +13,7 @@ public class ManagerScript : MonoBehaviour
     public GameObject VictoryLabel;
     public ProgressBarScript ProgressBar;
     public float CountDownTime;
-
-    private int coroutinesRunning = 0; 
+    
     private GameObject currentObject;
     private bool gameOver;
     private int objectsWeighed;

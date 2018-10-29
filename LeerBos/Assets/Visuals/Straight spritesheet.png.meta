@@ -1,22 +1,7 @@
 fileFormatVersion: 2
-guid: a627ff3551c5ade45955fee35a74c0db
+guid: ab6dac5fb68c43d4a87c04d0a81d62f0
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Straight spritesheet_0
-    21300002: Straight spritesheet_1
-    21300004: Straight spritesheet_2
-    21300006: Straight spritesheet_3
-    21300008: Straight spritesheet_4
-    21300010: Straight spritesheet_5
-    21300012: Straight spritesheet_6
-    21300014: Straight spritesheet_7
-    21300016: Straight spritesheet_8
-    21300018: Straight spritesheet_9
-    21300020: Straight spritesheet_10
-    21300022: Straight spritesheet_11
-    21300024: Straight spritesheet_12
-    21300026: Straight spritesheet_13
-    21300028: Straight spritesheet_14
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -44,7 +29,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -53,7 +38,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -74,17 +59,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -92,217 +67,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Straight spritesheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 994
-        width: 342
-        height: 245
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Straight spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 346
-        y: 995
-        width: 342
-        height: 244
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Straight spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 693
-        y: 995
-        width: 341
-        height: 244
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Straight spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 745
-        width: 342
-        height: 244
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Straight spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 346
-        y: 745
-        width: 342
-        height: 244
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Straight spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 693
-        y: 745
-        width: 341
-        height: 244
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Straight spritesheet_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 496
-        width: 342
-        height: 244
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Straight spritesheet_7
-      rect:
-        serializedVersion: 2
-        x: 346
-        y: 496
-        width: 342
-        height: 244
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Straight spritesheet_8
-      rect:
-        serializedVersion: 2
-        x: 693
-        y: 496
-        width: 341
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Straight spritesheet_9
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 248
-        width: 342
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Straight spritesheet_10
-      rect:
-        serializedVersion: 2
-        x: 346
-        y: 248
-        width: 342
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Straight spritesheet_11
-      rect:
-        serializedVersion: 2
-        x: 693
-        y: 248
-        width: 341
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Straight spritesheet_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 342
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Straight spritesheet_13
-      rect:
-        serializedVersion: 2
-        x: 346
-        y: 0
-        width: 342
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Straight spritesheet_14
-      rect:
-        serializedVersion: 2
-        x: 693
-        y: 0
-        width: 341
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
     physicsShape: []
   spritePackingTag: 
