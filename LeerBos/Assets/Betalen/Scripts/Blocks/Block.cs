@@ -11,4 +11,9 @@ public class Block : Interactable
     {
         Image = GetComponent<Image>();
     }
+
+    public virtual void AddCoin(Coin c)
+    {
+        throw new System.Exception("Base class called!");
+    }
 }

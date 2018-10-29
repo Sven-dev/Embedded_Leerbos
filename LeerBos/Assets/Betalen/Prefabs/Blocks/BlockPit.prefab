@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222537942488073394}
   - component: {fileID: 114927882328265738}
   - component: {fileID: 61192676872728898}
-  - component: {fileID: 114525949015277262}
+  - component: {fileID: 114847622606728174}
   m_Layer: 5
   m_Name: BlockPit
   m_TagString: Untagged
@@ -40,13 +40,39 @@ GameObject:
   - component: {fileID: 224337319510215490}
   - component: {fileID: 222881169138502868}
   - component: {fileID: 114486766434750294}
+  - component: {fileID: 61056245692598572}
   m_Layer: 5
   m_Name: Pit
-  m_TagString: Untagged
+  m_TagString: ConveyorBelt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!61 &61056245692598572
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1147282392960388}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 100, y: 100}
+  m_EdgeRadius: 0
 --- !u!61 &61192676872728898
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -99,7 +125,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114525949015277262
+--- !u!114 &114847622606728174
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -107,13 +133,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1074748424822020}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03b6284dac8962b408d5b876c12d170f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dffb9c9b95e91f4e83b84cf657051b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
-  SelectColor: {r: 0, g: 0, b: 0, a: 1}
-  DeselectColor: {r: 0, g: 0, b: 0, a: 0}
-  Selected: 0
 --- !u!114 &114927882328265738
 MonoBehaviour:
   m_ObjectHideFlags: 1

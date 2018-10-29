@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public float Value;
+
+    private void Update()
+    {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "ConveyorBelt")
+        {
+            Block b = collision.transform.parent.GetComponent<Block>();
+            if (b != null)
+            {
+                b.AddCoin(this);
+            }
+        }
+    }
 }

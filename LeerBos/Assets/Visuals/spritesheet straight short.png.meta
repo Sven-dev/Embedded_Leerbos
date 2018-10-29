@@ -1,22 +1,15 @@
 fileFormatVersion: 2
-guid: 6f12c27266a15a941bb7816cf68db270
+guid: 39c3a7e83bb71c24b8a459a8935f6378
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spritesheet_conveyor_straight_0
-    21300002: spritesheet_conveyor_straight_1
-    21300004: spritesheet_conveyor_straight_2
-    21300006: spritesheet_conveyor_straight_3
-    21300008: spritesheet_conveyor_straight_4
-    21300010: spritesheet_conveyor_straight_5
-    21300012: spritesheet_conveyor_straight_6
-    21300014: spritesheet_conveyor_straight_7
-    21300016: spritesheet_conveyor_straight_8
-    21300018: spritesheet_conveyor_straight_9
-    21300020: spritesheet_conveyor_straight_10
-    21300022: spritesheet_conveyor_straight_11
-    21300024: spritesheet_conveyor_straight_12
-    21300026: spritesheet_conveyor_straight_13
-    21300028: spritesheet_conveyor_straight_14
+    21300000: spritesheet straight short_0
+    21300002: spritesheet straight short_1
+    21300004: spritesheet straight short_2
+    21300006: spritesheet straight short_3
+    21300008: spritesheet straight short_4
+    21300010: spritesheet straight short_5
+    21300012: spritesheet straight short_6
+    21300014: spritesheet straight short_7
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -94,25 +87,25 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spritesheet_conveyor_straight_0
+      name: spritesheet straight short_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 994
+        y: 494
         width: 342
         height: 245
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spritesheet_conveyor_straight_1
+      name: spritesheet straight short_1
       rect:
         serializedVersion: 2
         x: 346
-        y: 995
+        y: 495
         width: 342
         height: 244
       alignment: 0
@@ -122,12 +115,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spritesheet_conveyor_straight_2
+      name: spritesheet straight short_2
       rect:
         serializedVersion: 2
-        x: 692
-        y: 995
-        width: 342
+        x: 693
+        y: 495
+        width: 341
         height: 244
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -136,11 +129,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spritesheet_conveyor_straight_3
+      name: spritesheet straight short_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 745
+        y: 247
         width: 342
         height: 244
       alignment: 0
@@ -150,13 +143,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spritesheet_conveyor_straight_4
+      name: spritesheet straight short_4
       rect:
         serializedVersion: 2
         x: 346
-        y: 745
+        y: 247
         width: 342
-        height: 244
+        height: 243
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,13 +157,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spritesheet_conveyor_straight_5
+      name: spritesheet straight short_5
       rect:
         serializedVersion: 2
         x: 692
-        y: 745
+        y: 247
         width: 342
-        height: 244
+        height: 243
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,13 +171,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spritesheet_conveyor_straight_6
+      name: spritesheet straight short_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 496
+        y: 0
         width: 342
-        height: 244
+        height: 243
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,110 +185,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spritesheet_conveyor_straight_7
+      name: spritesheet straight short_7
       rect:
         serializedVersion: 2
         x: 346
-        y: 496
+        y: 0
         width: 342
-        height: 244
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spritesheet_conveyor_straight_8
-      rect:
-        serializedVersion: 2
-        x: 692
-        y: 496
-        width: 342
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spritesheet_conveyor_straight_9
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 248
-        width: 341
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spritesheet_conveyor_straight_10
-      rect:
-        serializedVersion: 2
-        x: 347
-        y: 248
-        width: 341
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spritesheet_conveyor_straight_11
-      rect:
-        serializedVersion: 2
-        x: 692
-        y: 248
-        width: 341
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spritesheet_conveyor_straight_12
-      rect:
-        serializedVersion: 2
-        x: 692
-        y: 0
-        width: 341
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spritesheet_conveyor_straight_13
-      rect:
-        serializedVersion: 2
-        x: 347
-        y: 0
-        width: 341
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spritesheet_conveyor_straight_14
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 0
-        width: 341
         height: 243
       alignment: 0
       pivot: {x: 0, y: 0}
