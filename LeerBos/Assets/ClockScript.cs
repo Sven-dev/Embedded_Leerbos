@@ -17,7 +17,8 @@ public class ClockScript : Interactable {
     public Transform HourHand,MinuteHand;
 
     public int TimeSpeed;
-    public float HandErrorMargin;
+    public int AnswerErrorMargin;
+    public int HandErrorMargin;
 
     private TimeSpan currentTime;
     private TimeSpan targetTime;
@@ -125,9 +126,13 @@ public class ClockScript : Interactable {
 
     void CheckAnswer()
     {
+
         //margin of error of 5 minutes
-        if (targetTime.Minutes - 5 < currentTime.Minutes &&
-            currentTime.Minutes < targetTime.Minutes + 5)
+        
+        float diff = (float)targetTime.Subtract(currentTime).TotalMinutes;
+        //compensate for the possibility of minute overflow: 0 = 60
+        float overflowDiff = Mathf.Abs(Mathf.Abs(diff) - 60);
+        if (Mathf.Abs(diff) <= AnswerErrorMargin ||(Mathf.Abs(diff) > 30 && overflowDiff <= AnswerErrorMargin))
         {
             print("correct!");
             //loop
@@ -139,11 +144,6 @@ public class ClockScript : Interactable {
         }
     }
     
-    void IncreaseCurrentTime()
-    {
-        currentTime = currentTime.Add(new TimeSpan(0, 5, 0));
-    }
-
     IEnumerator moveHands()
     {
         while (active)
@@ -157,8 +157,6 @@ public class ClockScript : Interactable {
 
             //calculate the current target Z rotation
             float targetZ = Quaternion.Euler(0f, 0f, (float)targetTime.TotalHours * -hoursToDegrees).eulerAngles.z;
-            print(targetZ);
-            print(HourHand.eulerAngles.z);
             //get the difference between the target and current rotation
             float difference = HourHand.rotation.eulerAngles.z - targetZ;
             //if not within the margin of error, keep it rotating
@@ -176,7 +174,8 @@ public class ClockScript : Interactable {
         {
             //change the current time every few seconds to keep the minute hand moving
             yield return new WaitForSeconds(1);
-            IncreaseCurrentTime();
+
+            currentTime = new TimeSpan(targetTime.Hours, currentTime.Minutes + 5, 0);
             yield return null;
         }
     }
