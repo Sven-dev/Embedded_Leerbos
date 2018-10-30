@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinSpawner : Interactable
+public class CoinSpawner : Block
 {
     public Coin Coin;
 
