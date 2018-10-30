@@ -983,6 +983,7 @@ MonoBehaviour:
   HourHand: {fileID: 1990875499}
   MinuteHand: {fileID: 1121941564}
   TimeSpeed: 1
+  AnswerErrorMargin: 5
   HandErrorMargin: 5
 --- !u!58 &1896331725
 CircleCollider2D:
