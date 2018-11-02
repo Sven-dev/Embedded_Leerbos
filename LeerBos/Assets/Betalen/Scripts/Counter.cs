@@ -14,11 +14,13 @@ public class Counter : MonoBehaviour
 
     public delegate void PriceChange();
     public event PriceChange OnPriceChange;
-    public UIPrice UI;
+    public UIPrice UILabel;
+    public GameObject VictoryLabel;
+
 
     private void Start()
     {
-        UI.Link(this);
+        UILabel.Link(this);
         StartCoroutine(_GeneratePrice());
     }
 
@@ -40,12 +42,11 @@ public class Counter : MonoBehaviour
     //Show's the victory-screen or generates a new price and moves the coins off-screen
     IEnumerator _CorrectPayment()
     {
-        print("Coroutine");
         Rounds--;
         if (Rounds == 0)
         {
             yield return new WaitForSeconds(0.5f);
-            print("victory");
+            VictoryLabel.SetActive(true);
         }
         else
         {

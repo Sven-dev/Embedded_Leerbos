@@ -38,6 +38,7 @@ public class Coin : Interactable
     //Organically moves the coin to the target position, finishes when the coin is at the center of the target (y-axis)
     IEnumerator _MoveTo(Transform target)
     {
+        transform.GetChild(0).gameObject.layer = 11;
         Moving = true;
         while (Moving)
         {
@@ -51,6 +52,7 @@ public class Coin : Interactable
 
             yield return null;
         }
+        transform.GetChild(0).gameObject.layer = 5;
     }
 
     IEnumerator _CorrectMoveTo(Transform target)
