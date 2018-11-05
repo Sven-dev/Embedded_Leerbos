@@ -6,25 +6,21 @@ using UnityEngine.UI;
 
 public class ClockScript : Interactable {
 
+    public Text ScoreLabel;
+    public int TotalScore;
+    private IndividualPie currentPie;
+
     private const float
         hoursToDegrees = 360f / 12f,
         minutesToDegrees = 360f / 60f,
         secondsToDegrees = 360f / 60f;
-
     
     public Text TargetLabel;
-
     public Transform HourHand,MinuteHand;
-
-    public int TimeSpeed;
-    public int AnswerErrorMargin;
-    public int HandErrorMargin;
+    public int TimeSpeed, AnswerErrorMargin, HandErrorMargin;
 
     private TimeSpan currentTime;
-    private TimeSpan targetTime;
-    private TimeSpan newTarget;
-    private int previousMod;
-    private int previousHour;
+    private int previousMod, previousHour;
     private bool active = true;
 
     // Use this for initialization
@@ -35,15 +31,10 @@ public class ClockScript : Interactable {
         //set the first target time
         NewTargetTime();
         //set hour hand on target time in advance
-        HourHand.localRotation = Quaternion.Euler(0f, 0f, targetTime.Hours * -hoursToDegrees);
+        HourHand.localRotation = Quaternion.Euler(0f, 0f, currentPie.TargetTime.Hours * -hoursToDegrees);
         //start movement of minute hand
         StartCoroutine(moveHands());
         StartCoroutine(updateCurrentTime());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     protected override void Click(Vector3 clickposition)
@@ -60,9 +51,8 @@ public class ClockScript : Interactable {
         //string of the written-out time to put in the label
         string targetTimeText;
         //produce the new target time
-        newTarget = ProduceTime(modifier, hour, out targetTimeText);
+        currentPie = new IndividualPie(ProduceTime(modifier, hour, out targetTimeText));
         TargetLabel.text = targetTimeText;
-        targetTime = newTarget;
     }
 
     TimeModifier GetNewRandomMod(int previous)
@@ -126,22 +116,30 @@ public class ClockScript : Interactable {
 
     void CheckAnswer()
     {
-
-        //margin of error of 5 minutes
-        
-        float diff = (float)targetTime.Subtract(currentTime).TotalMinutes;
+        //get difference between target and current time
+        float diff = (float)currentPie.TargetTime.Subtract(currentTime).TotalMinutes;
         //compensate for the possibility of minute overflow: 0 = 60
         float overflowDiff = Mathf.Abs(Mathf.Abs(diff) - 60);
-        if (Mathf.Abs(diff) <= AnswerErrorMargin ||(Mathf.Abs(diff) > 30 && overflowDiff <= AnswerErrorMargin))
+        if (Mathf.Abs(diff) <= AnswerErrorMargin || (Mathf.Abs(diff) > 30 && overflowDiff <= AnswerErrorMargin))
         {
             print("correct!");
+            //add score of the current pie to the total
+            TotalScore += currentPie.Score;
             //loop
+            print(TotalScore);
+            ScoreLabel.text = TotalScore.ToString();
             NewTargetTime();
         }
         else
         {
             print("incorrect");
         }
+    }
+
+    public void ReduceScore()
+    {
+        //ant has taken some pie. score is halved.
+        currentPie.ReduceScore();
     }
     
     IEnumerator moveHands()
@@ -156,7 +154,7 @@ public class ClockScript : Interactable {
             //have to continuously rotate clockwise and stop it when close to the target. margin of error
 
             //calculate the current target Z rotation
-            float targetZ = Quaternion.Euler(0f, 0f, (float)targetTime.TotalHours * -hoursToDegrees).eulerAngles.z;
+            float targetZ = Quaternion.Euler(0f, 0f, (float)currentPie.TargetTime.TotalHours * -hoursToDegrees).eulerAngles.z;
             //get the difference between the target and current rotation
             float difference = HourHand.rotation.eulerAngles.z - targetZ;
             //if not within the margin of error, keep it rotating
@@ -175,7 +173,7 @@ public class ClockScript : Interactable {
             //change the current time every few seconds to keep the minute hand moving
             yield return new WaitForSeconds(1);
 
-            currentTime = new TimeSpan(targetTime.Hours, currentTime.Minutes + 5, 0);
+            currentTime = new TimeSpan(currentPie.TargetTime.Hours, currentTime.Minutes + 5, 0);
             yield return null;
         }
     }
