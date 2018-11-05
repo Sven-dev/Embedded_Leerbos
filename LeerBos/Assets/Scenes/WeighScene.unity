@@ -258,7 +258,7 @@ Prefab:
         type: 2}
       propertyPath: VictoryLabel
       value: 
-      objectReference: {fileID: 2114646155}
+      objectReference: {fileID: 2114646158}
     - target: {fileID: 114781817959002930, guid: 956fb879223aca94a9c93931be1d52c1,
         type: 2}
       propertyPath: ObjectsToWeigh.Array.data[2]
@@ -1341,16 +1341,21 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1727622849704506, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2114646155 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1727622849704506, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
-    type: 2}
-  m_PrefabInternal: {fileID: 1901764512}
 --- !u!224 &2114646156 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224278030083405092, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
     type: 2}
   m_PrefabInternal: {fileID: 1901764512}
+--- !u!114 &2114646158 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114832211850465182, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
+    type: 2}
+  m_PrefabInternal: {fileID: 1901764512}
+  m_Script: {fileID: 11500000, guid: 3e03e57f5325e2d4ebc14492216136b3, type: 3}

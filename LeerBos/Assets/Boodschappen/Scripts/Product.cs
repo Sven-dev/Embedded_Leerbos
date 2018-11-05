@@ -33,7 +33,7 @@ public class Product : MonoBehaviour
     {
         Destroy(Rigidbody);
         Destroy(Collider);
-        transform.parent = k.ProductHolder;
+        transform.SetParent(k.ProductHolder);
     }
 
     public void SetProduct(string name)

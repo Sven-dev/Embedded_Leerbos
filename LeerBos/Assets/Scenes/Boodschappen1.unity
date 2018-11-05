@@ -1218,7 +1218,6 @@ GameObject:
   - component: {fileID: 576416345}
   - component: {fileID: 576416344}
   - component: {fileID: 576416346}
-  - component: {fileID: 576416347}
   m_Layer: 5
   m_Name: Shopplinglist
   m_TagString: Untagged
@@ -1295,88 +1294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a3b3968c92eab44a070750de19b4e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VictoryCanvas: {fileID: 2097258137}
-  VictorySFX: {fileID: 576416347}
---- !u!82 &576416347
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 576416342}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e0307a6674cfd4e44b2cbde739ff4349, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.75
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
+  VictoryCanvas: {fileID: 2097258140}
 --- !u!1 &664765261
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,20 +1672,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727622849704506, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61331894177039812, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114986330715969212, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0.9138975
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
@@ -3246,16 +3150,17 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224094954975513398, guid: 04fb7e56144af1d4f8c8e8dd9c981277,
     type: 2}
   m_PrefabInternal: {fileID: 914857809}
---- !u!1 &2097258137 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1727622849704506, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
-    type: 2}
-  m_PrefabInternal: {fileID: 762500933}
 --- !u!224 &2097258138 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224278030083405092, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
     type: 2}
   m_PrefabInternal: {fileID: 762500933}
+--- !u!114 &2097258140 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114832211850465182, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
+    type: 2}
+  m_PrefabInternal: {fileID: 762500933}
+  m_Script: {fileID: 11500000, guid: 3e03e57f5325e2d4ebc14492216136b3, type: 3}
 --- !u!224 &2118686311 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224275657696122834, guid: 6577d40f5c652eb45b0849ca5b6a0058,

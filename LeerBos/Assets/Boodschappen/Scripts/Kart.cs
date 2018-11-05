@@ -7,7 +7,6 @@ public class Kart : MonoBehaviour {
     public ProductSpawner ShoppingList;
     [HideInInspector]
     public Transform ProductHolder;
-    private KartMover Movement;
     public AudioSource CorrectSFX;
     public AudioSource IncorrectSFX;
 
@@ -17,7 +16,6 @@ public class Kart : MonoBehaviour {
     private void Start()
     {
         ProductHolder = transform.GetChild(3);
-        Movement = GetComponentInChildren<KartMover>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
