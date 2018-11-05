@@ -11,31 +11,41 @@ public class Counter : MonoBehaviour
 
     public Text PriceLabel;
     public Transform CorrectTarget;
+    private bool Comparing;
 
     public delegate void PriceChange();
     public event PriceChange OnPriceChange;
     public UIPrice UILabel;
-    public GameObject VictoryLabel;
+    public VictoryScript VictoryLabel;
+    private bool Victory;
+
+    private AudioSource Audio;
 
 
     private void Start()
     {
         UILabel.Link(this);
+        Comparing = false;
+        Victory = false;
+        Audio = GetComponent<AudioSource>();
         StartCoroutine(_GeneratePrice());
     }
 
     //Compares the required price to the sum of all coint that are children of the counter
     private void Compare()
     {
-        double coinstotal = 0;
-        foreach(Coin c in transform.GetComponentsInChildren<Coin>())
+        if (!Victory)
         {
-            coinstotal += c.Value;
-        }
+            double coinstotal = 0;
+            foreach (Coin c in transform.GetComponentsInChildren<Coin>())
+            {
+                coinstotal += c.Value;
+            }
 
-        if (Math.Round(coinstotal, 2) == Math.Round(Price, 2))
-        {
-            StartCoroutine(_CorrectPayment());
+            if (Math.Round(coinstotal, 2) == Math.Round(Price, 2))
+            {
+                StartCoroutine(_CorrectPayment());
+            }
         }
     }
 
@@ -45,28 +55,36 @@ public class Counter : MonoBehaviour
         Rounds--;
         if (Rounds == 0)
         {
-            yield return new WaitForSeconds(0.5f);
-            VictoryLabel.SetActive(true);
+            StartCoroutine(_Victory());
         }
         else
         {
-            yield return new WaitForSeconds(1);
             StartCoroutine(_GeneratePrice());
-
-            Coin[] correctcoins = transform.GetComponentsInChildren<Coin>();
-            foreach (Coin c in correctcoins)
-            {
-                Destroy(c.transform.GetChild(0).GetComponent<Collider2D>());
-                c.CorrectCoin = true;
-                c.MoveTo(CorrectTarget);
-            }
         }
+
+        yield return new WaitForSeconds(1);
+
+        Audio.Play();
+        Coin[] correctcoins = transform.GetComponentsInChildren<Coin>();
+        foreach (Coin c in correctcoins)
+        {
+            Destroy(c.transform.GetChild(0).GetComponent<Collider2D>());
+            c.CorrectCoin = true;
+            c.MoveTo(CorrectTarget, false);
+        }
+    }
+
+    IEnumerator _Victory()
+    {
+        Victory = true;
+        yield return new WaitForSeconds(3f);
+        VictoryLabel.Enable();
     }
 
     //Generates a new price, and rounds it to 2 decimals
     IEnumerator _GeneratePrice()
     {
-        double rnd = UnityEngine.Random.Range(0.05f, 20);
+        double rnd = UnityEngine.Random.Range(2.0f, 20f);
         Price = Math.Round(rnd / 5.0, 2) * 5;
         yield return new WaitForSeconds(2);
         OnPriceChange();

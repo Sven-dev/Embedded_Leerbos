@@ -5,12 +5,10 @@ using UnityEngine.UI;
 
 public class ShoppingListManager : MonoBehaviour
 {
-    public GameObject VictoryCanvas;
+    public VictoryScript VictoryCanvas;
 
     List<Image> Items;
     ProductSpawner Spawner;
-
-    public AudioSource VictorySFX;
 
     // Use this for initialization
     void Awake ()
@@ -53,8 +51,7 @@ public class ShoppingListManager : MonoBehaviour
     IEnumerator _Victory()
     {
         yield return new WaitForSeconds(1);
-        VictorySFX.Play();
-        VictoryCanvas.SetActive(true);
+        VictoryCanvas.Enable();
     }
 
     IEnumerator _RemoveCurrentItem()
