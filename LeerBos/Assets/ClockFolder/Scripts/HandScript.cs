@@ -18,6 +18,9 @@ public class HandScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Arm.GrabPie();
+        if (collision.gameObject.tag == "Oven")
+        {
+            Arm.GrabPie();
+        }
     }
 }
