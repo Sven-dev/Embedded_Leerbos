@@ -39,6 +39,7 @@ public class DetectionManager : MonoBehaviour
 
         if (DeveloperMode && Input.GetMouseButtonDown(0))
         {
+            print("Mouse click");
             GetCollisionType(GetMousePosition());
         }
     }
@@ -108,7 +109,7 @@ public class DetectionManager : MonoBehaviour
     //Clicks at the given position, checks for an interactable object, and interacts with it.
     private void Click2D(RaycastHit2D hit)
     {
-        print("Clicked");
+        print("Software clicked");
         if (hit.transform != null)
         {
             Interactable obj = hit.transform.GetComponent<Interactable>();
