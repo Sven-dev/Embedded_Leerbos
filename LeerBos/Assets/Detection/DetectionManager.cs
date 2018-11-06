@@ -97,13 +97,13 @@ public class DetectionManager : MonoBehaviour
 
     #region 2D
     //Raycasts at the given position, returns the hit object.
-    private RaycastHit2D Raycast2D(LayerMask layerMask, Vector3 position)
+    private RaycastHit2D Raycast2D(LayerMask layerMask, Vector2 position)
     {
         print("Raycast2D");
         Ray ray = new Ray(position, Vector3.forward);
 
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 5);
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(position.x,position.y), Vector3.forward, Mathf.Infinity, layerMask);
+        RaycastHit2D hit = Physics2D.Raycast(position, Vector3.forward, Mathf.Infinity, layerMask);
 
         return hit;
     }
