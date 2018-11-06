@@ -39,6 +39,7 @@ public class DetectionManager : MonoBehaviour
 
         if (DeveloperMode && Input.GetMouseButtonDown(0))
         {
+            print("Mouse click");
             GetCollisionType(GetMousePosition());
         }
     }
@@ -46,6 +47,7 @@ public class DetectionManager : MonoBehaviour
     //Checks if the detection needs to detect 2D- or 3D-colliders, or both
     void GetCollisionType(Vector3 position)
     {
+        print("CollisionType");
         switch (collisionType)
         {
             case CollisionType._2D:
@@ -95,12 +97,13 @@ public class DetectionManager : MonoBehaviour
 
     #region 2D
     //Raycasts at the given position, returns the hit object.
-    private RaycastHit2D Raycast2D(LayerMask layerMask, Vector3 position)
+    private RaycastHit2D Raycast2D(LayerMask layerMask, Vector2 position)
     {
+        print("Raycast2D");
         Ray ray = new Ray(position, Vector3.forward);
 
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 5);
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(position.x,position.y), Vector3.forward, Mathf.Infinity, layerMask);
+        RaycastHit2D hit = Physics2D.Raycast(position, Vector3.forward, Mathf.Infinity, layerMask);
 
         return hit;
     }
@@ -108,11 +111,14 @@ public class DetectionManager : MonoBehaviour
     //Clicks at the given position, checks for an interactable object, and interacts with it.
     private void Click2D(RaycastHit2D hit)
     {
+        print("Click2D");
         if (hit.transform != null)
         {
+            print("Object hit");
             Interactable obj = hit.transform.GetComponent<Interactable>();
             if (obj != null)
             {
+                print("Interacting");
                 obj.Interact(hit.point);
             }
         }
