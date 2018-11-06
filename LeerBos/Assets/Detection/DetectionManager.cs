@@ -108,6 +108,7 @@ public class DetectionManager : MonoBehaviour
     //Clicks at the given position, checks for an interactable object, and interacts with it.
     private void Click2D(RaycastHit2D hit)
     {
+        print("Clicked");
         if (hit.transform != null)
         {
             Interactable obj = hit.transform.GetComponent<Interactable>();

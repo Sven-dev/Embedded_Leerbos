@@ -48,7 +48,6 @@ public class ConveyorBelt : MonoBehaviour
         if (c != null)
         {
             c.transform.SetParent(CoinHolder, true);
-            c.Moving = false;
         }
     }
 }

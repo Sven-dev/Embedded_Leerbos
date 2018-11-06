@@ -9,7 +9,6 @@ public class Coin : Interactable
     public ConveyorBelt Belt;
     [Space]
     public float MoveSpeed;
-    public bool Moving;
     public bool CorrectCoin;
     [Space]
     public double Value;
@@ -29,6 +28,7 @@ public class Coin : Interactable
 
     protected override void Click(Vector3 clickposition)
     {
+        print("Hit");
         if (transform.parent.parent == Belt.transform)
         {
             //if the object is papermoney, move it to the left part of the counter
@@ -73,15 +73,15 @@ public class Coin : Interactable
     IEnumerator _MoveTo(Transform target)
     {
         Collider.layer = 11;
-        Moving = true;
-        while (Moving)
+        bool moving = true;
+        while (moving)
         {
             //transform.Translate(Vector3.up * MoveSpeed / 2 * Time.deltaTime);
             transform.position = Vector3.MoveTowards(transform.position, target.position, MoveSpeed * Time.deltaTime);
 
             if (Mathf.Abs(transform.position.y - target.position.y) < 0.25f)
             {
-                Moving = false;
+                moving = false;
             }
 
             yield return null;
