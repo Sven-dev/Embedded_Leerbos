@@ -47,6 +47,7 @@ public class DetectionManager : MonoBehaviour
     //Checks if the detection needs to detect 2D- or 3D-colliders, or both
     void GetCollisionType(Vector3 position)
     {
+        print("CollisionType");
         switch (collisionType)
         {
             case CollisionType._2D:
@@ -98,6 +99,7 @@ public class DetectionManager : MonoBehaviour
     //Raycasts at the given position, returns the hit object.
     private RaycastHit2D Raycast2D(LayerMask layerMask, Vector3 position)
     {
+        print("Raycast2D");
         Ray ray = new Ray(position, Vector3.forward);
 
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 5);
@@ -109,12 +111,13 @@ public class DetectionManager : MonoBehaviour
     //Clicks at the given position, checks for an interactable object, and interacts with it.
     private void Click2D(RaycastHit2D hit)
     {
+        print("Click2D");
         if (hit.transform != null)
         {
             Interactable obj = hit.transform.GetComponent<Interactable>();
             if (obj != null)
             {
-                print("Software clicked");
+                print("Interacting");
                 obj.Interact(hit.point);
             }
         }
