@@ -114,6 +114,7 @@ public class DetectionManager : MonoBehaviour
         print("Click2D");
         if (hit.transform != null)
         {
+            print("Object hit");
             Interactable obj = hit.transform.GetComponent<Interactable>();
             if (obj != null)
             {
