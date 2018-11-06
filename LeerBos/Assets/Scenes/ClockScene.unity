@@ -321,7 +321,7 @@ Prefab:
     - target: {fileID: 114494432113721798, guid: e7574c9f71800504a8d1639fb380cb85,
         type: 2}
       propertyPath: collisionType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114494432113721798, guid: e7574c9f71800504a8d1639fb380cb85,
         type: 2}
@@ -468,6 +468,15 @@ Prefab:
       propertyPath: Clock
       value: 
       objectReference: {fileID: 2102630598}
+    - target: {fileID: 1992023250354616, guid: 604892847803ebf43ac84d04eb7b1350, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50079796942074104, guid: 604892847803ebf43ac84d04eb7b1350,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 604892847803ebf43ac84d04eb7b1350, type: 2}
   m_IsPrefabParent: 0
