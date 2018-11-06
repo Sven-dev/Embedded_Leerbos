@@ -61,7 +61,6 @@ public class ArmScript : Interactable {
         coroutines++;
         int coroutineId = coroutines;
         float time = 0;
-        print("backwards");
         forward = false;
         while (time < duration && coroutines == coroutineId)
         {
@@ -70,14 +69,12 @@ public class ArmScript : Interactable {
         }
         if (coroutines == coroutineId)
         {
-            print("forward");
             forward = true;
         }
     }
 
     protected override void Click(Vector3 clickposition)
     {
-        print("click");
         StartCoroutine(_MoveBack(PushBackDuration));
     }
 

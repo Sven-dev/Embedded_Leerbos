@@ -321,7 +321,7 @@ Prefab:
     - target: {fileID: 114494432113721798, guid: e7574c9f71800504a8d1639fb380cb85,
         type: 2}
       propertyPath: collisionType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114494432113721798, guid: e7574c9f71800504a8d1639fb380cb85,
         type: 2}
@@ -468,7 +468,37 @@ Prefab:
       propertyPath: Clock
       value: 
       objectReference: {fileID: 2102630598}
-    m_RemovedComponents: []
+    - target: {fileID: 1992023250354616, guid: 604892847803ebf43ac84d04eb7b1350, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50079796942074104, guid: 604892847803ebf43ac84d04eb7b1350,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61811561745358896, guid: 604892847803ebf43ac84d04eb7b1350,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224582224548538174, guid: 604892847803ebf43ac84d04eb7b1350,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224582224548538174, guid: 604892847803ebf43ac84d04eb7b1350,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -380.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224582224548538174, guid: 604892847803ebf43ac84d04eb7b1350,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 917.3
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 50079796942074104, guid: 604892847803ebf43ac84d04eb7b1350, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 604892847803ebf43ac84d04eb7b1350, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1164885195 stripped
@@ -488,6 +518,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Arm: {fileID: 343112510}
+--- !u!50 &1164885201
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1164885195}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1370920799
 Prefab:
   m_ObjectHideFlags: 0
@@ -946,6 +996,10 @@ Prefab:
         type: 2}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940745020739278, guid: 91aafa63a54f5e74ea7a1c7f2c4882ec, type: 2}
+      propertyPath: m_TagString
+      value: Oven
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91aafa63a54f5e74ea7a1c7f2c4882ec, type: 2}
