@@ -14,10 +14,17 @@ public class DetectionManager : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 10;
         SceneManager.sceneLoaded += AttachCamera;
         if (cam == null)
         {
             cam = Camera.main;
+        }
+
+        StartCoroutine(_BlobHandle());
+        if (DeveloperMode)
+        {
+            StartCoroutine(_MouseHandle());
         }
     }
 
@@ -26,28 +33,40 @@ public class DetectionManager : MonoBehaviour
         cam = Camera.main;
     }
 
-    // Update is called once per frame
-    void Update()
+    //Checks the collision of each blob (hit registration from the SmartWall), and interacts with the object it hit
+    IEnumerator _BlobHandle()
     {
-        foreach (Blob b in BlobTracking.Blobs)
+        while (true)
         {
-            if (OkayCheck(b))
+            foreach (Blob b in BlobTracking.Blobs)
             {
-                GetCollisionType(TranslateToWorld(b));
+                if (OkayCheck(b))
+                {
+                    GetCollisionType(TranslateToWorld(b));
+                }
             }
-        }
 
-        if (DeveloperMode && Input.GetMouseButtonDown(0))
+            yield return null;
+        }
+    }
+
+    //Developer tool. Clicks on the mouseposition and interacts with the object the same way as a blob would
+    IEnumerator _MouseHandle()
+    {
+        while (true)
         {
-            print("Mouse click");
-            GetCollisionType(GetMousePosition());
+            if (DeveloperMode && Input.GetMouseButtonDown(0))
+            {
+                GetCollisionType(GetMousePosition());
+            }
+
+            yield return null;
         }
     }
 
     //Checks if the detection needs to detect 2D- or 3D-colliders, or both
     void GetCollisionType(Vector3 position)
     {
-        print("CollisionType");
         switch (collisionType)
         {
             case CollisionType._2D:
@@ -99,10 +118,9 @@ public class DetectionManager : MonoBehaviour
     //Raycasts at the given position, returns the hit object.
     private RaycastHit2D Raycast2D(LayerMask layerMask, Vector2 position)
     {
-        print("Raycast2D");
         Ray ray = new Ray(position, Vector3.forward);
 
-        Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 5);
+        Debug.DrawRay(ray.origin, ray.direction, Color.red, 5);
         RaycastHit2D hit = Physics2D.Raycast(position, Vector3.forward, Mathf.Infinity, layerMask);
 
         return hit;
@@ -111,14 +129,11 @@ public class DetectionManager : MonoBehaviour
     //Clicks at the given position, checks for an interactable object, and interacts with it.
     private void Click2D(RaycastHit2D hit)
     {
-        print("Click2D");
         if (hit.transform != null)
         {
-            print("Object hit");
             Interactable obj = hit.transform.GetComponent<Interactable>();
             if (obj != null)
             {
-                print("Interacting");
                 obj.Interact(hit.point);
             }
         }
