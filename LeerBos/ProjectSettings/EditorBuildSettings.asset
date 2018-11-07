@@ -17,9 +17,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Betalen.unity
     guid: ae19bd9f2fd39764a899e1c2b90cfa55
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Overworld/Town.unity
     guid: a7b3febd75111554fb4b5b17aeaaa080
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Overworld/MainSquare.unity
     guid: be18c3b6948860c46859dd6df41fbe3d
