@@ -96,7 +96,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1149418786808206}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 104.06796, y: 453.01724, z: 600.70306}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
@@ -405,8 +405,13 @@ MonoBehaviour:
   RightHand: {fileID: 114316628175334344}
   ObjectsToWeigh:
   - {fileID: 1187317331560976, guid: 44e7cf27b5a2d564387fd7e7fb28b435, type: 2}
-  - {fileID: 1310486329856068, guid: 7f3756e138f46684cbc89d4249dbedc8, type: 2}
+  - {fileID: 1310486329856068, guid: 9830dd4d47b30644e8b51e3feb6d248e, type: 2}
+  - {fileID: 1310486329856068, guid: 029ab845ae076314eb9595ec854446cb, type: 2}
+  - {fileID: 1310486329856068, guid: ed17983c5eb731a42b2c3f92efe2f10e, type: 2}
+  - {fileID: 1552537166751924, guid: 18c52e964ff4ee047b995e1a891ee02b, type: 2}
   VictoryLabel: {fileID: 0}
+  ProgressBar: {fileID: 0}
+  CountDownTime: 2.5
 --- !u!222 &222379569082655280
 CanvasRenderer:
   m_ObjectHideFlags: 1
