@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ClockScript : Interactable {
 
     public Text ScoreLabel;
-    public int TotalScore;
+    private int TotalScore;
     private IndividualPie currentPie;
 
     private const float
@@ -17,11 +17,16 @@ public class ClockScript : Interactable {
     
     public Text TargetLabel;
     public Transform HourHand,MinuteHand;
-    public int TimeSpeed, AnswerErrorMargin, HandErrorMargin;
+    public int TimeSpeed, AnswerErrorMargin, HandErrorMargin, ScorePenalty;
 
     private TimeSpan currentTime;
     private int previousMod, previousHour;
-    private bool active = true;
+    [HideInInspector]
+    public bool active = true;
+
+    public int AmountOfRounds;
+    private int rounds = 0;
+    public VictoryScript victoryScript;
 
     // Use this for initialization
     void Start()
@@ -125,10 +130,21 @@ public class ClockScript : Interactable {
             print("correct!");
             //add score of the current pie to the total
             TotalScore += currentPie.Score;
-            //loop
+            UpdateScoreLabel();
             print(TotalScore);
-            ScoreLabel.text = TotalScore.ToString();
-            NewTargetTime();
+            rounds++;
+            //check whether this was the final round
+            if (rounds < AmountOfRounds)
+            {
+                //loop
+                NewTargetTime();
+            }
+            else
+            {
+                //end game
+                active = false;
+                victoryScript.Enable();
+            }
         }
         else
         {
@@ -138,10 +154,16 @@ public class ClockScript : Interactable {
 
     public void ReduceScore()
     {
-        //ant has taken some pie. score is halved.
-        currentPie.ReduceScore();
+        //ant has taken some pie. score is reduced.
+        TotalScore -= ScorePenalty;
+        UpdateScoreLabel();
     }
     
+    private void UpdateScoreLabel()
+    {
+        ScoreLabel.text = TotalScore.ToString();
+    }
+
     IEnumerator moveHands()
     {
         while (active)

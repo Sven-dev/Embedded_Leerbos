@@ -21,9 +21,12 @@ public class ManagerScript : MonoBehaviour
     private int coroutineId;
     private bool coroutineRunning;
 
-	// Use this for initialization
-	void Start ()
+    private AudioSource aSource;
+
+    // Use this for initialization
+    void Start ()
 	{
+        aSource = GetComponent<AudioSource>();
 	    gameOver = false;
 	    objectsWeighed = 0;
 	    coroutineId = 0;
@@ -79,6 +82,7 @@ public class ManagerScript : MonoBehaviour
 
     public void CorrectAnswer()
     {
+        aSource.Play();
         objectsWeighed++;
         
 
