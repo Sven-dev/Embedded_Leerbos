@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/WeighScene.unity
     guid: d29b4d2643970a44ab3c1751960763c1
   - enabled: 0
