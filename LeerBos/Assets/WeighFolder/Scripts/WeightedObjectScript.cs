@@ -17,6 +17,8 @@ public class WeightedObjectScript : Interactable
         SetAudioPitch();
 	}
 
+    //calculate the pitch of the impact based on how heavy the object is
+    //cap the pitch at mass 14 
     void SetAudioPitch()
     {
         if (Mass >= 15)
@@ -96,6 +98,7 @@ public class WeightedObjectScript : Interactable
         Destroy(gameObject);
     }
 
+    //method has to be here to override superclass
     protected override void Click(Vector3 clickposition)
     {
 
