@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class MultiSceneSwitcher : Interactable
+public class MultiSceneSwitcher : Interactable
 {
     protected SceneSwitcher SceneSwitcher;
+
+    public List<Saveable> SaveValues;
     [Tooltip("Only put in scenes, please")]
     public List<Object> TargetScenes;
-    public List<Sprite> TransitionImages;
+    public List<Sprite> Transitions;
 
     // Use this for initialization
     void Start ()
@@ -20,5 +22,15 @@ public abstract class MultiSceneSwitcher : Interactable
         Compare();
     }
 
-    protected abstract void Compare();
+    private void Compare()
+    {
+        for (int i = 0; i < TargetScenes.Count; i++)
+        {
+            if (SaveValues[i].Get() == false)
+            {
+                SceneSwitcher.Switch(TargetScenes[i], Transitions[i]);
+                break;
+            }
+        }
+    }
 }

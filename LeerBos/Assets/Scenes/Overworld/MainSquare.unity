@@ -309,12 +309,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 457361680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51db21a3071a57142ae2c26387f2616a, type: 3}
+  m_Script: {fileID: 11500000, guid: d0abf12302bcd8e4ca880416f20dab09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
-  TargetScene: {fileID: 102900000, guid: a7b3febd75111554fb4b5b17aeaaa080, type: 3}
+  TargetScene: {fileID: 0}
   TransitionImage: {fileID: 0}
+  Character: {fileID: 564418497}
 --- !u!61 &457361683
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -382,12 +383,12 @@ GameObject:
   m_Component:
   - component: {fileID: 564418493}
   - component: {fileID: 564418495}
+  - component: {fileID: 564418497}
   - component: {fileID: 564418494}
   - component: {fileID: 564418498}
   - component: {fileID: 564418496}
-  - component: {fileID: 564418497}
   m_Layer: 0
-  m_Name: Mouse
+  m_Name: NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -532,14 +533,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 564418492}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8d1acaf8069e6341b4f1fc335f78292, type: 3}
+  m_Script: {fileID: 11500000, guid: 12f104572f8c8a94da96731609c9ce6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
+  DialoguePlaying: 0
+  HitClip: {fileID: 8300000, guid: cfc4f3197ea8c5d488d19b68c92bf171, type: 3}
   IntroClips:
+  - {fileID: 8300000, guid: 18a09a235276ece49bcfbb546a046ab9, type: 3}
+  - {fileID: 8300000, guid: eec29e792cd3650449b69f8dd0db620c, type: 3}
+  Wrongwayclips:
   - {fileID: 8300000, guid: cfc4f3197ea8c5d488d19b68c92bf171, type: 3}
-  - {fileID: 8300000, guid: 9996816c7089c0b40af79e5d559a4a9c, type: 3}
-  HitClip: {fileID: 8300000, guid: 18a09a235276ece49bcfbb546a046ab9, type: 3}
+  VictoryClips:
+  - {fileID: 8300000, guid: e0307a6674cfd4e44b2cbde739ff4349, type: 3}
 --- !u!61 &564418498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -610,12 +616,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1171690869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51db21a3071a57142ae2c26387f2616a, type: 3}
+  m_Script: {fileID: 11500000, guid: d0abf12302bcd8e4ca880416f20dab09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
-  TargetScene: {fileID: 102900000, guid: a7b3febd75111554fb4b5b17aeaaa080, type: 3}
+  TargetScene: {fileID: 0}
   TransitionImage: {fileID: 0}
+  Character: {fileID: 564418497}
 --- !u!61 &1171690872
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -687,6 +694,8 @@ GameObject:
   - component: {fileID: 1201304057}
   - component: {fileID: 1201304061}
   - component: {fileID: 1201304062}
+  - component: {fileID: 1201304064}
+  - component: {fileID: 1201304063}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -783,10 +792,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 1201304056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1303ae0f5a553d409f47d5bfc2ce4b4, type: 3}
+  m_Script: {fileID: 11500000, guid: a2bcd68f118b95146805a59f421b3aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mouse: {fileID: 564418497}
+  IntroState: {fileID: 1201304064}
+  CompleteState: {fileID: 1201304063}
+  Character: {fileID: 564418497}
+  Decorations: []
+--- !u!114 &1201304063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201304056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8b8c1f78ff863429f133858dd04456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1201304064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201304056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3824df75d80276844a45ecb2144ad85c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1293000234
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,12 +866,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1293000234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51db21a3071a57142ae2c26387f2616a, type: 3}
+  m_Script: {fileID: 11500000, guid: d0abf12302bcd8e4ca880416f20dab09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
-  TargetScene: {fileID: 102900000, guid: a7b3febd75111554fb4b5b17aeaaa080, type: 3}
+  TargetScene: {fileID: 0}
   TransitionImage: {fileID: 0}
+  Character: {fileID: 564418497}
 --- !u!61 &1293000237
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1238,12 +1273,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2117503232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51db21a3071a57142ae2c26387f2616a, type: 3}
+  m_Script: {fileID: 11500000, guid: d0abf12302bcd8e4ca880416f20dab09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
   TargetScene: {fileID: 102900000, guid: a7b3febd75111554fb4b5b17aeaaa080, type: 3}
   TransitionImage: {fileID: 0}
+  Character: {fileID: 564418497}
 --- !u!61 &2117503235
 BoxCollider2D:
   m_ObjectHideFlags: 0

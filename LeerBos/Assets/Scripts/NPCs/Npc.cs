@@ -5,12 +5,12 @@ using UnityEngine;
 public class Npc : Interactable
 {
     private AudioSource Audio;
-    private bool DialoguePlaying;
-    private int Index;
+    public bool DialoguePlaying;
 
     [Space]
     public AudioClip HitClip;
     public List<AudioClip> IntroClips;
+    public List<AudioClip> Wrongwayclips;
     public List<AudioClip> VictoryClips;
 
     // Use this for initialization
@@ -22,45 +22,42 @@ public class Npc : Interactable
 
     public void PlayDialogue(List<AudioClip> clips)
     {
-        StartCoroutine(_PlayDialogue(clips));
+        if (!DialoguePlaying)
+        {
+            StartCoroutine(_PlayDialogue(clips));
+        }
     }
 
     public void PlayDialogue(AudioClip clip)
     {
-        StartCoroutine(_PlayDialogue(clip));
+        if (!DialoguePlaying)
+        {
+            StartCoroutine(_PlayDialogue(clip));
+        }
     }
 
     protected override void Click(Vector3 clickposition)
     {
-        /*
-        print("Click");
-        if (DialoguePlaying)
+        if (!DialoguePlaying)
         {
-            print("Dialogue skip");
-            Audio.Stop();
+            PlayDialogue(HitClip);
         }
-        else
-        {
-            print("Hit");
-            StartCoroutine(_PlayHit());
-        }
-        */
     }
 
     IEnumerator _PlayDialogue(List<AudioClip> clips)
     {
-        Index = 0;
+        int index = 0;
         DialoguePlaying = true;
-        while (Index < clips.Count)
+        while (index < clips.Count)
         {
-            Audio.PlayOneShot(clips[Index]);
+            Audio.PlayOneShot(clips[index]);
             while (Audio.isPlaying)
             {
                 yield return null;
             }
 
-            Index++;
-            yield return new WaitForSeconds(1f);
+            index++;
+            yield return new WaitForSeconds(0.25f);
         }
 
         DialoguePlaying = false;
@@ -75,6 +72,7 @@ public class Npc : Interactable
             yield return null;
         }
 
+        yield return new WaitForSeconds(0.25f);
         DialoguePlaying = false;
     }
 }

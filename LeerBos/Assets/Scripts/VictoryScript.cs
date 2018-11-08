@@ -5,6 +5,7 @@ using UnityEngine;
 public class VictoryScript : MonoBehaviour
 {
     private AudioSource Audio;
+    public Saveable VictoryState;
 
 	// Use this for initialization
 	void Awake ()
@@ -15,6 +16,7 @@ public class VictoryScript : MonoBehaviour
     public void Enable()
     {
         gameObject.SetActive(true);
+        VictoryState.Set(true);
         Audio.Play();
     }
 }

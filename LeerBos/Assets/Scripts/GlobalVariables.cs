@@ -1,62 +1,7 @@
 ﻿public static class GlobalVariables
 {
-    public static bool MainSquareIntroduced = false;
-
-    #region Town
-    public static bool TownIntroduced = false;
-
-    public static bool TownCompleted
-    {
-        get
-        {
-            if (BakeryCompleted && MarketCompleted)
-            {
-                return true;
-            }
-
-            return false;
-        }
-    }
-
-    #region Bakery
-    public static bool Bakery1Introduced = false;
-    public static bool Bakery1Completed = false;
-    public static bool Bakery2Introduced = false;
-    public static bool Bakery2Completed = false;
-
-    public static bool BakeryCompleted
-    {
-        get
-        {
-            if (Bakery1Completed && Bakery2Completed)
-            {
-                return true;
-            }
-
-            return false;
-        }
-    }
-    #endregion
-
-    #region Market
-    public static bool Market1Introduced = false;
-    public static bool Market1Completed = false;
-    public static bool Market2Introduced = false;
-    public static bool Market2Completed = false;
-
-    public static bool MarketCompleted
-    {
-        get
-        {
-            if (Market1Completed && Market2Completed)
-            {
-                return true;
-            }
-
-            return false;
-        }
-    }
-    #endregion
-
-    #endregion
+    public static int MainSquareState = 0;  //0 = default, 1 = introduced, 2 = completed
+    public static int TownState = 0;        //0 = default, 1 = introduced, 2 = completed
+    public static int BakeryState = 0;      //0 = default, 1 = game 1 introduced, 2 = game 1 completed, 3 = game 2 introduced, 4 = game 2 completed
+    public static int MarketState = 0;      //0 = default, 1 = game 1 introduced, 2 = game 1 completed, 3 = game 2 introduced, 4 = game 2 completed
 }
