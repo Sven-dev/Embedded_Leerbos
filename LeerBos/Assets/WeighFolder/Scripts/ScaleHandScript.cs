@@ -17,6 +17,7 @@ public class ScaleHandScript : MonoBehaviour
 		
 	}
 
+    //collect the mass of every object on the scale
     public int GetTotalMass()
     {
         int mass = 0;

@@ -11,11 +11,13 @@ public class SceneSwitcher : MonoBehaviour
     private Camera Camera;
     private Image Transition;
     private Object TargetScene;
+    private Checker Checker;
 
     private void Start()
     {
         Camera = GetComponent<Camera>();
         Transition = transform.GetComponentInChildren<Image>();
+        Checker = GetComponent<Checker>();
         StartCoroutine(_FadeIn());
     }
 

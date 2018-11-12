@@ -7,8 +7,7 @@ using Random = UnityEngine.Random;
 public class ManagerScript : MonoBehaviour
 {
     public GameObject WeightParent;
-    public ScaleHandScript LeftHand;
-    public ScaleHandScript RightHand;
+    public ScaleHandScript LeftHand, RightHand;
     public List<GameObject> ObjectsToWeigh;
     public VictoryScript VictoryLabel;
     public ProgressBarScript ProgressBar;
@@ -21,31 +20,36 @@ public class ManagerScript : MonoBehaviour
     private int coroutineId;
     private bool coroutineRunning;
 
-	// Use this for initialization
-	void Start ()
+    private AudioSource aSource;
+
+    // Use this for initialization
+    void Start ()
 	{
+        aSource = GetComponent<AudioSource>();
 	    gameOver = false;
 	    objectsWeighed = 0;
 	    coroutineId = 0;
         ResetGame();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
+    //compares current scales and starts countdown if they match
     public void CheckAnswer()
     {
-        if (gameOver == false)
+        //game is still ongoing
+        if (!gameOver)
         {
+            //get total masses of both scales
             int leftMass = LeftHand.GetTotalMass();
             int rightMass = RightHand.GetTotalMass();
 
+            //save the totals as a string so we can keep track of when it changes
             string massString = leftMass.ToString() + rightMass.ToString();
+            //if the strings are the same, the calculation has already started,
+            //so we dont need to start it again
             if (currentMassString != massString)
             {
                 currentMassString = massString;
+                //make sure they're the same and above 0 (so an empty scale doesnt count)
                 if (leftMass == rightMass && leftMass + rightMass > 0)
                 {
                     coroutineId++;
@@ -55,6 +59,8 @@ public class ManagerScript : MonoBehaviour
         }
     }
 
+    //coroutine that cancels if the answer changes before time is up,
+    //so the game doesn't suddenly end when you pass by the right answer
     IEnumerator _CheckAnswer(string submittedMassString,int id)
     {
         ProgressBar.gameObject.SetActive(true);
@@ -79,6 +85,7 @@ public class ManagerScript : MonoBehaviour
 
     public void CorrectAnswer()
     {
+        aSource.Play();
         objectsWeighed++;
         
 
