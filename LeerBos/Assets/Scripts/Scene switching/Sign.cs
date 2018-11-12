@@ -17,4 +17,14 @@ public class Sign : SceneSwitchable
             Character.PlayDialogue(Character.Wrongwayclips);
         }
     }
+
+    public void Blink()
+    {
+        StartCoroutine(_Blink());
+    }
+
+    IEnumerator _Blink()
+    {
+        yield return null;
+    }
 }
