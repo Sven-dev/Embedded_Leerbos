@@ -1085,7 +1085,7 @@ Prefab:
     - target: {fileID: 224637425360795630, guid: 185a268fcde8ff94ab15996cc3bca666,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 103
+      value: 481
       objectReference: {fileID: 0}
     - target: {fileID: 224637425360795630, guid: 185a268fcde8ff94ab15996cc3bca666,
         type: 2}
@@ -1175,6 +1175,11 @@ Prefab:
       propertyPath: victoryScript
       value: 
       objectReference: {fileID: 1425655520}
+    - target: {fileID: 114431133907443202, guid: 185a268fcde8ff94ab15996cc3bca666,
+        type: 2}
+      propertyPath: Cake
+      value: 
+      objectReference: {fileID: 1993502900}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 185a268fcde8ff94ab15996cc3bca666, type: 2}
   m_IsPrefabParent: 0
@@ -1223,7 +1228,7 @@ Prefab:
     - target: {fileID: 224278030083405092, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224278030083405092, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
         type: 2}
@@ -1428,6 +1433,7 @@ RectTransform:
   - {fileID: 945890884}
   - {fileID: 852956460}
   - {fileID: 807556101}
+  - {fileID: 1993502899}
   - {fileID: 1425655519}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1757,6 +1763,52 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224637425360795630, guid: 185a268fcde8ff94ab15996cc3bca666,
     type: 2}
   m_PrefabInternal: {fileID: 1370920799}
+--- !u!1 &1993502898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1993502899}
+  - component: {fileID: 1993502900}
+  m_Layer: 5
+  m_Name: Cake
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1993502899
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1993502898}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1437606132}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -41, y: -79.31}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1993502900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1993502898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0400c7885a973d4ca7bdc1ecb9626a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CakePrefab: {fileID: 1935232310793780, guid: 0f2f90395b8a75d4bba1d8766c8f2eb3, type: 2}
 --- !u!114 &2102630598 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114431133907443202, guid: 185a268fcde8ff94ab15996cc3bca666,

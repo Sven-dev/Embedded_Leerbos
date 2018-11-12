@@ -8,7 +8,9 @@ public class ClockScript : Interactable {
 
     public Text ScoreLabel;
     private int TotalScore;
-    private IndividualPie currentPie;
+    private CakeLayer currentCakeLayer;
+
+    public CakeScript Cake;
 
     private const float
         hoursToDegrees = 360f / 12f,
@@ -36,10 +38,10 @@ public class ClockScript : Interactable {
         //set the first target time
         NewTargetTime();
         //set hour hand on target time in advance
-        HourHand.localRotation = Quaternion.Euler(0f, 0f, currentPie.TargetTime.Hours * -hoursToDegrees);
+        HourHand.localRotation = Quaternion.Euler(0f, 0f, currentCakeLayer.TargetTime.Hours * -hoursToDegrees);
         //start movement of minute hand
-        StartCoroutine(moveHands());
-        StartCoroutine(updateCurrentTime());
+        StartCoroutine(_moveHands());
+        StartCoroutine(_updateCurrentTime());
     }
 
     protected override void Click(Vector3 clickposition)
@@ -56,7 +58,7 @@ public class ClockScript : Interactable {
         //string of the written-out time to put in the label
         string targetTimeText;
         //produce the new target time
-        currentPie = new IndividualPie(ProduceTime(modifier, hour, out targetTimeText));
+        currentCakeLayer = new CakeLayer(ProduceTime(modifier, hour, out targetTimeText));
         TargetLabel.text = targetTimeText;
     }
 
@@ -122,14 +124,14 @@ public class ClockScript : Interactable {
     void CheckAnswer()
     {
         //get difference between target and current time
-        float diff = (float)currentPie.TargetTime.Subtract(currentTime).TotalMinutes;
+        float diff = (float)currentCakeLayer.TargetTime.Subtract(currentTime).TotalMinutes;
         //compensate for the possibility of minute overflow: 0 = 60
         float overflowDiff = Mathf.Abs(Mathf.Abs(diff) - 60);
         if (Mathf.Abs(diff) <= AnswerErrorMargin || (Mathf.Abs(diff) > 30 && overflowDiff <= AnswerErrorMargin))
         {
             print("correct!");
             //add score of the current pie to the total
-            TotalScore += currentPie.Score;
+            TotalScore += currentCakeLayer.Score;
             UpdateScoreLabel();
             print(TotalScore);
             rounds++;
@@ -137,13 +139,16 @@ public class ClockScript : Interactable {
             if (rounds < AmountOfRounds)
             {
                 //loop
+                Cake.NextLayer();
                 NewTargetTime();
             }
             else
             {
                 //end game
+                Cake.NextLayer();
                 active = false;
-                victoryScript.Enable();
+                //wait a few seconds to show the final cake
+                StartCoroutine(_waitAndEnd(2));
             }
         }
         else
@@ -164,7 +169,7 @@ public class ClockScript : Interactable {
         ScoreLabel.text = TotalScore.ToString();
     }
 
-    IEnumerator moveHands()
+    IEnumerator _moveHands()
     {
         while (active)
         {
@@ -176,7 +181,7 @@ public class ClockScript : Interactable {
             //have to continuously rotate clockwise and stop it when close to the target. margin of error
 
             //calculate the current target Z rotation
-            float targetZ = Quaternion.Euler(0f, 0f, (float)currentPie.TargetTime.TotalHours * -hoursToDegrees).eulerAngles.z;
+            float targetZ = Quaternion.Euler(0f, 0f, (float)currentCakeLayer.TargetTime.TotalHours * -hoursToDegrees).eulerAngles.z;
             //get the difference between the target and current rotation
             float difference = HourHand.rotation.eulerAngles.z - targetZ;
             //if not within the margin of error, keep it rotating
@@ -188,16 +193,22 @@ public class ClockScript : Interactable {
         }
     }
 
-    IEnumerator updateCurrentTime()
+    IEnumerator _updateCurrentTime()
     {
         while (active)
         {
             //change the current time every few seconds to keep the minute hand moving
             yield return new WaitForSeconds(1);
 
-            currentTime = new TimeSpan(currentPie.TargetTime.Hours, currentTime.Minutes + 5, 0);
+            currentTime = new TimeSpan(currentCakeLayer.TargetTime.Hours, currentTime.Minutes + 5, 0);
             yield return null;
         }
+    }
+
+    IEnumerator _waitAndEnd(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        victoryScript.Enable();
     }
 
     string IntToWord(int nr)
