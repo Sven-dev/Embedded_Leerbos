@@ -18,7 +18,7 @@ public class HandScript : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //make sure it's the right trigger
-        if (collision.gameObject.tag == "Oven")
+        if (collision.gameObject.tag == "HandTarget")
         {
             //player failed, do the things
             arm.GrabPie();

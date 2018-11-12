@@ -10,7 +10,7 @@ public class SceneSwitcher : MonoBehaviour
 
     private Camera Camera;
     private Image Transition;
-    private Object TargetScene;
+    private string TargetScene;
     private Checker Checker;
 
     private void Start()
@@ -23,7 +23,14 @@ public class SceneSwitcher : MonoBehaviour
 
     public void Switch(Object target, Sprite image)
     {
+        TargetScene = target.name;
+        Transition.sprite = image;
 
+        StartCoroutine(_FadeOut());
+    }
+
+    public void Switch(string target, Sprite image)
+    {
         TargetScene = target;
         Transition.sprite = image;
 
@@ -50,6 +57,6 @@ public class SceneSwitcher : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(TargetScene.name);
+        SceneManager.LoadScene(TargetScene);
     }
 }
