@@ -5,34 +5,36 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ClockScript : Interactable {
-
-    public Text ScoreLabel;
-    private int TotalScore;
-    private CakeLayer currentCakeLayer;
+    
+    [HideInInspector]
+    public bool active = true;
+    public int AmountOfRounds, TimeSpeed, AnswerErrorMargin, HandErrorMargin, ScorePenalty;
 
     public CakeScript Cake;
+    public CakeLayer CakeLayerPrefab;
+    public VictoryScript victoryScript;
+    public Transform TempCakeTrans, OvenTrans;
+    public Text ScoreLabel, TargetLabel;
+
+    private Transform HourHand, MinuteHand;
+    private CakeLayer currentCakeLayer;
+    private TimeSpan currentTime;
+    private int previousMod, previousHour;
+    
+    private int rounds = 0;
+    private int TotalScore;
 
     private const float
         hoursToDegrees = 360f / 12f,
         minutesToDegrees = 360f / 60f,
         secondsToDegrees = 360f / 60f;
-    
-    public Text TargetLabel;
-    public Transform HourHand,MinuteHand;
-    public int TimeSpeed, AnswerErrorMargin, HandErrorMargin, ScorePenalty;
-
-    private TimeSpan currentTime;
-    private int previousMod, previousHour;
-    [HideInInspector]
-    public bool active = true;
-
-    public int AmountOfRounds;
-    private int rounds = 0;
-    public VictoryScript victoryScript;
 
     // Use this for initialization
     void Start()
     {
+        MinuteHand = transform.GetChild(0);
+        HourHand = transform.GetChild(1);
+
         //set starting time: 12:00
         currentTime = new TimeSpan(12, 0, 0);
         //set the first target time
@@ -57,8 +59,12 @@ public class ClockScript : Interactable {
         int hour = GetNewRandomHour(previousHour);
         //string of the written-out time to put in the label
         string targetTimeText;
-        //produce the new target time
-        currentCakeLayer = new CakeLayer(ProduceTime(modifier, hour, out targetTimeText));
+        //produce the new cake layer, put it in the oven
+        currentCakeLayer = Instantiate(CakeLayerPrefab,OvenTrans);
+        currentCakeLayer.gameObject.transform.SetPositionAndRotation(TempCakeTrans.position, TempCakeTrans.rotation);
+
+        //set the target time
+        currentCakeLayer.SetTime(ProduceTime(modifier, hour, out targetTimeText));
         TargetLabel.text = targetTimeText;
     }
 
@@ -139,13 +145,18 @@ public class ClockScript : Interactable {
             if (rounds < AmountOfRounds)
             {
                 //loop
-                Cake.NextLayer();
+                Cake.NextLayer(currentCakeLayer);
+                //if this was the first round, activate the hand
+                if (Cake.NoLayers())
+                {
+                    
+                }
                 NewTargetTime();
             }
             else
             {
                 //end game
-                Cake.NextLayer();
+                Cake.NextLayer(currentCakeLayer);
                 active = false;
                 //wait a few seconds to show the final cake
                 StartCoroutine(_waitAndEnd(2));
@@ -159,7 +170,7 @@ public class ClockScript : Interactable {
 
     public void ReduceScore()
     {
-        //ant has taken some pie. score is reduced.
+        //hand has taken some pie. score is reduced.
         TotalScore -= ScorePenalty;
         UpdateScoreLabel();
     }

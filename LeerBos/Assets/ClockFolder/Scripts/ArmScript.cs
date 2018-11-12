@@ -5,11 +5,10 @@ using UnityEngine;
 public class ArmScript : Interactable {
     
     public ClockScript Clock;
-    
+    public CakeScript Cake;
+
     public Transform Target;
-    public int TimeToDestination;
-    public int PushBackSpeed;
-    public int PushBackDuration;
+    public int TimeToDestination, PushBackSpeed, PushBackDuration;
     public float DangerDistance;
 
     private Vector3 originPoint;
@@ -27,11 +26,6 @@ public class ArmScript : Interactable {
         originPoint = transform.position;
         //start moving
         StartCoroutine(_MoveTowardsTarget());
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
     private IEnumerator _MoveTowardsTarget()
@@ -129,6 +123,7 @@ public class ArmScript : Interactable {
             StartCoroutine(_MoveBack(PushBackDuration * 3));
             hand.StopFlashing();
             Clock.ReduceScore();
+            Cake.RemoveCakeSlice();
         }
     }
 }

@@ -5,39 +5,82 @@ using UnityEngine.UI;
 
 public class CakeScript : MonoBehaviour {
 
-    //public List<CakeLayer> CakeLayers;
+    public List<Sprite> CakeSprites;
     public GameObject CakePrefab;
 
+    private List<CakeLayer> CakeLayers;
     private float yModifier;
     private float prevXScale;
-
-    public void NextLayer()
+    
+    //put a cake layer on the counter, add it to the list
+    public void NextLayer(CakeLayer layer)
     {
         float yPos = (transform.childCount / 1.5f) * yModifier;
 
-        Transform newLayer = Instantiate(CakePrefab).transform;
-        newLayer.SetParent(transform);
+        Transform layerTrans = layer.transform;
+        layerTrans.SetParent(transform);
 
         if (transform.childCount == 1)
         {
-            newLayer.localScale = new Vector2(0.2f, 0.15f);
+            layerTrans.localScale = new Vector2(0.2f, 0.15f);
         }
         else
         {
-            newLayer.localScale = new Vector3(prevXScale * 0.85f, 0.15f);
+            layerTrans.localScale = new Vector3(prevXScale * 0.85f, 0.15f);
         }
-        prevXScale = newLayer.localScale.x;
+        prevXScale = layerTrans.localScale.x;
+        layerTrans.localPosition = new Vector2(0, yPos);
 
-        newLayer.localPosition = new Vector2(0, yPos);
-        //CakeLayers.Add(layer);
+        CakeLayers.Add(layer);
+    }
+
+    //remove 1 slice of cake ("health") from the cake, destroy it if it was the last piece
+    public void RemoveCakeSlice()
+    {
+        //get the most recently added layer
+        CakeLayer lastLayer = CakeLayers[CakeLayers.Count - 1];
+        //get its sprite
+        Sprite currentSprite = lastLayer.GetComponent<Image>().sprite;
+        
+        //set a bool to check if we got out of the for loop due to a break or because the i ran out
+        bool imageChanged = false;
+
+        for (int i = 0; i < CakeSprites.Count - 1; i++)
+        {
+            Sprite cakeSprite = CakeSprites[i];
+            
+            if (currentSprite == cakeSprite)
+            {
+                lastLayer.GetComponent<Image>().sprite = CakeSprites[i + 1];
+                imageChanged = true;
+                break;
+            }
+        }
+        //make sure we didnt get out of the loop due to a break
+        if (!imageChanged)
+        {
+            //get it out of the list and out of the game
+            CakeLayers.Remove(lastLayer);
+            Destroy(lastLayer.gameObject);
+        }
     }
 
 
 	// Use this for initialization
 	void Start () {
-        //CakeLayers = new List<CakeLayer>();
+        CakeLayers = new List<CakeLayer>();
         float imgScale = CakePrefab.transform.localScale.y;
         float imgHeight = CakePrefab.GetComponent<RectTransform>().rect.height;
         yModifier = imgHeight * imgScale;
+    }
+
+    //check whether the list is empty
+    public bool NoLayers()
+    {
+        if (CakeLayers.Count > 0)
+        {
+            return true;
+        }
+        return false;
     }
 }
