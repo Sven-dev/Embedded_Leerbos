@@ -24,9 +24,14 @@ public class ArmScript : Interactable {
         coroutines = 0;
         //save the origin point so we can return there later
         originPoint = transform.position;
-        //start moving
+        //only start moving once called by the cake script
         StartCoroutine(_MoveTowardsTarget());
-	}
+    }
+
+    public void ChangeTarget(Transform transform)
+    {
+        Target = transform;
+    }
 
     private IEnumerator _MoveTowardsTarget()
     {
@@ -37,7 +42,7 @@ public class ArmScript : Interactable {
         while (Clock.active)
         {
             //moving forward
-            if (forward)
+            if (forward && Cake.LayersPresent)
             {
                 //calculate new i value; higher because forward
                 i += Time.deltaTime / TimeToDestination;
@@ -85,7 +90,7 @@ public class ArmScript : Interactable {
         }
     }
 
-    private IEnumerator _MoveBack(int duration)
+    private IEnumerator _MoveBack(int duration,bool success)
     {
         //this coroutine keeps track of how long the arm should move backwards.
         //to avoid double coroutines, it keeps track of an ID and ends if the int changes
@@ -94,6 +99,11 @@ public class ArmScript : Interactable {
         float time = 0;
         //go backwards
         forward = false;
+        //if we're moving back because cake was grabbed
+        if (success)
+        {
+            hand.CloseHand();
+        }
         //make sure this while ends if another of the same coroutine starts
         while (time < duration && coroutines == coroutineId)
         {
@@ -105,12 +115,13 @@ public class ArmScript : Interactable {
         {
             //go forward
             forward = true;
+            hand.OpenHand();
         }
     }
 
     protected override void Click(Vector3 clickposition)
     {
-        StartCoroutine(_MoveBack(PushBackDuration));
+        StartCoroutine(_MoveBack(PushBackDuration,false));
     }
 
     public void GrabPie()
@@ -120,7 +131,7 @@ public class ArmScript : Interactable {
         if (forward)
         {
             //turn off flash, move back to origin, lower the score of the player
-            StartCoroutine(_MoveBack(PushBackDuration * 3));
+            StartCoroutine(_MoveBack(PushBackDuration * 3,true));
             hand.StopFlashing();
             Clock.ReduceScore();
             Cake.RemoveCakeSlice();
