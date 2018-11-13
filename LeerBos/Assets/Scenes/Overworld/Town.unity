@@ -272,8 +272,8 @@ MonoBehaviour:
   - {fileID: 65950006}
   - {fileID: 65950004}
   TargetScenes:
-  - {fileID: 102900000, guid: 30a3a46fee1486149be50d9f0a86e310, type: 3}
-  - {fileID: 102900000, guid: ae19bd9f2fd39764a899e1c2b90cfa55, type: 3}
+  - Boodschappen
+  - Betalen
   Transitions:
   - {fileID: 0}
   - {fileID: 0}
@@ -880,8 +880,8 @@ MonoBehaviour:
   - {fileID: 1218550354}
   - {fileID: 1218550352}
   TargetScenes:
-  - {fileID: 102900000, guid: d29b4d2643970a44ab3c1751960763c1, type: 3}
-  - {fileID: 102900000, guid: 4b8674b9c9b87734599fe1168c47175b, type: 3}
+  - WeighScene
+  - ClockScene
   Transitions:
   - {fileID: 0}
   - {fileID: 0}
@@ -1274,7 +1274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
-  TargetScene: {fileID: 102900000, guid: be18c3b6948860c46859dd6df41fbe3d, type: 3}
+  TargetString: MainSquare
   TransitionImage: {fileID: 0}
 --- !u!61 &2117503235
 BoxCollider2D:

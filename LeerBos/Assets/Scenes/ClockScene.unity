@@ -222,7 +222,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 0.8896553, b: 0.5294118, a: 0}
+  m_BackGroundColor: {r: 1, g: 0.8896553, b: 0.5294118, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1337,6 +1337,11 @@ Prefab:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 114489085773141866, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
+        type: 2}
+      propertyPath: TargetString
+      value: Town
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114868208733751848, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
     - {fileID: 114719382947622270, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
@@ -1370,7 +1375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
-  TargetScene: {fileID: 102900000, guid: 4b8674b9c9b87734599fe1168c47175b, type: 3}
+  TargetString: ClockScene
   TransitionImage: {fileID: 0}
 --- !u!1 &1437606128
 GameObject:

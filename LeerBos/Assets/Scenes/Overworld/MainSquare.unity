@@ -347,7 +347,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
-  TargetScene: {fileID: 0}
   TargetString: 
   TransitionImage: {fileID: 0}
   Character: {fileID: 564418497}
@@ -655,7 +654,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
-  TargetScene: {fileID: 0}
   TargetString: 
   TransitionImage: {fileID: 0}
   Character: {fileID: 564418497}
@@ -906,7 +904,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
-  TargetScene: {fileID: 0}
   TargetString: 
   TransitionImage: {fileID: 0}
   Character: {fileID: 564418497}
@@ -1246,7 +1243,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
-  TargetScene: {fileID: 102900000, guid: a7b3febd75111554fb4b5b17aeaaa080, type: 3}
   TargetString: Town
   TransitionImage: {fileID: 0}
   Character: {fileID: 564418497}

@@ -1712,6 +1712,11 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 114489085773141866, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
+        type: 2}
+      propertyPath: TargetString
+      value: Betalen
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114868208733751848, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
     - {fileID: 114719382947622270, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
@@ -1750,7 +1755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
-  TargetScene: {fileID: 102900000, guid: 30a3a46fee1486149be50d9f0a86e310, type: 3}
+  TargetString: Boodschappen
   TransitionImage: {fileID: 0}
 --- !u!1 &852989868
 GameObject:
@@ -2449,7 +2454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.125, g: 0.125, b: 0.125, a: 1}
+  m_Color: {r: 0.125, g: 0.125, b: 0.125, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

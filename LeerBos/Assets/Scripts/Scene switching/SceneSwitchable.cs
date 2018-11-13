@@ -6,7 +6,6 @@ public class SceneSwitchable : Interactable
 {
     private SceneSwitcher SceneSwitcher;
     [Tooltip("Only put in scenes, please")]
-    public Object TargetScene;
     public string TargetString;
     public Sprite TransitionImage;
 
@@ -18,11 +17,7 @@ public class SceneSwitchable : Interactable
 
     protected override void Click(Vector3 clickposition)
     {
-        if (TargetScene != null)
-        {
-            SceneSwitcher.Switch(TargetScene, TransitionImage);
-        }
-        else
+        if (TargetString != "")
         {
             SceneSwitcher.Switch(TargetString, TransitionImage);
         }
