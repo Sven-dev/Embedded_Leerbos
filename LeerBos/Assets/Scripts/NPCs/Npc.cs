@@ -12,6 +12,7 @@ public class Npc : Interactable
     public List<AudioClip> IntroClips;
     public List<AudioClip> Wrongwayclips;
     public List<AudioClip> VictoryClips;
+    public List<OutlineBlinker> Blinkables;
 
     // Use this for initialization
     void Start ()
@@ -33,6 +34,14 @@ public class Npc : Interactable
         if (!DialoguePlaying)
         {
             StartCoroutine(_PlayDialogue(clip));
+        }
+    }
+
+    public void ActivateBlinkables()
+    {
+        foreach (OutlineBlinker blinker in Blinkables)
+        {
+            blinker.Blink();
         }
     }
 
