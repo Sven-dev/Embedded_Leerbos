@@ -8,7 +8,7 @@ public class MultiSceneSwitcher : Interactable
 
     public List<Saveable> SaveValues;
     [Tooltip("Only put in scenes, please")]
-    public List<Object> TargetScenes;
+    public List<string> TargetScenes;
     public List<Sprite> Transitions;
 
     // Use this for initialization
