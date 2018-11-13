@@ -6,7 +6,7 @@ TagManager:
   tags:
   - ScaleHand
   - ConveyorBelt
-  - Oven
+  - HandTarget
   layers:
   - Default
   - TransparentFX

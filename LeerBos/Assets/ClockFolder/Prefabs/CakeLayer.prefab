@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224025286481064522}
   - component: {fileID: 222170158040325418}
   - component: {fileID: 114350819445055630}
+  - component: {fileID: 114492207352821688}
   m_Layer: 5
   m_Name: CakeLayer
   m_TagString: Untagged
@@ -47,7 +48,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8e3e301e3f2f6e64980162d6ff63a887, type: 3}
+  m_Sprite: {fileID: 21300002, guid: f0d067c35eb95e040a8ba454bed658c0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -55,6 +56,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114492207352821688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1935232310793780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e6c229ce2da114bb83d7099c7fe3f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Score: 0
 --- !u!222 &222170158040325418
 CanvasRenderer:
   m_ObjectHideFlags: 1
