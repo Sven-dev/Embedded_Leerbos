@@ -8,7 +8,7 @@ public class Sign : SceneSwitchable
 
     protected override void Click(Vector3 clickposition)
     {
-        if (TargetScene != null)
+        if (TargetString != "")
         {
             base.Click(clickposition);
         }

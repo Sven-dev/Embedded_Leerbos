@@ -14,10 +14,10 @@
     {
         if (value)
         {
-            GlobalVariables.BakeryState = 4;
+            GlobalVariables.MarketState = 4;
             return;
         }
 
-        GlobalVariables.BakeryState--; 
+        GlobalVariables.MarketState--; 
     }
 }
