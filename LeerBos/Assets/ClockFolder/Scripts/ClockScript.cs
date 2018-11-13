@@ -146,11 +146,6 @@ public class ClockScript : Interactable {
             {
                 //loop
                 Cake.NextLayer(currentCakeLayer);
-                //if this was the first round, activate the hand
-                if (Cake.NoLayers())
-                {
-                    
-                }
                 NewTargetTime();
             }
             else

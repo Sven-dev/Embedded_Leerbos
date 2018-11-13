@@ -7,8 +7,10 @@ public class CakeScript : MonoBehaviour {
 
     public List<Sprite> CakeSprites;
     public GameObject CakePrefab;
+    public ArmScript Arm;
+    public bool LayersPresent;
 
-    private List<CakeLayer> CakeLayers;
+    public List<CakeLayer> CakeLayers;
     private float yModifier;
     private float prevXScale;
     
@@ -31,7 +33,9 @@ public class CakeScript : MonoBehaviour {
         prevXScale = layerTrans.localScale.x;
         layerTrans.localPosition = new Vector2(0, yPos);
 
+        Arm.ChangeTarget(layerTrans);
         CakeLayers.Add(layer);
+        UpdateLayersPresent();
     }
 
     //remove 1 slice of cake ("health") from the cake, destroy it if it was the last piece
@@ -62,9 +66,22 @@ public class CakeScript : MonoBehaviour {
             //get it out of the list and out of the game
             CakeLayers.Remove(lastLayer);
             Destroy(lastLayer.gameObject);
+            Arm.ChangeTarget(CakeLayers[CakeLayers.Count - 1].transform);
+            UpdateLayersPresent();
         }
     }
 
+    private void UpdateLayersPresent()
+    {
+        if (CakeLayers.Count > 0)
+        {
+            LayersPresent = true;
+        }
+        else
+        {
+            LayersPresent = false;
+        }
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -72,15 +89,5 @@ public class CakeScript : MonoBehaviour {
         float imgScale = CakePrefab.transform.localScale.y;
         float imgHeight = CakePrefab.GetComponent<RectTransform>().rect.height;
         yModifier = imgHeight * imgScale;
-    }
-
-    //check whether the list is empty
-    public bool NoLayers()
-    {
-        if (CakeLayers.Count > 0)
-        {
-            return true;
-        }
-        return false;
     }
 }
