@@ -6,6 +6,7 @@ public class MinigameZoneChecker : ZoneChecker
 {
     [Space]
     public List<Saveable> Minigames;
+    [Space]
     public Saveable ZoneComplete;
 
     protected override void Check()

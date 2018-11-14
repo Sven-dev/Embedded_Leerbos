@@ -643,12 +643,11 @@ GameObject:
   - component: {fileID: 1201304058}
   - component: {fileID: 1201304057}
   - component: {fileID: 1201304061}
-  - component: {fileID: 1201304062}
   - component: {fileID: 1201304064}
   - component: {fileID: 1201304063}
   - component: {fileID: 1201304067}
-  - component: {fileID: 1201304066}
   - component: {fileID: 1201304065}
+  - component: {fileID: 1201304062}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -745,13 +744,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1201304056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2bcd68f118b95146805a59f421b3aa1, type: 3}
+  m_Script: {fileID: 11500000, guid: 5cee97b70f0eef744bd9a2780ce9f4f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IntroState: {fileID: 1201304064}
-  CompleteState: {fileID: 1201304063}
-  Character: {fileID: 764077456}
-  Decorations: []
 --- !u!114 &1201304063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,17 +780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b7fe0839a2bf6448abfb863a1b908e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1201304066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1201304056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b03616887444727478f12dd69cee6f84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1201304067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,7 +796,7 @@ MonoBehaviour:
   Character: {fileID: 764077456}
   Decorations: []
   Minigames:
-  - {fileID: 1201304066}
+  - {fileID: 1201304062}
   - {fileID: 1201304065}
   ZoneComplete: {fileID: 1201304063}
 --- !u!1 &1218550346
