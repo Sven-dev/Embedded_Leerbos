@@ -2498,7 +2498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1625fc93f8be64c9b784a268aa8a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rounds: 5
+  Rounds: 3
   Price: 0
   PriceLabel: {fileID: 364321260}
   CorrectTarget: {fileID: 735083868}
