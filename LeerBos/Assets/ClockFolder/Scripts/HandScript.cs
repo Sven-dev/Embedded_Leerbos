@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class HandScript : MonoBehaviour {
 
-    public bool flash;
-    public Sprite handOpen;
-    public Sprite handClosed;
+    [HideInInspector]
+    public bool Flash;
+    public Sprite HandOpen;
+    public Sprite HandClosed;
 
     private ArmScript arm;
     private Image hand;
-    
     
 	void Start () {
         //get the stuff you need
@@ -32,29 +32,29 @@ public class HandScript : MonoBehaviour {
     public void StartFlashing()
     {
         //hand has entered "danger zone", give visual indicator
-        flash = true;
+        Flash = true;
         StartCoroutine(_FlashHand());
     }
 
     public void StopFlashing()
     {
         //stops while loop inside coroutine
-        flash = false;
+        Flash = false;
     }
 
     public IEnumerator _FlashHand()
     {
         //alternate between white and pastel red as long as flash is true
-        while(flash)
+        while(Flash)
         {
             hand.color = Color.Lerp(Color.red, Color.white, 0.3f);
-            if (!flash)
+            if (!Flash)
             {
                 break;
             }
             yield return new WaitForSeconds(0.25f);
             hand.color = Color.white;
-            if (!flash)
+            if (!Flash)
             {
                 break;
             }
@@ -66,11 +66,11 @@ public class HandScript : MonoBehaviour {
 
     public void OpenHand()
     {
-        hand.sprite = handOpen;
+        hand.sprite = HandOpen;
     }
 
     public void CloseHand()
     {
-        hand.sprite = handClosed;
+        hand.sprite = HandClosed;
     }
 }
