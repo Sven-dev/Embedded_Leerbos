@@ -443,8 +443,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21, y: -420}
-  m_SizeDelta: {x: 100, y: 250}
+  m_AnchoredPosition: {x: 21, y: -368.8}
+  m_SizeDelta: {x: 244.35, y: 419.625}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &564418494
 MonoBehaviour:
@@ -465,7 +465,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3720ae3bc410de144baad2ce6e77083d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -574,15 +574,14 @@ MonoBehaviour:
   DialoguePlaying: 0
   HitClip: {fileID: 8300000, guid: cfc4f3197ea8c5d488d19b68c92bf171, type: 3}
   IntroClips:
-  - {fileID: 8300000, guid: 18a09a235276ece49bcfbb546a046ab9, type: 3}
-  - {fileID: 8300000, guid: eec29e792cd3650449b69f8dd0db620c, type: 3}
+  - {fileID: 8300000, guid: b37cfc638b517054691ca3145a1f47a1, type: 3}
+  - {fileID: 8300000, guid: 325c93cf984f02e4dab6e626970a5bed, type: 3}
   Wrongwayclips:
   - {fileID: 8300000, guid: cfc4f3197ea8c5d488d19b68c92bf171, type: 3}
   VictoryClips:
-  - {fileID: 8300000, guid: e0307a6674cfd4e44b2cbde739ff4349, type: 3}
-  - {fileID: 8300000, guid: 9996816c7089c0b40af79e5d559a4a9c, type: 3}
+  - {fileID: 8300000, guid: 378f27e189dbb7e4696249d4a92c6565, type: 3}
   AfkClips:
-  - {fileID: 8300000, guid: cfc4f3197ea8c5d488d19b68c92bf171, type: 3}
+  - {fileID: 8300000, guid: 57b77eebc5dbdb14cab344b29dceb522, type: 3}
   Blinkables:
   - {fileID: 741474595}
   AfkTimer: 5
@@ -598,7 +597,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 6.4959564, y: -1.1474075}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -609,7 +608,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 100, y: 250}
+  m_Size: {x: 258.19614, y: 426.53986}
   m_EdgeRadius: 0
 --- !u!1 &741474593
 GameObject:
@@ -818,6 +817,7 @@ GameObject:
   - component: {fileID: 1201304064}
   - component: {fileID: 1201304063}
   - component: {fileID: 1201304062}
+  - component: {fileID: 1201304066}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -953,9 +953,88 @@ MonoBehaviour:
   IntroState: {fileID: 1201304064}
   CompleteState: {fileID: 1201304063}
   Character: {fileID: 564418497}
-  Decorations: []
   ZoneStates:
   - {fileID: 1201304062}
+--- !u!82 &1201304066
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201304056}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 17e86b8e95be59a49a4c2eb0a286f75f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.05
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1293000234
 GameObject:
   m_ObjectHideFlags: 0
