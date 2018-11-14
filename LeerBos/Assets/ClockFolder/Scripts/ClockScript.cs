@@ -157,7 +157,7 @@ public class ClockScript : Interactable {
                 Cake.NextLayer(currentCakeLayer);
                 active = false;
                 //wait a few seconds to show the final cake
-                StartCoroutine(_waitAndEnd(2));
+                StartCoroutine(_waitAndEnd(1));
             }
         }
         else
