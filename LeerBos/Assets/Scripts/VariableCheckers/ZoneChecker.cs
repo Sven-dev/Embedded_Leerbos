@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ZoneChecker : Checker
 {
@@ -8,7 +9,6 @@ public class ZoneChecker : Checker
     public Saveable CompleteState;
     [Space]
     public Npc Character;
-    public List<GameObject> Decorations;
 
     protected override void Check()
     {
@@ -16,14 +16,10 @@ public class ZoneChecker : Checker
         {
             IntroState.Set(true);
             StartCoroutine(_PlayDialogue());
+
         }
         else if (CompleteState.Get() == true)
         {
-            foreach (GameObject decoration in Decorations)
-            {
-                decoration.SetActive(true);
-            }
-
             Character.PlayDialogue(Character.VictoryClips[0]);
         }
     }
