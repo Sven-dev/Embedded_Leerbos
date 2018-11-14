@@ -141,7 +141,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.11395863}
@@ -159,12 +159,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
-  TargetLabel: {fileID: 0}
-  HourHand: {fileID: 224760389823509712}
-  MinuteHand: {fileID: 224106730613018312}
+  active: 1
+  AmountOfRounds: 3
   TimeSpeed: 1
   AnswerErrorMargin: 5
   HandErrorMargin: 5
+  ScorePenalty: 20
+  Cake: {fileID: 0}
+  CakeLayerPrefab: {fileID: 114492207352821688, guid: 0f2f90395b8a75d4bba1d8766c8f2eb3,
+    type: 2}
+  victoryScript: {fileID: 0}
+  TempCakeTrans: {fileID: 0}
+  OvenTrans: {fileID: 0}
+  ScoreLabel: {fileID: 0}
+  TargetLabel: {fileID: 0}
 --- !u!114 &114522042577579648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -388,7 +396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -409, y: 228}
+  m_AnchoredPosition: {x: 481, y: 241}
   m_SizeDelta: {x: 83.2, y: 83.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224760389823509712

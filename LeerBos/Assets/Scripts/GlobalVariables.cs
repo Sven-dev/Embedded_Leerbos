@@ -1,6 +1,10 @@
-﻿using UnityEngine;
-public class GlobalVariables
+﻿public class GlobalVariables
 {
+    public int _mainSquareState = 0;   //0 = default, 1 = introduced, 2 = completed
+    public int _townState = 0;         //0 = default, 1 = introduced, 2 = completed
+    public int _bakeryState = 0;       //0 = default, 1 = game 1 introduced, 2 = game 1 completed, 3 = game 2 introduced, 4 = game 2 completed
+    public int _marketState = 0;       //0 = default, 1 = game 1 introduced, 2 = game 1 completed, 3 = game 2 introduced, 4 = game 2 completed
+
     private static GlobalVariables _instance;
     private static GlobalVariables Instance
     {
@@ -60,8 +64,11 @@ public class GlobalVariables
         }
     }
 
-    public int _mainSquareState = 0;   //0 = default, 1 = introduced, 2 = completed
-    public int _townState = 0;         //0 = default, 1 = introduced, 2 = completed
-    public int _bakeryState = 0;       //0 = default, 1 = game 1 introduced, 2 = game 1 completed, 3 = game 2 introduced, 4 = game 2 completed
-    public int _marketState = 0;       //0 = default, 1 = game 1 introduced, 2 = game 1 completed, 3 = game 2 introduced, 4 = game 2 completed
+    public static void Reset()
+    {
+        MainSquareState = 0;
+        TownState = 0;
+        BakeryState = 0;
+        MarketState = 0;
+    }
 }

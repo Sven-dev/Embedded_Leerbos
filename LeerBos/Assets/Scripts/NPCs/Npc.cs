@@ -12,12 +12,21 @@ public class Npc : Interactable
     public List<AudioClip> IntroClips;
     public List<AudioClip> Wrongwayclips;
     public List<AudioClip> VictoryClips;
+    public List<AudioClip> AfkClips;
+
+    [Space]
+    public List<OutlineBlinker> Blinkables;
+
+    public float AfkTimer;
+    private float AfkTime;
 
     // Use this for initialization
     void Start ()
     {
         DialoguePlaying = false;
         Audio = GetComponent<AudioSource>();
+        AfkTime = 0;
+        StartCoroutine(_AfkTimer());
 	}
 
     public void PlayDialogue(List<AudioClip> clips)
@@ -36,6 +45,14 @@ public class Npc : Interactable
         }
     }
 
+    public void ActivateBlinkables()
+    {
+        foreach (OutlineBlinker blinker in Blinkables)
+        {
+            blinker.Blink();
+        }
+    }
+
     protected override void Click(Vector3 clickposition)
     {
         if (!DialoguePlaying)
@@ -46,6 +63,8 @@ public class Npc : Interactable
 
     IEnumerator _PlayDialogue(List<AudioClip> clips)
     {
+        AfkTime = 0;
+
         int index = 0;
         DialoguePlaying = true;
         while (index < clips.Count)
@@ -65,6 +84,8 @@ public class Npc : Interactable
 
     IEnumerator _PlayDialogue(AudioClip clip)
     {
+        AfkTime = 0;
+
         DialoguePlaying = true;
         Audio.PlayOneShot(clip);
         while (Audio.isPlaying)
@@ -74,5 +95,25 @@ public class Npc : Interactable
 
         yield return new WaitForSeconds(0.25f);
         DialoguePlaying = false;
+    }
+
+    IEnumerator _AfkTimer()
+    {
+        while(true)
+        {
+            while(DialoguePlaying)
+            {
+                yield return null;
+            }
+
+            AfkTime += Time.deltaTime;
+            if (AfkTime > AfkTimer)
+            {
+                PlayDialogue(AfkClips);
+                AfkTime = 0;
+            }
+
+            yield return null;
+        }
     }
 }

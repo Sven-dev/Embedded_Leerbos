@@ -5,9 +5,13 @@ using UnityEngine.UI;
 
 public class HandScript : MonoBehaviour {
 
+    public bool flash;
+    public Sprite handOpen;
+    public Sprite handClosed;
+
     private ArmScript arm;
     private Image hand;
-    public bool flash;
+    
     
 	void Start () {
         //get the stuff you need
@@ -58,5 +62,15 @@ public class HandScript : MonoBehaviour {
         }
         //make sure it ends on white
         hand.color = Color.white;
+    }
+
+    public void OpenHand()
+    {
+        hand.sprite = handOpen;
+    }
+
+    public void CloseHand()
+    {
+        hand.sprite = handClosed;
     }
 }
