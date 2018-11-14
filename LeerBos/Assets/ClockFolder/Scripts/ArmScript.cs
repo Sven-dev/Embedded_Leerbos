@@ -11,15 +11,18 @@ public class ArmScript : Interactable {
     public int TimeToDestination, PushBackSpeed, PushBackDuration;
     public float DangerDistance;
 
+    private AudioSource aSource;
     private Vector3 originPoint;
     private bool forward;
     private int coroutines;
     private HandScript hand;
+    private float prevRnd;
 
     // Use this for initialization
     void Start () {
-        //get hand
+        //get components
         hand = GetComponentInChildren<HandScript>();
+        aSource = GetComponent<AudioSource>();
         //coroutine IDs
         coroutines = 0;
         //save the origin point so we can return there later
@@ -31,6 +34,21 @@ public class ArmScript : Interactable {
     public void ChangeTarget(Transform transform)
     {
         Target = transform;
+    }
+
+    private void PlayRandomSound()
+    {
+        float i = Random.Range(0.8f, 1.2f);
+        if (prevRnd == i)
+        {
+            PlayRandomSound();
+        }
+        else
+        {
+            prevRnd = i;
+            aSource.pitch = i;
+            aSource.Play();
+        }
     }
 
     private IEnumerator _MoveTowardsTarget()
@@ -48,7 +66,7 @@ public class ArmScript : Interactable {
                 i += Time.deltaTime / TimeToDestination;
 
                 //hand not flashing
-                if (!hand.flash)
+                if (!hand.Flash)
                 {
                     //start flashing if this close to target
                     if (i > DangerDistance)
@@ -64,7 +82,7 @@ public class ArmScript : Interactable {
                 i -= Time.deltaTime / TimeToDestination*PushBackSpeed;
 
                 //hand flashing
-                if (hand.flash)
+                if (hand.Flash)
                 {
                     //stop flashing if this far from target
                     if (i < DangerDistance)
@@ -103,6 +121,11 @@ public class ArmScript : Interactable {
         if (success)
         {
             hand.CloseHand();
+        }
+        //if we're moving back because we got hit
+        else
+        {
+            PlayRandomSound();
         }
         //make sure this while ends if another of the same coroutine starts
         while (time < duration && coroutines == coroutineId)

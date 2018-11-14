@@ -1,8 +1,10 @@
-﻿public class TownCompleted : Saveable
+﻿[System.Serializable]
+//Checks if the town area was the LATEST area cleared
+public class MainSquareTownCompleted : Saveable
 {
     public override bool Get()
     {
-        if (GlobalVariables.TownState >= 2)
+        if (GlobalVariables.MainSquareState == 3)
         {
             return true;
         }
@@ -14,11 +16,10 @@
     {
         if (value)
         {
-            GlobalVariables.TownState = 2;
             GlobalVariables.MainSquareState = 3;
             return;
         }
 
-        GlobalVariables.TownState--;
+        GlobalVariables.MainSquareState--;
     }
 }

@@ -23,6 +23,8 @@ public class ZoneChecker : Checker
             {
                 decoration.SetActive(true);
             }
+
+            Character.PlayDialogue(Character.VictoryClips[0]);
         }
     }
 

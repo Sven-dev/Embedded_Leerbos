@@ -12,6 +12,7 @@ public class ManagerScript : MonoBehaviour
     public VictoryScript VictoryLabel;
     public ProgressBarScript ProgressBar;
     public float CountDownTime;
+    public int AmountOfRounds;
     
     private GameObject currentObject;
     private bool gameOver;
@@ -89,7 +90,7 @@ public class ManagerScript : MonoBehaviour
         objectsWeighed++;
         
 
-        if (objectsWeighed >= 5)
+        if (objectsWeighed >= AmountOfRounds)
         {
             gameOver = true;
             print("A WINNER IS YOU");

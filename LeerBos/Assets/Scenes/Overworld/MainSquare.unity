@@ -580,7 +580,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cfc4f3197ea8c5d488d19b68c92bf171, type: 3}
   VictoryClips:
   - {fileID: 8300000, guid: e0307a6674cfd4e44b2cbde739ff4349, type: 3}
-  AfkClips: []
+  - {fileID: 8300000, guid: 9996816c7089c0b40af79e5d559a4a9c, type: 3}
+  AfkClips:
+  - {fileID: 8300000, guid: cfc4f3197ea8c5d488d19b68c92bf171, type: 3}
   Blinkables:
   - {fileID: 741474595}
   AfkTimer: 5
@@ -812,9 +814,10 @@ GameObject:
   - component: {fileID: 1201304058}
   - component: {fileID: 1201304057}
   - component: {fileID: 1201304061}
-  - component: {fileID: 1201304062}
+  - component: {fileID: 1201304065}
   - component: {fileID: 1201304064}
   - component: {fileID: 1201304063}
+  - component: {fileID: 1201304062}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -911,13 +914,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1201304056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2bcd68f118b95146805a59f421b3aa1, type: 3}
+  m_Script: {fileID: 11500000, guid: ec6fba8e838d7e44284bb229f0f2e5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IntroState: {fileID: 1201304064}
-  CompleteState: {fileID: 1201304063}
-  Character: {fileID: 564418497}
-  Decorations: []
 --- !u!114 &1201304063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,6 +939,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3824df75d80276844a45ecb2144ad85c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1201304065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201304056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 175f5daee8d3de5448380ba7f5b471e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IntroState: {fileID: 1201304064}
+  CompleteState: {fileID: 1201304063}
+  Character: {fileID: 564418497}
+  Decorations: []
+  ZoneStates:
+  - {fileID: 1201304062}
 --- !u!1 &1293000234
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,8 @@ public class ClockScript : Interactable {
     public Transform TempCakeTrans, OvenTrans;
     public Text ScoreLabel, TargetLabel;
 
-    private Transform HourHand, MinuteHand;
+    private AudioSource aSource;
+    private Transform hourHand, minuteHand;
     private CakeLayer currentCakeLayer;
     private TimeSpan currentTime;
     private int previousMod, previousHour;
@@ -32,15 +33,16 @@ public class ClockScript : Interactable {
     // Use this for initialization
     void Start()
     {
-        MinuteHand = transform.GetChild(0);
-        HourHand = transform.GetChild(1);
+        minuteHand = transform.GetChild(0);
+        hourHand = transform.GetChild(1);
+        aSource = GetComponent<AudioSource>();
 
         //set starting time: 12:00
         currentTime = new TimeSpan(12, 0, 0);
         //set the first target time
         NewTargetTime();
         //set hour hand on target time in advance
-        HourHand.localRotation = Quaternion.Euler(0f, 0f, currentCakeLayer.TargetTime.Hours * -hoursToDegrees);
+        hourHand.localRotation = Quaternion.Euler(0f, 0f, currentCakeLayer.TargetTime.Hours * -hoursToDegrees);
         //start movement of minute hand
         StartCoroutine(_moveHands());
         StartCoroutine(_updateCurrentTime());
@@ -136,6 +138,7 @@ public class ClockScript : Interactable {
         if (Mathf.Abs(diff) <= AnswerErrorMargin || (Mathf.Abs(diff) > 30 && overflowDiff <= AnswerErrorMargin))
         {
             print("correct!");
+            aSource.Play();
             //add score of the current pie to the total
             TotalScore += currentCakeLayer.Score;
             UpdateScoreLabel();
@@ -154,7 +157,7 @@ public class ClockScript : Interactable {
                 Cake.NextLayer(currentCakeLayer);
                 active = false;
                 //wait a few seconds to show the final cake
-                StartCoroutine(_waitAndEnd(2));
+                StartCoroutine(_waitAndEnd(1));
             }
         }
         else
@@ -180,7 +183,7 @@ public class ClockScript : Interactable {
         while (active)
         {
             //continuously turn minute hand towards the current time. will stop when reached. will move again when it changes.
-            MinuteHand.rotation = Quaternion.RotateTowards(MinuteHand.localRotation, Quaternion.Euler(0f, 0f, currentTime.Minutes * -minutesToDegrees), TimeSpeed);
+            minuteHand.rotation = Quaternion.RotateTowards(minuteHand.localRotation, Quaternion.Euler(0f, 0f, currentTime.Minutes * -minutesToDegrees), TimeSpeed);
 
             //hour hand is more complicated
             //can't use RotateTowards cause it'll turn counterclockwise if that's closer
@@ -189,11 +192,11 @@ public class ClockScript : Interactable {
             //calculate the current target Z rotation
             float targetZ = Quaternion.Euler(0f, 0f, (float)currentCakeLayer.TargetTime.TotalHours * -hoursToDegrees).eulerAngles.z;
             //get the difference between the target and current rotation
-            float difference = HourHand.rotation.eulerAngles.z - targetZ;
+            float difference = hourHand.rotation.eulerAngles.z - targetZ;
             //if not within the margin of error, keep it rotating
             if (Mathf.Abs(difference) > HandErrorMargin)
             {
-                HourHand.Rotate(Vector3.back, Time.deltaTime * (TimeSpeed * 200));
+                hourHand.Rotate(Vector3.back, Time.deltaTime * (TimeSpeed * 200));
             }
             yield return null;
         }

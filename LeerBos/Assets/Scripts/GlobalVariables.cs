@@ -1,6 +1,6 @@
 ﻿public class GlobalVariables
 {
-    public int _mainSquareState = 0;   //0 = default, 1 = introduced, 2 = completed
+    public int _mainSquareState = 0;   //0 = default, 1 = introduced, 2 = game completed, 3 = town completed, 4 = forest completed, 5 = mountain completed, 6 = workshop completed
     public int _townState = 0;         //0 = default, 1 = introduced, 2 = completed
     public int _bakeryState = 0;       //0 = default, 1 = game 1 introduced, 2 = game 1 completed, 3 = game 2 introduced, 4 = game 2 completed
     public int _marketState = 0;       //0 = default, 1 = game 1 introduced, 2 = game 1 completed, 3 = game 2 introduced, 4 = game 2 completed
