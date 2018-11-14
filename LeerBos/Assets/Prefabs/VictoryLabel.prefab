@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &61331894177039812
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
-  TargetScene: {fileID: 102900000, guid: a7b3febd75111554fb4b5b17aeaaa080, type: 3}
+  TargetString: 
   TransitionImage: {fileID: 0}
 --- !u!114 &114719382947622270
 MonoBehaviour:
@@ -348,10 +348,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1343914708824554}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e737959242d11544fbd57187d22ae91d, type: 3}
+  m_Script: {fileID: 11500000, guid: 51db21a3071a57142ae2c26387f2616a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
+  TargetString: 
+  TransitionImage: {fileID: 0}
 --- !u!114 &114818713118664250
 MonoBehaviour:
   m_ObjectHideFlags: 1
