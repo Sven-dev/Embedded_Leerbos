@@ -580,8 +580,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cfc4f3197ea8c5d488d19b68c92bf171, type: 3}
   VictoryClips:
   - {fileID: 8300000, guid: e0307a6674cfd4e44b2cbde739ff4349, type: 3}
+  AfkClips: []
   Blinkables:
   - {fileID: 741474595}
+  AfkTimer: 5
 --- !u!61 &564418498
 BoxCollider2D:
   m_ObjectHideFlags: 0
