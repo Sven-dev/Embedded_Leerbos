@@ -76,7 +76,7 @@ public class Npc : Interactable
             }
 
             index++;
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.05f);
         }
 
         DialoguePlaying = false;
@@ -93,7 +93,7 @@ public class Npc : Interactable
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.05f);
         DialoguePlaying = false;
     }
 

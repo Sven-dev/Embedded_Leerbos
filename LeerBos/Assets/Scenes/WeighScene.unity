@@ -231,7 +231,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ae321ece1ceebc4478abd4729baea20d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -316,7 +316,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d008b66eb042c40468486b589ef71126, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.075
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1661,6 +1661,11 @@ Prefab:
         type: 2}
       propertyPath: TargetString
       value: ClockScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 82027136207734830, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114868208733751848, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}

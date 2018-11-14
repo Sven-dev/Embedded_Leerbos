@@ -405,7 +405,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: afd13b38afc46ee42be80b717e074555, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.025
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -649,10 +649,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1378331885362576, guid: 08294093fb704454ebca0bea05420e39, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08294093fb704454ebca0bea05420e39, type: 2}
@@ -1072,7 +1068,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cfc4f3197ea8c5d488d19b68c92bf171, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1506,10 +1502,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1700351817526612, guid: ece98c1c0c5136a4fb1cde696cc1e5a7, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ece98c1c0c5136a4fb1cde696cc1e5a7, type: 2}
   m_IsPrefabParent: 0
@@ -1717,6 +1709,11 @@ Prefab:
       propertyPath: TargetString
       value: Betalen
       objectReference: {fileID: 0}
+    - target: {fileID: 82027136207734830, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114868208733751848, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
     - {fileID: 114719382947622270, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
@@ -1886,10 +1883,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145035897249166, guid: 04fb7e56144af1d4f8c8e8dd9c981277, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04fb7e56144af1d4f8c8e8dd9c981277, type: 2}
@@ -2925,10 +2918,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1835667691237726, guid: 6577d40f5c652eb45b0849ca5b6a0058, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6577d40f5c652eb45b0849ca5b6a0058, type: 2}
   m_IsPrefabParent: 0
@@ -3101,10 +3090,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1904095247752654, guid: 50206d584f945664097533d16ab9011a, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50206d584f945664097533d16ab9011a, type: 2}
   m_IsPrefabParent: 0
@@ -3209,10 +3194,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1730173250567060, guid: c69f9098af882fe4ea65a946cf6fd99c, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c69f9098af882fe4ea65a946cf6fd99c, type: 2}
@@ -3346,10 +3327,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1738348111017150, guid: 137a0ccb30ac2684a84fa96ffdcf278e, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 137a0ccb30ac2684a84fa96ffdcf278e, type: 2}
