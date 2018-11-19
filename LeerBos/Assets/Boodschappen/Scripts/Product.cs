@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Product : MonoBehaviour
+public class Product : Interactable
 {
     private Rigidbody2D Rigidbody;
     private Collider2D Collider;
@@ -41,12 +41,22 @@ public class Product : MonoBehaviour
         ProductName = name;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void IncreaseGravity(int amount)
     {
         if (!IncreasedGravity)
         {
-            Rigidbody.gravityScale *= 4;
+            Rigidbody.gravityScale *= amount;
             IncreasedGravity = true;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        IncreaseGravity(4);
+    }
+
+    protected override void Click(Vector3 clickposition)
+    {
+        IncreaseGravity(50);
     }
 }
