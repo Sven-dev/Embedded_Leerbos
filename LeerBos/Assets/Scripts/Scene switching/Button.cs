@@ -31,5 +31,4 @@ public class Button : SceneSwitchable
         Icon.localPosition = new Vector2(Icon.localPosition.x + 10, Icon.localPosition.y + 10);
         ButtonImage.sprite = DefaultSprite;
     }
-
 }

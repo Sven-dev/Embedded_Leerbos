@@ -83,7 +83,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 8.152588, y: 9.372681}
+  m_Offset: {x: -12.811523, y: 12.1698}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -94,7 +94,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1454.4397, y: 669.8927}
+  m_Size: {x: 1367.7571, y: 675.48694}
   m_EdgeRadius: 0
 --- !u!61 &61622258077608534
 BoxCollider2D:
@@ -108,7 +108,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -5.9499817, y: 32.33696}
+  m_Offset: {x: -2.6260986, y: 48.004425}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -119,7 +119,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 586.69, y: 291.93924}
+  m_Size: {x: 761.46326, y: 405.7411}
   m_EdgeRadius: 0
 --- !u!82 &82439416610758500
 AudioSource:
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.74264705, g: 0.34402034, b: 0.34402034, a: 1}
+  m_Color: {r: 0.6095334, g: 0.4852941, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -334,6 +334,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 576}
-  m_SizeDelta: {x: 1167, y: 472}
+  m_AnchoredPosition: {x: 1716, y: 580.1}
+  m_SizeDelta: {x: 1167, y: 504.7}
   m_Pivot: {x: 0.5, y: 0.5}
