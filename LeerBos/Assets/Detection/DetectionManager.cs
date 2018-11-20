@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,15 +17,11 @@ public class DetectionManager : MonoBehaviour
         Application.targetFrameRate = 10;
         SceneManager.sceneLoaded += AttachCamera;
         if (cam == null)
-        {
             cam = Camera.main;
-        }
 
         StartCoroutine(_BlobHandle());
         if (DeveloperMode)
-        {
             StartCoroutine(_MouseHandle());
-        }
     }
 
     private void AttachCamera(Scene scene, LoadSceneMode mode)
@@ -71,16 +67,15 @@ public class DetectionManager : MonoBehaviour
         {
             case CollisionType._2D:
                 //2D
-                Click2D(Raycast2D(layer, position));
+                Raycast(layer, (Vector2)position);
                 break;
-            case CollisionType._3D:
+            case CollisionType._3D: 
                 //3D
-                Click3D(Raycast3D(layer, position));
+                Raycast(layer, position);
                 break;
             case CollisionType.Both:
-                //Both
-                Click2D(Raycast2D(layer, position));
-                Click3D(Raycast3D(layer, position));
+                Raycast(layer, (Vector2)position);
+                Raycast(layer, position);
                 break;
         }
     }
@@ -116,18 +111,19 @@ public class DetectionManager : MonoBehaviour
 
     #region 2D
     //Raycasts at the given position, returns the hit object.
-    private RaycastHit2D Raycast2D(LayerMask layerMask, Vector2 position)
+    private void Raycast(LayerMask layerMask, Vector2 position)
     {
         Ray ray = new Ray(position, Vector3.forward);
 
         Debug.DrawRay(ray.origin, ray.direction, Color.red, 5);
-        RaycastHit2D hit = Physics2D.Raycast(position, Vector3.forward, Mathf.Infinity, layerMask);
-
-        return hit;
+        foreach (RaycastHit2D hit in Physics2D.RaycastAll(position, Vector3.forward, Mathf.Infinity, layerMask))
+        {
+            Click(hit);
+        }
     }
 
     //Clicks at the given position, checks for an interactable object, and interacts with it.
-    private void Click2D(RaycastHit2D hit)
+    private void Click(RaycastHit2D hit)
     {
         if (hit.transform != null)
         {
@@ -142,19 +138,19 @@ public class DetectionManager : MonoBehaviour
 
     #region 3D
     //Raycasts at the given position, returns the hit object.
-    private RaycastHit Raycast3D(LayerMask layerMask, Vector3 position)
+    private void Raycast(LayerMask layerMask, Vector3 position)
     {
-        RaycastHit hit;
         Ray ray = new Ray(position, Vector3.forward);
 
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 5);
-        Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask);
-
-        return hit;
+        foreach (RaycastHit hit in Physics.RaycastAll(ray, Mathf.Infinity, layerMask))
+        {
+            Click(hit);
+        }
     }
 
     //Clicks at the given position, checks for an interactable object, and interacts with it.
-    private void Click3D(RaycastHit hit)
+    private void Click(RaycastHit hit)
     {
         if (hit.transform != null)
         {
@@ -170,7 +166,9 @@ public class DetectionManager : MonoBehaviour
 
 public enum CollisionType
 {
+    [Description("2D")]
     _2D,
+    [Description("3D")]
     _3D,
     Both
 }
