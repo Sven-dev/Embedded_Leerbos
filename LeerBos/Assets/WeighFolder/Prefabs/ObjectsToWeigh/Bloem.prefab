@@ -207,7 +207,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Suiker
+  m_Text: Bloem
 --- !u!114 &114539896162056806
 MonoBehaviour:
   m_ObjectHideFlags: 1
