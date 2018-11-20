@@ -56,7 +56,7 @@ public class SceneSwitcher : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(1);
+        //yield return new WaitForSeconds(0.25f);
         SceneManager.LoadScene(TargetScene);
     }
 }
