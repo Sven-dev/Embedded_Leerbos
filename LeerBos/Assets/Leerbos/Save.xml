@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <GlobalVariables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <_mainSquareState>0</_mainSquareState>
+  <_mainSquareState>1</_mainSquareState>
   <_townState>0</_townState>
   <_bakeryState>0</_bakeryState>
   <_marketState>2</_marketState>
