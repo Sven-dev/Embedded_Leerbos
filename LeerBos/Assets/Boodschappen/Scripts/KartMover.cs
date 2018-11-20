@@ -36,7 +36,9 @@ public class KartMover : Interactable
                 signum = -signum;
             }
 
-            Kart.transform.Translate(Vector3.right * speedChange * signum * Time.deltaTime);
+            Vector3 current = Kart.transform.position;
+            Kart.transform.Translate(Vector2.right * speedChange * signum * Time.deltaTime);
+            //Kart.transform.localPosition = new Vector3(current.x + speedChange * signum * Time.deltaTime, current.y, current.z);
             speedChange -= MoveDrag * Time.deltaTime;
             yield return null;
         }

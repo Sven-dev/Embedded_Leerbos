@@ -2,11 +2,7 @@
 <GlobalVariables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <_mainSquareState>1</_mainSquareState>
   <_townState>0</_townState>
-<<<<<<< HEAD
-  <_bakeryState>4</_bakeryState>
-  <_marketState>0</_marketState>
-=======
-  <_bakeryState>0</_bakeryState>
+  <_bakeryState>2</_bakeryState>
   <_marketState>2</_marketState>
 >>>>>>> master
 </GlobalVariables>

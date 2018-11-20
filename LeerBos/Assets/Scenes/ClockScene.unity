@@ -556,7 +556,7 @@ Prefab:
     - target: {fileID: 114494432113721798, guid: e7574c9f71800504a8d1639fb380cb85,
         type: 2}
       propertyPath: layer.m_Bits
-      value: 4294966783
+      value: 4294966779
       objectReference: {fileID: 0}
     - target: {fileID: 114494432113721798, guid: e7574c9f71800504a8d1639fb380cb85,
         type: 2}
