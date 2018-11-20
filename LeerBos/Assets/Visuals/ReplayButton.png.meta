@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: c4cd18ac7d5582741b20b8cf4a10d0e1
+=======
+guid: 97b19ae3db0259e47b19dc0e236dc382
+>>>>>>> master
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -41,8 +45,13 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
+<<<<<<< HEAD
   alignment: 9
   spritePivot: {x: 0.455825, y: 0.47969878}
+=======
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+>>>>>>> master
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
