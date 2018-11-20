@@ -9,17 +9,19 @@ public class SceneSwitchable : Interactable
     public string TargetString;
     public Sprite TransitionImage;
 
-    // Use this for initialization
-    void Start ()
-    {
-        SceneSwitcher = Camera.main.GetComponent<SceneSwitcher>();
-	}
-
     protected override void Click(Vector3 clickposition)
     {
         if (TargetString != "")
         {
-            SceneSwitcher.Switch(TargetString, TransitionImage);
+            Switch();
         }
+    }
+
+    protected void Switch()
+    {
+        SceneSwitcher = Camera.main.GetComponent<SceneSwitcher>();
+        SceneSwitcher.Switch(
+            TargetString, 
+            TransitionImage);
     }
 }
