@@ -9,7 +9,8 @@ public class Product : Interactable
     private Collider2D Collider;
     private Text Label;
     [HideInInspector]
-    public AudioSource NameSFX;
+    public AudioSource NameAudio;
+    private AudioSource HitAudio;
     bool IncreasedGravity;
 
     public string ProductName
@@ -24,7 +25,10 @@ public class Product : Interactable
         Label = transform.GetChild(0).GetComponent<Text>();
         Rigidbody = GetComponent<Rigidbody2D>();
         Collider = GetComponent<Collider2D>();
-        NameSFX = GetComponent<AudioSource>();
+
+        AudioSource[] audios = GetComponents<AudioSource>();
+        NameAudio = audios[0];
+        HitAudio = audios[1];
 
         IncreasedGravity = false;
 	}
@@ -33,6 +37,7 @@ public class Product : Interactable
     {
         Destroy(Rigidbody);
         Destroy(Collider);
+        Destroy(HitAudio);
         transform.SetParent(k.ProductHolder);
     }
 
@@ -58,5 +63,9 @@ public class Product : Interactable
     protected override void Click(Vector3 clickposition)
     {
         IncreaseGravity(50);
+        if (HitAudio != null)
+        {
+            HitAudio.Play();
+        }
     }
 }

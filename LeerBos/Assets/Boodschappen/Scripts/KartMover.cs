@@ -6,12 +6,21 @@ public class KartMover : Interactable
 {
     public float MoveSpeed;
     public float MoveDrag;
+    [Space]
+    public float XBoundMin;
+    public float XBoundMax;
 
+    private AudioSource Bounce;
+    private AudioSource Grind;
     private Kart Kart;
     private bool Moving;
 
     private void Start()
     {
+        AudioSource[] audio = GetComponents<AudioSource>();
+        Bounce = audio[0];
+        Grind = audio[1];
+
         Kart = transform.parent.GetComponent<Kart>();
         Moving = true;
     }
@@ -24,38 +33,46 @@ public class KartMover : Interactable
         StartCoroutine(_Move(distance, signum));
     }
 
-    //position relative to the camera
-    IEnumerator _Move(float x, int signum)
+    /// <summary>
+    /// Moves the kart
+    /// </summary>
+    /// <param name="xdistance">The distance between the center of the kart and the position thrown on the x-axis. Smaller distance means higher kart speed </param>
+    /// <param name="signum">The direction the kart is moving. Is either 1 or -1</param>
+    /// <returns></returns>
+    IEnumerator _Move(float xdistance, int signum)
     {
-        float speedChange = MoveSpeed - x / 2;
+        float speedChange = MoveSpeed - xdistance / 2;
         while (speedChange > 0 && Moving)
         {
-            if (Kart.Clamp() == true)
+            if (Clamp())
             {
+                Bounce.Play();
                 speedChange /= 2;
                 signum = -signum;
             }
 
-            Vector3 current = Kart.transform.position;
             Kart.transform.Translate(Vector2.right * speedChange * signum * Time.deltaTime);
-            //Kart.transform.localPosition = new Vector3(current.x + speedChange * signum * Time.deltaTime, current.y, current.z);
             speedChange -= MoveDrag * Time.deltaTime;
             yield return null;
+
+            Grind.volume = speedChange / MoveSpeed;
         }
     }
 
-    //Halts the kart
-    public void Stop()
+    //Clamps the plane to the upper and right boundaries, meaning the plane can't leave those sides of the screen
+    public bool Clamp()
     {
-        StartCoroutine(_Stop());
-    }
+        bool clamped = false;
+        if (transform.position.x <= XBoundMin || transform.position.x >= XBoundMax)
+        {
+            clamped = true;
+        }
 
-    IEnumerator _Stop()
-    {
-        Moving = false;
-        yield return null;
-        Moving = true;
-                
+        Kart.transform.position = new Vector2(
+            Mathf.Clamp(transform.position.x, XBoundMin, XBoundMax),
+            transform.position.y);
+
+        return clamped;
     }
 
     //calculates the distance between the this and an object, based on an axis.

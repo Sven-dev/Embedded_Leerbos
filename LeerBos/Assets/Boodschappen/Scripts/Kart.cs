@@ -2,34 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Kart : MonoBehaviour {
-
+public class Kart : MonoBehaviour
+{
     public ProductSpawner ShoppingList;
+    [Space]
+    public AudioClip Correct;
+    public AudioClip Incorrect;
     [HideInInspector]
     public Transform ProductHolder;
-    public AudioSource CorrectSFX;
-    public AudioSource IncorrectSFX;
-
-    public float XBoundMin;
-    public float XBoundMax;
+    private AudioSource Audio;
 
     private void Start()
     {
         ProductHolder = transform.GetChild(3);
+        Audio = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //if the kart caught a product
         Product p = collision.transform.GetComponent<Product>();
         if (p != null)
         {
+            //if it's the correct product
             if (ShoppingList.ProductCollected(p))
             {
-                CorrectSFX.Play();
+                Audio.PlayOneShot(Correct);
                 p.FallInCart(this);
                 return;
             }
 
+            //if it's an incorrect product
             Destroy(p.GetComponent<Collider2D>());
             p.transform.Translate(Vector3.up);
             Rigidbody2D rigidbody = p.GetComponent<Rigidbody2D>();
@@ -37,23 +40,7 @@ public class Kart : MonoBehaviour {
             rigidbody.AddTorque(35);
             rigidbody.gravityScale = 1;
 
-            IncorrectSFX.Play();
+            Audio.PlayOneShot(Incorrect);
         }
-    }
-
-    //Clamps the plane to the upper and right boundaries, meaning the plane can't leave those sides of the screen
-    public bool Clamp()
-    {
-        bool clamped = false;
-        if (transform.position.x <= XBoundMin || transform.position.x >= XBoundMax)
-        {
-            clamped = true;
-        }
-
-        transform.position = new Vector2(
-            Mathf.Clamp(transform.position.x, XBoundMin, XBoundMax),
-            transform.position.y);
-
-        return clamped;
     }
 }

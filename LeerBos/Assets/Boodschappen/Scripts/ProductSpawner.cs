@@ -86,7 +86,7 @@ public class ProductSpawner : MonoBehaviour {
         }
 
         CorrectProduct = ProductClones[0].ProductName;
-        ProductClones[0].NameSFX.Play();
+        ProductClones[0].NameAudio.Play();
     }
 
     //spawns 3 products, 1 spelled correctly and 2 with scrambled letters
