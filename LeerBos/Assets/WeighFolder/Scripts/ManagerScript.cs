@@ -140,7 +140,7 @@ public class ManagerScript : MonoBehaviour
                 print("how the heck did you get here with an invalid enum");
                 throw new ArgumentException();
         }
-        return Instantiate(prefab, new Vector2(x, 10),Quaternion.Euler(0,0,0),WeightParent.transform);
+        return Instantiate(prefab, new Vector2(x, WeightParent.transform.localPosition.y),Quaternion.Euler(0,0,0),WeightParent.transform);
     }
 
     //get x position of the left scale
