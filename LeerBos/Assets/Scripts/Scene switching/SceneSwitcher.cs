@@ -11,13 +11,11 @@ public class SceneSwitcher : MonoBehaviour
     private Camera Camera;
     private Image Transition;
     private string TargetScene;
-    private Checker Checker;
 
     private void Start()
     {
         Camera = GetComponent<Camera>();
-        Transition = transform.GetComponentInChildren<Image>();
-        Checker = GetComponent<Checker>();
+        Transition = transform.GetChild(0).GetChild(1).GetComponent<Image>();
         StartCoroutine(_FadeIn());
     }
 
@@ -56,7 +54,6 @@ public class SceneSwitcher : MonoBehaviour
             yield return null;
         }
 
-        //yield return new WaitForSeconds(0.25f);
         SceneManager.LoadScene(TargetScene);
     }
 }
