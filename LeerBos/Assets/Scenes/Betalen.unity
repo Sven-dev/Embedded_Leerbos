@@ -1784,12 +1784,12 @@ Prefab:
     - target: {fileID: 224657297186456760, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -300
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224376816556432910, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 300
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114440737268049800, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
         type: 2}
@@ -1808,6 +1808,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114719382947622270, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
+    - {fileID: 114602334234163772, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1229658993 stripped
@@ -1829,6 +1830,22 @@ MonoBehaviour:
   Cooldown: 20
   TargetString: Betalen
   TransitionImage: {fileID: 0}
+--- !u!1 &1229658995 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1727622849704506, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
+    type: 2}
+  m_PrefabInternal: {fileID: 1229658992}
+--- !u!114 &1229658996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1229658995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cee97b70f0eef744bd9a2780ce9f4f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1243081831 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224278030083405092, guid: 1ee558e7fc11a8e4e97888ceab35bb69,

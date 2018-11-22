@@ -1670,12 +1670,12 @@ Prefab:
     - target: {fileID: 224657297186456760, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -300
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224376816556432910, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 300
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114489085773141866, guid: 1ee558e7fc11a8e4e97888ceab35bb69,
         type: 2}
@@ -1687,9 +1687,14 @@ Prefab:
       propertyPath: m_Volume
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1343914708824554, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114868208733751848, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
     - {fileID: 114719382947622270, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
+    - {fileID: 114602334234163772, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1ee558e7fc11a8e4e97888ceab35bb69, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1901764513 stripped
