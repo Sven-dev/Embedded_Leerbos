@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Coin : Interactable
 {
-    public Counter Counter;
+    public Transform RegisterTarget;
     public Transform MoveBetween;
-    public ConveyorBelt Belt;
+    public Transform BeltTarget;
     [Space]
     public float MoveSpeed;
     public bool CorrectCoin;
@@ -28,31 +28,24 @@ public class Coin : Interactable
 
     protected override void Click(Vector3 clickposition)
     {
-        if (transform.parent.parent == Belt.transform)
+        print("clicked");
+        print(transform.parent.parent.name);
+        //if it's on the belt
+        if (transform.parent.tag == "ConveyorBelt")
         {
-            //if the object is papermoney, move it to the left part of the counter
-            if (Value > 2)
-            {
-                MoveTo(Counter.transform.GetChild(0));
-            }
-            //if the object is a coin, move it to the right
-            else
-            {
-                MoveTo(Counter.transform.GetChild(1));
-            }
+            MoveTo(RegisterTarget);
         }
 
-        //if clicked while on counter, move to belt
-        else if (transform.parent == Counter.transform)
+        //if it's in the register
+        else if (transform.parent.tag == "CashRegister")
         {
-            MoveTo(Belt.transform);
+            MoveTo(BeltTarget);
         }
-
-        transform.SetParent(MoveBetween, true);
     }
 
     public void MoveTo(Transform target, bool audio = true)
     {
+        transform.SetParent(MoveBetween, true);
         StartCoroutine(_MoveTo(target));
         if (audio)
         {

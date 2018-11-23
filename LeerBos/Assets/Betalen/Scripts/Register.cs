@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Counter : MonoBehaviour
+public class Register : MonoBehaviour
 {
     public int Rounds;
     public double Price;
 
     public Text PriceLabel;
-    public Transform CorrectTarget;
-    private bool Comparing;
+    public Transform CorrectTarget; //Needs to be replaced by drawer closing
+
+    private Transform Drawer;
+    private List<Transform> Drawers;
 
     public delegate void PriceChange();
     public event PriceChange OnPriceChange;
@@ -21,14 +24,15 @@ public class Counter : MonoBehaviour
 
     private AudioSource Audio;
 
-
     private void Start()
     {
         UILabel.Link(this);
-        Comparing = false;
         Victory = false;
         Audio = GetComponent<AudioSource>();
         StartCoroutine(_GeneratePrice());
+
+        Drawer = transform.GetChild(0);
+        Drawers = Drawer.GetComponentsInChildren<Transform>().ToList();
     }
 
     //Compares the required price to the sum of all coint that are children of the counter
@@ -84,8 +88,8 @@ public class Counter : MonoBehaviour
     //Generates a new price, and rounds it to 2 decimals
     IEnumerator _GeneratePrice()
     {
-        double rnd = UnityEngine.Random.Range(2.0f, 20f);
-        Price = Math.Round(rnd / 5.0, 2) * 5;
+        double rnd = UnityEngine.Random.Range(1.0f, 15f);
+        Price = Math.Round(rnd / 50.0, 2) * 50;
         yield return new WaitForSeconds(2);
         OnPriceChange();
     }
@@ -95,7 +99,7 @@ public class Counter : MonoBehaviour
         Coin c = collision.transform.parent.GetComponent<Coin>();
         if (c != null)
         {
-            c.transform.SetParent(transform, true);
+            c.transform.SetParent(c.RegisterTarget, true);
             Compare();
         }
     }
