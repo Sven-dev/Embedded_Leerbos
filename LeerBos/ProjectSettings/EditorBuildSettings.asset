@@ -23,6 +23,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/ClockScene.unity
     guid: 4b8674b9c9b87734599fe1168c47175b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Betalen.unity
     guid: ae19bd9f2fd39764a899e1c2b90cfa55
