@@ -1519,6 +1519,11 @@ Prefab:
       propertyPath: TargetString
       value: ClockScene
       objectReference: {fileID: 0}
+    - target: {fileID: 82951587361083722, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4492a0e16a287684d8ead05f3802b4cc, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
   m_IsPrefabParent: 0
