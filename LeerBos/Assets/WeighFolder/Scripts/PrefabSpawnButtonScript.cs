@@ -6,16 +6,15 @@ public class PrefabSpawnButtonScript : Interactable
 {
     public ManagerScript manager;
     public GameObject prefab;
-
-    private RectTransform trans;
+    
     private AudioSource aSource;
-    private int coroutineId;
+    private int coroutineId = 0;
+    private Vector3 defaultScale;
 
     void Start () {
-        trans = GetComponent<RectTransform>();
         aSource = GetComponent<AudioSource>();
-        coroutineId = 0;
-	}
+        defaultScale = transform.localScale;
+    }
 
     //gets the manager to spawn the button's associated prefab
     protected override void Click(Vector3 clickposition)
@@ -36,16 +35,16 @@ public class PrefabSpawnButtonScript : Interactable
         coroutineId++;
         int id = coroutineId;
 
-        trans.sizeDelta = new Vector2(100,100);
+        transform.localScale = defaultScale;
 
-        while (trans.sizeDelta.x < 110 && id == coroutineId)
+        while (transform.localScale.x > defaultScale.x / 1.1 && id == coroutineId)
         {
-            trans.sizeDelta = new Vector2(trans.sizeDelta.x + 2, trans.sizeDelta.y + 2);
+            transform.localScale = new Vector2(transform.localScale.x / 1.02f, transform.localScale.y / 1.02f);
             yield return null;
         }
-        while (trans.sizeDelta.x > 100 && id == coroutineId)
+        while (transform.localScale.x < defaultScale.x && id == coroutineId)
         {
-            trans.sizeDelta = new Vector2(trans.sizeDelta.x - 2, trans.sizeDelta.y - 2);
+            transform.localScale = new Vector2(transform.localScale.x * 1.02f, transform.localScale.y * 1.02f);
             yield return null;
         }
     }

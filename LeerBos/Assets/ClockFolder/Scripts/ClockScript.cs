@@ -26,7 +26,9 @@ public class ClockScript : Interactable {
     private int TotalScore;
 
     private Image dial;
-    private int coroutineId;
+    private int coroutineId1 = 0, coroutineId2 = 0;
+
+    private Vector3 defaultScale;
 
     private const float
         hoursToDegrees = 360f / 12f,
@@ -40,7 +42,7 @@ public class ClockScript : Interactable {
         hourHand = transform.GetChild(1);
         aSource = GetComponent<AudioSource>();
         dial = GetComponent<Image>();
-        coroutineId = 0;
+        defaultScale = transform.localScale;
 
         //set starting time: 12:00
         currentTime = new TimeSpan(12, 0, 0);
@@ -55,8 +57,12 @@ public class ClockScript : Interactable {
 
     protected override void Click(Vector3 clickposition)
     {
-        //detect click on clock, check current time shown
-        CheckAnswer();
+        //if game hasnt  ended
+        if (active) {
+            //detect click on clock, react, check current time shown
+            StartCoroutine(_reaction());
+            CheckAnswer();
+        }
     }
 
     void NewTargetTime()
@@ -142,13 +148,11 @@ public class ClockScript : Interactable {
         float overflowDiff = Mathf.Abs(Mathf.Abs(diff) - 60);
         if (Mathf.Abs(diff) <= AnswerErrorMargin || (Mathf.Abs(diff) > 30 && overflowDiff <= AnswerErrorMargin))
         {
-            StartCoroutine(_react(true));
-            print("correct!");
+            StartCoroutine(_giveFeedback(true));
             aSource.Play();
             //add score of the current pie to the total
             TotalScore += currentCakeLayer.Score;
             UpdateScoreLabel();
-            print(TotalScore);
             rounds++;
             //check whether this was the final round
             if (rounds < AmountOfRounds)
@@ -165,11 +169,6 @@ public class ClockScript : Interactable {
                 //wait a few seconds to show the final cake
                 StartCoroutine(_waitAndEnd(1));
             }
-        }
-        else
-        {
-            StartCoroutine(_react(false));
-            print("incorrect");
         }
     }
 
@@ -209,10 +208,29 @@ public class ClockScript : Interactable {
         }
     }
 
-    IEnumerator _react(bool correct)
+    private IEnumerator _reaction()
     {
-        coroutineId++;
-        int id = coroutineId;
+        coroutineId1++;
+        int id = coroutineId1;
+
+        transform.localScale = defaultScale;
+        
+        while (transform.localScale.x > defaultScale.x / 1.1 && id == coroutineId1)
+        {
+            transform.localScale = new Vector2(transform.localScale.x / 1.02f, transform.localScale.y / 1.02f);
+            yield return null;
+        }
+        while (transform.localScale.x < defaultScale.x && id == coroutineId1)
+        {
+            transform.localScale = new Vector2(transform.localScale.x * 1.02f, transform.localScale.y * 1.02f);
+            yield return null;
+        }
+    }
+
+    IEnumerator _giveFeedback(bool correct)
+    {
+        coroutineId2++;
+        int id = coroutineId2;
 
         dial.color = Color.white;
 
@@ -227,13 +245,13 @@ public class ClockScript : Interactable {
             targetClr = Color.red;
         }
 
-        while (dial.color != targetClr && coroutineId == id)
+        while (dial.color != targetClr && coroutineId2 == id)
         {
             i = i + 0.1f;
             dial.color = Color.Lerp(Color.white, targetClr, i);
             yield return null;
         }
-        while (dial.color != Color.white && coroutineId == id)
+        while (dial.color != Color.white && coroutineId2 == id)
         {
             i = i - 0.1f;
             dial.color = Color.Lerp(Color.white, targetClr, i);
