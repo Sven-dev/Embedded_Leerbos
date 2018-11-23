@@ -28,7 +28,6 @@ public class Coin : Interactable
 
     protected override void Click(Vector3 clickposition)
     {
-        print("Hit");
         if (transform.parent.parent == Belt.transform)
         {
             //if the object is papermoney, move it to the left part of the counter

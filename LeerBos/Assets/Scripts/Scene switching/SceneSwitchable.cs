@@ -5,23 +5,20 @@ using UnityEngine;
 public class SceneSwitchable : Interactable
 {
     private SceneSwitcher SceneSwitcher;
-    [Tooltip("Only put in scenes, please")]
     public string TargetString;
     public Sprite TransitionImage;
 
     protected override void Click(Vector3 clickposition)
     {
-        if (TargetString != "")
-        {
-            Switch();
-        }
+        Switch();
     }
 
     protected void Switch()
     {
-        SceneSwitcher = Camera.main.GetComponent<SceneSwitcher>();
-        SceneSwitcher.Switch(
-            TargetString, 
-            TransitionImage);
+        if (TargetString != "")
+        {
+            SceneSwitcher = Camera.main.GetComponent<SceneSwitcher>();
+            SceneSwitcher.Switch(TargetString, TransitionImage);
+        }
     }
 }
