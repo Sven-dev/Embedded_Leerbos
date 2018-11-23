@@ -25,6 +25,9 @@ public class ClockScript : Interactable {
     private int rounds = 0;
     private int TotalScore;
 
+    private Image dial;
+    private int coroutineId;
+
     private const float
         hoursToDegrees = 360f / 12f,
         minutesToDegrees = 360f / 60f,
@@ -36,6 +39,8 @@ public class ClockScript : Interactable {
         minuteHand = transform.GetChild(0);
         hourHand = transform.GetChild(1);
         aSource = GetComponent<AudioSource>();
+        dial = GetComponent<Image>();
+        coroutineId = 0;
 
         //set starting time: 12:00
         currentTime = new TimeSpan(12, 0, 0);
@@ -137,6 +142,7 @@ public class ClockScript : Interactable {
         float overflowDiff = Mathf.Abs(Mathf.Abs(diff) - 60);
         if (Mathf.Abs(diff) <= AnswerErrorMargin || (Mathf.Abs(diff) > 30 && overflowDiff <= AnswerErrorMargin))
         {
+            StartCoroutine(_react(true));
             print("correct!");
             aSource.Play();
             //add score of the current pie to the total
@@ -162,6 +168,7 @@ public class ClockScript : Interactable {
         }
         else
         {
+            StartCoroutine(_react(false));
             print("incorrect");
         }
     }
@@ -198,6 +205,38 @@ public class ClockScript : Interactable {
             {
                 hourHand.Rotate(Vector3.back, Time.deltaTime * (TimeSpeed * 200));
             }
+            yield return null;
+        }
+    }
+
+    IEnumerator _react(bool correct)
+    {
+        coroutineId++;
+        int id = coroutineId;
+
+        dial.color = Color.white;
+
+        float i = 0;
+        Color targetClr;
+        if (correct)
+        {
+            targetClr = Color.green;
+        }
+        else
+        {
+            targetClr = Color.red;
+        }
+
+        while (dial.color != targetClr && coroutineId == id)
+        {
+            i = i + 0.1f;
+            dial.color = Color.Lerp(Color.white, targetClr, i);
+            yield return null;
+        }
+        while (dial.color != Color.white && coroutineId == id)
+        {
+            i = i - 0.1f;
+            dial.color = Color.Lerp(Color.white, targetClr, i);
             yield return null;
         }
     }

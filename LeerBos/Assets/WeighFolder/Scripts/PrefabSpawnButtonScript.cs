@@ -11,16 +11,10 @@ public class PrefabSpawnButtonScript : Interactable
     private AudioSource aSource;
     private int coroutineId;
 
-    // Use this for initialization
     void Start () {
         trans = GetComponent<RectTransform>();
         aSource = GetComponent<AudioSource>();
         coroutineId = 0;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
 	}
 
     //gets the manager to spawn the button's associated prefab
@@ -34,11 +28,14 @@ public class PrefabSpawnButtonScript : Interactable
     {
         aSource.Play();
         coroutineId++;
-        StartCoroutine(_reaction(coroutineId));
+        StartCoroutine(_reaction());
     }
 
-    private IEnumerator _reaction(int id)
+    private IEnumerator _reaction()
     {
+        coroutineId++;
+        int id = coroutineId;
+
         trans.sizeDelta = new Vector2(100,100);
 
         while (trans.sizeDelta.x < 110 && id == coroutineId)
