@@ -7,7 +7,7 @@ public class CakeScript : MonoBehaviour {
 
     public List<Sprite> CakeSprites;
     public GameObject CakePrefab;
-    public ArmScript Arm;
+    public List<ArmScript> Arms;
     public bool LayersPresent;
 
     public List<CakeLayer> CakeLayers;
@@ -33,7 +33,10 @@ public class CakeScript : MonoBehaviour {
         prevXScale = layerTrans.localScale.x;
         layerTrans.localPosition = new Vector2(0, yPos);
 
-        Arm.ChangeTarget(layerTrans);
+        foreach(ArmScript arm in Arms)
+        {
+            arm.ChangeTarget(layerTrans);
+        }
         CakeLayers.Add(layer);
         UpdateLayersPresent();
     }
@@ -66,7 +69,10 @@ public class CakeScript : MonoBehaviour {
             //get it out of the list and out of the game
             CakeLayers.Remove(lastLayer);
             Destroy(lastLayer.gameObject);
-            Arm.ChangeTarget(CakeLayers[CakeLayers.Count - 1].transform);
+            foreach(ArmScript arm in Arms)
+            {
+                arm.ChangeTarget(CakeLayers[CakeLayers.Count - 1].transform);
+            }
             UpdateLayersPresent();
         }
     }

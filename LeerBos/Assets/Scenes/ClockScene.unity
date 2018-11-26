@@ -379,7 +379,7 @@ Prefab:
     - target: {fileID: 82911267544080708, guid: 604892847803ebf43ac84d04eb7b1350,
         type: 2}
       propertyPath: m_Volume
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1732067309059938, guid: 604892847803ebf43ac84d04eb7b1350, type: 2}
       propertyPath: m_Name
@@ -404,6 +404,31 @@ Prefab:
         type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 11.358
+      objectReference: {fileID: 0}
+    - target: {fileID: 82607596207917428, guid: 604892847803ebf43ac84d04eb7b1350,
+        type: 2}
+      propertyPath: BypassEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82607596207917428, guid: 604892847803ebf43ac84d04eb7b1350,
+        type: 2}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82607596207917428, guid: 604892847803ebf43ac84d04eb7b1350,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114111676717468526, guid: 604892847803ebf43ac84d04eb7b1350,
+        type: 2}
+      propertyPath: StartDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 82607596207917428, guid: 604892847803ebf43ac84d04eb7b1350,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 604892847803ebf43ac84d04eb7b1350, type: 2}
@@ -544,6 +569,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224687802981488606, guid: 604892847803ebf43ac84d04eb7b1350,
     type: 2}
   m_PrefabInternal: {fileID: 922919723}
+--- !u!114 &904219387 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114111676717468526, guid: 604892847803ebf43ac84d04eb7b1350,
+    type: 2}
+  m_PrefabInternal: {fileID: 746705043}
+  m_Script: {fileID: 11500000, guid: e61ce89645099ff49ab7c062b47fa454, type: 3}
 --- !u!1001 &922919723
 Prefab:
   m_ObjectHideFlags: 0
@@ -641,6 +672,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1732067309059938, guid: 604892847803ebf43ac84d04eb7b1350, type: 2}
+      propertyPath: m_Name
+      value: AntHantRight
+      objectReference: {fileID: 0}
     - target: {fileID: 114111676717468526, guid: 604892847803ebf43ac84d04eb7b1350,
         type: 2}
       propertyPath: Clock
@@ -656,14 +691,15 @@ Prefab:
       propertyPath: Target
       value: 
       objectReference: {fileID: 1993502899}
+    - target: {fileID: 82607596207917428, guid: 604892847803ebf43ac84d04eb7b1350,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 82911267544080708, guid: 604892847803ebf43ac84d04eb7b1350,
         type: 2}
       propertyPath: m_Volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1732067309059938, guid: 604892847803ebf43ac84d04eb7b1350, type: 2}
-      propertyPath: m_Name
-      value: AntHantRight
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 604892847803ebf43ac84d04eb7b1350, type: 2}
@@ -974,6 +1010,26 @@ Prefab:
         type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114431133907443202, guid: 185a268fcde8ff94ab15996cc3bca666,
+        type: 2}
+      propertyPath: FeedbackColor.r
+      value: 0.49803925
+      objectReference: {fileID: 0}
+    - target: {fileID: 114431133907443202, guid: 185a268fcde8ff94ab15996cc3bca666,
+        type: 2}
+      propertyPath: FeedbackColor.g
+      value: 0.8588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 114431133907443202, guid: 185a268fcde8ff94ab15996cc3bca666,
+        type: 2}
+      propertyPath: FeedbackColor.b
+      value: 0.227451
+      objectReference: {fileID: 0}
+    - target: {fileID: 114431133907443202, guid: 185a268fcde8ff94ab15996cc3bca666,
+        type: 2}
+      propertyPath: FeedbackColor.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 185a268fcde8ff94ab15996cc3bca666, type: 2}
@@ -1522,7 +1578,9 @@ MonoBehaviour:
   - {fileID: 21300012, guid: f0d067c35eb95e040a8ba454bed658c0, type: 3}
   - {fileID: 21300014, guid: f0d067c35eb95e040a8ba454bed658c0, type: 3}
   CakePrefab: {fileID: 1935232310793780, guid: 0f2f90395b8a75d4bba1d8766c8f2eb3, type: 2}
-  Arm: {fileID: 1603304119}
+  Arms:
+  - {fileID: 1603304119}
+  - {fileID: 904219387}
   LayersPresent: 0
   CakeLayers: []
 --- !u!61 &1993502901

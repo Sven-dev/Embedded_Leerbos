@@ -8,7 +8,7 @@ public class ArmScript : Interactable {
     public CakeScript Cake;
 
     public Transform Target;
-    public int TimeToDestination, PushBackSpeed, PushBackDuration;
+    public int TimeToDestination, PushBackSpeed, PushBackDuration, StartDelay;
     public float DangerDistance;
 
     private AudioSource aSource;
@@ -17,6 +17,7 @@ public class ArmScript : Interactable {
     private int coroutines;
     private HandScript hand;
     private float prevRnd;
+    private bool delayDone;
 
     // Use this for initialization
     void Start () {
@@ -53,6 +54,7 @@ public class ArmScript : Interactable {
 
     private IEnumerator _MoveTowardsTarget()
     {
+        
         //we only exit this coroutine when the game ends, so we can do some setup here
         forward = true;
         //i is how close we are to the target. 0 = origin, 1 = target
@@ -62,16 +64,25 @@ public class ArmScript : Interactable {
             //moving forward
             if (forward && Cake.LayersPresent)
             {
-                //calculate new i value; higher because forward
-                i += Time.deltaTime / TimeToDestination;
-
-                //hand not flashing
-                if (!hand.Flash)
+                if (!delayDone)
                 {
-                    //start flashing if this close to target
-                    if (i > DangerDistance)
+                    //apply the start delay so the hands dont all move in sync
+                    yield return new WaitForSeconds(StartDelay);
+                    delayDone = true;
+                }
+                else
+                {
+                    //calculate new i value; higher because forward
+                    i += Time.deltaTime / TimeToDestination;
+
+                    //hand not flashing
+                    if (!hand.Flash)
                     {
-                        hand.StartFlashing();
+                        //start flashing if this close to target
+                        if (i > DangerDistance)
+                        {
+                            hand.StartFlashing();
+                        }
                     }
                 }
             }
@@ -79,7 +90,7 @@ public class ArmScript : Interactable {
             else
             {
                 //calculate new i value; lower because backwards
-                i -= Time.deltaTime / TimeToDestination*PushBackSpeed;
+                i -= Time.deltaTime / TimeToDestination * PushBackSpeed;
 
                 //hand flashing
                 if (hand.Flash)
