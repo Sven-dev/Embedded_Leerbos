@@ -15,6 +15,7 @@ public class ClockScript : Interactable {
     public VictoryScript victoryScript;
     public Transform TempCakeTrans, OvenTrans;
     public Text ScoreLabel, TargetLabel;
+    public Color FeedbackColor;
 
     private AudioSource aSource;
     private Transform hourHand, minuteHand;
@@ -238,7 +239,7 @@ public class ClockScript : Interactable {
         Color targetClr;
         if (correct)
         {
-            targetClr = Color.green;
+            targetClr = FeedbackColor;
         }
         else
         {

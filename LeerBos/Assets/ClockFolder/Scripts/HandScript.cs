@@ -12,11 +12,13 @@ public class HandScript : MonoBehaviour {
 
     private ArmScript arm;
     private Image hand;
+    private AudioSource audio;
     
 	void Start () {
         //get the stuff you need
         arm = transform.parent.GetComponent<ArmScript>();
         hand = GetComponent<Image>();
+        audio = GetComponent<AudioSource>();
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -71,6 +73,7 @@ public class HandScript : MonoBehaviour {
 
     public void CloseHand()
     {
+        audio.Play();
         hand.sprite = HandClosed;
     }
 }
