@@ -6,21 +6,21 @@ using UnityEngine.UI;
 public class UIPrice : MonoBehaviour
 {
     private Text PriceLabel;
-    private Counter Counter;
 
-    private void Awake()
+    private void Start()
     {
         PriceLabel = GetComponent<Text>();
+        Register.OnPriceChange += UpdateUI;
     }
 
-    public void Link(Counter c)
+    private void UpdateUI(double price)
     {
-        Counter = c;
-        c.OnPriceChange += UpdateUI;
+        PriceLabel.text = "€" + price.ToString("0.00");
+        PriceLabel.text = PriceLabel.text.Replace(".", ",");
     }
 
-    private void UpdateUI()
+    private void OnDestroy()
     {
-        PriceLabel.text = "€" + Counter.Price.ToString("0.00");
+        Register.OnPriceChange -= UpdateUI;
     }
 }
