@@ -19,17 +19,19 @@ public class Register : MonoBehaviour
 
     public delegate void PriceChange(double price);
     public static event PriceChange OnPriceChange;
-    public UIPrice UILabel;
+
     public VictoryScript VictoryLabel;
     private bool Victory;
-
+    [Space]
+    public AudioClip Correct;
+    public AudioClip Drag;
     private AudioSource Audio;
 
     private void Start()
     {
         Victory = false;
         Audio = GetComponent<AudioSource>();
-        StartCoroutine(_GeneratePrice());
+        GeneratePrice();
 
         Drawer = transform.GetChild(0);
     }
@@ -56,6 +58,8 @@ public class Register : MonoBehaviour
     {
         foreach (Coin coin in transform.GetComponentsInChildren<Coin>())
         {
+            coin.tag = "RegisterIgnore";
+            coin.transform.GetChild(0).tag = "RegisterIgnore";
             Destroy(coin.gameObject);
         }
     }
@@ -63,49 +67,46 @@ public class Register : MonoBehaviour
     //Show's the victory-screen or generates a new price and moves the coins off-screen
     IEnumerator _CorrectPayment()
     {
-        Rounds--;
-        if (Rounds == 0)
-        {
-            StartCoroutine(_Victory());
-        }
-        else
-        {
-            StartCoroutine(_GeneratePrice());
-        }
-
         yield return new WaitForSeconds(1);
-
-        Audio.Play();
-
+        Audio.PlayOneShot(Correct);
         while (Drawer.position != Closed.position)
         {
-            Drawer.position = Vector3.MoveTowards(Drawer.position, Closed.position, Time.deltaTime * 5);
+            Drawer.position = Vector3.MoveTowards(Drawer.position, Closed.position, Time.deltaTime * 6);
             yield return null;
         }
 
         Empty();
-        yield return new WaitForSeconds(0.5f);
-
-        while (Drawer.position != Opened.position)
+        Rounds--;
+        if (Rounds == 0)
         {
-            Drawer.position = Vector3.MoveTowards(Drawer.position, Opened.position, Time.deltaTime * 5);
-            yield return null;
+            yield return new WaitForSeconds(3f);
+            Win();
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.25f);
+            GeneratePrice();
+            yield return new WaitForSeconds(0.5f);
+            Audio.PlayOneShot(Drag);
+            while (Drawer.position != Opened.position)
+            {
+                Drawer.position = Vector3.MoveTowards(Drawer.position, Opened.position, Time.deltaTime * 6);
+                yield return null;
+            }
         }
     }
 
-    IEnumerator _Victory()
+    private void Win()
     {
         Victory = true;
-        yield return new WaitForSeconds(3f);
         VictoryLabel.Enable();
     }
 
-    //Generates a new price, and rounds it to 2 decimals
-    IEnumerator _GeneratePrice()
+    //Generates a new price, and rounds it to .50 cents
+    private void GeneratePrice()
     {
         double rnd = UnityEngine.Random.Range(1.0f, 15f);
         Price = Math.Round(rnd / 50.0, 2) * 50;
-        yield return new WaitForSeconds(2);
         OnPriceChange(Price);
     }
 
@@ -121,6 +122,9 @@ public class Register : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Compare();
+        if (collision.tag != "RegisterIgnore")
+        {
+            Compare();
+        }
     }
 }
