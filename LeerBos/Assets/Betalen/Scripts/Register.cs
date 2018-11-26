@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Register : MonoBehaviour
 {
@@ -11,13 +12,13 @@ public class Register : MonoBehaviour
     public double Price;
 
     public Text PriceLabel;
-    public Transform CorrectTarget; //Needs to be replaced by drawer closing
+    public Transform Closed;
+    public Transform Opened;
 
     private Transform Drawer;
-    private List<Transform> Drawers;
 
-    public delegate void PriceChange();
-    public event PriceChange OnPriceChange;
+    public delegate void PriceChange(double price);
+    public static event PriceChange OnPriceChange;
     public UIPrice UILabel;
     public VictoryScript VictoryLabel;
     private bool Victory;
@@ -26,13 +27,11 @@ public class Register : MonoBehaviour
 
     private void Start()
     {
-        UILabel.Link(this);
         Victory = false;
         Audio = GetComponent<AudioSource>();
         StartCoroutine(_GeneratePrice());
 
         Drawer = transform.GetChild(0);
-        Drawers = Drawer.GetComponentsInChildren<Transform>().ToList();
     }
 
     //Compares the required price to the sum of all coint that are children of the counter
@@ -53,6 +52,14 @@ public class Register : MonoBehaviour
         }
     }
 
+    private void Empty()
+    {
+        foreach (Coin coin in transform.GetComponentsInChildren<Coin>())
+        {
+            Destroy(coin.gameObject);
+        }
+    }
+
     //Show's the victory-screen or generates a new price and moves the coins off-screen
     IEnumerator _CorrectPayment()
     {
@@ -69,12 +76,20 @@ public class Register : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         Audio.Play();
-        Coin[] correctcoins = transform.GetComponentsInChildren<Coin>();
-        foreach (Coin c in correctcoins)
+
+        while (Drawer.position != Closed.position)
         {
-            Destroy(c.transform.GetChild(0).GetComponent<Collider2D>());
-            c.CorrectCoin = true;
-            c.MoveTo(CorrectTarget, false);
+            Drawer.position = Vector3.MoveTowards(Drawer.position, Closed.position, Time.deltaTime * 5);
+            yield return null;
+        }
+
+        Empty();
+        yield return new WaitForSeconds(0.5f);
+
+        while (Drawer.position != Opened.position)
+        {
+            Drawer.position = Vector3.MoveTowards(Drawer.position, Opened.position, Time.deltaTime * 5);
+            yield return null;
         }
     }
 
@@ -91,7 +106,7 @@ public class Register : MonoBehaviour
         double rnd = UnityEngine.Random.Range(1.0f, 15f);
         Price = Math.Round(rnd / 50.0, 2) * 50;
         yield return new WaitForSeconds(2);
-        OnPriceChange();
+        OnPriceChange(Price);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -28,8 +28,6 @@ public class Coin : Interactable
 
     protected override void Click(Vector3 clickposition)
     {
-        print("clicked");
-        print(transform.parent.parent.name);
         //if it's on the belt
         if (transform.parent.tag == "ConveyorBelt")
         {
