@@ -82,7 +82,7 @@ public class ClockScript : Interactable {
         TimeSpan newTime = ProduceTime(modifier, hour, out targetTimeText);
         currentCakeLayer.SetTime(newTime);
         TargetLabel.text = targetTimeText;
-        VoiceScript.PlayTimeSounds(newTime.Hours, (int)modifier);
+        VoiceScript.PlayTimeSounds(hour, (int)modifier);
     }
 
     TimeModifier GetNewRandomMod(int previous)
