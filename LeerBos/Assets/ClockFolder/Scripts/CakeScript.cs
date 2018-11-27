@@ -69,11 +69,19 @@ public class CakeScript : MonoBehaviour {
             //get it out of the list and out of the game
             CakeLayers.Remove(lastLayer);
             Destroy(lastLayer.gameObject);
-            foreach(ArmScript arm in Arms)
-            {
-                arm.ChangeTarget(CakeLayers[CakeLayers.Count - 1].transform);
-            }
             UpdateLayersPresent();
+            foreach (ArmScript arm in Arms)
+            {
+                if (LayersPresent)
+                {
+                    arm.ChangeTarget(CakeLayers[CakeLayers.Count - 1].transform);
+                }
+                else
+                {
+                    arm.ResetDelay();
+                    arm.ChangeTarget(transform);
+                }
+            }
         }
     }
 
