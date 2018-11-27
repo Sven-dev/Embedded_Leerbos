@@ -263,8 +263,8 @@ GameObject:
   m_Component:
   - component: {fileID: 242375547}
   - component: {fileID: 242375548}
-  - component: {fileID: 242375549}
   - component: {fileID: 242375550}
+  - component: {fileID: 242375549}
   m_Layer: 9
   m_Name: ConveyorBelt
   m_TagString: Untagged
@@ -317,7 +317,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -133.9591}
+  m_Offset: {x: -0.13287354, y: -132.60522}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -328,7 +328,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1600, y: 309.28992}
+  m_Size: {x: 1599.629, y: 300.96436}
   m_EdgeRadius: 0
 --- !u!222 &242375550
 CanvasRenderer:
@@ -645,7 +645,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u20AC0,00"
+  m_Text: 
 --- !u!222 &364321261
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -794,6 +794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
+  Register: {fileID: 1601536405}
   RegisterTarget: {fileID: 218710630}
   MoveBetween: {fileID: 2083774276}
   BeltTarget: {fileID: 118152479}
@@ -821,7 +822,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.5
-  m_Pitch: 1
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1299,7 +1300,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 824072214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.64, z: 0}
+  m_LocalPosition: {x: 0, y: 0.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 883781730}
@@ -1446,6 +1447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
+  Register: {fileID: 1601536405}
   RegisterTarget: {fileID: 2066941585}
   MoveBetween: {fileID: 2083774276}
   BeltTarget: {fileID: 118152479}
@@ -1703,6 +1705,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1009435073}
+  - component: {fileID: 1009435074}
   m_Layer: 5
   m_Name: Decorations
   m_TagString: Untagged
@@ -1730,6 +1733,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 450}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1009435074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1009435072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1582ff8395c3b347af38b567debfb44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 0
+  Speed: 10
+  Green: {r: 0.5019608, g: 0.85098046, b: 0.3372549, a: 1}
+  Yellow: {r: 0.85098046, g: 0.77484787, b: 0.33725494, a: 1}
+  Off: {r: 0.46323532, g: 0.4217376, b: 0.153, a: 1}
 --- !u!1 &1155967785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1850,6 +1869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
+  Register: {fileID: 1601536405}
   RegisterTarget: {fileID: 0}
   MoveBetween: {fileID: 2083774276}
   BeltTarget: {fileID: 0}
@@ -1921,7 +1941,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.5
-  m_Pitch: -2.3
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -2324,6 +2344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
+  Register: {fileID: 1601536405}
   RegisterTarget: {fileID: 1549312180}
   MoveBetween: {fileID: 2083774276}
   BeltTarget: {fileID: 118152479}
@@ -2351,7 +2372,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.5
-  m_Pitch: 1
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -2736,6 +2757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
+  Register: {fileID: 1601536405}
   RegisterTarget: {fileID: 0}
   MoveBetween: {fileID: 2083774276}
   BeltTarget: {fileID: 0}
@@ -2763,7 +2785,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.5
-  m_Pitch: 1
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -2878,7 +2900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.50536335, g: 0.85294116, b: 0.33866784, a: 1}
+  m_Color: {r: 0.85098046, g: 0.81568635, b: 0.3372549, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2950,7 +2972,6 @@ GameObject:
   - component: {fileID: 1601536402}
   - component: {fileID: 1601536405}
   - component: {fileID: 1601536404}
-  - component: {fileID: 1601536403}
   m_Layer: 5
   m_Name: Register
   m_TagString: Untagged
@@ -2983,31 +3004,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1601536400}
---- !u!61 &1601536403
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1601536400}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.2508545, y: 249.2893}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1585.9678, y: 1643.2969}
-  m_EdgeRadius: 0
 --- !u!82 &1601536404
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3099,11 +3095,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1625fc93f8be64c9b784a268aa8a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rounds: 3
+  Rounds: 5
   Price: 0
   PriceLabel: {fileID: 364321260}
   Closed: {fileID: 341464368}
   Opened: {fileID: 824072215}
+  CorrectAnswer: 0
+  Lamps: {fileID: 1009435074}
   VictoryLabel: {fileID: 1939130097}
   Correct: {fileID: 8300000, guid: 9996816c7089c0b40af79e5d559a4a9c, type: 3}
   Drag: {fileID: 8300000, guid: 1dfdf5be76d812f4c9872a15640fbe09, type: 3}
@@ -3607,6 +3605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
+  Register: {fileID: 1601536405}
   RegisterTarget: {fileID: 2013837054}
   MoveBetween: {fileID: 2083774276}
   BeltTarget: {fileID: 118152479}
@@ -3634,7 +3633,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.5
-  m_Pitch: 1
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -3901,6 +3900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 20
+  Register: {fileID: 1601536405}
   RegisterTarget: {fileID: 0}
   MoveBetween: {fileID: 2083774276}
   BeltTarget: {fileID: 0}
@@ -3928,7 +3928,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.5
-  m_Pitch: 1
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -4142,7 +4142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.50536335, g: 0.85294116, b: 0.33866784, a: 1}
+  m_Color: {r: 0.85294116, g: 0.817474, b: 0.33866787, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
