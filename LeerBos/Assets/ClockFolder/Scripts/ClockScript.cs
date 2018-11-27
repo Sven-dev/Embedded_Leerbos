@@ -16,6 +16,7 @@ public class ClockScript : Interactable {
     public Transform TempCakeTrans, OvenTrans;
     public Text ScoreLabel, TargetLabel;
     public Color FeedbackColor;
+    public TimeVoiceScript VoiceScript;
 
     private AudioSource aSource;
     private Transform hourHand, minuteHand;
@@ -78,8 +79,10 @@ public class ClockScript : Interactable {
         currentCakeLayer.gameObject.transform.SetPositionAndRotation(TempCakeTrans.position, TempCakeTrans.rotation);
 
         //set the target time
-        currentCakeLayer.SetTime(ProduceTime(modifier, hour, out targetTimeText));
+        TimeSpan newTime = ProduceTime(modifier, hour, out targetTimeText);
+        currentCakeLayer.SetTime(newTime);
         TargetLabel.text = targetTimeText;
+        VoiceScript.PlayTimeSounds(newTime.Hours, (int)modifier);
     }
 
     TimeModifier GetNewRandomMod(int previous)
@@ -138,7 +141,6 @@ public class ClockScript : Interactable {
             default:
                 throw new ArgumentOutOfRangeException("Not a valid time modifier");
         }
-        
     }
 
     void CheckAnswer()
