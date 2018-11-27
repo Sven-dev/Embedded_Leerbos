@@ -52,6 +52,11 @@ public class ArmScript : Interactable {
         }
     }
 
+    public void ResetDelay()
+    {
+        delayDone = false;
+    }
+
     private IEnumerator _MoveTowardsTarget()
     {
         
