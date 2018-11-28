@@ -66,6 +66,8 @@ public class HandScript : MonoBehaviour {
         hand.color = Color.white;
     }
 
+
+    //come on man do i really need to explain these
     public void OpenHand()
     {
         hand.sprite = HandOpen;

@@ -32,6 +32,7 @@ public class ArmScript : Interactable {
         StartCoroutine(_MoveTowardsTarget());
     }
 
+    //update lerp target (new cake layer)
     public void ChangeTarget(Transform transform)
     {
         Target = transform;
@@ -39,11 +40,13 @@ public class ArmScript : Interactable {
 
     private void PlayRandomSound()
     {
+        //make sure pitch isnt the same as the previous one
         float i = Random.Range(0.8f, 1.2f);
         if (prevRnd == i)
         {
             PlayRandomSound();
         }
+        //play, save sound for next go
         else
         {
             prevRnd = i;
@@ -52,6 +55,7 @@ public class ArmScript : Interactable {
         }
     }
 
+    //reset delay so the arms never move in sync, even if the game essentially resets
     public void ResetDelay()
     {
         delayDone = false;
