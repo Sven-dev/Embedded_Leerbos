@@ -211,6 +211,7 @@ public class ClockScript : Interactable {
         }
     }
 
+    //visual reaction
     private IEnumerator _reaction()
     {
         coroutineId1++;
@@ -218,6 +219,7 @@ public class ClockScript : Interactable {
 
         transform.localScale = defaultScale;
         
+        //shrink, then return to original size
         while (transform.localScale.x > defaultScale.x / 1.1 && id == coroutineId1)
         {
             transform.localScale = new Vector2(transform.localScale.x / 1.02f, transform.localScale.y / 1.02f);
@@ -238,26 +240,18 @@ public class ClockScript : Interactable {
         dial.color = Color.white;
 
         float i = 0;
-        Color targetClr;
-        if (correct)
-        {
-            targetClr = FeedbackColor;
-        }
-        else
-        {
-            targetClr = Color.red;
-        }
 
-        while (dial.color != targetClr && coroutineId2 == id)
+        //lerp to public colour, then return to white
+        while (dial.color != FeedbackColor && coroutineId2 == id)
         {
             i = i + 0.1f;
-            dial.color = Color.Lerp(Color.white, targetClr, i);
+            dial.color = Color.Lerp(Color.white, FeedbackColor, i);
             yield return null;
         }
         while (dial.color != Color.white && coroutineId2 == id)
         {
             i = i - 0.1f;
-            dial.color = Color.Lerp(Color.white, targetClr, i);
+            dial.color = Color.Lerp(Color.white, FeedbackColor, i);
             yield return null;
         }
     }
@@ -276,6 +270,7 @@ public class ClockScript : Interactable {
 
     IEnumerator _waitAndEnd(int seconds)
     {
+        //bit of delay to show the full cake, then show the victory label
         yield return new WaitForSeconds(seconds);
         victoryScript.Enable();
     }

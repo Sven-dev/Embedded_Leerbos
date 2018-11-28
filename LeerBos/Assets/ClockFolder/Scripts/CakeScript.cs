@@ -22,12 +22,16 @@ public class CakeScript : MonoBehaviour {
         Transform layerTrans = layer.transform;
         layerTrans.SetParent(transform);
 
+        //if this is the first layer
         if (transform.childCount == 1)
         {
+            //scale to fixed size
             layerTrans.localScale = new Vector2(0.2f, 0.15f);
         }
+        //if not
         else
         {
+            //scale to relative size
             layerTrans.localScale = new Vector3(prevXScale * 0.85f, 0.15f);
         }
         prevXScale = layerTrans.localScale.x;
@@ -35,6 +39,7 @@ public class CakeScript : MonoBehaviour {
 
         foreach(ArmScript arm in Arms)
         {
+            //update the target to the current layer
             arm.ChangeTarget(layerTrans);
         }
         CakeLayers.Add(layer);
@@ -56,8 +61,10 @@ public class CakeScript : MonoBehaviour {
         {
             Sprite cakeSprite = CakeSprites[i];
             
+            //identify the current sprite
             if (currentSprite == cakeSprite)
             {
+                //update the sprite of the highest layer so it has 1 less slice
                 lastLayer.GetComponent<Image>().sprite = CakeSprites[i + 1];
                 imageChanged = true;
                 break;
@@ -76,8 +83,10 @@ public class CakeScript : MonoBehaviour {
                 {
                     arm.ChangeTarget(CakeLayers[CakeLayers.Count - 1].transform);
                 }
+                //in case there's 0 layers left
                 else
                 {
+                    //reset arms
                     arm.ResetDelay();
                     arm.ChangeTarget(transform);
                 }
