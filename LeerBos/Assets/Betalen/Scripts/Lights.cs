@@ -23,7 +23,7 @@ public class Lights : MonoBehaviour
     public void Flicker()
     {
         Active = true;
-        StartCoroutine(_Blink(Off, Yellow));
+        StartCoroutine(_Flicker(Off, Yellow));
     }
 
     //Fades the lights beteen the default color and the "correct" color
@@ -46,9 +46,10 @@ public class Lights : MonoBehaviour
         float progress = 0;
         while(Active)
         {
+            progress += Time.deltaTime * 4;
             foreach (Image light in LightList)
             {
-                light.color = Color.Lerp(a, b, progress += Time.deltaTime * Speed * signum);
+                light.color = Color.Lerp(a, b, progress * Speed * signum);
             }
 
             if (progress >= 1)

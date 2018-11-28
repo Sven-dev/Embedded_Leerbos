@@ -87,15 +87,16 @@ public class Register : MonoBehaviour
         if (Rounds == 0)
         {
             CorrectAnswer = false;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             Win();
         }
         else
         {
             yield return new WaitForSeconds(0.25f);
             StartCoroutine(_GeneratePrice());
-            yield return new WaitForSeconds(0.5f);
-
+            yield return new WaitForSeconds(0.8f);
+            Lamps.Stop();
+            yield return new WaitForSeconds(2.2f);
 
             //Open drawer
             Audio.PlayOneShot(Drag);
@@ -105,7 +106,6 @@ public class Register : MonoBehaviour
                 yield return null;
             }
 
-            Lamps.Stop();
             CorrectAnswer = false;
         }
     }

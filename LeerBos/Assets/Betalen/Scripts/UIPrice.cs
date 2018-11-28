@@ -25,8 +25,8 @@ public class UIPrice : MonoBehaviour
     {
         while (transform.localScale.x < 0.5f)
         {
-            transform.Translate(Vector3.down * Time.deltaTime);
-            transform.localScale += Vector3.one / 5 * Time.deltaTime;
+            transform.Translate(Vector3.down * 2 * Time.deltaTime);
+            transform.localScale += Vector3.one / 2.5f * Time.deltaTime;
             yield return null;
         }
 
@@ -40,8 +40,8 @@ public class UIPrice : MonoBehaviour
 
         while (transform.localScale.x > 0.25f)
         {
-            transform.Translate(Vector3.up * Time.deltaTime);
-            transform.localScale -= Vector3.one / 5 * Time.deltaTime;
+            transform.Translate(Vector3.up * 2 * Time.deltaTime);
+            transform.localScale -= Vector3.one / 2.5f * Time.deltaTime;
             yield return null;
         }
 
