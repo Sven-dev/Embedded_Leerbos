@@ -36,13 +36,7 @@ public class Register : MonoBehaviour
         Audio = GetComponent<AudioSource>();
         Drawer = transform.GetChild(0);
 
-        StartCoroutine(_Start());
-    }
-
-    IEnumerator _Start()
-    {
-        yield return new WaitForSeconds(1.5f);
-        GeneratePrice();
+        StartCoroutine(_GeneratePrice());
     }
 
     //Compares the required price to the sum of all coint that are children of the counter
@@ -99,7 +93,7 @@ public class Register : MonoBehaviour
         else
         {
             yield return new WaitForSeconds(0.25f);
-            GeneratePrice();
+            StartCoroutine(_GeneratePrice());
             yield return new WaitForSeconds(0.5f);
 
 
@@ -123,10 +117,12 @@ public class Register : MonoBehaviour
     }
 
     //Generates a new price, and rounds it to .50 cents
-    private void GeneratePrice()
+    IEnumerator _GeneratePrice()
     {
         double rnd = UnityEngine.Random.Range(1.0f, 15f);
         Price = Math.Round(rnd / 50.0, 2) * 50;
+        yield return null;
+
         OnPriceChange(Price);
     }
 }
