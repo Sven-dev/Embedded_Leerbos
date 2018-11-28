@@ -50,7 +50,7 @@ public class ShoppingListManager : MonoBehaviour
 
     IEnumerator _Victory()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         VictoryCanvas.Enable();
     }
 
