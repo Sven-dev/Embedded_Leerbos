@@ -16,10 +16,12 @@ public class Register : MonoBehaviour
     public Transform Opened;
 
     private Transform Drawer;
+    public bool CorrectAnswer;
 
     public delegate void PriceChange(double price);
     public static event PriceChange OnPriceChange;
 
+    public Lights Lamps;
     public VictoryScript VictoryLabel;
     private bool Victory;
     [Space]
@@ -29,15 +31,22 @@ public class Register : MonoBehaviour
 
     private void Start()
     {
+        CorrectAnswer = false;
         Victory = false;
         Audio = GetComponent<AudioSource>();
-        GeneratePrice();
-
         Drawer = transform.GetChild(0);
+
+        StartCoroutine(_Start());
+    }
+
+    IEnumerator _Start()
+    {
+        yield return new WaitForSeconds(1.5f);
+        GeneratePrice();
     }
 
     //Compares the required price to the sum of all coint that are children of the counter
-    private void Compare()
+    public void Compare()
     {
         if (!Victory)
         {
@@ -45,6 +54,7 @@ public class Register : MonoBehaviour
             foreach (Coin c in transform.GetComponentsInChildren<Coin>())
             {
                 coinstotal += c.Value;
+                
             }
 
             if (Math.Round(coinstotal, 2) == Math.Round(Price, 2))
@@ -58,8 +68,6 @@ public class Register : MonoBehaviour
     {
         foreach (Coin coin in transform.GetComponentsInChildren<Coin>())
         {
-            coin.tag = "RegisterIgnore";
-            coin.transform.GetChild(0).tag = "RegisterIgnore";
             Destroy(coin.gameObject);
         }
     }
@@ -67,8 +75,13 @@ public class Register : MonoBehaviour
     //Show's the victory-screen or generates a new price and moves the coins off-screen
     IEnumerator _CorrectPayment()
     {
-        yield return new WaitForSeconds(1);
+        CorrectAnswer = true;
+        yield return new WaitForSeconds(2);
+
         Audio.PlayOneShot(Correct);
+        Lamps.Flicker();
+
+        //Close drawer
         while (Drawer.position != Closed.position)
         {
             Drawer.position = Vector3.MoveTowards(Drawer.position, Closed.position, Time.deltaTime * 6);
@@ -79,7 +92,8 @@ public class Register : MonoBehaviour
         Rounds--;
         if (Rounds == 0)
         {
-            yield return new WaitForSeconds(3f);
+            CorrectAnswer = false;
+            yield return new WaitForSeconds(1f);
             Win();
         }
         else
@@ -87,12 +101,18 @@ public class Register : MonoBehaviour
             yield return new WaitForSeconds(0.25f);
             GeneratePrice();
             yield return new WaitForSeconds(0.5f);
+
+
+            //Open drawer
             Audio.PlayOneShot(Drag);
             while (Drawer.position != Opened.position)
             {
                 Drawer.position = Vector3.MoveTowards(Drawer.position, Opened.position, Time.deltaTime * 6);
                 yield return null;
             }
+
+            Lamps.Stop();
+            CorrectAnswer = false;
         }
     }
 
@@ -108,23 +128,5 @@ public class Register : MonoBehaviour
         double rnd = UnityEngine.Random.Range(1.0f, 15f);
         Price = Math.Round(rnd / 50.0, 2) * 50;
         OnPriceChange(Price);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Coin c = collision.transform.parent.GetComponent<Coin>();
-        if (c != null)
-        {
-            c.transform.SetParent(c.RegisterTarget, true);
-            Compare();
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag != "RegisterIgnore")
-        {
-            Compare();
-        }
     }
 }
