@@ -8,6 +8,8 @@ public class ScaleBeamScript : MonoBehaviour
     public float MaxZRotation;
     public float RotateSpeed;
 
+    public float WeightDifferenceMultiplier;
+
     private ManagerScript manager;
     public ScaleHandScript LeftHand;
     public ScaleHandScript RightHand;
@@ -54,7 +56,7 @@ public class ScaleBeamScript : MonoBehaviour
         int rightMass = RightHand.GetTotalMass();
 
         //get the difference. a negative difference means the right scale is heavier
-        float difference = leftMass - rightMass;
+        float difference = (leftMass - rightMass) * WeightDifferenceMultiplier;
 
         //bound the difference
         if (difference > MaxZRotation)

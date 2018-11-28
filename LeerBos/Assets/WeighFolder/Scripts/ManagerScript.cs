@@ -102,8 +102,6 @@ public class ManagerScript : MonoBehaviour
         }
     }
 
-    
-
     public void ResetGame()
     {
         //if not first rotation
@@ -111,7 +109,7 @@ public class ManagerScript : MonoBehaviour
         {
             foreach (WeightedObjectScript weight in WeightParent.GetComponentsInChildren<WeightedObjectScript>())
             {
-                weight.SelfDestruct();
+                Destroy(weight.gameObject);
             }
         }
         int rnd = Random.Range(0, ObjectsToWeigh.Count);
@@ -120,8 +118,6 @@ public class ManagerScript : MonoBehaviour
         print(currentObject);
         ObjectsToWeigh.Remove(currentObject);
         currentObject = SpawnPrefab(currentObject,ScaleHand.Right);
-        
-
     }
 
     //spawn the submitted prefab above one of the scales

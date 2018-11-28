@@ -424,7 +424,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d008b66eb042c40468486b589ef71126, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.035
+  m_Volume: 0.065
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -534,6 +534,7 @@ MonoBehaviour:
   MinZRotation: -35
   MaxZRotation: 35
   RotateSpeed: 25
+  WeightDifferenceMultiplier: 3
   LeftHand: {fileID: 114471334002355296}
   RightHand: {fileID: 114316628175334344}
 --- !u!114 &114316628175334344

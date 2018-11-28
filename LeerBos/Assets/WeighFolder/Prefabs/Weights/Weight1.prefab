@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 23199426550635376}
   - component: {fileID: 114900595860327404}
   - component: {fileID: 82356514231812704}
+  - component: {fileID: 61016895845665808}
   m_Layer: 5
   m_Name: Weight1
   m_TagString: Untagged
@@ -105,6 +106,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &61016895845665808
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1663167491006646}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 150, y: 150}
+  m_EdgeRadius: 0
 --- !u!61 &61447643174665286
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -283,6 +309,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cooldown: 20
   Mass: 1
+  Impact: {fileID: 8300000, guid: 84a1d8cceaecc33408203cc06c6b7bfc, type: 3}
+  Delete: {fileID: 8300000, guid: 9e87ce6872715e640add6aa2874dbeb7, type: 3}
 --- !u!114 &114939042172757492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -325,7 +353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -377.22385, y: 687.1211}
+  m_AnchoredPosition: {x: -377.22385, y: 483.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224318174997816790

@@ -173,15 +173,15 @@ Prefab:
       propertyPath: ProgressBar
       value: 
       objectReference: {fileID: 1021059199}
-    - target: {fileID: 255451201776939470, guid: 956fb879223aca94a9c93931be1d52c1,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: 28.434067
-      objectReference: {fileID: 0}
     - target: {fileID: 255719330004331124, guid: 956fb879223aca94a9c93931be1d52c1,
         type: 2}
       propertyPath: m_ConnectedAnchor.y
       value: 28.434187
+      objectReference: {fileID: 0}
+    - target: {fileID: 255451201776939470, guid: 956fb879223aca94a9c93931be1d52c1,
+        type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: 28.434067
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 956fb879223aca94a9c93931be1d52c1, type: 2}
