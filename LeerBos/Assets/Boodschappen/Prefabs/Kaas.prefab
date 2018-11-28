@@ -131,9 +131,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7d8100d2fbbeae8409a0bea4b07197db, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fce4493c660e13a419a6c3f673a84f1e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -327,7 +327,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Kaas
+  m_Text: Vast
 --- !u!114 &114902673120224378
 MonoBehaviour:
   m_ObjectHideFlags: 1

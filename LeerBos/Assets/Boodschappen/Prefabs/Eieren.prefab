@@ -131,9 +131,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4a6f4f60e71399b46a4ceae15be336b7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 575486c76ccf3564da05a71e1daae92a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -347,14 +347,14 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 200
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Eieren
+  m_Text: Herfst
 --- !u!114 &114890751527913744
 MonoBehaviour:
   m_ObjectHideFlags: 1

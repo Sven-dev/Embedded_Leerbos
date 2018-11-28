@@ -131,9 +131,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c0aeae183ab1103429e7e607acbc60b7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1699b3a845bba0b4b93f6bdfa97a51cd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -314,7 +314,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Ham
+  m_Text: Tent
 --- !u!114 &114699620609433046
 MonoBehaviour:
   m_ObjectHideFlags: 1

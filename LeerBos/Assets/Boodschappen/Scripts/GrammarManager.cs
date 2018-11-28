@@ -27,11 +27,19 @@ public class GrammarManager : MonoBehaviour
             if (i != word.Length - 1)
             {
                 string sub1 = word.Substring(i, 1);
-                string sub2 = word.Substring(i + 1, 1);
 
-                if (sub1 == sub2)
+                if (sub1 == "a" || sub1 == "i" || sub1 == "o" || sub1 == "e" || sub1 == "u") 
                 {
-                    return word.Substring(0, i) + word.Substring(i + 1);
+                    string sub2 = word.Substring(i + 1, 1);
+
+                    if (sub1 == sub2)
+                    {
+                        return word.Substring(0, i) + word.Substring(i + 1);
+                    }
+                    else
+                    {
+                        return word.Substring(0, i) + sub1 + word.Substring(i);
+                    }
                 }
             }
         }
@@ -115,11 +123,10 @@ public class GrammarManager : MonoBehaviour
             if (i != word.Length -1)
             {
                 string sub1 = word.Substring(i, 1);
-                string sub2 = word.Substring(i + 1, 1);
-
-                if (sub1 == sub2)
+                if (sub1 == "a" || sub1 == "i" || sub1 == "o" || sub1 == "e" || sub1 == "u" || sub1 == "A" || sub1 == "I" || sub1 == "O" || sub1 == "E" || sub1 == "U")
                 {
                     doubleletters = true;
+                    break;
                 }
             }
         }
