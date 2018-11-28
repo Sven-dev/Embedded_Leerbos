@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class ManagerScript : MonoBehaviour
@@ -10,7 +11,7 @@ public class ManagerScript : MonoBehaviour
     public ScaleHandScript LeftHand, RightHand;
     public List<GameObject> ObjectsToWeigh;
     public VictoryScript VictoryLabel;
-    public ProgressBarScript ProgressBar;
+    public Image ProgressBar;
     public float CountDownTime;
     public int AmountOfRounds;
     
@@ -64,19 +65,21 @@ public class ManagerScript : MonoBehaviour
     //so the game doesn't suddenly end when you pass by the right answer
     IEnumerator _CheckAnswer(string submittedMassString,int id)
     {
-        ProgressBar.gameObject.SetActive(true);
+        //make progress bar visible
+        ProgressBar.transform.parent.gameObject.SetActive(true);
 
         float animationTime = CountDownTime;
+        //fill up over time
         while (submittedMassString == currentMassString && animationTime > 0)
         {
             animationTime -= Time.deltaTime;
-            ProgressBar.SetProgress(1 - (animationTime / CountDownTime));
+            ProgressBar.fillAmount = 1 - (animationTime / CountDownTime);
             yield return null;
         }
         //cancel if a new check was initiated
         if (coroutineId == id)
         {
-            ProgressBar.gameObject.SetActive(false);
+            ProgressBar.transform.parent.gameObject.SetActive(false);
             if (submittedMassString == currentMassString)
             {
                 CorrectAnswer();
@@ -86,10 +89,11 @@ public class ManagerScript : MonoBehaviour
 
     public void CorrectAnswer()
     {
+        //give audio feedback
         aSource.Play();
         objectsWeighed++;
-        
 
+        //check if final round
         if (objectsWeighed >= AmountOfRounds)
         {
             gameOver = true;
@@ -98,6 +102,7 @@ public class ManagerScript : MonoBehaviour
         }
         else
         {
+            //loop
             ResetGame();
         }
     }
@@ -107,6 +112,7 @@ public class ManagerScript : MonoBehaviour
         //if not first rotation
         if (currentObject != null)
         {
+            //destroy all present weights
             foreach (WeightedObjectScript weight in WeightParent.GetComponentsInChildren<WeightedObjectScript>())
             {
                 Destroy(weight.gameObject);
@@ -114,9 +120,12 @@ public class ManagerScript : MonoBehaviour
         }
         int rnd = Random.Range(0, ObjectsToWeigh.Count);
         print(rnd);
+        //get a random new object to weigh
         currentObject = ObjectsToWeigh[rnd];
         print(currentObject);
+        //remove from queue
         ObjectsToWeigh.Remove(currentObject);
+        //spawn it above the right hand
         currentObject = SpawnPrefab(currentObject,ScaleHand.Right);
     }
 

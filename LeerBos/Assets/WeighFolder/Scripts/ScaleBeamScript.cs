@@ -22,32 +22,6 @@ public class ScaleBeamScript : MonoBehaviour
         manager = transform.parent.GetComponent<ManagerScript>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //CheckRotation();
-    }
-    
-    //deprecated rotation method
-    void CheckRotation()
-    {
-        if (transform.rotation.eulerAngles.z < 360 + MinZRotation && transform.rotation.eulerAngles.z > MaxZRotation)
-        {
-            if (transform.rotation.eulerAngles.z > 360 / 2)
-            {
-                Vector3 rotation = transform.rotation.eulerAngles;
-                transform.rotation = Quaternion.Euler(rotation.x, rotation.y, MinZRotation);
-            }
-            else
-            {
-                Vector3 rotation = transform.rotation.eulerAngles;
-                transform.rotation = Quaternion.Euler(rotation.x, rotation.y, MaxZRotation);
-            }
-
-        }
-
-    }
-
     //calculate the total mass of Weighted Objects on both hands, then compare and animate the scales accordingly
     public void CheckWeights()
     {

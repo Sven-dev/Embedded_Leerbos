@@ -25,18 +25,21 @@ public class PrefabSpawnButtonScript : Interactable
 
     private void Reaction()
     {
+        //audio feedback
         aSource.Play();
+        //visual feedback
         coroutineId++;
         StartCoroutine(_reaction());
     }
 
     private IEnumerator _reaction()
     {
-        coroutineId++;
         int id = coroutineId;
 
         transform.localScale = defaultScale;
 
+        //shrink, then revert to original size
+        //coroutineId ensures the loop ends if id changes
         while (transform.localScale.x > defaultScale.x / 1.1 && id == coroutineId)
         {
             transform.localScale = new Vector2(transform.localScale.x / 1.02f, transform.localScale.y / 1.02f);

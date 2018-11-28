@@ -172,7 +172,7 @@ Prefab:
         type: 2}
       propertyPath: ProgressBar
       value: 
-      objectReference: {fileID: 1021059199}
+      objectReference: {fileID: 1259581674}
     - target: {fileID: 255719330004331124, guid: 956fb879223aca94a9c93931be1d52c1,
         type: 2}
       propertyPath: m_ConnectedAnchor.y
@@ -340,7 +340,8 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114536385335056632, guid: 6f209e8e0c909864183b1ba2e7f1f07a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6f209e8e0c909864183b1ba2e7f1f07a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &443562637
@@ -945,12 +946,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224638915951670760, guid: 6f209e8e0c909864183b1ba2e7f1f07a,
     type: 2}
   m_PrefabInternal: {fileID: 435372952}
---- !u!114 &1021059199 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114536385335056632, guid: 6f209e8e0c909864183b1ba2e7f1f07a,
-    type: 2}
-  m_PrefabInternal: {fileID: 435372952}
-  m_Script: {fileID: 11500000, guid: 672d607786eef054c960baa762d6f032, type: 3}
 --- !u!1001 &1207479521
 Prefab:
   m_ObjectHideFlags: 0
@@ -1051,6 +1046,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79fcb939847cbb94eb6459777d23efaa, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1259581674 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114461525775982794, guid: 6f209e8e0c909864183b1ba2e7f1f07a,
+    type: 2}
+  m_PrefabInternal: {fileID: 435372952}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!224 &1333104192 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224235454517821266, guid: 239c140e249f19e418aed2f872a7a7bb,
