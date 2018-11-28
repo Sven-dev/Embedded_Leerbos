@@ -229,6 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cooldown: 20
   Mass: 7
+  Impact: {fileID: 8300000, guid: 84a1d8cceaecc33408203cc06c6b7bfc, type: 3}
 --- !u!114 &114935640856230622
 MonoBehaviour:
   m_ObjectHideFlags: 1

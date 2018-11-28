@@ -5,8 +5,9 @@ using UnityEngine;
 public class WeightedObjectScript : Interactable
 {
     public int Mass;
+    public AudioClip Impact;
     private Collider2D handCollider;
-	private AudioSource aSource;
+	protected AudioSource aSource;
 
     private bool colliding;
     private bool inTrigger;
@@ -35,14 +36,9 @@ public class WeightedObjectScript : Interactable
     void OnCollisionEnter2D(Collision2D collision)
     {
         colliding = true;
-		PlayImpactSound();
+        aSource.PlayOneShot(Impact);
         CheckConditions();
     }
-
-	void PlayImpactSound()
-	{
-		aSource.Play();
-	}
 
 	//collision ends, remove chance of activating scale
 	void OnCollisionExit2D(Collision2D collision)
@@ -91,11 +87,6 @@ public class WeightedObjectScript : Interactable
             handCollider.GetComponent<ScaleHandScript>().RemoveFromList(this);
             inTrigger = false;
         }
-    }
-
-    public void SelfDestruct()
-    {
-        Destroy(gameObject);
     }
 
     //method has to be here to override superclass
