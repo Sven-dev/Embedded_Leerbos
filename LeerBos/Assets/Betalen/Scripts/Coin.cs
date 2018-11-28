@@ -1,13 +1,15 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Coin : Interactable
 {
     public Register Register;
-    public Transform RegisterTarget;
-    public Transform MoveBetween;
-    public Transform BeltTarget;
+
+    [Space]
+    [Header("Travel locations")]
+    public Transform Drawer;
+    public Transform Belt;
+
     [Space]
     public float MoveSpeed;
     public bool CorrectCoin;
@@ -34,15 +36,15 @@ public class Coin : Interactable
             //if it's on the belt
             if (transform.parent.tag == "ConveyorBelt")
             {
-                transform.SetParent(RegisterTarget);
-                MoveTo(RegisterTarget);
+                transform.SetParent(Drawer);
+                MoveTo(Drawer);
             }
 
             //if it's in the register
             else if (transform.parent.tag == "CashRegister")
             {
-                transform.SetParent(BeltTarget);
-                MoveTo(BeltTarget);
+                transform.SetParent(Belt);
+                MoveTo(Belt);
             }
 
             Register.Compare();
@@ -66,7 +68,7 @@ public class Coin : Interactable
         }
     }
 
-    //Organically moves the coin to the target position, finishes when the coin is at the center of the target (y-axis)
+    //Moves the coin to the target position, finishes when the coin is at the center of the target (y-axis)
     IEnumerator _MoveTo(Transform target)
     {
         Collider.layer = 11;

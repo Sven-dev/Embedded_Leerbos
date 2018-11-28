@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ConveyorBelt : MonoBehaviour
@@ -21,13 +20,13 @@ public class ConveyorBelt : MonoBehaviour
     {
         while (true)
         {
-            //Moves the coins
+            //Move all coins
             foreach (Transform child in CoinHolder)
             {
                 child.Translate(transform.right * Speed * Time.deltaTime);
             }
 
-            //Moves the belt
+            //Move the belt objects
             foreach (RectTransform child in Belt)
             {
                 if (child.position.x > 13.75f)

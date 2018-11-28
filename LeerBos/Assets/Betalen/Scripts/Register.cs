@@ -1,33 +1,31 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Events;
 
 public class Register : MonoBehaviour
 {
     public int Rounds;
-    public double Price;
-
-    public Text PriceLabel;
-    public Transform Closed;
-    public Transform Opened;
-
-    private Transform Drawer;
-    public bool CorrectAnswer;
-
-    public delegate void PriceChange(double price);
-    public static event PriceChange OnPriceChange;
-
-    public Lights Lamps;
     public VictoryScript VictoryLabel;
     private bool Victory;
+    [HideInInspector]
+    public double Price;
+
+    [Space]
+    [Header("Drawer states")]
+    public Transform Closed;
+    public Transform Opened;
+    private Transform Drawer;
+    public Lights Lamps;
+
     [Space]
     public AudioClip Correct;
     public AudioClip Drag;
     private AudioSource Audio;
+
+    [HideInInspector]
+    public bool CorrectAnswer;
+    public delegate void PriceChange(double price);
+    public static event PriceChange OnPriceChange;
 
     private void Start()
     {
@@ -39,7 +37,7 @@ public class Register : MonoBehaviour
         StartCoroutine(_GeneratePrice());
     }
 
-    //Compares the required price to the sum of all coint that are children of the counter
+    //Compares the required price to the sum of all coins in the counter
     public void Compare()
     {
         if (!Victory)
@@ -47,8 +45,7 @@ public class Register : MonoBehaviour
             double coinstotal = 0;
             foreach (Coin c in transform.GetComponentsInChildren<Coin>())
             {
-                coinstotal += c.Value;
-                
+                coinstotal += c.Value;          
             }
 
             if (Math.Round(coinstotal, 2) == Math.Round(Price, 2))
@@ -58,6 +55,7 @@ public class Register : MonoBehaviour
         }
     }
 
+    //Removes all coins from the register
     private void Empty()
     {
         foreach (Coin coin in transform.GetComponentsInChildren<Coin>())
@@ -70,17 +68,18 @@ public class Register : MonoBehaviour
     IEnumerator _CorrectPayment()
     {
         CorrectAnswer = true;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         Audio.PlayOneShot(Correct);
         Lamps.Flicker();
 
-        //Close drawer
+        #region Close drawer
         while (Drawer.position != Closed.position)
         {
             Drawer.position = Vector3.MoveTowards(Drawer.position, Closed.position, Time.deltaTime * 6);
             yield return null;
         }
+        #endregion
 
         Empty();
         Rounds--;
@@ -92,21 +91,43 @@ public class Register : MonoBehaviour
         }
         else
         {
+            #region Generate new price
             yield return new WaitForSeconds(0.25f);
             StartCoroutine(_GeneratePrice());
             yield return new WaitForSeconds(0.8f);
             Lamps.Stop();
             yield return new WaitForSeconds(2.2f);
+            #endregion
 
-            //Open drawer
+            #region Open drawer
             Audio.PlayOneShot(Drag);
             while (Drawer.position != Opened.position)
             {
                 Drawer.position = Vector3.MoveTowards(Drawer.position, Opened.position, Time.deltaTime * 6);
                 yield return null;
             }
+            #endregion
 
             CorrectAnswer = false;
+        }
+    }
+
+    //Generates a new price, and rounds it to .50 cents
+    IEnumerator _GeneratePrice()
+    {
+        double rnd = UnityEngine.Random.Range(1.5f, 15f);
+        rnd = Math.Round(rnd / 50.0, 2) * 50;
+
+        //Ensure the next price is never the same as the last one
+        if (rnd == Price)
+        {
+            StartCoroutine(_GeneratePrice());
+        }
+        else
+        {
+            Price = rnd;
+            yield return null;
+            OnPriceChange(Price);
         }
     }
 
@@ -114,15 +135,5 @@ public class Register : MonoBehaviour
     {
         Victory = true;
         VictoryLabel.Enable();
-    }
-
-    //Generates a new price, and rounds it to .50 cents
-    IEnumerator _GeneratePrice()
-    {
-        double rnd = UnityEngine.Random.Range(1.0f, 15f);
-        Price = Math.Round(rnd / 50.0, 2) * 50;
-        yield return null;
-
-        OnPriceChange(Price);
     }
 }

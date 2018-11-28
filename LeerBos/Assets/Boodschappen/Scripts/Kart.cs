@@ -1,13 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Kart : MonoBehaviour
 {
     public ProductSpawner ShoppingList;
+
     [Space]
     public AudioClip Correct;
     public AudioClip Incorrect;
+
     [HideInInspector]
     public Transform ProductHolder;
     private AudioSource Audio;

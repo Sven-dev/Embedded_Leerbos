@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class GrammarManager : MonoBehaviour
@@ -19,7 +18,7 @@ public class GrammarManager : MonoBehaviour
         }
     }
 
-    //turns double letters into single letters (removes 1 letter)
+    //changes the first vowel into a double vowel and vice versa
     private string ReplaceDoubleLetters(string word)
     {
         for (int i = 0; i < word.Length; i++)
@@ -143,8 +142,12 @@ public class GrammarManager : MonoBehaviour
         return grammar;
     }
 
+    //Scrambles the word if there's no grammar option available
     string Scramble(string word)
     {
+        //Uncapitalizes the first letter
+        word = word.ToLower();
+
         string scrambledword = "";
         for (int i = 0; i < word.Length; i++)
         {
@@ -153,6 +156,9 @@ public class GrammarManager : MonoBehaviour
             scrambledword += word.Substring(rnd, 1);
         }
 
-        return scrambledword;
+        //Capitalizes the first letter
+        char[] a = scrambledword.ToCharArray();
+        a[0] = char.ToUpper(a[0]);
+        return new string(a);
     }
 }

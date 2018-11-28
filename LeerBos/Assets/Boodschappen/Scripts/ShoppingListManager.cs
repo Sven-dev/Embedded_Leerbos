@@ -7,8 +7,8 @@ public class ShoppingListManager : MonoBehaviour
 {
     public VictoryScript VictoryCanvas;
 
-    List<Image> Items;
-    ProductSpawner Spawner;
+    private List<Image> Items;
+    private ProductSpawner Spawner;
 
     // Use this for initialization
     void Awake ()
@@ -22,11 +22,11 @@ public class ShoppingListManager : MonoBehaviour
     {
         Spawner = spawner;
         PopulateList();
-        Spawner.ShoppingListChange += UpdateShoppingList;
+        spawner.ShoppingListChange += UpdateShoppingList;
         StartCoroutine(_ShowNextItem());
     }
 
-    //Gets the shopping items from spawner and adds them to the list
+    //Gets the shopping items from spawner and adds them to the UI
     void PopulateList()
     {
         for(int i = 0; i < Spawner.ProductPrefabs.Count || i < Items.Count; i++)
@@ -38,20 +38,9 @@ public class ShoppingListManager : MonoBehaviour
         }
     }
 
-    void UpdateShoppingList()
+    private void UpdateShoppingList()
     {
         StartCoroutine(_RemoveCurrentItem());
-    }
-
-    void Victory()
-    {
-        StartCoroutine(_Victory());
-    }
-
-    IEnumerator _Victory()
-    {
-        yield return new WaitForSeconds(0.5f);
-        VictoryCanvas.Enable();
     }
 
     IEnumerator _RemoveCurrentItem()
@@ -95,5 +84,16 @@ public class ShoppingListManager : MonoBehaviour
         }
 
         currentitem.transform.localScale = new Vector3(targetscale, targetscale, 1);
+    }
+
+    private void Victory()
+    {
+        StartCoroutine(_Victory());
+    }
+
+    IEnumerator _Victory()
+    {
+        yield return new WaitForSeconds(0.5f);
+        VictoryCanvas.Enable();
     }
 }

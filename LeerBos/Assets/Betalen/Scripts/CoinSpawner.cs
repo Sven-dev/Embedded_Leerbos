@@ -7,6 +7,7 @@ public class CoinSpawner : MonoBehaviour
     public bool Active;
     public float Cooldown;
 
+    [Space]
     public List<Coin> Prefabs;
     public ConveyorBelt Belt;
 
@@ -21,12 +22,13 @@ public class CoinSpawner : MonoBehaviour
         Active = true;
         while (Active)
         {
-            SpawnCoins();
+            SpawnCoin();
             yield return new WaitForSeconds(Cooldown);
         }
     }
 
-    void SpawnCoins()
+    //Instantiates a random coin from Prefabs by combining the spawn-chance from each item
+    void SpawnCoin()
     {
         int rndmax = 0;
         foreach (Coin c in Prefabs)
@@ -49,26 +51,13 @@ public class CoinSpawner : MonoBehaviour
         {
             prefab = Prefabs[2];
         }
-        else if (rnd < Prefabs[0].SpawnMultiplier + Prefabs[1].SpawnMultiplier + Prefabs[2].SpawnMultiplier + Prefabs[3].SpawnMultiplier)
+        else //if (rnd < Prefabs[0].SpawnMultiplier + Prefabs[1].SpawnMultiplier + Prefabs[2].SpawnMultiplier + Prefabs[3].SpawnMultiplier)
         {
             prefab = Prefabs[3];
         }
-        else if (rnd < Prefabs[0].SpawnMultiplier + Prefabs[1].SpawnMultiplier + Prefabs[2].SpawnMultiplier + Prefabs[3].SpawnMultiplier + Prefabs[4].SpawnMultiplier)
-        {
-            prefab = Prefabs[4];
-        }
-        else if (rnd < Prefabs[0].SpawnMultiplier + Prefabs[1].SpawnMultiplier + Prefabs[2].SpawnMultiplier + Prefabs[3].SpawnMultiplier + Prefabs[4].SpawnMultiplier + Prefabs[5].SpawnMultiplier)
-        {
-            prefab = Prefabs[5];
-        }
-        else //if (rndmax < Prefabs[0].SpawnMultiplier + Prefabs[1].SpawnMultiplier + Prefabs[2].SpawnMultiplier + Prefabs[3].SpawnMultiplier + Prefabs[4].SpawnMultiplier + Prefabs[5].SpawnMultiplier + Prefabs[6].SpawnMultiplier )
-        {
-            prefab = Prefabs[6];
-        }
-
-        Vector3 location = transform.GetChild(Random.Range(0, transform.childCount)).position;
 
         Coin clone = Instantiate(prefab, Belt.CoinHolder);
-        clone.transform.position = location;
+        //Set the object's position to one of the spawn-locations
+        clone.transform.position = transform.GetChild(Random.Range(0, transform.childCount)).position;
     } 
 }
