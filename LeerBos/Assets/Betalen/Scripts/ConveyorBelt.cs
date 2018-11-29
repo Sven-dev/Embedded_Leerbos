@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ConveyorBelt : MonoBehaviour
@@ -21,13 +20,13 @@ public class ConveyorBelt : MonoBehaviour
     {
         while (true)
         {
-            //Moves the coins
+            //Move all coins
             foreach (Transform child in CoinHolder)
             {
                 child.Translate(transform.right * Speed * Time.deltaTime);
             }
 
-            //Moves the belt
+            //Move the belt objects
             foreach (RectTransform child in Belt)
             {
                 if (child.position.x > 13.75f)
@@ -45,9 +44,10 @@ public class ConveyorBelt : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Coin c = collision.transform.parent.GetComponent<Coin>();
-        if (c != null)
+        if (c != null && !c.Register.CorrectAnswer && c.transform.parent.tag == "CashRegister")
         {
             c.transform.SetParent(CoinHolder, true);
+            c.Register.Compare();
         }
     }
 }

@@ -1,17 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Product : Interactable
 {
     private Rigidbody2D Rigidbody;
     private Collider2D Collider;
+    private bool IncreasedGravity;
+
     private Text Label;
+
     [HideInInspector]
     public AudioSource NameAudio;
     private AudioSource HitAudio;
-    bool IncreasedGravity;
 
     public string ProductName
     {

@@ -223,6 +223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cooldown: 20
   Mass: 10
+  Impact: {fileID: 8300000, guid: 84a1d8cceaecc33408203cc06c6b7bfc, type: 3}
+  Delete: {fileID: 8300000, guid: 9e87ce6872715e640add6aa2874dbeb7, type: 3}
 --- !u!114 &114634644938126980
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -5,17 +5,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CakeLayer : MonoBehaviour {
-    
+
     [HideInInspector]
-    public int Score;
+    public int Score = 100;
     public TimeSpan TargetTime;
 
     public void SetTime(TimeSpan targetTime)
     {
-        Score = 100;
         TargetTime = targetTime;
     }
 
+    //change sprite when hand takes slice
     public void SetImage(Sprite sprite)
     {
         gameObject.GetComponent<Image>().sprite = sprite;

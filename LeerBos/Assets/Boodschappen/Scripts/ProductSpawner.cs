@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProductSpawner : MonoBehaviour {
-
+public class ProductSpawner : MonoBehaviour
+{
     public string CorrectProduct;
+
     [Space]
     public int SpawnAmount;
     public List<Transform> SpawnLocations;
+
     [Space]
     public List<Product> ProductPrefabs;
 
     [HideInInspector]
     public List<Product> ProductClones;
 
+    [Space]
+    public ShoppingListManager Shoppinglist;
+    private bool CorrectItemWait;
     public delegate void ShoppingListChanged();
     public event ShoppingListChanged ShoppingListChange;
-    private bool CorrectItemWait;
 
-    public ShoppingListManager Shoppinglist;
     private GrammarManager GrammarManager;
 
     // Use this for initialization
@@ -37,6 +40,7 @@ public class ProductSpawner : MonoBehaviour {
         StartCoroutine(Loop());
 	}
 
+    //Spawns a set of items once all items are of screen. Main game loop
     IEnumerator Loop()
     {
         while (ProductPrefabs.Count > 0)
@@ -99,6 +103,7 @@ public class ProductSpawner : MonoBehaviour {
         ProductClones.Add(p);
     }
 
+    //Checks if a collected item is spelled right or wrong
     public bool ProductCollected(Product product)
     {
         if (ProductClones.Count == 0)

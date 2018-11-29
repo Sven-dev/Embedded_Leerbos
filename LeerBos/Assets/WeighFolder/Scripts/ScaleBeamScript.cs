@@ -8,6 +8,8 @@ public class ScaleBeamScript : MonoBehaviour
     public float MaxZRotation;
     public float RotateSpeed;
 
+    public float WeightDifferenceMultiplier;
+
     private ManagerScript manager;
     public ScaleHandScript LeftHand;
     public ScaleHandScript RightHand;
@@ -20,32 +22,6 @@ public class ScaleBeamScript : MonoBehaviour
         manager = transform.parent.GetComponent<ManagerScript>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //CheckRotation();
-    }
-    
-    //deprecated rotation method
-    void CheckRotation()
-    {
-        if (transform.rotation.eulerAngles.z < 360 + MinZRotation && transform.rotation.eulerAngles.z > MaxZRotation)
-        {
-            if (transform.rotation.eulerAngles.z > 360 / 2)
-            {
-                Vector3 rotation = transform.rotation.eulerAngles;
-                transform.rotation = Quaternion.Euler(rotation.x, rotation.y, MinZRotation);
-            }
-            else
-            {
-                Vector3 rotation = transform.rotation.eulerAngles;
-                transform.rotation = Quaternion.Euler(rotation.x, rotation.y, MaxZRotation);
-            }
-
-        }
-
-    }
-
     //calculate the total mass of Weighted Objects on both hands, then compare and animate the scales accordingly
     public void CheckWeights()
     {
@@ -54,7 +30,7 @@ public class ScaleBeamScript : MonoBehaviour
         int rightMass = RightHand.GetTotalMass();
 
         //get the difference. a negative difference means the right scale is heavier
-        float difference = leftMass - rightMass;
+        float difference = (leftMass - rightMass) * WeightDifferenceMultiplier;
 
         //bound the difference
         if (difference > MaxZRotation)

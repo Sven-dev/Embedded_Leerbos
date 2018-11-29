@@ -5,18 +5,10 @@ using UnityEngine.UI;
 
 public class ProgressBarScript : MonoBehaviour
 {
+    //wow this script is really short
+    //maybe didnt need its own script
 
     public Image progressBar;
-
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	    
-	}
 
     public void SetProgress(float amount)
     {
