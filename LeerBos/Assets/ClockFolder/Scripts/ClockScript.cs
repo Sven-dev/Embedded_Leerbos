@@ -15,22 +15,25 @@ public class ClockScript : Interactable {
     public VictoryScript victoryScript;
     public Transform TempCakeTrans, OvenTrans;
     public Text ScoreLabel, TargetLabel;
-    public Color FeedbackColor;
     public TimeVoiceScript VoiceScript;
 
+    public int HintSeconds;
+    private int CurrentRoundSeconds;
+
+    private ClockQuarterScript quarterScript;
     private AudioSource aSource;
     private Transform hourHand, minuteHand;
     private CakeLayer currentCakeLayer;
     private TimeSpan currentTime;
     private int previousMod, previousHour;
-    
+
     private int rounds = 0;
     private int TotalScore;
-
-    private Image dial;
-    private int coroutineId1 = 0, coroutineId2 = 0;
+    
+    private int coroutineId = 0;
 
     private Vector3 defaultScale;
+    
 
     private const float
         hoursToDegrees = 360f / 12f,
@@ -40,11 +43,11 @@ public class ClockScript : Interactable {
     // Use this for initialization
     void Start()
     {
-        minuteHand = transform.GetChild(0);
-        hourHand = transform.GetChild(1);
+        minuteHand = transform.GetChild(1);
+        hourHand = transform.GetChild(2);
         aSource = GetComponent<AudioSource>();
-        dial = GetComponent<Image>();
         defaultScale = transform.localScale;
+        quarterScript = GetComponentInChildren<ClockQuarterScript>();
 
         //set starting time: 12:00
         currentTime = new TimeSpan(12, 0, 0);
@@ -151,7 +154,7 @@ public class ClockScript : Interactable {
         float overflowDiff = Mathf.Abs(Mathf.Abs(diff) - 60);
         if (Mathf.Abs(diff) <= AnswerErrorMargin || (Mathf.Abs(diff) > 30 && overflowDiff <= AnswerErrorMargin))
         {
-            StartCoroutine(_giveFeedback(true));
+            quarterScript.GiveFeedback();
             aSource.Play();
             //add score of the current pie to the total
             TotalScore += currentCakeLayer.Score;
@@ -160,7 +163,9 @@ public class ClockScript : Interactable {
             //check whether this was the final round
             if (rounds < AmountOfRounds)
             {
-                //loop
+                //loop: reset everything and update visuals
+                HintSeconds = 0;
+                quarterScript.ResetAll();
                 Cake.NextLayer(currentCakeLayer);
                 NewTargetTime();
             }
@@ -169,7 +174,7 @@ public class ClockScript : Interactable {
                 //end game
                 Cake.NextLayer(currentCakeLayer);
                 active = false;
-                //wait a few seconds to show the final cake
+                //wait a second to show the final cake
                 StartCoroutine(_waitAndEnd(1));
             }
         }
@@ -193,6 +198,7 @@ public class ClockScript : Interactable {
         {
             //continuously turn minute hand towards the current time. will stop when reached. will move again when it changes.
             minuteHand.rotation = Quaternion.RotateTowards(minuteHand.localRotation, Quaternion.Euler(0f, 0f, currentTime.Minutes * -minutesToDegrees), TimeSpeed);
+            
 
             //hour hand is more complicated
             //can't use RotateTowards cause it'll turn counterclockwise if that's closer
@@ -214,47 +220,25 @@ public class ClockScript : Interactable {
     //visual reaction
     private IEnumerator _reaction()
     {
-        coroutineId1++;
-        int id = coroutineId1;
+        coroutineId++;
+        int id = coroutineId;
 
         transform.localScale = defaultScale;
         
         //shrink, then return to original size
-        while (transform.localScale.x > defaultScale.x / 1.1 && id == coroutineId1)
+        while (transform.localScale.x > defaultScale.x / 1.1 && id == coroutineId)
         {
             transform.localScale = new Vector2(transform.localScale.x / 1.02f, transform.localScale.y / 1.02f);
             yield return null;
         }
-        while (transform.localScale.x < defaultScale.x && id == coroutineId1)
+        while (transform.localScale.x < defaultScale.x && id == coroutineId)
         {
             transform.localScale = new Vector2(transform.localScale.x * 1.02f, transform.localScale.y * 1.02f);
             yield return null;
         }
     }
 
-    IEnumerator _giveFeedback(bool correct)
-    {
-        coroutineId2++;
-        int id = coroutineId2;
-
-        dial.color = Color.white;
-
-        float i = 0;
-
-        //lerp to public colour, then return to white
-        while (dial.color != FeedbackColor && coroutineId2 == id)
-        {
-            i = i + 0.1f;
-            dial.color = Color.Lerp(Color.white, FeedbackColor, i);
-            yield return null;
-        }
-        while (dial.color != Color.white && coroutineId2 == id)
-        {
-            i = i - 0.1f;
-            dial.color = Color.Lerp(Color.white, FeedbackColor, i);
-            yield return null;
-        }
-    }
+    
 
     IEnumerator _updateCurrentTime()
     {
@@ -264,6 +248,14 @@ public class ClockScript : Interactable {
             yield return new WaitForSeconds(1);
 
             currentTime = new TimeSpan(currentCakeLayer.TargetTime.Hours, currentTime.Minutes + 5, 0);
+
+            //count the amount of seconds in the current round
+            //if it passes the threshold, activate the visual hint
+            CurrentRoundSeconds++;
+            if (CurrentRoundSeconds == HintSeconds)
+            {
+                quarterScript.HighlightSide(currentCakeLayer.TargetTime.Minutes);
+            }
             yield return null;
         }
     }
