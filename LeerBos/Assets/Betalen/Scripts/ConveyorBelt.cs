@@ -43,11 +43,14 @@ public class ConveyorBelt : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Coin c = collision.transform.parent.GetComponent<Coin>();
-        if (c != null && !c.Register.CorrectAnswer && c.transform.parent.tag == "CashRegister")
+        if (collision.transform.parent != null)
         {
-            c.transform.SetParent(CoinHolder, true);
-            c.Register.Compare();
+            Coin c = collision.transform.parent.GetComponent<Coin>();
+            if (c != null && !c.Register.CorrectAnswer && c.transform.parent.tag == "CashRegister")
+            {
+                c.transform.SetParent(CoinHolder, true);
+                c.Register.Compare();
+            }
         }
     }
 }

@@ -34,6 +34,7 @@ public class TutorialIndicator : MonoBehaviour
         Image.enabled = false;
     }
 
+    //Scales the object down and up
     IEnumerator _Scale()
     {
         transform.localScale = Vector3.one;
@@ -54,6 +55,7 @@ public class TutorialIndicator : MonoBehaviour
         }
     }
 
+    //Makes sure the object is at the position of the target, without being a child-object
     IEnumerator _Move()
     {
         while(Active)
