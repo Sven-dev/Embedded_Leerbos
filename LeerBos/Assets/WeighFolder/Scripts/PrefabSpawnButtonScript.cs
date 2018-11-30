@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PrefabSpawnButtonScript : Interactable
 {
-    public ManagerScript manager;
+    public ScalesManagerScript manager;
     public GameObject prefab;
     
     private AudioSource aSource;

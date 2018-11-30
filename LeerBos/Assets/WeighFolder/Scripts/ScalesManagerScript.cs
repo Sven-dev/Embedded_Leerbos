@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class ManagerScript : MonoBehaviour
+public class ScalesManagerScript : MonoBehaviour
 {
     public GameObject WeightParent;
     public ScaleHandScript LeftHand, RightHand;
