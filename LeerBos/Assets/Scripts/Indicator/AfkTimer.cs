@@ -5,6 +5,8 @@ using UnityEngine;
 public class AfkTimer : MonoBehaviour
 {
     public float IdleTime;
+    [Tooltip("The amount of times one of the interactables need to be hit until the players understand the controls")]
+    public int DisableIn;
     private bool Active;
 
     public List<Interactable> Interactables;
@@ -60,6 +62,12 @@ public class AfkTimer : MonoBehaviour
         {
             if (i.Clicked)
             {
+                DisableIn--;
+                if (DisableIn == 0)
+                {
+                    Stop();
+                }
+
                 return true;
             }
         }
