@@ -10,7 +10,7 @@ public class ScaleBeamScript : MonoBehaviour
 
     public float WeightDifferenceMultiplier;
 
-    private ManagerScript manager;
+    private ScalesManagerScript manager;
     public ScaleHandScript LeftHand;
     public ScaleHandScript RightHand;
 
@@ -19,7 +19,7 @@ public class ScaleBeamScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        manager = transform.parent.GetComponent<ManagerScript>();
+        manager = transform.parent.GetComponent<ScalesManagerScript>();
     }
 
     //calculate the total mass of Weighted Objects on both hands, then compare and animate the scales accordingly
