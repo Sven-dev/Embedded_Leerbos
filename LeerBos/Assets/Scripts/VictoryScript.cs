@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class VictoryScript : MonoBehaviour
 {
+    public delegate void Victory();
+    public static event Victory OnVictory;
+
     private AudioSource Audio;
     public Saveable VictoryState;
 
@@ -15,6 +18,7 @@ public class VictoryScript : MonoBehaviour
 
     public void Enable()
     {
+        OnVictory();
         gameObject.SetActive(true);
         VictoryState.Set(true);
         Audio.Play();

@@ -11,7 +11,8 @@ public class PrefabSpawnButtonScript : Interactable
     private int coroutineId = 0;
     private Vector3 defaultScale;
 
-    void Start () {
+    void Start ()
+    {
         aSource = GetComponent<AudioSource>();
         defaultScale = transform.localScale;
     }

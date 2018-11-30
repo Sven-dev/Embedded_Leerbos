@@ -119,10 +119,8 @@ public class ManagerScript : MonoBehaviour
             }
         }
         int rnd = Random.Range(0, ObjectsToWeigh.Count);
-        print(rnd);
         //get a random new object to weigh
         currentObject = ObjectsToWeigh[rnd];
-        print(currentObject);
         //remove from queue
         ObjectsToWeigh.Remove(currentObject);
         //spawn it above the right hand
