@@ -10,6 +10,7 @@ public class ClockQuarterScript : MonoBehaviour {
     private int coroutineId;
 
     public Color FeedbackColor;
+    public float RotationSpeed;
 
     // Use this for initialization
     void Start() {
@@ -106,7 +107,7 @@ public class ClockQuarterScript : MonoBehaviour {
 
         while ((quarter.rotation.eulerAngles != targetRotation.eulerAngles) && coroutineId == id)
         {
-            quarter.rotation = Quaternion.RotateTowards(quarter.localRotation, targetRotation, 1);
+            quarter.rotation = Quaternion.RotateTowards(quarter.localRotation, targetRotation, RotationSpeed);
             yield return null;
         }
     }

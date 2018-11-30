@@ -1489,6 +1489,31 @@ Prefab:
       propertyPath: FeedbackColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114431133907443202, guid: 185a268fcde8ff94ab15996cc3bca666,
+        type: 2}
+      propertyPath: HintSeconds
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 114787234274605992, guid: 185a268fcde8ff94ab15996cc3bca666,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.8308824
+      objectReference: {fileID: 0}
+    - target: {fileID: 114787234274605992, guid: 185a268fcde8ff94ab15996cc3bca666,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.8308824
+      objectReference: {fileID: 0}
+    - target: {fileID: 114787234274605992, guid: 185a268fcde8ff94ab15996cc3bca666,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.8308824
+      objectReference: {fileID: 0}
+    - target: {fileID: 114380533155821058, guid: 185a268fcde8ff94ab15996cc3bca666,
+        type: 2}
+      propertyPath: RotationSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 185a268fcde8ff94ab15996cc3bca666, type: 2}
   m_IsPrefabParent: 0
