@@ -42,13 +42,13 @@ public class TutorialIndicator : MonoBehaviour
         {
             while (transform.localScale.x > 0.8f)
             {
-                transform.localScale -= Vector3.one * Time.deltaTime * 0.75f;
+                transform.localScale -= Vector3.one * Time.deltaTime * 0.25f;
                 yield return null;
             }
 
             while (transform.localScale.x < 1)
             {
-                transform.localScale += Vector3.one * Time.deltaTime * 0.7f;
+                transform.localScale += Vector3.one * Time.deltaTime * 0.25f;
                 yield return null;
             }
         }
