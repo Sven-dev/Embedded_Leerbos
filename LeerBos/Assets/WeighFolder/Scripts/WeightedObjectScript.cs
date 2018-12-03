@@ -89,7 +89,7 @@ public class WeightedObjectScript : Interactable
         }
     }
 
-    //method has to be here to override superclass
+    //method has to be here to inherit superclass so subclass has it
     protected override void Click(Vector3 clickposition)
     {
 

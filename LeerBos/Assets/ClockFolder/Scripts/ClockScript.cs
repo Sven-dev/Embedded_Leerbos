@@ -164,7 +164,7 @@ public class ClockScript : Interactable {
             if (rounds < AmountOfRounds)
             {
                 //loop: reset everything and update visuals
-                HintSeconds = 0;
+                CurrentRoundSeconds = 0;
                 quarterScript.ResetAll();
                 Cake.NextLayer(currentCakeLayer);
                 NewTargetTime();
