@@ -7,7 +7,7 @@ public class AfkTimer : MonoBehaviour
     public float IdleTime;
     [Tooltip("The amount of times one of the interactables need to be hit until the players understand the controls")]
     public int DisableIn;
-    private bool Active;
+    protected bool Active;
 
     public List<Interactable> Interactables;
     [Space]
@@ -21,7 +21,7 @@ public class AfkTimer : MonoBehaviour
         StartCoroutine(_IdleTimer());
 	}
 
-    IEnumerator _IdleTimer()
+    protected IEnumerator _IdleTimer()
     {
         while (Active)
         {

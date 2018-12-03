@@ -16,6 +16,9 @@ public class ScaleBeamScript : MonoBehaviour
 
     private Quaternion targetRotation;
 
+    public delegate void RotationChange(float rotation);
+    public static event RotationChange OnRotationChange;
+
     // Use this for initialization
     void Start()
     {
@@ -48,6 +51,7 @@ public class ScaleBeamScript : MonoBehaviour
             //assemble target rotation
             Vector3 rotation = transform.rotation.eulerAngles;
             targetRotation = Quaternion.Euler(rotation.x, rotation.y, difference);
+            OnRotationChange(difference);
 
             //rotate the boy
             StartCoroutine(_RotateBeam());
