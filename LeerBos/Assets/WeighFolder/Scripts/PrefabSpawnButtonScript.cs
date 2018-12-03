@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class PrefabSpawnButtonScript : Interactable
 {
-    public ManagerScript manager;
+    public ScalesManagerScript manager;
     public GameObject prefab;
     
     private AudioSource aSource;
     private int coroutineId = 0;
     private Vector3 defaultScale;
 
-    void Start () {
+    void Start ()
+    {
         aSource = GetComponent<AudioSource>();
         defaultScale = transform.localScale;
     }

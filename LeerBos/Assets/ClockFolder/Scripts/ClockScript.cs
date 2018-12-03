@@ -17,6 +17,9 @@ public class ClockScript : Interactable {
     public Text ScoreLabel, TargetLabel;
     public TimeVoiceScript VoiceScript;
 
+    public int HintSeconds;
+    private int CurrentRoundSeconds;
+
     private ClockQuarterScript quarterScript;
     private AudioSource aSource;
     private Transform hourHand, minuteHand;
@@ -44,7 +47,6 @@ public class ClockScript : Interactable {
         hourHand = transform.GetChild(2);
         aSource = GetComponent<AudioSource>();
         defaultScale = transform.localScale;
-        
         quarterScript = GetComponentInChildren<ClockQuarterScript>();
 
         //set starting time: 12:00
@@ -84,7 +86,6 @@ public class ClockScript : Interactable {
         currentCakeLayer.SetTime(newTime);
         TargetLabel.text = targetTimeText;
         VoiceScript.PlayTimeSounds(hour, (int)modifier);
-        quarterScript.HighlightSide(newTime.Minutes);
     }
 
     TimeModifier GetNewRandomMod(int previous)
@@ -162,7 +163,8 @@ public class ClockScript : Interactable {
             //check whether this was the final round
             if (rounds < AmountOfRounds)
             {
-                //loop
+                //loop: reset everything and update visuals
+                HintSeconds = 0;
                 quarterScript.ResetAll();
                 Cake.NextLayer(currentCakeLayer);
                 NewTargetTime();
@@ -172,7 +174,7 @@ public class ClockScript : Interactable {
                 //end game
                 Cake.NextLayer(currentCakeLayer);
                 active = false;
-                //wait a few seconds to show the final cake
+                //wait a second to show the final cake
                 StartCoroutine(_waitAndEnd(1));
             }
         }
@@ -196,6 +198,7 @@ public class ClockScript : Interactable {
         {
             //continuously turn minute hand towards the current time. will stop when reached. will move again when it changes.
             minuteHand.rotation = Quaternion.RotateTowards(minuteHand.localRotation, Quaternion.Euler(0f, 0f, currentTime.Minutes * -minutesToDegrees), TimeSpeed);
+            
 
             //hour hand is more complicated
             //can't use RotateTowards cause it'll turn counterclockwise if that's closer
@@ -245,6 +248,14 @@ public class ClockScript : Interactable {
             yield return new WaitForSeconds(1);
 
             currentTime = new TimeSpan(currentCakeLayer.TargetTime.Hours, currentTime.Minutes + 5, 0);
+
+            //count the amount of seconds in the current round
+            //if it passes the threshold, activate the visual hint
+            CurrentRoundSeconds++;
+            if (CurrentRoundSeconds == HintSeconds)
+            {
+                quarterScript.HighlightSide(currentCakeLayer.TargetTime.Minutes);
+            }
             yield return null;
         }
     }
