@@ -8,14 +8,14 @@ public class TutorialIndicator : MonoBehaviour
     public bool Active;
 
     public GameObject Target;
-    private Collider2D Collider;
+    private RectTransform RT;
     private Image Image;
 
 	// Use this for initialization
 	void Start ()
     {
         Active = false;
-        Collider = Target.GetComponent<Collider2D>();
+        RT = GetComponent<RectTransform>();
         Image = GetComponent<Image>();
 	}
 
@@ -37,22 +37,33 @@ public class TutorialIndicator : MonoBehaviour
     //Scales the object down and up
     IEnumerator _Scale()
     {
-        transform.localScale = Vector3.one;
+        RectTransform rt = GetComponent<RectTransform>();
+        Vector2 dimentionsMax = new Vector2(rt.sizeDelta.x, rt.sizeDelta.y);
+        Vector2 dimentionsMin = new Vector2(rt.sizeDelta.x - 50, rt.sizeDelta.y - 50);
+
+        int signum = -1;
+        float progress = 1;
 
         while (Active)
         {
-            while (transform.localScale.x > 0.8f)
+            rt.sizeDelta = Vector2.Lerp(dimentionsMin, dimentionsMax, progress);
+            progress += 0.025f * signum;
+            
+            if (progress >= 1)
             {
-                transform.localScale -= Vector3.one * Time.deltaTime * 0.25f;
-                yield return null;
+                progress = 1;
+                signum = -1;
+            }
+            else if (progress <= 0)
+            {
+                progress = 0;
+                signum = 1;
             }
 
-            while (transform.localScale.x < 1)
-            {
-                transform.localScale += Vector3.one * Time.deltaTime * 0.25f;
-                yield return null;
-            }
+            yield return null;
         }
+
+        rt.sizeDelta.Set(dimentionsMax.x, dimentionsMax.y);
     }
 
     //Makes sure the object is at the position of the target, without being a child-object
