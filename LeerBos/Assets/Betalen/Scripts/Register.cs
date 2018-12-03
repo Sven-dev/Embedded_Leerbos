@@ -96,8 +96,10 @@ public class Register : MonoBehaviour
             StartCoroutine(_GeneratePrice());
             yield return new WaitForSeconds(0.8f);
             Lamps.Stop();
-            yield return new WaitForSeconds(2.2f);
+            yield return new WaitForSeconds(0.25f);
             #endregion
+
+            CorrectAnswer = false;
 
             #region Open drawer
             Audio.PlayOneShot(Drag);
@@ -107,8 +109,6 @@ public class Register : MonoBehaviour
                 yield return null;
             }
             #endregion
-
-            CorrectAnswer = false;
         }
     }
 

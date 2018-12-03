@@ -63,7 +63,7 @@ public class TutorialIndicator : MonoBehaviour
             yield return null;
         }
 
-        rt.sizeDelta.Set(dimentionsMax.x, dimentionsMax.y);
+        rt.sizeDelta = dimentionsMax;
     }
 
     //Makes sure the object is at the position of the target, without being a child-object
