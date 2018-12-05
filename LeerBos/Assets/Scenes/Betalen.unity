@@ -1270,6 +1270,18 @@ Prefab:
       propertyPath: m_BackGroundColor.b
       value: 0.17409171
       objectReference: {fileID: 0}
+    - target: {fileID: 1729649799879964, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1275077814488586, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856795333236834, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
   m_IsPrefabParent: 0
@@ -1461,6 +1473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 0
+  Animation: 1
   Target: {fileID: 242375546}
 --- !u!1 &667117034
 GameObject:
@@ -3909,6 +3922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IdleTime: 7.5
   DisableIn: 5
+  ActiveOnStart: 1
   Interactables:
   - {fileID: 1656703512}
   Indicators:
@@ -3926,6 +3940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IdleTime: 5
   DisableIn: 5
+  ActiveOnStart: 1
   Interactables:
   - {fileID: 322247001}
   Indicators:
@@ -4963,4 +4978,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 0
+  Animation: 1
   Target: {fileID: 1651993725}

@@ -663,6 +663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IdleTime: 15
   DisableIn: 3
+  ActiveOnStart: 1
   Interactables:
   - {fileID: 2102630598}
   Indicators:
@@ -892,6 +893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 0
+  Animation: 1
   Target: {fileID: 11503852}
 --- !u!1001 &1315064710
 Prefab:
@@ -1645,17 +1647,17 @@ Prefab:
     - target: {fileID: 114787234274605992, guid: 185a268fcde8ff94ab15996cc3bca666,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.8308824
+      value: 0.6985294
       objectReference: {fileID: 0}
     - target: {fileID: 114787234274605992, guid: 185a268fcde8ff94ab15996cc3bca666,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.8308824
+      value: 0.6985294
       objectReference: {fileID: 0}
     - target: {fileID: 114787234274605992, guid: 185a268fcde8ff94ab15996cc3bca666,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.8308824
+      value: 0.6985294
       objectReference: {fileID: 0}
     - target: {fileID: 114380533155821058, guid: 185a268fcde8ff94ab15996cc3bca666,
         type: 2}
@@ -1893,6 +1895,14 @@ Prefab:
         type: 2}
       propertyPath: m_BackGroundColor.b
       value: 0.9686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729649799879964, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1275077814488586, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
