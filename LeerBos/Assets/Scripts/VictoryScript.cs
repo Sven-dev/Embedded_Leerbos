@@ -9,18 +9,28 @@ public class VictoryScript : MonoBehaviour
 
     private AudioSource Audio;
     public Saveable VictoryState;
+    public ProgressItemScript ProgressItem;
+    public float ItemFill;
+    public float ItemTargetY;
 
 	// Use this for initialization
 	void Awake ()
     {
         Audio = GetComponent<AudioSource>();
+        
 	}
+
+    private void Start()
+    {
+        Enable();
+    }
 
     public void Enable()
     {
         OnVictory();
         gameObject.SetActive(true);
         VictoryState.Set(true);
+        ProgressItem.Show(ItemFill);
         Audio.Play();
     }
 }
