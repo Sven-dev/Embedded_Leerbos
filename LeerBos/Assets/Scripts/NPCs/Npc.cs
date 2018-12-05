@@ -6,6 +6,7 @@ public class Npc : Interactable
 {
     private AudioSource Audio;
     public bool DialoguePlaying;
+    public AfkTimer IdleTimer;
 
     [Space]
     public AudioClip HitClip;
@@ -42,14 +43,6 @@ public class Npc : Interactable
         }
     }
 
-    public void ActivateBlinkables()
-    {
-        foreach (OutlineBlinker blinker in Blinkables)
-        {
-            blinker.Blink();
-        }
-    }
-
     protected override void Click(Vector3 clickposition)
     {
         if (!DialoguePlaying)
@@ -62,6 +55,8 @@ public class Npc : Interactable
     {
         int index = 0;
         DialoguePlaying = true;
+        IdleTimer.Active = false;
+
         while (index < clips.Count)
         {
             Audio.PlayOneShot(clips[index]);
@@ -74,6 +69,7 @@ public class Npc : Interactable
             yield return new WaitForSeconds(0.05f);
         }
 
+        IdleTimer.Active = true;
         DialoguePlaying = false;
     }
 

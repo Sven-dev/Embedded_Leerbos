@@ -55,7 +55,7 @@ public class TutorialIndicator : MonoBehaviour
         while (Active)
         {
             rt.sizeDelta = Vector2.Lerp(dimentionsMin, dimentionsMax, progress);
-            progress += 0.025f * signum;
+            progress += signum * Time.deltaTime;
             
             if (progress >= 1)
             {
@@ -84,7 +84,7 @@ public class TutorialIndicator : MonoBehaviour
         while (Active)
         {
             Image.color = Color.Lerp(Min, Max, progress);
-            progress += 0.1f * signum;
+            progress += signum * Time.deltaTime;
 
             if (progress >= 1)
             {
