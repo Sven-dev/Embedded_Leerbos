@@ -27,8 +27,8 @@ public class OutlineBlinker : MonoBehaviour
         Active = true;
         while (Active)
         {
-            Outline.color = new Color(Outline.color.r, Outline.color.g, Outline.color.b, Outline.color.a + BlinkRate * signum);
-            yield return new WaitForSeconds(Time.deltaTime);
+            Outline.color = new Color(Outline.color.r, Outline.color.g, Outline.color.b, Outline.color.a + BlinkRate * Time.deltaTime * signum);
+            yield return null;
 
             if (Outline.color.a >= 1 || Outline.color.a <= 0)
             {

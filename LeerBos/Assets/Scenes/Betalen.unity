@@ -317,7 +317,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.13287354, y: -132.60522}
+  m_Offset: {x: -81.76715, y: -81.98951}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -328,7 +328,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1599.629, y: 300.96436}
+  m_Size: {x: 1762.8976, y: 199.73293}
   m_EdgeRadius: 0
 --- !u!222 &242375550
 CanvasRenderer:
@@ -862,10 +862,10 @@ MonoBehaviour:
   Register: {fileID: 1601536405}
   Drawer: {fileID: 218710630}
   Belt: {fileID: 118152479}
-  MoveSpeed: 12
+  MoveSpeed: 20
   CorrectCoin: 0
   Value: 2
-  SpawnMultiplier: 25
+  SpawnMultiplier: 10
   MoveUp: {fileID: 8300000, guid: 58b579633c5d8f843b112a6064b1b49e, type: 3}
   MoveDown: {fileID: 8300000, guid: 58b579633c5d8f843b112a6064b1b49e, type: 3}
 --- !u!222 &370135468
@@ -1076,7 +1076,7 @@ Prefab:
     - target: {fileID: 114187790944553924, guid: 0f1e0c9d2c5ad5442b6c1277c75c3988,
         type: 2}
       propertyPath: SpawnMultiplier
-      value: 25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114187790944553924, guid: 0f1e0c9d2c5ad5442b6c1277c75c3988,
         type: 2}
@@ -1088,6 +1088,26 @@ Prefab:
       propertyPath: Drawer
       value: 
       objectReference: {fileID: 218710630}
+    - target: {fileID: 114187790944553924, guid: 0f1e0c9d2c5ad5442b6c1277c75c3988,
+        type: 2}
+      propertyPath: MoveSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114187790944553924, guid: 0f1e0c9d2c5ad5442b6c1277c75c3988,
+        type: 2}
+      propertyPath: Value
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114187790944553924, guid: 0f1e0c9d2c5ad5442b6c1277c75c3988,
+        type: 2}
+      propertyPath: MoveUp
+      value: 
+      objectReference: {fileID: 8300000, guid: 58b579633c5d8f843b112a6064b1b49e, type: 3}
+    - target: {fileID: 114187790944553924, guid: 0f1e0c9d2c5ad5442b6c1277c75c3988,
+        type: 2}
+      propertyPath: MoveDown
+      value: 
+      objectReference: {fileID: 8300000, guid: 58b579633c5d8f843b112a6064b1b49e, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f1e0c9d2c5ad5442b6c1277c75c3988, type: 2}
   m_IsPrefabParent: 0
@@ -1141,10 +1161,10 @@ MonoBehaviour:
   Active: 0
   Cooldown: 2
   Prefabs:
-  - {fileID: 878668731}
-  - {fileID: 370135467}
-  - {fileID: 1702144878}
   - {fileID: 1328087642}
+  - {fileID: 1702144878}
+  - {fileID: 370135467}
+  - {fileID: 878668731}
   Belt: {fileID: 242375548}
 --- !u!1001 &463196780
 Prefab:
@@ -1847,10 +1867,10 @@ MonoBehaviour:
   Register: {fileID: 1601536405}
   Drawer: {fileID: 2066941585}
   Belt: {fileID: 118152479}
-  MoveSpeed: 12
+  MoveSpeed: 20
   CorrectCoin: 0
   Value: 5
-  SpawnMultiplier: 20
+  SpawnMultiplier: 8
   MoveUp: {fileID: 8300000, guid: 58b579633c5d8f843b112a6064b1b49e, type: 3}
   MoveDown: {fileID: 8300000, guid: 58b579633c5d8f843b112a6064b1b49e, type: 3}
 --- !u!222 &878668732
@@ -2093,10 +2113,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 0
-  Speed: 10
-  Green: {r: 0.5019608, g: 0.85098046, b: 0.3372549, a: 1}
-  Yellow: {r: 0.85098046, g: 0.77484787, b: 0.33725494, a: 1}
-  Off: {r: 0.46323532, g: 0.4217376, b: 0.153, a: 1}
+  Speed: 1
+  Green: {r: 0, g: 0, b: 0, a: 0}
+  Yellow: {r: 0.9876268, g: 1, b: 0.102941155, a: 1}
+  Off: {r: 0.5588235, g: 0.48211002, b: 0.053416938, a: 1}
 --- !u!1 &1155967785
 GameObject:
   m_ObjectHideFlags: 0
@@ -2389,7 +2409,7 @@ Prefab:
     - target: {fileID: 114150534450950250, guid: 08f1cbdb50c938742b7a525da68db41a,
         type: 2}
       propertyPath: SpawnMultiplier
-      value: 30
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114150534450950250, guid: 08f1cbdb50c938742b7a525da68db41a,
         type: 2}
@@ -2401,6 +2421,26 @@ Prefab:
       propertyPath: Drawer
       value: 
       objectReference: {fileID: 1549312180}
+    - target: {fileID: 114150534450950250, guid: 08f1cbdb50c938742b7a525da68db41a,
+        type: 2}
+      propertyPath: MoveSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114150534450950250, guid: 08f1cbdb50c938742b7a525da68db41a,
+        type: 2}
+      propertyPath: Value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114150534450950250, guid: 08f1cbdb50c938742b7a525da68db41a,
+        type: 2}
+      propertyPath: MoveUp
+      value: 
+      objectReference: {fileID: 8300000, guid: 58b579633c5d8f843b112a6064b1b49e, type: 3}
+    - target: {fileID: 114150534450950250, guid: 08f1cbdb50c938742b7a525da68db41a,
+        type: 2}
+      propertyPath: MoveDown
+      value: 
+      objectReference: {fileID: 8300000, guid: 58b579633c5d8f843b112a6064b1b49e, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08f1cbdb50c938742b7a525da68db41a, type: 2}
   m_IsPrefabParent: 0
@@ -2613,10 +2653,10 @@ MonoBehaviour:
   Register: {fileID: 1601536405}
   Drawer: {fileID: 1549312180}
   Belt: {fileID: 118152479}
-  MoveSpeed: 12
+  MoveSpeed: 20
   CorrectCoin: 0
   Value: 0.5
-  SpawnMultiplier: 30
+  SpawnMultiplier: 12
   MoveUp: {fileID: 8300000, guid: 58b579633c5d8f843b112a6064b1b49e, type: 3}
   MoveDown: {fileID: 8300000, guid: 58b579633c5d8f843b112a6064b1b49e, type: 3}
 --- !u!222 &1328087643
@@ -3286,7 +3326,7 @@ Prefab:
     - target: {fileID: 114357716256966110, guid: 69ed95c05a63fc5458240d682de7ca4a,
         type: 2}
       propertyPath: SpawnMultiplier
-      value: 25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114357716256966110, guid: 69ed95c05a63fc5458240d682de7ca4a,
         type: 2}
@@ -3298,6 +3338,26 @@ Prefab:
       propertyPath: Drawer
       value: 
       objectReference: {fileID: 2013837054}
+    - target: {fileID: 114357716256966110, guid: 69ed95c05a63fc5458240d682de7ca4a,
+        type: 2}
+      propertyPath: MoveSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114357716256966110, guid: 69ed95c05a63fc5458240d682de7ca4a,
+        type: 2}
+      propertyPath: Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114357716256966110, guid: 69ed95c05a63fc5458240d682de7ca4a,
+        type: 2}
+      propertyPath: MoveUp
+      value: 
+      objectReference: {fileID: 8300000, guid: 58b579633c5d8f843b112a6064b1b49e, type: 3}
+    - target: {fileID: 114357716256966110, guid: 69ed95c05a63fc5458240d682de7ca4a,
+        type: 2}
+      propertyPath: MoveDown
+      value: 
+      objectReference: {fileID: 8300000, guid: 58b579633c5d8f843b112a6064b1b49e, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69ed95c05a63fc5458240d682de7ca4a, type: 2}
   m_IsPrefabParent: 0
@@ -3805,8 +3865,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87b023bbf37ffe4eb9d69c53c2ca770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IdleTime: 7.5
-  DisableIn: 3
+  IdleTime: 5
+  DisableIn: 10
   Interactables:
   - {fileID: 1656703512}
   Indicators:
@@ -3952,10 +4012,10 @@ MonoBehaviour:
   Register: {fileID: 1601536405}
   Drawer: {fileID: 2013837054}
   Belt: {fileID: 118152479}
-  MoveSpeed: 12
+  MoveSpeed: 20
   CorrectCoin: 0
   Value: 1
-  SpawnMultiplier: 25
+  SpawnMultiplier: 10
   MoveUp: {fileID: 8300000, guid: 58b579633c5d8f843b112a6064b1b49e, type: 3}
   MoveDown: {fileID: 8300000, guid: 58b579633c5d8f843b112a6064b1b49e, type: 3}
 --- !u!222 &1702144879
@@ -4166,7 +4226,7 @@ Prefab:
     - target: {fileID: 114649528994854038, guid: d2d23659278415e4bb6b2984df4ae786,
         type: 2}
       propertyPath: SpawnMultiplier
-      value: 20
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114649528994854038, guid: d2d23659278415e4bb6b2984df4ae786,
         type: 2}
@@ -4178,6 +4238,26 @@ Prefab:
       propertyPath: Drawer
       value: 
       objectReference: {fileID: 2066941585}
+    - target: {fileID: 114649528994854038, guid: d2d23659278415e4bb6b2984df4ae786,
+        type: 2}
+      propertyPath: MoveSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114649528994854038, guid: d2d23659278415e4bb6b2984df4ae786,
+        type: 2}
+      propertyPath: Value
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114649528994854038, guid: d2d23659278415e4bb6b2984df4ae786,
+        type: 2}
+      propertyPath: MoveUp
+      value: 
+      objectReference: {fileID: 8300000, guid: 58b579633c5d8f843b112a6064b1b49e, type: 3}
+    - target: {fileID: 114649528994854038, guid: d2d23659278415e4bb6b2984df4ae786,
+        type: 2}
+      propertyPath: MoveDown
+      value: 
+      objectReference: {fileID: 8300000, guid: 58b579633c5d8f843b112a6064b1b49e, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2d23659278415e4bb6b2984df4ae786, type: 2}
   m_IsPrefabParent: 0
