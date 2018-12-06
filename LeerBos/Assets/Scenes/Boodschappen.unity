@@ -2414,6 +2414,37 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1856795333236834, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114082424105094778, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 53820548ea440444c9cef18b5ccb4fee,
+        type: 3}
+    - target: {fileID: 114489531412709628, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 53820548ea440444c9cef18b5ccb4fee,
+        type: 3}
+    - target: {fileID: 114394234613467580, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: ItemTargetFill
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114540349558571214, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: TargetString
+      value: Boodschappen
+      objectReference: {fileID: 0}
+    - target: {fileID: 114821001379097980, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: TargetString
+      value: Betalen
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
   m_IsPrefabParent: 0
