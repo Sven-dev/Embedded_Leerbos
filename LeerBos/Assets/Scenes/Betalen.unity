@@ -1272,7 +1272,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1729649799879964, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1275077814488586, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
       propertyPath: m_IsActive
@@ -1304,6 +1304,11 @@ Prefab:
       propertyPath: ItemTargetFill
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82951587361083722, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: afd13b38afc46ee42be80b717e074555, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
   m_IsPrefabParent: 0
@@ -3201,7 +3206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1625fc93f8be64c9b784a268aa8a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rounds: 4
+  Rounds: 1
   VictoryLabel: {fileID: 1939130097}
   Price: 0
   Closed: {fileID: 341464368}
