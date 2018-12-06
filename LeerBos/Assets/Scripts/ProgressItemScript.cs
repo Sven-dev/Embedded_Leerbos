@@ -10,8 +10,10 @@ public class ProgressItemScript : MonoBehaviour {
     public Button ButtonToShow;
     private bool move;
     private Vector3 targetPos;
+    private AudioSource aSource;
     
 	void Start () {
+        aSource = GetComponent<AudioSource>();
         targetPos = transform.position;
         transform.position = new Vector3(0, 10, 0);
 	}
@@ -32,9 +34,17 @@ public class ProgressItemScript : MonoBehaviour {
         }
         yield return new WaitForSeconds(1);
 
+
+        //fucking math genius
+        float clipLength = aSource.clip.length;
+        aSource.Play();
+        float timePassed = 0;
+        float currentAmount = 0;
         while (progressImg.fillAmount < targetFill)
         {
-            progressImg.fillAmount += FillSpeed * Time.deltaTime;
+            progressImg.fillAmount = Mathf.Lerp(0, targetFill, currentAmount);
+            timePassed += Time.deltaTime;
+            currentAmount = timePassed / aSource.clip.length;
             yield return null;
         }
         progressImg.fillAmount = targetFill;

@@ -20,11 +20,6 @@ public class VictoryScript : MonoBehaviour
         
 	}
 
-    private void Start()
-    {
-        Enable();
-    }
-
     public void Enable()
     {
         OnVictory();
