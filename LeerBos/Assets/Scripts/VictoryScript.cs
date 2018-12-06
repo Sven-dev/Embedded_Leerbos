@@ -10,8 +10,8 @@ public class VictoryScript : MonoBehaviour
     private AudioSource Audio;
     public Saveable VictoryState;
     public ProgressItemScript ProgressItem;
-    public float ItemFill;
-    public float ItemTargetY;
+    public float ItemStartingFill;
+    public float ItemTargetFill;
 
 	// Use this for initialization
 	void Awake ()
@@ -25,7 +25,7 @@ public class VictoryScript : MonoBehaviour
         OnVictory();
         gameObject.SetActive(true);
         VictoryState.Set(true);
-        ProgressItem.Show(ItemFill);
+        ProgressItem.Show(ItemStartingFill,ItemTargetFill);
         Audio.Play();
     }
 }
