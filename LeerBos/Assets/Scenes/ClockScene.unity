@@ -1871,43 +1871,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114821001379097980, guid: 5f59e798fb2f0db4ab9476564ec27399,
+    - target: {fileID: 114394234613467580, guid: 5f59e798fb2f0db4ab9476564ec27399,
         type: 2}
-      propertyPath: TargetString
-      value: Town
-      objectReference: {fileID: 0}
-    - target: {fileID: 114540349558571214, guid: 5f59e798fb2f0db4ab9476564ec27399,
-        type: 2}
-      propertyPath: TargetString
-      value: ClockScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 82951587361083722, guid: 5f59e798fb2f0db4ab9476564ec27399,
-        type: 2}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4492a0e16a287684d8ead05f3802b4cc, type: 3}
-    - target: {fileID: 20361262863085802, guid: 5f59e798fb2f0db4ab9476564ec27399,
-        type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0.70980394
-      objectReference: {fileID: 0}
-    - target: {fileID: 20361262863085802, guid: 5f59e798fb2f0db4ab9476564ec27399,
-        type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0.8745099
-      objectReference: {fileID: 0}
-    - target: {fileID: 20361262863085802, guid: 5f59e798fb2f0db4ab9476564ec27399,
-        type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 0.9686275
-      objectReference: {fileID: 0}
-    - target: {fileID: 1729649799879964, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
-      propertyPath: m_IsActive
+      propertyPath: ItemFill
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1275077814488586, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 114394234613467580, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: ItemStartingFill
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114394234613467580, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: ItemTargetFill
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
