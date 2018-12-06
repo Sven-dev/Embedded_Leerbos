@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Sign : SceneSwitchable
 {
-    public Npc Character;
+    private AudioSource Audio;
+
+    private void Start()
+    {
+        Audio = GetComponent<AudioSource>();
+    }
 
     protected override void Click(Vector3 clickposition)
     {
@@ -14,7 +19,7 @@ public class Sign : SceneSwitchable
         }
         else
         {
-            Character.PlayDialogue(Character.Wrongwayclips);
+            Audio.Play();
         }
     }
 

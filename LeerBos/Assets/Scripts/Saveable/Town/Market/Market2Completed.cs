@@ -4,6 +4,7 @@
     {
         if (GlobalVariables.MarketState >= 4)
         {
+            
             return true;
         }
 
