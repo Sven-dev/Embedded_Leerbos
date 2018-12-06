@@ -40,8 +40,9 @@ public class Button : SceneSwitchable
         Icon.localPosition = new Vector2(Icon.localPosition.x + 10, Icon.localPosition.y + 10);
     }
 
-    public void FadeIn()
+    public void Appear()
     {
+        gameObject.SetActive(true);
         StartCoroutine(_FadeIn());
     }
 

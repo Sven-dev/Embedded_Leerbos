@@ -12,12 +12,13 @@ public class VictoryScript : MonoBehaviour
     public ProgressItemScript ProgressItem;
     public float ItemStartingFill;
     public float ItemTargetFill;
+    public Button ReloadButton;
+    public Button NextGameButton;
 
-	// Use this for initialization
-	void Awake ()
+    // Use this for initialization
+    void Awake ()
     {
         Audio = GetComponent<AudioSource>();
-        
 	}
 
     public void Enable()
@@ -25,7 +26,16 @@ public class VictoryScript : MonoBehaviour
         OnVictory();
         gameObject.SetActive(true);
         VictoryState.Set(true);
-        ProgressItem.Show(ItemStartingFill,ItemTargetFill);
         Audio.Play();
+
+        if (GlobalVariables.Standalone)
+        {
+            ReloadButton.Appear();
+        }
+        else
+        {
+            ProgressItem.SetButtonToShow(NextGameButton);
+            ProgressItem.Show(ItemStartingFill, ItemTargetFill);
+        }
     }
 }

@@ -7,17 +7,21 @@ public class ProgressItemScript : MonoBehaviour {
 
     public Image progressImg;
     public float FillSpeed;
-    public Button ReloadButton;
-    public Button NextGameButton;
     private bool move;
     private Vector3 targetPos;
     private AudioSource aSource;
+    private Button buttonToShow;
 
 	void Start () {
         aSource = GetComponent<AudioSource>();
         targetPos = transform.position;
         transform.position = new Vector3(0, 10, 0);
 	}
+
+    public void SetButtonToShow(Button button)
+    {
+        buttonToShow = button;
+    }
 
     public void Show(float startingFill, float targetFill)
     {
@@ -36,9 +40,7 @@ public class ProgressItemScript : MonoBehaviour {
             yield return null;
         }
         yield return new WaitForSeconds(1);
-
-
-        //fucking math genius
+        
         float clipLength = aSource.clip.length;
         aSource.Play();
         float timePassed = 0;
@@ -53,16 +55,7 @@ public class ProgressItemScript : MonoBehaviour {
         }
         progressImg.fillAmount = targetFill;
         yield return new WaitForSeconds(0.5f);
-
-        if (GlobalVariables.Standalone)
-        {
-            ReloadButton.gameObject.SetActive(true);
-            ReloadButton.FadeIn();
-        }
-        else
-        {
-            NextGameButton.gameObject.SetActive(true);
-            NextGameButton.FadeIn();
-        }
+        
+        buttonToShow.Appear();
     }
 }
