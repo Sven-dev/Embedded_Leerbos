@@ -4,7 +4,7 @@
     public int _townState = 0;         //0 = default, 1 = introduced, 2 = completed
     public int _bakeryState = 0;       //0 = default, 1 = game 1 introduced, 2 = game 1 completed, 3 = game 2 introduced, 4 = game 2 completed
     public int _marketState = 0;       //0 = default, 1 = game 1 introduced, 2 = game 1 completed, 3 = game 2 introduced, 4 = game 2 completed
-    public bool _Standalone = true;
+    public bool _Standalone = false;
 
     private static GlobalVariables _instance;
     private static GlobalVariables Instance
@@ -81,6 +81,6 @@
         TownState = 0;
         BakeryState = 0;
         MarketState = 0;
-        Standalone = true;
+        Standalone = false;
     }
 }
