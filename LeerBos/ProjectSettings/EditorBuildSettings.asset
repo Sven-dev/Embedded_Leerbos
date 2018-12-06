@@ -5,24 +5,24 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Overworld/Intro.unity
     guid: 3eb66ba551b2e614b9c8a461ce55b244
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Overworld/MainSquare.unity
     guid: be18c3b6948860c46859dd6df41fbe3d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Overworld/Town.unity
     guid: a7b3febd75111554fb4b5b17aeaaa080
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/WeighScene.unity
     guid: d29b4d2643970a44ab3c1751960763c1
   - enabled: 0
     path: Assets/Scenes/Boodschappen.unity
     guid: 30a3a46fee1486149be50d9f0a86e310
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/ClockScene.unity
     guid: 4b8674b9c9b87734599fe1168c47175b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Betalen.unity
     guid: ae19bd9f2fd39764a899e1c2b90cfa55
