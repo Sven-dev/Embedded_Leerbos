@@ -6,19 +6,23 @@ public class VictoryScript : MonoBehaviour
 {
     public delegate void Victory();
     public static event Victory OnVictory;
-
-    private AudioSource Audio;
+    
     public Saveable VictoryState;
     public ProgressItemScript ProgressItem;
     public float ItemStartingFill;
     public float ItemTargetFill;
-    public Button ReloadButton;
-    public Button NextGameButton;
+
+    private AudioSource aSource;
+    private Button reloadButton;
+    private Button nextGameButton;
 
     // Use this for initialization
     void Awake ()
     {
-        Audio = GetComponent<AudioSource>();
+        aSource = GetComponent<AudioSource>();
+        Button[] buttons = GetComponentsInChildren<Button>();
+        nextGameButton = buttons[0];
+        reloadButton = buttons[1];
 	}
 
     public void Enable()
@@ -26,15 +30,15 @@ public class VictoryScript : MonoBehaviour
         OnVictory();
         gameObject.SetActive(true);
         VictoryState.Set(true);
-        Audio.Play();
+        aSource.Play();
 
         if (GlobalVariables.Standalone)
         {
-            ReloadButton.Appear();
+            reloadButton.Appear();
         }
         else
         {
-            ProgressItem.SetButtonToShow(NextGameButton);
+            ProgressItem.SetButtonToShow(nextGameButton);
             ProgressItem.Show(ItemStartingFill, ItemTargetFill);
         }
     }
