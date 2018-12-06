@@ -197,7 +197,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1275077814488586, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224920729607366036, guid: 5f59e798fb2f0db4ab9476564ec27399,
         type: 2}
@@ -656,12 +656,7 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1288458535898226, guid: 6f209e8e0c909864183b1ba2e7f1f07a, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114536385335056632, guid: 6f209e8e0c909864183b1ba2e7f1f07a, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f209e8e0c909864183b1ba2e7f1f07a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &443562637
@@ -1329,16 +1324,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 255451201776939470, guid: 956fb879223aca94a9c93931be1d52c1,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: 28.382559
-      objectReference: {fileID: 0}
-    - target: {fileID: 255719330004331124, guid: 956fb879223aca94a9c93931be1d52c1,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: 28.382677
-      objectReference: {fileID: 0}
     - target: {fileID: 114781817959002930, guid: 956fb879223aca94a9c93931be1d52c1,
         type: 2}
       propertyPath: VictoryLabel
@@ -1349,6 +1334,16 @@ Prefab:
       propertyPath: ProgressBar
       value: 
       objectReference: {fileID: 1259581674}
+    - target: {fileID: 255719330004331124, guid: 956fb879223aca94a9c93931be1d52c1,
+        type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: 28.382677
+      objectReference: {fileID: 0}
+    - target: {fileID: 255451201776939470, guid: 956fb879223aca94a9c93931be1d52c1,
+        type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: 28.382559
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 956fb879223aca94a9c93931be1d52c1, type: 2}
   m_IsPrefabParent: 0
@@ -1767,7 +1762,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progressImg: {fileID: 346051031}
   FillSpeed: 0.25
-  ButtonToShow: {fileID: 1788254157}
+  ReloadButton: {fileID: 1788254157}
+  NextGameButton: {fileID: 1636714379}
 --- !u!82 &1209252094
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2126,6 +2122,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 756979903}
   m_Script: {fileID: 11500000, guid: cd1e08d46215e6145860ea2ab2fa8241, type: 3}
+--- !u!114 &1636714379 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114821001379097980, guid: 5f59e798fb2f0db4ab9476564ec27399,
+    type: 2}
+  m_PrefabInternal: {fileID: 301960563}
+  m_Script: {fileID: 11500000, guid: 1eabf035980a2fc4cbd82a2b6e64edeb, type: 3}
 --- !u!114 &1788254157 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114540349558571214, guid: 5f59e798fb2f0db4ab9476564ec27399,

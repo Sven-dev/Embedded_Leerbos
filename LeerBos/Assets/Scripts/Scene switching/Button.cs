@@ -12,7 +12,7 @@ public class Button : SceneSwitchable
     private Transform Icon;
     private bool Pressed;
 
-    private void Start()
+    private void Awake()
     {
         ButtonImage = GetComponent<Image>();
         DefaultSprite = ButtonImage.sprite;

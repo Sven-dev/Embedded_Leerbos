@@ -7,11 +7,12 @@ public class ProgressItemScript : MonoBehaviour {
 
     public Image progressImg;
     public float FillSpeed;
-    public Button ButtonToShow;
+    public Button ReloadButton;
+    public Button NextGameButton;
     private bool move;
     private Vector3 targetPos;
     private AudioSource aSource;
-    
+
 	void Start () {
         aSource = GetComponent<AudioSource>();
         targetPos = transform.position;
@@ -49,6 +50,16 @@ public class ProgressItemScript : MonoBehaviour {
         }
         progressImg.fillAmount = targetFill;
         yield return new WaitForSeconds(0.5f);
-        ButtonToShow.FadeIn();
+
+        if (GlobalVariables.Standalone)
+        {
+            ReloadButton.gameObject.SetActive(true);
+            ReloadButton.FadeIn();
+        }
+        else
+        {
+            NextGameButton.gameObject.SetActive(true);
+            NextGameButton.FadeIn();
+        }
     }
 }
