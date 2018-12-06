@@ -1902,6 +1902,16 @@ Prefab:
       propertyPath: ItemTargetFill
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114540349558571214, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: TargetString
+      value: ClockScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 114821001379097980, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: TargetString
+      value: Town
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
   m_IsPrefabParent: 0
