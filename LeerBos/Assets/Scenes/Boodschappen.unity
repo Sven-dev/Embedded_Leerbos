@@ -1297,6 +1297,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1165103045 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1856795333236834, guid: 5f59e798fb2f0db4ab9476564ec27399,
+    type: 2}
+  m_PrefabInternal: {fileID: 1635165882}
+--- !u!114 &1165103046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1165103045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78dc779588677045807e3b3e38d1620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1206219857
 GameObject:
   m_ObjectHideFlags: 0
@@ -2445,9 +2461,42 @@ Prefab:
       propertyPath: TargetString
       value: Betalen
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114394234613467580, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: ReloadButton
+      value: 
+      objectReference: {fileID: 1635165884}
+    - target: {fileID: 114394234613467580, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: NextGameButton
+      value: 
+      objectReference: {fileID: 1635165883}
+    - target: {fileID: 82951587361083722, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: afd13b38afc46ee42be80b717e074555, type: 3}
+    - target: {fileID: 114394234613467580, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: VictoryState
+      value: 
+      objectReference: {fileID: 1165103046}
+    m_RemovedComponents:
+    - {fileID: 114591224528280530, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1635165883 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114821001379097980, guid: 5f59e798fb2f0db4ab9476564ec27399,
+    type: 2}
+  m_PrefabInternal: {fileID: 1635165882}
+  m_Script: {fileID: 11500000, guid: 1eabf035980a2fc4cbd82a2b6e64edeb, type: 3}
+--- !u!114 &1635165884 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114540349558571214, guid: 5f59e798fb2f0db4ab9476564ec27399,
+    type: 2}
+  m_PrefabInternal: {fileID: 1635165882}
+  m_Script: {fileID: 11500000, guid: 1eabf035980a2fc4cbd82a2b6e64edeb, type: 3}
 --- !u!1 &1758596839
 GameObject:
   m_ObjectHideFlags: 0

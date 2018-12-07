@@ -1309,9 +1309,31 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: afd13b38afc46ee42be80b717e074555, type: 3}
+    - target: {fileID: 114394234613467580, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: ReloadButton
+      value: 
+      objectReference: {fileID: 463196782}
+    - target: {fileID: 114394234613467580, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: NextGameButton
+      value: 
+      objectReference: {fileID: 463196781}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &463196781 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114821001379097980, guid: 5f59e798fb2f0db4ab9476564ec27399,
+    type: 2}
+  m_PrefabInternal: {fileID: 463196780}
+  m_Script: {fileID: 11500000, guid: 1eabf035980a2fc4cbd82a2b6e64edeb, type: 3}
+--- !u!114 &463196782 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114540349558571214, guid: 5f59e798fb2f0db4ab9476564ec27399,
+    type: 2}
+  m_PrefabInternal: {fileID: 463196780}
+  m_Script: {fileID: 11500000, guid: 1eabf035980a2fc4cbd82a2b6e64edeb, type: 3}
 --- !u!1 &470130922
 GameObject:
   m_ObjectHideFlags: 0
@@ -3206,7 +3228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1625fc93f8be64c9b784a268aa8a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rounds: 1
+  Rounds: 4
   VictoryLabel: {fileID: 1939130097}
   Price: 0
   Closed: {fileID: 341464368}

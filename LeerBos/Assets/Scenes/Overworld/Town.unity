@@ -573,9 +573,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cfc4f3197ea8c5d488d19b68c92bf171, type: 3}
   VictoryClips:
   - {fileID: 8300000, guid: 248cf4de9f8549a45a87c601a067c5a8, type: 3}
-  Blinkables:
-  - {fileID: 0}
-  - {fileID: 0}
+  Blinkables: []
   AfkTimer: 100000000
 --- !u!114 &764077457
 MonoBehaviour:
@@ -621,7 +619,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
