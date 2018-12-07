@@ -14,14 +14,19 @@ public class GameAreaChecker : AreaChecker
 
     protected override void Check()
     {
-
-        foreach (Saveable gamestate in GameStates)
+        for (int i = 0; i < GameStates.Count; i++)
         {
+            //if the game has been completed earlier
+            if (GameStates[i].Value == 3)
+            {
+                //fill kart /w item
+            }
+
             //if the game has been completed for the first time
-            if (gamestate.Value == 2)
+            if (GameStates[i].Value == 2)
             {
                 print("test");
-                gamestate.Value = 3;
+                GameStates[i].Value = 3;
 
                 //Checks if all minigames in the area have been completed
                 bool AreaCompleted = true;
@@ -41,11 +46,6 @@ public class GameAreaChecker : AreaChecker
                         MainSquareSign.TargetString += "Complete";
                     }
                 }
-            }
-            //if the game has been completed earlier
-            else if (gamestate.Value == 3)
-            {
-                //fill kart /w item
             }
         }
 
