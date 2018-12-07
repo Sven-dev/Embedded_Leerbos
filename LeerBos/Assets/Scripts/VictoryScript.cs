@@ -11,7 +11,7 @@ public class VictoryScript : MonoBehaviour
     public Button NextGameButton;
 
     public Saveable VictoryState;
-    public ProgressItemScript ProgressItem;
+    public ProgressItemMinigame ProgressItem;
     public float ItemStartingFill;
     public float ItemTargetFill;
 
