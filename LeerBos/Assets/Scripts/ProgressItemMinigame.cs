@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgressItemScript : MonoBehaviour {
+public class ProgressItemMinigame : MonoBehaviour {
 
     public Image progressImg;
     public float FillSpeed;
