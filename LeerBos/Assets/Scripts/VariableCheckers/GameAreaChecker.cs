@@ -29,6 +29,7 @@ public class GameAreaChecker : AreaChecker
             if (GameStates[i].Value == 2)
             {
                 ProgressItems[i].PlayAnimation();
+                ProgressKart.FillKart();
                 GameStates[i].Value = 3;
 
                 //Checks if all minigames in the area have been completed
@@ -51,7 +52,6 @@ public class GameAreaChecker : AreaChecker
                 }
             }
         }
-        ProgressKart.FillKart(itemsPresent);
 
         //if one or multiple games have been completed
         for (int i = 0; i < GameStates.Count; i++)

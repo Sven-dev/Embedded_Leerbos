@@ -7,6 +7,7 @@ public class ProgressItemOverworld : MonoBehaviour
 {
     public Transform Target;
     public int MoveSpeed;
+    public ProgressKartScript ProgressKart;
     private Image[] images;
 
     // Use this for initialization
@@ -42,6 +43,7 @@ public class ProgressItemOverworld : MonoBehaviour
             yield return null;
         }
         StartCoroutine(_Fade());
+        ProgressKart.FillKart();
     }
 
     private IEnumerator _Fade()

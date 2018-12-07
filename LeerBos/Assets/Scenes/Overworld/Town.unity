@@ -1253,6 +1253,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114794579712207960, guid: 33c9c81429da0ab40ac64cbe974942f9,
+        type: 2}
+      propertyPath: ProgressKart
+      value: 
+      objectReference: {fileID: 1602350987}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33c9c81429da0ab40ac64cbe974942f9, type: 2}
   m_IsPrefabParent: 0
@@ -1460,6 +1465,7 @@ MonoBehaviour:
   - {fileID: 21300002, guid: 93bbe6c3fffd4704b9827022f7c8b2cf, type: 3}
   - {fileID: 21300004, guid: 93bbe6c3fffd4704b9827022f7c8b2cf, type: 3}
   - {fileID: 21300006, guid: 93bbe6c3fffd4704b9827022f7c8b2cf, type: 3}
+  ItemsPresent: 
 --- !u!58 &1602350991
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1998,6 +2004,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114794579712207960, guid: 33c9c81429da0ab40ac64cbe974942f9,
+        type: 2}
+      propertyPath: ProgressKart
+      value: 
+      objectReference: {fileID: 1602350987}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33c9c81429da0ab40ac64cbe974942f9, type: 2}
   m_IsPrefabParent: 0

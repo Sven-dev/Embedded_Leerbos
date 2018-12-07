@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ProgressKartScript : MonoBehaviour {
     public List<Sprite> sprites;
+    public List<bool> ItemsPresent;
     private Image image;
 
     private void Start()
@@ -12,11 +13,11 @@ public class ProgressKartScript : MonoBehaviour {
         image = GetComponent<Image>();
     }
 
-    public void FillKart(List<bool> itemsPresent)
+    public void FillKart()
     {
-        if (!itemsPresent[0])
+        if (GlobalVariables.MarketState < 3)
         {
-            if (!itemsPresent[1])
+            if (GlobalVariables.BakeryState < 3)
             {
                 image.sprite = sprites[0];
             }
@@ -27,7 +28,7 @@ public class ProgressKartScript : MonoBehaviour {
         }
         else
         {
-            if (!itemsPresent[1])
+            if (GlobalVariables.BakeryState < 3)
             {
                 image.sprite = sprites[1];
             }
