@@ -125,9 +125,6 @@ GameObject:
   - component: {fileID: 65950002}
   - component: {fileID: 65950001}
   - component: {fileID: 65950008}
-  - component: {fileID: 65950007}
-  - component: {fileID: 65950006}
-  - component: {fileID: 65950005}
   - component: {fileID: 65950004}
   m_Layer: 0
   m_Name: SupermarketDoor
@@ -220,40 +217,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 65949999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cee97b70f0eef744bd9a2780ce9f4f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &65950005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 65949999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ca5a315026a06b46ad89eb774b835e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &65950006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 65949999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e78dc779588677045807e3b3e38d1620, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &65950007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 65949999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54e62c75f654bfc4c8639d14e8ef6ce7, type: 3}
+  m_Script: {fileID: 11500000, guid: 752ed54faf32ca349b6d5ed8111c83c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &65950008
@@ -269,9 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Clicked: 0
   Cooldown: 20
-  SaveValues:
-  - {fileID: 65950006}
-  - {fileID: 65950004}
+  GameState: {fileID: 65950004}
   TargetScenes:
   - Boodschappen
   - Betalen
@@ -807,15 +769,12 @@ GameObject:
   - component: {fileID: 1201304059}
   - component: {fileID: 1201304058}
   - component: {fileID: 1201304057}
+  - component: {fileID: 1201304065}
   - component: {fileID: 1201304061}
+  - component: {fileID: 1201304067}
+  - component: {fileID: 1201304062}
   - component: {fileID: 1201304064}
   - component: {fileID: 1201304063}
-  - component: {fileID: 1201304067}
-  - component: {fileID: 1201304069}
-  - component: {fileID: 1201304068}
-  - component: {fileID: 1201304066}
-  - component: {fileID: 1201304062}
-  - component: {fileID: 1201304065}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -912,7 +871,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1201304056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15b7fe0839a2bf6448abfb863a1b908e, type: 3}
+  m_Script: {fileID: 11500000, guid: df00f797386c9fc408e78ee6a880658f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1201304063
@@ -923,7 +882,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1201304056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4ee6badd91cc764caacc7fa82a46a62, type: 3}
+  m_Script: {fileID: 11500000, guid: 659f527d48f358048ba263514f73c927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1201304064
@@ -934,7 +893,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1201304056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29217f306b2795b4c996cc19a0a1f39b, type: 3}
+  m_Script: {fileID: 11500000, guid: 752ed54faf32ca349b6d5ed8111c83c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!82 &1201304065
@@ -1017,17 +976,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &1201304066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1201304056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cee97b70f0eef744bd9a2780ce9f4f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1201304067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1039,40 +987,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2bcd68f118b95146805a59f421b3aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IntroState: {fileID: 1201304064}
-  FirstTimeCompleteStates:
-  - {fileID: 1201304069}
-  - {fileID: 1201304068}
-  CompleteStates:
-  - {fileID: 1201304066}
-  - {fileID: 1201304062}
+  Character: {fileID: 764077456}
+  AreaState: {fileID: 1201304062}
+  GameStates:
+  - {fileID: 1201304064}
+  - {fileID: 1201304063}
   Indicators:
   - {fileID: 940351918}
   - {fileID: 133683165}
-  CompleteState: {fileID: 1201304063}
-  Character: {fileID: 764077456}
---- !u!114 &1201304068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1201304056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a951081e7737cf4db2ded3dff93dec3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1201304069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1201304056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48851c1767f6ae649b7ac4c72b2cfa1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1218550346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,9 +1007,6 @@ GameObject:
   - component: {fileID: 1218550349}
   - component: {fileID: 1218550348}
   - component: {fileID: 1218550351}
-  - component: {fileID: 1218550355}
-  - component: {fileID: 1218550354}
-  - component: {fileID: 1218550353}
   - component: {fileID: 1218550352}
   m_Layer: 0
   m_Name: BakeryDoor
@@ -1185,9 +1104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Clicked: 0
   Cooldown: 20
-  SaveValues:
-  - {fileID: 1218550354}
-  - {fileID: 1218550352}
+  GameState: {fileID: 1218550352}
   TargetScenes:
   - WeighScene
   - ClockScene
@@ -1202,40 +1119,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1218550346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15b7fe0839a2bf6448abfb863a1b908e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1218550353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1218550346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3753de9b9d4783348922e4405e4c8ae8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1218550354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1218550346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b03616887444727478f12dd69cee6f84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1218550355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1218550346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b50f4ea41b88c2147a56a8bbcb6f1037, type: 3}
+  m_Script: {fileID: 11500000, guid: 659f527d48f358048ba263514f73c927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1314414146
@@ -1445,13 +1329,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Minigames:
-  - {fileID: 1602350988}
-  - {fileID: 1602350987}
-  ZoneComplete: {fileID: 1602350990}
+  - {fileID: 0}
+  - {fileID: 0}
+  ZoneComplete: {fileID: 0}
   Decorations:
   - {fileID: 21300004, guid: 93bbe6c3fffd4704b9827022f7c8b2cf, type: 3}
   - {fileID: 21300002, guid: 93bbe6c3fffd4704b9827022f7c8b2cf, type: 3}
   - {fileID: 21300006, guid: 93bbe6c3fffd4704b9827022f7c8b2cf, type: 3}
+  Decoration: {fileID: 0}
 --- !u!114 &1602350990
 MonoBehaviour:
   m_ObjectHideFlags: 0

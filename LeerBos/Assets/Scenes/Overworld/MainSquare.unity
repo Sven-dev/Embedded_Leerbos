@@ -1092,12 +1092,10 @@ GameObject:
   - component: {fileID: 1201304059}
   - component: {fileID: 1201304058}
   - component: {fileID: 1201304057}
+  - component: {fileID: 1201304066}
   - component: {fileID: 1201304061}
-  - component: {fileID: 1201304065}
-  - component: {fileID: 1201304064}
   - component: {fileID: 1201304063}
   - component: {fileID: 1201304062}
-  - component: {fileID: 1201304066}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1194,7 +1192,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1201304056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec6fba8e838d7e44284bb229f0f2e5e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d357612850dacd49b3cb4012a302df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1201304063
@@ -1205,38 +1203,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1201304056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c8b8c1f78ff863429f133858dd04456, type: 3}
+  m_Script: {fileID: 11500000, guid: 7715429e75d94754095b64f7ff662f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1201304064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1201304056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3824df75d80276844a45ecb2144ad85c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1201304065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1201304056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 175f5daee8d3de5448380ba7f5b471e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IntroState: {fileID: 1201304064}
-  CompleteState: {fileID: 1201304063}
-  GameStates: []
-  Indicators: []
   Character: {fileID: 564418497}
-  ZoneStates:
-  - {fileID: 1201304062}
+  AreaState: {fileID: 1201304062}
 --- !u!82 &1201304066
 AudioSource:
   m_ObjectHideFlags: 0

@@ -1,9 +1,9 @@
 ﻿public class GlobalVariables
 {
-    public int _mainSquareState = 0;   //0 = default, 1 = introduced, 2 = game completed, 3 = town completed, 4 = forest completed, 5 = mountain completed, 6 = workshop completed
-    public int _townState = 0;         //0 = default, 1 = introduced, 2 = completed
-    public int _bakeryState = 0;       //0 = default, 1 = game 1 introduced, 2 = game 1 completed, 3 = game 2 introduced, 4 = game 2 completed, 5 = icon in kart
-    public int _marketState = 0;       //0 = default, 1 = game 1 introduced, 2 = game 1 completed, 3 = game 2 introduced, 4 = game 2 completed, 5 = icon in kart
+    public int _mainSquareState = 0;   //0 = default, 1 = introduced, 2 = game completed
+    public int _townState = 0;         //0 = default, 1 = introduced, 2 = area completed
+    public int _bakeryState = 0;       //0 = default, 1 = game 1 completed, 2 = game 2 completed, 3 = icon in kart
+    public int _marketState = 0;       //0 = default, 1 = game 1 completed, 2 = game 2 completed, 3 = icon in kart
     public bool _Standalone = false;
 
     private static GlobalVariables _instance;
@@ -41,6 +41,7 @@
         set
         {
             Instance._townState = value;
+            CheckVictory();
             ClassToXmlFileIO.Save("Leerbos", "Save", _instance);
         }
     }
@@ -82,5 +83,14 @@
         BakeryState = 0;
         MarketState = 0;
         Standalone = false;
+    }
+
+    //Checks if every game area has been completed
+    private static void CheckVictory()
+    {
+        if (TownState == 2)
+        {
+            MainSquareState = 2;
+        }
     }
 }

@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Switches to a game-scene based on a save-file value
 public class MultiSceneSwitcher : Interactable
 {
     protected SceneSwitcher SceneSwitcher;
 
-    public List<Saveable> SaveValues;
+    public Saveable GameState;
     [Tooltip("Only put in scenes, please")]
     public List<string> TargetScenes;
     public List<Sprite> Transitions;
@@ -24,13 +25,11 @@ public class MultiSceneSwitcher : Interactable
 
     private void Compare()
     {
-        for (int i = 0; i < TargetScenes.Count; i++)
+        switch(GameState.Value)
         {
-            if (SaveValues[i].Get() == false)
-            {
-                SceneSwitcher.Switch(TargetScenes[i], Transitions[i]);
+            case 0: case 1:
+                SceneSwitcher.Switch(TargetScenes[GameState.Value], Transitions[GameState.Value]);
                 break;
-            }
         }
     }
 }
