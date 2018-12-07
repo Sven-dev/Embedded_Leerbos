@@ -811,6 +811,8 @@ GameObject:
   - component: {fileID: 1201304064}
   - component: {fileID: 1201304063}
   - component: {fileID: 1201304067}
+  - component: {fileID: 1201304069}
+  - component: {fileID: 1201304068}
   - component: {fileID: 1201304066}
   - component: {fileID: 1201304062}
   - component: {fileID: 1201304065}
@@ -1038,14 +1040,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IntroState: {fileID: 1201304064}
-  CompleteState: {fileID: 1201304063}
-  GameStates:
+  FirstTimeCompleteStates:
+  - {fileID: 1201304069}
+  - {fileID: 1201304068}
+  CompleteStates:
   - {fileID: 1201304066}
   - {fileID: 1201304062}
   Indicators:
   - {fileID: 940351918}
   - {fileID: 133683165}
+  CompleteState: {fileID: 1201304063}
   Character: {fileID: 764077456}
+--- !u!114 &1201304068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201304056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a951081e7737cf4db2ded3dff93dec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1201304069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201304056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48851c1767f6ae649b7ac4c72b2cfa1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1218550346
 GameObject:
   m_ObjectHideFlags: 0
