@@ -6,33 +6,45 @@ using UnityEngine.UI;
 public class ZoneChecker : Checker
 {
     public Saveable IntroState;
+
+    public List<Saveable> FirstTimeCompleteStates;
+    public List<Saveable> CompleteStates;
+    public GameObject[] Indicators;
     public Saveable CompleteState;
     [Space]
     public Npc Character;
 
     protected override void Check()
     {
+        //if the player enters the area for the first time
         if (IntroState.Get() == false)
         {
             IntroState.Set(true);
-            StartCoroutine(_PlayDialogue());
-
+            Character.PlayDialogue(Character.IntroClips);
         }
-        else if (CompleteState.Get() == true)
+
+        for (int i = 0; i < FirstTimeCompleteStates.Count; i++)
+        {
+            if (FirstTimeCompleteStates[i] == true)
+            {
+                print("test");
+                //FirstTimeCompleteStates[i].Set(5);
+            }
+        }
+
+        //if one or multiple games have been completed
+        for (int i = 0; i < CompleteStates.Count; i++)
+        {
+            if (CompleteStates[i].Get() == true)
+            {
+                Destroy(Indicators[i]);
+            }
+        }
+
+        //If the area has been completed
+        if (CompleteState.Get() == true)
         {
             Character.PlayDialogue(Character.VictoryClips[0]);
         }
-    }
-
-    IEnumerator _PlayDialogue()
-    {
-        Character.PlayDialogue(Character.IntroClips);
-        while (Character.DialoguePlaying)
-        {
-            yield return null;
-        }
-
-        yield return new WaitForSeconds(0.1f);
-        Character.ActivateBlinkables();
     }
 }

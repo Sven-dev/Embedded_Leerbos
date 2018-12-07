@@ -27,6 +27,9 @@ public class Register : MonoBehaviour
     public delegate void PriceChange(double price);
     public static event PriceChange OnPriceChange;
 
+    public delegate void DrawerChange(double difference);
+    public static event DrawerChange OnDrawerChange;
+
     private void Start()
     {
         CorrectAnswer = false;
@@ -48,6 +51,7 @@ public class Register : MonoBehaviour
                 coinstotal += c.Value;          
             }
 
+            OnDrawerChange(Math.Round(Price, 2) - Math.Round(coinstotal, 2));
             if (Math.Round(coinstotal, 2) == Math.Round(Price, 2))
             {
                 StartCoroutine(_CorrectPayment());

@@ -2,8 +2,8 @@
 {
     public override bool Get()
     {
-        if (GlobalVariables.MarketState >= 4)
-        {
+        if (GlobalVariables.MarketState >= 5)
+        {        
             return true;
         }
 
@@ -14,7 +14,7 @@
     {
         if (value)
         {
-            GlobalVariables.MarketState = 4;
+            GlobalVariables.MarketState = 5;
             return;
         }
 

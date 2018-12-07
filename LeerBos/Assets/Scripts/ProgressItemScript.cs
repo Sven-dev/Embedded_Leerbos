@@ -7,22 +7,31 @@ public class ProgressItemScript : MonoBehaviour {
 
     public Image progressImg;
     public float FillSpeed;
-    public Button ButtonToShow;
     private bool move;
     private Vector3 targetPos;
-    
+    private AudioSource aSource;
+    private Button buttonToShow;
+
 	void Start () {
+        aSource = GetComponent<AudioSource>();
         targetPos = transform.position;
         transform.position = new Vector3(0, 10, 0);
 	}
 
-    public void Show(float targetFill)
+    public void SetButtonToShow(Button button)
     {
-        StartCoroutine(_Show(targetFill));
+        buttonToShow = button;
     }
 
-    private IEnumerator _Show(float targetFill)
+    public void Show(float startingFill, float targetFill)
     {
+        StartCoroutine(_Show(startingFill, targetFill));
+    }
+
+    private IEnumerator _Show(float startingFill, float targetFill)
+    {
+        progressImg.fillAmount = startingFill;
+
         yield return new WaitForSeconds(1);
 
         while (transform.position.y > targetPos.y)
@@ -31,14 +40,22 @@ public class ProgressItemScript : MonoBehaviour {
             yield return null;
         }
         yield return new WaitForSeconds(1);
-
+        
+        float clipLength = aSource.clip.length;
+        aSource.Play();
+        float timePassed = 0;
+        float currentAmount = 0;
+        
         while (progressImg.fillAmount < targetFill)
         {
-            progressImg.fillAmount += FillSpeed * Time.deltaTime;
+            progressImg.fillAmount = Mathf.Lerp(startingFill, targetFill, currentAmount);
+            timePassed += Time.deltaTime;
+            currentAmount = timePassed / aSource.clip.length;
             yield return null;
         }
         progressImg.fillAmount = targetFill;
         yield return new WaitForSeconds(0.5f);
-        ButtonToShow.FadeIn();
+        
+        buttonToShow.Appear();
     }
 }

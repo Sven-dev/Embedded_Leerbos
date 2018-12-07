@@ -12,7 +12,7 @@ public class Button : SceneSwitchable
     private Transform Icon;
     private bool Pressed;
 
-    private void Start()
+    private void Awake()
     {
         ButtonImage = GetComponent<Image>();
         DefaultSprite = ButtonImage.sprite;
@@ -40,8 +40,9 @@ public class Button : SceneSwitchable
         Icon.localPosition = new Vector2(Icon.localPosition.x + 10, Icon.localPosition.y + 10);
     }
 
-    public void FadeIn()
+    public void Appear()
     {
+        gameObject.SetActive(true);
         StartCoroutine(_FadeIn());
     }
 

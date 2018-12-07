@@ -7,7 +7,25 @@ public class AfkTimer : MonoBehaviour
     public float IdleTime;
     [Tooltip("The amount of times one of the interactables need to be hit until the players understand the controls")]
     public int DisableIn;
-    protected bool Active;
+    public bool ActiveOnStart = true;
+
+    private bool _active = false;
+    public bool Active
+    {
+        get
+        {
+            return _active;
+        }
+        set
+        {
+            bool old = _active;
+            _active = value;
+            if (old == false && _active == true)
+            {
+                StartCoroutine(_IdleTimer());
+            }
+        }
+    }
 
     public List<Interactable> Interactables;
     [Space]
@@ -16,9 +34,11 @@ public class AfkTimer : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        Active = true;
         VictoryScript.OnVictory += Stop;
-        StartCoroutine(_IdleTimer());
+        if (ActiveOnStart)
+        {
+            Active = true;
+        }
 	}
 
     protected IEnumerator _IdleTimer()
@@ -33,7 +53,10 @@ public class AfkTimer : MonoBehaviour
                 {
                     foreach (TutorialIndicator i in Indicators)
                     {
-                        i.Show();
+                        if (i != null)
+                        {
+                            i.Show();
+                        }
                     }
 
                     while(!Clicked() && Active)
@@ -43,8 +66,12 @@ public class AfkTimer : MonoBehaviour
 
                     foreach (TutorialIndicator i in Indicators)
                     {
-                        i.Hide();
+                        if (i != null)
+                        {
+                            i.Hide();
+                        }
                     }
+
                     break;
                 }
 

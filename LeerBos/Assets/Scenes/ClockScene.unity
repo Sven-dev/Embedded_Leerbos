@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -663,6 +663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IdleTime: 15
   DisableIn: 3
+  ActiveOnStart: 1
   Interactables:
   - {fileID: 2102630598}
   Indicators:
@@ -892,6 +893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 0
+  Animation: 1
   Target: {fileID: 11503852}
 --- !u!1001 &1315064710
 Prefab:
@@ -1456,6 +1458,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1738552347}
+--- !u!1 &1848068862 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1856795333236834, guid: 5f59e798fb2f0db4ab9476564ec27399,
+    type: 2}
+  m_PrefabInternal: {fileID: 2132754741}
+--- !u!114 &1848068863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1848068862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b7fe0839a2bf6448abfb863a1b908e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1896331721 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224637425360795630, guid: 185a268fcde8ff94ab15996cc3bca666,
@@ -1869,6 +1887,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114394234613467580, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: ItemFill
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114394234613467580, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: ItemStartingFill
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114394234613467580, guid: 5f59e798fb2f0db4ab9476564ec27399,
+        type: 2}
+      propertyPath: ItemTargetFill
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114821001379097980, guid: 5f59e798fb2f0db4ab9476564ec27399,
         type: 2}
       propertyPath: TargetString
@@ -1884,21 +1917,34 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 4492a0e16a287684d8ead05f3802b4cc, type: 3}
-    - target: {fileID: 20361262863085802, guid: 5f59e798fb2f0db4ab9476564ec27399,
+    - target: {fileID: 114394234613467580, guid: 5f59e798fb2f0db4ab9476564ec27399,
         type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0.70980394
-      objectReference: {fileID: 0}
-    - target: {fileID: 20361262863085802, guid: 5f59e798fb2f0db4ab9476564ec27399,
+      propertyPath: NextGameButton
+      value: 
+      objectReference: {fileID: 2132754743}
+    - target: {fileID: 114394234613467580, guid: 5f59e798fb2f0db4ab9476564ec27399,
         type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0.8745099
-      objectReference: {fileID: 0}
-    - target: {fileID: 20361262863085802, guid: 5f59e798fb2f0db4ab9476564ec27399,
+      propertyPath: ReloadButton
+      value: 
+      objectReference: {fileID: 2132754742}
+    - target: {fileID: 114394234613467580, guid: 5f59e798fb2f0db4ab9476564ec27399,
         type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 0.9686275
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+      propertyPath: VictoryState
+      value: 
+      objectReference: {fileID: 1848068863}
+    m_RemovedComponents:
+    - {fileID: 114591224528280530, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5f59e798fb2f0db4ab9476564ec27399, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2132754742 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114540349558571214, guid: 5f59e798fb2f0db4ab9476564ec27399,
+    type: 2}
+  m_PrefabInternal: {fileID: 2132754741}
+  m_Script: {fileID: 11500000, guid: 1eabf035980a2fc4cbd82a2b6e64edeb, type: 3}
+--- !u!114 &2132754743 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114821001379097980, guid: 5f59e798fb2f0db4ab9476564ec27399,
+    type: 2}
+  m_PrefabInternal: {fileID: 2132754741}
+  m_Script: {fileID: 11500000, guid: 1eabf035980a2fc4cbd82a2b6e64edeb, type: 3}

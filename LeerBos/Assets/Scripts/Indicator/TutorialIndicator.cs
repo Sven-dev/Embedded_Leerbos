@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TutorialIndicator : MonoBehaviour
 {
     public bool Active;
+    public Animation Animation = Animation.Scale;
 
     public GameObject Target;
     private RectTransform RT;
@@ -25,7 +26,15 @@ public class TutorialIndicator : MonoBehaviour
         Active = true;
 
         StartCoroutine(_Move());
-        StartCoroutine(_Scale());
+        switch(Animation)
+        {
+            case Animation.Scale:
+                StartCoroutine(_Scale());
+                break;
+            case Animation.Fade:
+                StartCoroutine(_Fade());
+                break;
+        }
     }
 
     public void Hide()
@@ -43,11 +52,10 @@ public class TutorialIndicator : MonoBehaviour
 
         int signum = -1;
         float progress = 1;
-
         while (Active)
         {
             rt.sizeDelta = Vector2.Lerp(dimentionsMin, dimentionsMax, progress);
-            progress += 0.025f * signum;
+            progress += signum * Time.deltaTime;
             
             if (progress >= 1)
             {
@@ -66,6 +74,33 @@ public class TutorialIndicator : MonoBehaviour
         rt.sizeDelta = dimentionsMax;
     }
 
+    IEnumerator _Fade()
+    {
+        Color Min = new Color(Image.color.r, Image.color.g, Image.color.b, 0);
+        Color Max = new Color(Image.color.r, Image.color.g, Image.color.b, 1);
+
+        int signum = 1;
+        float progress = 0;
+        while (Active)
+        {
+            Image.color = Color.Lerp(Min, Max, progress);
+            progress += signum * Time.deltaTime;
+
+            if (progress >= 1)
+            {
+                progress = 1;
+                signum = -1;
+            }
+            else if (progress <= 0)
+            {
+                progress = 0;
+                signum = 1;
+            }
+
+            yield return null;
+        }
+    }
+
     //Makes sure the object is at the position of the target, without being a child-object
     IEnumerator _Move()
     {
@@ -76,8 +111,18 @@ public class TutorialIndicator : MonoBehaviour
                 Destroy(gameObject);
             }
 
-            transform.position = Target.transform.position;
+            if (transform.position != Target.transform.position)
+            {
+                transform.position = Target.transform.position;
+            }
+
             yield return null;
         }
     }
+}
+
+public enum Animation
+{
+    Fade,
+    Scale
 }
