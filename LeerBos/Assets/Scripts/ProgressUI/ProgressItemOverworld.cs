@@ -7,16 +7,17 @@ public class ProgressItemOverworld : MonoBehaviour
 {
     public Transform Target;
     public int MoveSpeed;
-    private Vector3 originPoint;
-    private bool moving;
     private Image[] images;
 
     // Use this for initialization
     void Start()
     {
-        moving = true;
         images = GetComponentsInChildren<Image>();
         transform.localScale = Vector3.zero;
+    }
+
+    public void PlayAnimation()
+    {
         StartCoroutine(_Grow());
     }
     
@@ -61,10 +62,5 @@ public class ProgressItemOverworld : MonoBehaviour
 
             yield return null;
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        moving = false;
     }
 }

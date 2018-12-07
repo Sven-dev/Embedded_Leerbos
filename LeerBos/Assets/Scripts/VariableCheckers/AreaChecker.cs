@@ -7,14 +7,8 @@ public class AreaChecker : MonoBehaviour
     public Npc Character;
     public Saveable AreaState;
 
-    private void Awake()
+    private void Start()
     {
-        StartCoroutine(_Start());
-    }
-
-    IEnumerator _Start()
-    {
-        yield return new WaitForSeconds(1.5f);
         Check();
     }
 

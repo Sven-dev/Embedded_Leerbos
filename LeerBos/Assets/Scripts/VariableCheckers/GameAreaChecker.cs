@@ -6,11 +6,14 @@ using UnityEngine.UI;
 public class GameAreaChecker : AreaChecker
 {
     [Space]
+    public List<ProgressItemOverworld> ProgressItems;
+    public ProgressKartScript ProgressKart;
     public List<Saveable> GameStates;
     public GameObject[] Indicators;
 
     [Space]
     public Sign MainSquareSign;
+    private List<bool> itemsPresent = new List<bool> { false, false };
 
     protected override void Check()
     {
@@ -19,13 +22,13 @@ public class GameAreaChecker : AreaChecker
             //if the game has been completed earlier
             if (GameStates[i].Value == 3)
             {
-                //fill kart /w item
+                itemsPresent[i] = true;
             }
 
             //if the game has been completed for the first time
             if (GameStates[i].Value == 2)
             {
-                print("test");
+                ProgressItems[i].PlayAnimation();
                 GameStates[i].Value = 3;
 
                 //Checks if all minigames in the area have been completed
@@ -48,6 +51,7 @@ public class GameAreaChecker : AreaChecker
                 }
             }
         }
+        ProgressKart.FillKart(itemsPresent);
 
         //if one or multiple games have been completed
         for (int i = 0; i < GameStates.Count; i++)
