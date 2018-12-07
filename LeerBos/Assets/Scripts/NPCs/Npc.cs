@@ -15,10 +15,10 @@ public class Npc : Interactable
     public List<AudioClip> VictoryClips;
 
     [Space]
-    public List<OutlineBlinker> Blinkables;
-
     public float AfkTimer;
-    private float AfkTime;
+
+    [Space]
+    public SceneSwitcher SceneSwitcher;
 
     // Use this for initialization
     void Start ()
@@ -67,6 +67,12 @@ public class Npc : Interactable
 
             index++;
             yield return new WaitForSeconds(0.05f);
+        }
+
+        //if game is complete, switch to the outro (this is ugly, I know)
+        if (name == "Mouse" && clips == VictoryClips)
+        {
+            SceneSwitcher.Switch("Outro", null);
         }
 
         IdleTimer.Active = true;

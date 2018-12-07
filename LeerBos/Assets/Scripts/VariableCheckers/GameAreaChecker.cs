@@ -9,6 +9,9 @@ public class GameAreaChecker : AreaChecker
     public List<Saveable> GameStates;
     public GameObject[] Indicators;
 
+    [Space]
+    public Sign MainSquareSign;
+
     protected override void Check()
     {
 
@@ -33,6 +36,10 @@ public class GameAreaChecker : AreaChecker
                 if (AreaCompleted)
                 {
                     AreaState.Value = 2;
+                    if (AreaState.Value == 2)
+                    {
+                        MainSquareSign.TargetString += "Complete";
+                    }
                 }
             }
             //if the game has been completed earlier

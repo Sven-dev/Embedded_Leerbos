@@ -8,6 +8,8 @@ public class SceneSwitchable : Interactable
     public string TargetString;
     public Sprite TransitionImage;
 
+    private bool Switching = false;
+
     protected override void Click(Vector3 clickposition)
     {
         Switch();
@@ -15,8 +17,9 @@ public class SceneSwitchable : Interactable
 
     protected void Switch()
     {
-        if (TargetString != "")
+        if (!Switching && TargetString != "")
         {
+            Switching = true;
             SceneSwitcher = Camera.main.GetComponent<SceneSwitcher>();
             SceneSwitcher.Switch(TargetString, TransitionImage);
         }

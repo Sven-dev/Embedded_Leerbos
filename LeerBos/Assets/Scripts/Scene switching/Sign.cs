@@ -22,14 +22,4 @@ public class Sign : SceneSwitchable
             Audio.Play();
         }
     }
-
-    public void Blink()
-    {
-        StartCoroutine(_Blink());
-    }
-
-    IEnumerator _Blink()
-    {
-        yield return null;
-    }
 }

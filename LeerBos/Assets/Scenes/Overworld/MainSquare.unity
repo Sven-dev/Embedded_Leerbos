@@ -545,7 +545,7 @@ GameObject:
   - component: {fileID: 564418498}
   - component: {fileID: 564418496}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: Mouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -705,9 +705,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cfc4f3197ea8c5d488d19b68c92bf171, type: 3}
   VictoryClips:
   - {fileID: 8300000, guid: 378f27e189dbb7e4696249d4a92c6565, type: 3}
-  Blinkables:
-  - {fileID: 0}
   AfkTimer: 20
+  SceneSwitcher: {fileID: 1201304061}
 --- !u!61 &564418498
 BoxCollider2D:
   m_ObjectHideFlags: 0
