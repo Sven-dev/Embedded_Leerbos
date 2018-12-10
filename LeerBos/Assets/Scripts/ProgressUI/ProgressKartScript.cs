@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgressKartScript : MonoBehaviour {
+public class ProgressKartScript : MonoBehaviour
+{
     public List<Sprite> sprites;
     public List<bool> ItemsPresent;
-    private Image image;
-
-    private void Start()
-    {
-        image = GetComponent<Image>();
-    }
+    public Image image;
 
     public void FillKart()
     {

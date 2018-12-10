@@ -31,25 +31,25 @@ public class GameAreaChecker : AreaChecker
                 ProgressItems[i].PlayAnimation();
                 ProgressKart.FillKart();
                 GameStates[i].Value = 3;
+            }
+        }
 
-                //Checks if all minigames in the area have been completed
-                bool AreaCompleted = true;
-                foreach(Saveable Game in GameStates)
-                {
-                    if (Game.Value < 2)
-                    {
-                        AreaCompleted = false;
-                    }
-                }
+        //Checks if all minigames in the area have been completed
+        bool AreaCompleted = true;
+        foreach (Saveable Game in GameStates)
+        {
+            if (Game.Value < 2)
+            {
+                AreaCompleted = false;
+            }
+        }
 
-                if (AreaCompleted)
-                {
-                    AreaState.Value = 2;
-                    if (AreaState.Value == 2)
-                    {
-                        MainSquareSign.TargetString += "Complete";
-                    }
-                }
+        if (AreaCompleted)
+        {
+            AreaState.Value = 2;
+            if (AreaState.Value == 2)
+            {
+                MainSquareSign.TargetString += "Complete";
             }
         }
 

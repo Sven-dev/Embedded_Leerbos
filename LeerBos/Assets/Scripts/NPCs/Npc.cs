@@ -55,7 +55,10 @@ public class Npc : Interactable
     {
         int index = 0;
         DialoguePlaying = true;
-        IdleTimer.Active = false;
+        if (IdleTimer != null)
+        {
+            IdleTimer.Active = false;
+        }
 
         while (index < clips.Count)
         {
@@ -75,7 +78,10 @@ public class Npc : Interactable
             SceneSwitcher.Switch("Outro", null);
         }
 
-        IdleTimer.Active = true;
+        if (IdleTimer != null)
+        {
+            IdleTimer.Active = true;
+        }
         DialoguePlaying = false;
     }
 

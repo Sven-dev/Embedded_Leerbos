@@ -1143,10 +1143,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e03e57f5325e2d4ebc14492216136b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VictoryState: {fileID: 114591224528280530}
+  ReloadButton: {fileID: 0}
+  NextGameButton: {fileID: 0}
+  VictoryState: {fileID: 0}
   ProgressItem: {fileID: 114785276906572774}
-  ItemFill: 0.5
-  ItemTargetY: 237
+  ItemStartingFill: 0
+  ItemTargetFill: 0
 --- !u!114 &114435343876679802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1407,8 +1409,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progressImg: {fileID: 114082424105094778}
   FillSpeed: 0.25
-  ReloadButton: {fileID: 114540349558571214}
-  NextGameButton: {fileID: 114821001379097980}
 --- !u!114 &114807106752535302
 MonoBehaviour:
   m_ObjectHideFlags: 1

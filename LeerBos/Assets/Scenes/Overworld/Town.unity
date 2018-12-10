@@ -233,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Clicked: 0
   Cooldown: 20
-  GameState: {fileID: 0}
+  GameState: {fileID: 65950004}
   TargetScenes:
   - Boodschappen
   - Betalen
@@ -1109,7 +1109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Clicked: 0
   Cooldown: 20
-  GameState: {fileID: 0}
+  GameState: {fileID: 1218550352}
   TargetScenes:
   - WeighScene
   - ClockScene
@@ -1466,6 +1466,7 @@ MonoBehaviour:
   - {fileID: 21300004, guid: 93bbe6c3fffd4704b9827022f7c8b2cf, type: 3}
   - {fileID: 21300006, guid: 93bbe6c3fffd4704b9827022f7c8b2cf, type: 3}
   ItemsPresent: 
+  image: {fileID: 1602350985}
 --- !u!58 &1602350991
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1997,18 +1998,28 @@ Prefab:
     - target: {fileID: 224841419412010764, guid: 33c9c81429da0ab40ac64cbe974942f9,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224448507745360134, guid: 33c9c81429da0ab40ac64cbe974942f9,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114794579712207960, guid: 33c9c81429da0ab40ac64cbe974942f9,
         type: 2}
       propertyPath: ProgressKart
       value: 
       objectReference: {fileID: 1602350987}
+    - target: {fileID: 114652653233502510, guid: 33c9c81429da0ab40ac64cbe974942f9,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114463472856698424, guid: 33c9c81429da0ab40ac64cbe974942f9,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33c9c81429da0ab40ac64cbe974942f9, type: 2}
   m_IsPrefabParent: 0
