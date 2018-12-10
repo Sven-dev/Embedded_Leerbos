@@ -36,3 +36,7 @@ sysinfo.txt
 *.unitypackage
 
 LeerBos/Assets/Visuals/hitbox-11\.png
+
+LeerBos/Assets/Leerbos/Save\.xml
+
+LeerBos/Assets/Leerbos/Save\.xml\.meta
