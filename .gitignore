@@ -3,6 +3,7 @@
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
+[Cc]utscenes/
 Assets/AssetStoreTools*
 
 # Visual Studio cache directory
@@ -40,3 +41,5 @@ LeerBos/Assets/Visuals/hitbox-11\.png
 LeerBos/Assets/Leerbos/Save\.xml
 
 LeerBos/Assets/Leerbos/Save\.xml\.meta
+
+*.meta
