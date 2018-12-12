@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SceneSwitcher : MonoBehaviour
 {
+    public bool FadeOnStart = true;
     public float FadeSpeed;
 
     private Camera Camera;
@@ -14,9 +15,13 @@ public class SceneSwitcher : MonoBehaviour
 
     private void Start()
     {
+
         Camera = GetComponent<Camera>();
         Transition = transform.GetChild(0).GetChild(1).GetComponent<Image>();
-        StartCoroutine(_FadeIn());
+        if (FadeOnStart)
+        {
+            StartCoroutine(_FadeIn());
+        }
     }
 
     public void Switch(Object target, Sprite image)

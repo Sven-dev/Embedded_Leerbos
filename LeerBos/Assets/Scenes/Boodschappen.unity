@@ -1464,8 +1464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87b023bbf37ffe4eb9d69c53c2ca770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IdleTime: 3
-  DisableIn: 10
+  IdleTime: 6
+  DisableIn: 15
   ActiveOnStart: 1
   Interactables:
   - {fileID: 1388019296}

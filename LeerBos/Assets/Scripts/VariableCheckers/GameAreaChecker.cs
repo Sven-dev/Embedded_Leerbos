@@ -49,7 +49,7 @@ public class GameAreaChecker : AreaChecker
             AreaState.Value = 2;
             if (AreaState.Value == 2)
             {
-                MainSquareSign.TargetString += "Complete";
+                MainSquareSign.TargetString = "Outro";
             }
         }
 
