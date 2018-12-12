@@ -28,6 +28,6 @@ public class CinematicSwitcher : SceneSwitchable
             yield return null;
         }
 
-        Switch();
+        SwitchImmediate();
     }
 }

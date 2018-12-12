@@ -35,6 +35,11 @@ public class SceneSwitcher : MonoBehaviour
         StartCoroutine(_FadeOut());
     }
 
+    public void SwitchImmediate(string target)
+    {
+        SceneManager.LoadScene(target);
+    }
+
     IEnumerator _FadeIn()
     {
         Transition.color = new Color(Transition.color.r, Transition.color.g, Transition.color.b, 1);

@@ -24,4 +24,14 @@ public class SceneSwitchable : Interactable
             SceneSwitcher.Switch(TargetString, TransitionImage);
         }
     }
+
+    protected void SwitchImmediate()
+    {
+        if (!Switching && TargetString != "")
+        {
+            Switching = true;
+            SceneSwitcher = Camera.main.GetComponent<SceneSwitcher>();
+            SceneSwitcher.SwitchImmediate(TargetString);
+        }
+    }
 }
