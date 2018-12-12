@@ -1139,10 +1139,10 @@ Prefab:
       propertyPath: m_ConnectedAnchor.y
       value: 28.382559
       objectReference: {fileID: 0}
-    - target: {fileID: 82179347344716606, guid: 956fb879223aca94a9c93931be1d52c1,
+    - target: {fileID: 114285215288218722, guid: 956fb879223aca94a9c93931be1d52c1,
         type: 2}
-      propertyPath: m_Volume
-      value: 0.2
+      propertyPath: RotateSpeed
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 956fb879223aca94a9c93931be1d52c1, type: 2}

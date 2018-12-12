@@ -97,7 +97,6 @@ public class ScalesManagerScript : MonoBehaviour
         if (objectsWeighed >= AmountOfRounds)
         {
             gameOver = true;
-            print("A WINNER IS YOU");
             VictoryLabel.Enable();
         }
         else
@@ -134,7 +133,7 @@ public class ScalesManagerScript : MonoBehaviour
         switch (hand)
         {
             case ScaleHand.Left:
-                x = GetHandX(LeftHand);
+                x = WeightParent.transform.position.x;
                 break;
             case ScaleHand.Right:
                 x = GetHandX(RightHand);
