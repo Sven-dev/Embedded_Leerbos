@@ -120,7 +120,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d1d3d18017a88f345a594f015cb8bd3c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 2
   Loop: 0
   Mute: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd1e08d46215e6145860ea2ab2fa8241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Clicked: 0
   Cooldown: 20
   manager: {fileID: 0}
   prefab: {fileID: 1663167491006646, guid: de107410847557640b1f903920ecadea, type: 2}
