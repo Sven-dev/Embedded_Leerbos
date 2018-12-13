@@ -7,7 +7,6 @@ public class AfkTimer : MonoBehaviour
     public float IdleTime;
     [Tooltip("The amount of times one of the interactables need to be hit until the players understand the controls")]
     public int DisableIn;
-    public bool ActiveOnStart = true;
 
     private bool _active = false;
     public bool Active
@@ -32,13 +31,10 @@ public class AfkTimer : MonoBehaviour
     public List<TutorialIndicator> Indicators;
 
 	// Use this for initialization
-	void Start ()
+	void Awake()
     {
         VictoryScript.OnVictory += Stop;
-        if (ActiveOnStart)
-        {
-            Active = true;
-        }
+        Active = true;
 	}
 
     protected IEnumerator _IdleTimer()

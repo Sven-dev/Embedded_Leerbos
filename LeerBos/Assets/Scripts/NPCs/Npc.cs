@@ -11,7 +11,6 @@ public class Npc : Interactable
     [Space]
     public AudioClip HitClip;
     public List<AudioClip> IntroClips;
-    public List<AudioClip> Wrongwayclips;
     public List<AudioClip> VictoryClips;
 
     [Space]
