@@ -36,7 +36,10 @@ public class WeightedObjectScript : Interactable
     void OnCollisionEnter2D(Collision2D collision)
     {
         colliding = true;
-        aSource.PlayOneShot(Impact);
+        if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.y) > 0.5f)
+        {
+            aSource.PlayOneShot(Impact);
+        }
         CheckConditions();
     }
 
