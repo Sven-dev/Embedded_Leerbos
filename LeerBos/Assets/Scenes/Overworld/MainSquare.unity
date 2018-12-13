@@ -697,12 +697,10 @@ MonoBehaviour:
   Cooldown: 20
   DialoguePlaying: 0
   IdleTimer: {fileID: 669527236}
-  HitClip: {fileID: 8300000, guid: cfc4f3197ea8c5d488d19b68c92bf171, type: 3}
+  HitClip: {fileID: 8300000, guid: 6a23bfeab3cc0764d9f2ff2d3d7128b2, type: 3}
   IntroClips:
   - {fileID: 8300000, guid: b37cfc638b517054691ca3145a1f47a1, type: 3}
   - {fileID: 8300000, guid: b54d931f8ef8e3643bec6c468f634463, type: 3}
-  Wrongwayclips:
-  - {fileID: 8300000, guid: cfc4f3197ea8c5d488d19b68c92bf171, type: 3}
   VictoryClips:
   - {fileID: 8300000, guid: 378f27e189dbb7e4696249d4a92c6565, type: 3}
   AfkTimer: 20
@@ -761,9 +759,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87b023bbf37ffe4eb9d69c53c2ca770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IdleTime: 10
+  IdleTime: 3
   DisableIn: 3
-  ActiveOnStart: 1
+  ActiveOnStart: 0
   Interactables:
   - {fileID: 2117503234}
   Indicators:
@@ -801,8 +799,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 580.74243, y: -158.72696}
-  m_SizeDelta: {x: 372.5, y: 359.05}
+  m_AnchoredPosition: {x: 580.99994, y: -162.99998}
+  m_SizeDelta: {x: 522.8, y: 349.3}
   m_Pivot: {x: 0.5301806, y: 0.41720626}
 --- !u!114 &741474595
 MonoBehaviour:
