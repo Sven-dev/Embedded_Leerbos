@@ -191,7 +191,7 @@ Prefab:
     - target: {fileID: 82951587361083722, guid: 5f59e798fb2f0db4ab9476564ec27399,
         type: 2}
       propertyPath: m_Volume
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 82258574682649394, guid: 5f59e798fb2f0db4ab9476564ec27399,
         type: 2}
@@ -625,6 +625,11 @@ Prefab:
       propertyPath: manager
       value: 
       objectReference: {fileID: 123482490}
+    - target: {fileID: 114128958599949466, guid: 69da99445d0321c4eac1b322d1b08803,
+        type: 2}
+      propertyPath: Cooldown
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69da99445d0321c4eac1b322d1b08803, type: 2}
   m_IsPrefabParent: 0
@@ -772,6 +777,11 @@ Prefab:
       propertyPath: manager
       value: 
       objectReference: {fileID: 123482490}
+    - target: {fileID: 114660810147490384, guid: 7c6189538fad3414da78cfb624a181c2,
+        type: 2}
+      propertyPath: Cooldown
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c6189538fad3414da78cfb624a181c2, type: 2}
   m_IsPrefabParent: 0
@@ -950,6 +960,11 @@ Prefab:
       propertyPath: manager
       value: 
       objectReference: {fileID: 123482490}
+    - target: {fileID: 114161638740482960, guid: a6985af0286dba24e9e57592ec7ad881,
+        type: 2}
+      propertyPath: Cooldown
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6985af0286dba24e9e57592ec7ad881, type: 2}
   m_IsPrefabParent: 0
@@ -1054,7 +1069,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IdleTime: 7.5
   DisableIn: 3
-  ActiveOnStart: 1
   Interactables:
   - {fileID: 1086465644}
   - {fileID: 1853133903}
@@ -1076,7 +1090,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IdleTime: 5
   DisableIn: 1
-  ActiveOnStart: 1
   Interactables: []
   Indicators:
   - {fileID: 0}
@@ -1312,6 +1325,11 @@ Prefab:
       propertyPath: manager
       value: 
       objectReference: {fileID: 123482490}
+    - target: {fileID: 114741225479823692, guid: 239c140e249f19e418aed2f872a7a7bb,
+        type: 2}
+      propertyPath: Cooldown
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 239c140e249f19e418aed2f872a7a7bb, type: 2}
   m_IsPrefabParent: 0

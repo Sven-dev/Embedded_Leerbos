@@ -1332,7 +1332,7 @@ Prefab:
     - target: {fileID: 82951587361083722, guid: 5f59e798fb2f0db4ab9476564ec27399,
         type: 2}
       propertyPath: m_Volume
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 82843589725698068, guid: 5f59e798fb2f0db4ab9476564ec27399,
         type: 2}
@@ -4023,7 +4023,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IdleTime: 7.5
   DisableIn: 5
-  ActiveOnStart: 1
   Interactables:
   - {fileID: 1656703512}
   Indicators:
@@ -4041,7 +4040,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IdleTime: 5
   DisableIn: 5
-  ActiveOnStart: 1
   Interactables:
   - {fileID: 322247001}
   Indicators:

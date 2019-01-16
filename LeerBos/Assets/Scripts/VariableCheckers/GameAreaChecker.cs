@@ -47,13 +47,10 @@ public class GameAreaChecker : AreaChecker
         if (AreaCompleted)
         {
             AreaState.Value = 2;
-            if (AreaState.Value == 2)
-            {
-                MainSquareSign.TargetString = "Outro";
-            }
+            MainSquareSign.TargetString = "Outro";
         }
 
-        //if one or multiple games have been completed
+        //checks if the gameset has been completed, and destroys the associated indicator
         for (int i = 0; i < GameStates.Count; i++)
         {
             if (GameStates[i].Value == 3)

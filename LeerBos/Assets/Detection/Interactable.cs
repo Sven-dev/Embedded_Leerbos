@@ -12,14 +12,14 @@ public abstract class Interactable : MonoBehaviour
     {
         if (!Clicked)
         {
-            StartCoroutine(_click());
+            StartCoroutine(_clicked());
             Click(clickposition);
         }
     }
 
     protected abstract void Click(Vector3 clickposition);
 
-    IEnumerator _click()
+    IEnumerator _clicked()
     {
         Clicked = true;
         float framecount = Cooldown;

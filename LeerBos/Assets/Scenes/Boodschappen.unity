@@ -1464,9 +1464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87b023bbf37ffe4eb9d69c53c2ca770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IdleTime: 6
+  IdleTime: 4.5
   DisableIn: 15
-  ActiveOnStart: 1
   Interactables:
   - {fileID: 1388019296}
   Indicators:
@@ -2484,7 +2483,7 @@ Prefab:
     - target: {fileID: 82951587361083722, guid: 5f59e798fb2f0db4ab9476564ec27399,
         type: 2}
       propertyPath: m_Volume
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 82843589725698068, guid: 5f59e798fb2f0db4ab9476564ec27399,
         type: 2}
