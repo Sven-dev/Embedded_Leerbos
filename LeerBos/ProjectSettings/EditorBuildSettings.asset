@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ClockScene.unity
     guid: 4b8674b9c9b87734599fe1168c47175b
+  - enabled: 1
+    path: Assets/Scenes/Instrument Simon.unity
+    guid: 57cb009f8c51153429ece5bcb4847019
   - enabled: 0
     path: Assets/Scenes/Overworld/MainSquareComplete.unity
     guid: c790e3a0db0763b47b0603375aa8d5b6

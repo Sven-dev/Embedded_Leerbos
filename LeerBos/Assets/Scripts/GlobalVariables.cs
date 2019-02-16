@@ -4,6 +4,7 @@
     public int _townState = 0;         //0 = default, 1 = introduced, 2 = area completed
     public int _bakeryState = 0;       //0 = default, 1 = game 1 completed, 2 = game 2 completed, 3 = icon in kart
     public int _marketState = 0;       //0 = default, 1 = game 1 completed, 2 = game 2 completed, 3 = icon in kart
+    public int _shedState = 0;         //0 = default, 1 = game 1 completed, 2 = game 2 completed, 3 = icon in kart          
     public bool _Standalone = false;
 
     private static GlobalVariables _instance;
@@ -62,6 +63,16 @@
         set
         {
             Instance._marketState = value;
+            ClassToXmlFileIO.Save("Leerbos", "Save", _instance);
+        }
+    }
+
+    public static int ShedState
+    {
+        get { return Instance._shedState; }
+        set
+        {
+            Instance._shedState = value;
             ClassToXmlFileIO.Save("Leerbos", "Save", _instance);
         }
     }
