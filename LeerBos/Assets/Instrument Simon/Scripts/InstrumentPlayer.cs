@@ -6,12 +6,14 @@ public class InstrumentPlayer : MonoBehaviour
 {
     public VictoryScript VictoryScript;
 
+    [HideInInspector]
     public bool Throwable;
+    [HideInInspector]
     public bool Free;
     public int Rounds;
-    public int SequenceLength;
-    public float Pitch;
+    public int Length;
 
+    public List<float> Pitches;
     private List<Instrument> Sequence;
     private List<Instrument> Execution;
 
@@ -30,18 +32,26 @@ public class InstrumentPlayer : MonoBehaviour
         GenerateSequence();
     }
 
+    //Generate a new sequence, or add a new value
     private void GenerateSequence()
     {
-        Execution.Clear();
-        while (Sequence.Count < SequenceLength)
+        //While the sequence isn't complete
+        while (Sequence.Count < Length)
         {
+            //Get one of the instruments
             int rnd = Random.Range(0, transform.childCount-1);
-            Sequence.Add(transform.GetChild(rnd).GetComponent<Instrument>());
+            Instrument next = transform.GetChild(rnd).GetComponent<Instrument>();
+
+            //Add it to the sequence
+            print(next);
+            Sequence.Add(next);       
         }
 
+        //Play the sequence
         PlaySequence();
     }
 
+    //play the sequence
     private void PlaySequence()
     {
         StartCoroutine(_PlaySequence());
@@ -50,21 +60,20 @@ public class InstrumentPlayer : MonoBehaviour
     private IEnumerator _PlaySequence()
     {
         Throwable = false;
-        Pitch = 1;
+        int index = 0;
         yield return new WaitForSeconds(1f);
         foreach (Instrument i in Sequence)
         {
-            i.PlayConsonant(Pitch);
+            i.PlayConsonant(Pitches[index]);
+            index++;
             while (i.Audio.isPlaying)
             {
                 yield return null;
             }
 
-            Pitch += 0.1f;
             yield return new WaitForSeconds(0.5f);
         }
 
-        Pitch = 1;
         Throwable = true;
     }
 
@@ -76,7 +85,7 @@ public class InstrumentPlayer : MonoBehaviour
     private IEnumerator _Correct()
     {
         Throwable = false;
-        Pitch = 1;
+        Execution.Clear();
 
         yield return new WaitForSeconds(0.75f);
         CorrectAudio.Play();
@@ -87,13 +96,14 @@ public class InstrumentPlayer : MonoBehaviour
 
         if (Rounds > 0)
         {
-            SequenceLength++;
+            Length++;
             GenerateSequence();
         }
         else
         {
             yield return new WaitForSeconds(0.5f);
             Free = true;
+            Throwable = true;
             VictoryScript.Enable();
         }
     }
@@ -101,32 +111,22 @@ public class InstrumentPlayer : MonoBehaviour
     //Checks if the hit instrument is correct
     public void CheckInstrument(Instrument i)
     {
-        //If you 
-        if (Throwable)
+        int index = Execution.Count;
+        if (Sequence[index] == i)
         {
-            int index = Execution.Count;
-            if (Sequence[index] == i)
+            Execution.Add(i);
+            i.PlayConsonant(Pitches[Execution.Count-1]);
+            if (Execution.Count == Sequence.Count)
             {
-                Pitch += 0.1f;
-                i.PlayConsonant(Pitch);
-                Execution.Add(i);
-                if (Execution.Count == Sequence.Count)
-                {
-                    Rounds--;
-                    Correct();
-                }
-            }
-            else
-            {
-                Pitch = 1;
-                Execution.Clear();
-                i.PlayDissonant();
-                PlaySequence();
+                Rounds--;
+                Correct();
             }
         }
-        else if (Free)
+        else
         {
-            i.PlayConsonant();
+            Execution.Clear();
+            i.PlayDissonant();
+            PlaySequence();
         }
     }
 }

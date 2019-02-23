@@ -20,14 +20,31 @@ public class Instrument : Interactable
         Manager = transform.parent.GetComponent<InstrumentPlayer>();
         Outline = transform.GetChild(0).GetComponent<SpriteRenderer>();
 	}
+
     protected override void Click(Vector3 clickposition)
     {
         //If you were allowed to hit the instrument
         if (Manager.Throwable)
         {
-            //Check if the instrument is the right one
-            Manager.CheckInstrument(this);
-        }    
+            StartCoroutine(_Click());
+            if (Manager.Free)
+            {
+                PlayConsonant(2);
+            }
+            else
+            {
+                //Check if the instrument is the right one
+                Manager.CheckInstrument(this);
+            }
+        }
+    }
+
+    //Makes the object shrink a bit when hit, makes it look like it gets pressed
+    IEnumerator _Click()
+    {
+        transform.localScale -= Vector3.one * 0.75f;
+        yield return new WaitForSeconds(0.25f);
+        transform.localScale += Vector3.one * 0.75f;
     }
 
     //Play a consonant sound
@@ -40,7 +57,6 @@ public class Instrument : Interactable
     //Play a consonant sound with a custom pitch
     public void PlayConsonant(float pitch)
     {
-        Audio.clip = Consonant;
         StartCoroutine(_Play(Consonant, pitch));
     }
 
@@ -50,6 +66,7 @@ public class Instrument : Interactable
         StartCoroutine(_Play(Dissonant));
     }
 
+    //Play an audio-clip, sometimes with a custom pitch
     private IEnumerator _Play(AudioClip clip, float pitch = 1)
     {
         Outline.enabled = true;
@@ -63,7 +80,6 @@ public class Instrument : Interactable
         }
 
         Audio.pitch = 1;
-        yield return new WaitForSeconds(0.25f);
         Outline.enabled = false;
     }
 }
