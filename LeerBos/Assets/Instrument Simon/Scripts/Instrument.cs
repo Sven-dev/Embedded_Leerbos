@@ -22,30 +22,47 @@ public class Instrument : Interactable
 	}
     protected override void Click(Vector3 clickposition)
     {
-        Manager.CheckInstrument(this);
+        //If you were allowed to hit the instrument
+        if (Manager.Throwable)
+        {
+            //Check if the instrument is the right one
+            Manager.CheckInstrument(this);
+        }    
     }
 
+    //Play a consonant sound
     public void PlayConsonant()
     {
         Audio.clip = Consonant;
-        StartCoroutine(_Play());
+        StartCoroutine(_Play(Consonant));
     }
 
+    //Play a consonant sound with a custom pitch
+    public void PlayConsonant(float pitch)
+    {
+        Audio.clip = Consonant;
+        StartCoroutine(_Play(Consonant, pitch));
+    }
 
+    //Play a dissonant sound
     public void PlayDissonant()
     {
-        Audio.clip = Dissonant;
-        StartCoroutine(_Play());
+        StartCoroutine(_Play(Dissonant));
     }
-    private IEnumerator _Play()
+
+    private IEnumerator _Play(AudioClip clip, float pitch = 1)
     {
         Outline.enabled = true;
+
+        Audio.clip = clip;
+        Audio.pitch = pitch;
         Audio.Play();
         while(Audio.isPlaying)
         {
             yield return null;
         }
 
+        Audio.pitch = 1;
         yield return new WaitForSeconds(0.25f);
         Outline.enabled = false;
     }

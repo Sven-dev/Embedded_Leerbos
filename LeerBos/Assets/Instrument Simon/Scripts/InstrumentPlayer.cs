@@ -10,6 +10,7 @@ public class InstrumentPlayer : MonoBehaviour
     public bool Free;
     public int Rounds;
     public int SequenceLength;
+    public float Pitch;
 
     private List<Instrument> Sequence;
     private List<Instrument> Execution;
@@ -43,24 +44,27 @@ public class InstrumentPlayer : MonoBehaviour
 
     private void PlaySequence()
     {
-        StartCoroutine(_PlayExample());
+        StartCoroutine(_PlaySequence());
     }
 
-    private IEnumerator _PlayExample()
+    private IEnumerator _PlaySequence()
     {
         Throwable = false;
+        Pitch = 1;
         yield return new WaitForSeconds(1f);
         foreach (Instrument i in Sequence)
         {
-            i.PlayConsonant();
+            i.PlayConsonant(Pitch);
             while (i.Audio.isPlaying)
             {
                 yield return null;
             }
 
+            Pitch += 0.1f;
             yield return new WaitForSeconds(0.5f);
         }
 
+        Pitch = 1;
         Throwable = true;
     }
 
@@ -72,6 +76,8 @@ public class InstrumentPlayer : MonoBehaviour
     private IEnumerator _Correct()
     {
         Throwable = false;
+        Pitch = 1;
+
         yield return new WaitForSeconds(0.75f);
         CorrectAudio.Play();
         while (CorrectAudio.isPlaying)
@@ -86,19 +92,23 @@ public class InstrumentPlayer : MonoBehaviour
         }
         else
         {
+            yield return new WaitForSeconds(0.5f);
             Free = true;
             VictoryScript.Enable();
         }
     }
 
+    //Checks if the hit instrument is correct
     public void CheckInstrument(Instrument i)
     {
+        //If you 
         if (Throwable)
         {
             int index = Execution.Count;
             if (Sequence[index] == i)
             {
-                i.PlayConsonant();
+                Pitch += 0.1f;
+                i.PlayConsonant(Pitch);
                 Execution.Add(i);
                 if (Execution.Count == Sequence.Count)
                 {
@@ -108,6 +118,7 @@ public class InstrumentPlayer : MonoBehaviour
             }
             else
             {
+                Pitch = 1;
                 Execution.Clear();
                 i.PlayDissonant();
                 PlaySequence();
