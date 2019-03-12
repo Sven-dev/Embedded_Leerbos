@@ -685,13 +685,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 434391826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec28ae8b64305f4c8b2bbee24f9dafc, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e837045136ded245bd66d14a85db6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Clicked: 0
   Cooldown: 20
-  Consonant: {fileID: 8300000, guid: 91a3f80571949bb40a337be6dfbb72da, type: 3}
-  Dissonant: {fileID: 8300000, guid: b5ec3fcce5dcb064e9812c12479d2d16, type: 3}
+  Consonant: {fileID: 8300000, guid: 5b8cb7db42fdd834aba8c62e0da68207, type: 3}
+  Dissonant: {fileID: 8300000, guid: 272cdd938a1f686419b0ea71a41125f8, type: 3}
   Audio: {fileID: 0}
 --- !u!1001 &463196780
 Prefab:
@@ -855,9 +855,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 463196783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15e4be4162ed030458edb8f6db311a83, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e03e57f5325e2d4ebc14492216136b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ReloadButton: {fileID: 463196782}
+  NextGameButton: {fileID: 463196781}
+  VictoryState: {fileID: 0}
+  ProgressItem: {fileID: 0}
+  ItemStartingFill: 0
+  ItemTargetFill: 0
 --- !u!114 &463196787 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114394234613467580, guid: 5f59e798fb2f0db4ab9476564ec27399,
@@ -1054,13 +1060,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 644915736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec28ae8b64305f4c8b2bbee24f9dafc, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e837045136ded245bd66d14a85db6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Clicked: 0
   Cooldown: 20
-  Consonant: {fileID: 8300000, guid: eba6d8eb65fd25c4ca2332a2175b25b6, type: 3}
-  Dissonant: {fileID: 8300000, guid: 8ef1e55719193704b8b057aee1e36381, type: 3}
+  Consonant: {fileID: 8300000, guid: 0927aa6b6c273324986571f5480af181, type: 3}
+  Dissonant: {fileID: 8300000, guid: cab8349551707b44480a421f89431445, type: 3}
   Audio: {fileID: 0}
 --- !u!1 &887803832
 GameObject:
@@ -1251,23 +1257,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1021340007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c3b5dde6040de44b069affaba2ccdf, type: 3}
+  m_Script: {fileID: 11500000, guid: cc2f23a4ffd9eb64d8c7c4121e237fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   VictoryScript: {fileID: 463196787}
-  Throwable: 1
+  Throwable: 0
   Free: 0
-  Rounds: 2
+  Rounds: 1
   Length: 3
   Pitches:
-  - 0.75
-  - 0.875
+  - 0.5
+  - 0.6
+  - 0.7
+  - 0.8
+  - 0.9
   - 1
-  - 1.125
-  - 1.25
-  - 1.375
-  - 1.5
-  - 1.625
 --- !u!82 &1021340010
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1623,13 +1627,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1310311543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec28ae8b64305f4c8b2bbee24f9dafc, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e837045136ded245bd66d14a85db6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Clicked: 0
   Cooldown: 20
-  Consonant: {fileID: 8300000, guid: 5a66edb6b97f65b4b97fbf8507f61e27, type: 3}
-  Dissonant: {fileID: 8300000, guid: 8cd5dddcf1fdaea428e34431327f4106, type: 3}
+  Consonant: {fileID: 8300000, guid: 882f2d4c4f5b6c14e9dd67e229142e86, type: 3}
+  Dissonant: {fileID: 8300000, guid: 974b8d74d2949184291ecc1136171627, type: 3}
   Audio: {fileID: 0}
 --- !u!1 &1487621320
 GameObject:
@@ -1979,13 +1983,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1532407314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec28ae8b64305f4c8b2bbee24f9dafc, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e837045136ded245bd66d14a85db6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Clicked: 0
   Cooldown: 20
-  Consonant: {fileID: 8300000, guid: d2e470e02ba7746449aeba422eb2571e, type: 3}
-  Dissonant: {fileID: 8300000, guid: 111259772c6fe9d4f8b80b8bac564b67, type: 3}
+  Consonant: {fileID: 8300000, guid: 6ad33e0a754fed64daa6bcb3e33a8489, type: 3}
+  Dissonant: {fileID: 8300000, guid: 2a7f92d7f0dfe424db8e81440ca79111, type: 3}
   Audio: {fileID: 0}
 --- !u!1 &1644428039
 GameObject:
@@ -2177,13 +2181,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1644428039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec28ae8b64305f4c8b2bbee24f9dafc, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e837045136ded245bd66d14a85db6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Clicked: 0
   Cooldown: 20
-  Consonant: {fileID: 8300000, guid: 6bc866bb30c7bfd45b1b3449525b734e, type: 3}
-  Dissonant: {fileID: 8300000, guid: 63a83d7064a832645a9e54ade4803847, type: 3}
+  Consonant: {fileID: 8300000, guid: 35cacbb72b116224f9b1c7d7b489fa92, type: 3}
+  Dissonant: {fileID: 8300000, guid: ea4070a9c5c692f45890bbe22957eb1b, type: 3}
   Audio: {fileID: 0}
 --- !u!1 &1703603833
 GameObject:

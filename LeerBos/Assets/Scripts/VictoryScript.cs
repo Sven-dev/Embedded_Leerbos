@@ -32,7 +32,11 @@ public class VictoryScript : MonoBehaviour
 
         gameObject.SetActive(true);
         //Doesn't work in freeplay mode, replaying the same game twice will mess up the save file
-        VictoryState.Value++;
+        if (VictoryState != null)
+        {
+            VictoryState.Value++;
+        }
+
         aSource.Play();
 
         //Enables UI-elements based on the gamemode
