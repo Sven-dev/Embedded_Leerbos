@@ -42,9 +42,21 @@ public class Instrument : Interactable
     //Makes the object shrink a bit when hit, makes it look like it gets pressed
     IEnumerator _Click()
     {
-        transform.localScale -= Vector3.one * 0.75f;
-        yield return new WaitForSeconds(0.25f);
-        transform.localScale += Vector3.one * 0.75f;
+        Vector3 scale = transform.localScale;
+
+        for (int i = 0; i < 2; i++)
+        {
+            transform.localScale -= scale * 0.1f;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
+        for (int i = 0; i < 2; i++)
+        {
+            transform.localScale += scale * 0.1f;
+            yield return null;
+        }
     }
 
     //Play a consonant sound
