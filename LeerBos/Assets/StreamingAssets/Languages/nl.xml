@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<LanguageContainer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Texts>
+    <string>Nederlands</string>
+    <string>een</string>
+    <string>twee</string>
+    <string>drie</string>
+    <string>vier</string>
+    <string>vijf</string>
+    <string>zes</string>
+    <string>zeven</string>
+    <string>acht</string>
+    <string>negen</string>
+    <string>tien</string>
+    <string>elf</string>
+    <string>twaalf</string>
+    <string>uur</string>
+    <string>half</string>
+    <string>kwart over</string>
+    <string>kwart voor</string>
+    <string>Gewonnen!</string>
+      </Texts>
+  <Images />
+  <AudioFiles />
+</LanguageContainer>

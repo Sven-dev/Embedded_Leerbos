@@ -125,25 +125,53 @@ public class ClockScript : Interactable {
     TimeSpan ProduceTime(TimeModifier type, int hour, out string text)
     {
         text = IntToWord(hour);
+        LanguageController.Instance.GetText(0);
 
-        //smack that shit together, convert it to a datetime
-        switch(type)
+        //if (currentlanguage == "Nederlands")
+        //{
+            switch (type)
+            {
+                case TimeModifier.Half:
+                    text = LanguageController.Instance.GetText(14) + " " + text;
+                    return new TimeSpan(hour - 1, 30, 0);
+                case TimeModifier.KwartOver:
+                    text = LanguageController.Instance.GetText(15) + " " + text;
+                    return new TimeSpan(hour, 15, 0);
+                case TimeModifier.KwartVoor:
+                    text = LanguageController.Instance.GetText(16) + " " + text;
+                    return new TimeSpan(hour - 1, 45, 0);
+                case TimeModifier.Uur:
+                    text = text + " " + LanguageController.Instance.GetText(13);
+                    return new TimeSpan(hour, 0, 0);
+                default:
+                    throw new ArgumentOutOfRangeException("Not a valid time modifier");
+            }
+        //}
+        /*else if (currentlanguage == "English")
+         {
+            switch(type)
+            {
+                case TimeModifier.Half:
+                    text = LanguageController.Instance.GetText(14) + " " + IntToWord(hour-1);
+                    return new TimeSpan(hour-1, 30, 0);
+                case TimeModifier.KwartOver:
+                    text = LanguageController.Instance.GetText(15) + " " + text;
+                    return new TimeSpan(hour, 15, 0);
+                case TimeModifier.KwartVoor:
+                    text = LanguageController.Instance.GetText(16) + " " + text;
+                    return new TimeSpan(hour-1, 45, 0);
+                case TimeModifier.Uur:
+                    text = text + " " + LanguageController.Instance.GetText(13);
+                    return new TimeSpan(hour, 0, 0);
+                default:
+                    throw new ArgumentOutOfRangeException("Not a valid time modifier");
+            }
+         }
+        else if (currentlanguage == "French")
         {
-            case TimeModifier.Half:
-                text = "Half " + text;
-                return new TimeSpan(hour-1, 30, 0);
-            case TimeModifier.KwartOver:
-                text = "Kwart over " + text;
-                return new TimeSpan(hour, 15, 0);
-            case TimeModifier.KwartVoor:
-                text = "Kwart voor " + text;
-                return new TimeSpan(hour-1, 45, 0);
-            case TimeModifier.Uur:
-                text = text + " Uur";
-                return new TimeSpan(hour, 0, 0);
-            default:
-                throw new ArgumentOutOfRangeException("Not a valid time modifier");
+
         }
+        */
     }
 
     void CheckAnswer()
@@ -272,29 +300,29 @@ public class ClockScript : Interactable {
         switch (nr)
         {
             case 1:
-                return "Een";
+                return LanguageController.Instance.GetText(1);
             case 2:
-                return "Twee";
+                return LanguageController.Instance.GetText(2);
             case 3:
-                return "Drie";
+                return LanguageController.Instance.GetText(3);
             case 4:
-                return "Vier";
+                return LanguageController.Instance.GetText(4);
             case 5:
-                return "Vijf";
+                return LanguageController.Instance.GetText(5);
             case 6:
-                return "Zes";
+                return LanguageController.Instance.GetText(6);
             case 7:
-                return "Zeven";
+                return LanguageController.Instance.GetText(7);
             case 8:
-                return "Acht";
+                return LanguageController.Instance.GetText(8);
             case 9:
-                return "Negen";
+                return LanguageController.Instance.GetText(9);
             case 10:
-                return "Tien";
+                return LanguageController.Instance.GetText(10);
             case 11:
-                return "Elf";
+                return LanguageController.Instance.GetText(11);
             case 12:
-                return "Twaalf";
+                return LanguageController.Instance.GetText(12);
             default:
                 throw new ArgumentOutOfRangeException("A number between 0 and 13 please");
         }

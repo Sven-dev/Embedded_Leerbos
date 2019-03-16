@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<LanguageContainer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Texts>
+    <string>Engels</string>
+    <string>one</string>
+    <string>two</string>
+    <string>three</string>
+    <string>four</string>
+    <string>five</string>
+    <string>six</string>
+    <string>seven</string>
+    <string>eight</string>
+    <string>nine</string>
+    <string>ten</string>
+    <string>eleven</string>
+    <string>twelve</string>
+    <string>'o clock</string>
+    <string>half past</string>
+    <string>quarter past</string>
+    <string>quarter to</string>
+    <string>Victory!</string>
+      </Texts>
+  <Images />
+  <AudioFiles />
+</LanguageContainer>
