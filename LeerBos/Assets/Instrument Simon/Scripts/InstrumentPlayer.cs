@@ -13,7 +13,7 @@ public class InstrumentPlayer : MonoBehaviour
     public int Rounds;
     public int Length;
 
-    public List<float> Pitches;
+    private Instrument[] Instruments;
     private List<Instrument> Sequence;
     private List<Instrument> Execution;
 
@@ -26,6 +26,7 @@ public class InstrumentPlayer : MonoBehaviour
 
         Throwable = false;
         Free = false;
+        Instruments = GetComponentsInChildren<Instrument>();
         Sequence = new List<Instrument>();
         Execution = new List<Instrument>();
 
@@ -39,8 +40,8 @@ public class InstrumentPlayer : MonoBehaviour
         while (Sequence.Count < Length)
         {
             //Get one of the instruments
-            int rnd = Random.Range(0, transform.childCount-1);
-            Instrument next = transform.GetChild(rnd).GetComponent<Instrument>();
+            int rnd = Random.Range(0, Instruments.Length);
+            Instrument next = Instruments[rnd];
 
             //Add it to the sequence
             print(next);
@@ -61,17 +62,17 @@ public class InstrumentPlayer : MonoBehaviour
     {
         Throwable = false;
         int index = 0;
-        yield return new WaitForSeconds(1f);
-        foreach (Instrument i in Sequence)
+        yield return new WaitForSeconds(0.75f);
+        for (int i = 0; i < Sequence.Count; i++)
         {
-            i.PlayConsonant(Pitches[index]);
+            Sequence[i].PlayConsonant(i);
             index++;
-            while (i.Audio.isPlaying)
+            while (Sequence[i].Audio.isPlaying)
             {
                 yield return null;
             }
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
         }
 
         Throwable = true;
@@ -87,7 +88,7 @@ public class InstrumentPlayer : MonoBehaviour
         Throwable = false;
         Execution.Clear();
 
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.5f);
         CorrectAudio.Play();
         while (CorrectAudio.isPlaying)
         {
@@ -115,7 +116,7 @@ public class InstrumentPlayer : MonoBehaviour
         if (Sequence[index] == i)
         {
             Execution.Add(i);
-            i.PlayConsonant(Pitches[Execution.Count-1]);
+            i.PlayConsonant(index);
             if (Execution.Count == Sequence.Count)
             {
                 Rounds--;

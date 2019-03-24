@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Instrument : Interactable
 {
-    public AudioClip Consonant;
+    public List<AudioClip> Consonants;
+    [Space]
     public AudioClip Dissonant;
 
     [HideInInspector]
@@ -17,7 +18,7 @@ public class Instrument : Interactable
 	private void Awake ()
     {
         Audio = GetComponent<AudioSource>();
-        Manager = transform.parent.GetComponent<InstrumentPlayer>();
+        Manager = transform.parent.parent.GetComponent<InstrumentPlayer>();
         Outline = transform.GetChild(0).GetComponent<SpriteRenderer>();
 	}
 
@@ -29,7 +30,7 @@ public class Instrument : Interactable
             StartCoroutine(_Click());
             if (Manager.Free)
             {
-                PlayConsonant(2);
+                PlayConsonant(7);
             }
             else
             {
@@ -59,17 +60,10 @@ public class Instrument : Interactable
         }
     }
 
-    //Play a consonant sound
-    public void PlayConsonant()
-    {
-        Audio.clip = Consonant;
-        StartCoroutine(_Play(Consonant));
-    }
-
     //Play a consonant sound with a custom pitch
-    public void PlayConsonant(float pitch)
+    public void PlayConsonant(int pitch)
     {
-        StartCoroutine(_Play(Consonant, pitch));
+        StartCoroutine(_Play(Consonants[pitch]));
     }
 
     //Play a dissonant sound
@@ -79,12 +73,11 @@ public class Instrument : Interactable
     }
 
     //Play an audio-clip, sometimes with a custom pitch
-    private IEnumerator _Play(AudioClip clip, float pitch = 1)
+    private IEnumerator _Play(AudioClip clip)
     {
         Outline.enabled = true;
 
         Audio.clip = clip;
-        Audio.pitch = pitch;
         Audio.Play();
         while(Audio.isPlaying)
         {
