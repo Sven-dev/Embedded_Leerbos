@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<GlobalVariables xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <_mainSquareState>1</_mainSquareState>
+  <_townState>1</_townState>
+  <_bakeryState>0</_bakeryState>
+  <_marketState>0</_marketState>
+  <_forestState>1</_forestState>
+  <_towerState>0</_towerState>
+  <_mazeState>0</_mazeState>
+  <_shedState>0</_shedState>
+  <_musicState>0</_musicState>
+  <_craftingState>0</_craftingState>
+  <_mountainState>0</_mountainState>
+  <_readingState>0</_readingState>
+  <_flowerState>0</_flowerState>
+  <_Standalone>false</_Standalone>
+</GlobalVariables>

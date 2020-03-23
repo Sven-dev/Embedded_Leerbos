@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Latitude\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Latitude\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_LeerBos.-1326965486.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Latitude\Documents\Stage\sw-leerbos\LeerBos" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="BallMock" t="Include">
+          <e p="MouseBall.cs" t="Include" />
+        </e>
+        <e p="BalloonAnimationHandler.cs" t="Include" />
+        <e p="Balloons" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Answer.cs" t="Include" />
+            <e p="AnswerManager.cs" t="Include" />
+            <e p="Balloon.cs" t="Include" />
+            <e p="BalloonController.cs" t="Include" />
+            <e p="BalloonGameManager.cs" t="Include" />
+            <e p="BalloonPositions.cs" t="Include" />
+            <e p="BalloonStack.cs" t="Include" />
+            <e p="BalloonUi.cs" t="Include" />
+            <e p="Line.cs" t="Include" />
+            <e p="LineShooter.cs" t="Include" />
+            <e p="Rabbit.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Betalen" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Coin.cs" t="Include" />
+            <e p="CoinSpawner.cs" t="Include" />
+            <e p="ConveyorBelt.cs" t="Include" />
+            <e p="Lights.cs" t="Include" />
+            <e p="Register.cs" t="Include" />
+            <e p="UIPrice.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Boodschappen" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="GrammarManager.cs" t="Include" />
+            <e p="Kart.cs" t="Include" />
+            <e p="KartMover.cs" t="Include" />
+            <e p="Product.cs" t="Include" />
+            <e p="ProductDeathZone.cs" t="Include" />
+            <e p="ProductSpawner.cs" t="Include" />
+            <e p="ShoppingListManager.cs" t="Include" />
+          </e>
+        </e>
+        <e p="ClockFolder" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="ArmScript.cs" t="Include" />
+            <e p="CakeLayer.cs" t="Include" />
+            <e p="CakeScript.cs" t="Include" />
+            <e p="ClockQuarterScript.cs" t="Include" />
+            <e p="ClockScript.cs" t="Include" />
+            <e p="HandScript.cs" t="Include" />
+            <e p="QuarterFeedbackScript.cs" t="Include" />
+            <e p="TimeVoiceScript.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Detection" t="Include">
+          <e p="DetectionManager.cs" t="Include" />
+          <e p="Editor" t="Include">
+            <e p="DetectionManagerEditor.cs" t="Include" />
+          </e>
+          <e p="Interactable.cs" t="Include" />
+          <e p="ISurface" t="Include">
+            <e p="C_DebugMenu" t="Include">
+              <e p="ButtonScripts" t="Include">
+                <e p="ExitButton.cs" t="Include" />
+                <e p="ReconnectButton.cs" t="Include" />
+                <e p="ShutdownButton.cs" t="Include" />
+              </e>
+              <e p="ConnectionFeedback.cs" t="Include" />
+              <e p="ConnectionLog.cs" t="Include" />
+              <e p="DebugMenu.cs" t="Include" />
+              <e p="GameConsole.cs" t="Include" />
+              <e p="Pin.cs" t="Include" />
+            </e>
+            <e p="Objects" t="Include">
+              <e p="ComputerVision" t="Include">
+                <e p="Blob.cs" t="Include" />
+                <e p="BlobTracking.cs" t="Include" />
+              </e>
+              <e p="DMX" t="Include">
+                <e p="DMXControler.cs" t="Include" />
+                <e p="MainAppGateway.cs" t="Include" />
+              </e>
+            </e>
+            <e p="OtherScripts" t="Include">
+              <e p="SocketConnection" t="Include">
+                <e p="I_MessageReciever.cs" t="Include" />
+                <e p="SocketConnection.cs" t="Include" />
+                <e p="SocketMessageProcessor.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Fonts" t="Include">
+          <e p="coming-soon" t="Include">
+            <e p="LICENSE.txt" t="Include" />
+            <e p="readme.txt" t="Include" />
+          </e>
+        </e>
+        <e p="Interval" t="Include">
+          <e p="InteractionIndicator.cs" t="Include" />
+        </e>
+        <e p="LeerBos" t="Include">
+          <e p="Save.xml" t="Include" />
+        </e>
+        <e p="Minigames" t="Include">
+          <e p="Answer.cs" t="Include" />
+          <e p="Area.cs" t="Include" />
+          <e p="DataProvisionStyle.cs" t="Include" />
+          <e p="Editor" t="Include">
+            <e p="ProgressItemFactoryEditor.cs" t="Include" />
+            <e p="RoundManagerEditor.cs" t="Include" />
+          </e>
+          <e p="IntEvent.cs" t="Include" />
+          <e p="Minigame.cs" t="Include" />
+          <e p="Progress" t="Include">
+            <e p="ProgressItem.cs" t="Include" />
+            <e p="ProgressItemFactory.cs" t="Include" />
+          </e>
+          <e p="Round.cs" t="Include" />
+          <e p="RoundManager.cs" t="Include" />
+          <e p="Saveable.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="DeathZoneScript.cs" t="Include" />
+          <e p="Extensions.cs" t="Include" />
+          <e p="Fader.cs" t="Include" />
+          <e p="FileIO" t="Include">
+            <e p="ClassToFileIO.cs" t="Include" />
+            <e p="ClassToXmlFileIO.cs" t="Include" />
+            <e p="TextToFileIO.cs" t="Include" />
+          </e>
+          <e p="GlobalVariables.cs" t="Include" />
+          <e p="Indicator" t="Include">
+            <e p="AfkDetector.cs" t="Include" />
+            <e p="AfkTimer.cs" t="Include" />
+            <e p="IndicatorSpawner.cs" t="Include" />
+            <e p="OverPrice.cs" t="Include" />
+            <e p="ScaleRotation.cs" t="Include" />
+            <e p="TutorialIndicator.cs" t="Include" />
+          </e>
+          <e p="NPCs" t="Include">
+            <e p="Npc.cs" t="Include" />
+          </e>
+          <e p="OutlineBlinker.cs" t="Include" />
+          <e p="PartyBlower.cs" t="Include" />
+          <e p="ProgressUI" t="Include">
+            <e p="ProgressItemMinigame.cs" t="Include" />
+            <e p="ProgressItemOverworld.cs" t="Include" />
+            <e p="ProgressKartScript.cs" t="Include" />
+          </e>
+          <e p="ReplayButton.cs" t="Include" />
+          <e p="ResetTimer.cs" t="Include" />
+          <e p="RotateScript.cs" t="Include" />
+          <e p="Saveable" t="Include">
+            <e p="BakerySave.cs" t="Include" />
+            <e p="MainSquareSave.cs" t="Include" />
+            <e p="MarketSave.cs" t="Include" />
+            <e p="Saveable.cs" t="Include" />
+            <e p="TownSave.cs" t="Include" />
+          </e>
+          <e p="Scene switching" t="Include">
+            <e p="Button.cs" t="Include" />
+            <e p="CinematicSwitcher.cs" t="Include" />
+            <e p="MultiSceneSwitcher.cs" t="Include" />
+            <e p="SceneSwitchable.cs" t="Include" />
+            <e p="SceneSwitcher.cs" t="Include" />
+            <e p="Sign.cs" t="Include" />
+          </e>
+          <e p="VariableCheckers" t="Include">
+            <e p="AreaChecker.cs" t="Include" />
+            <e p="GameAreaChecker.cs" t="Include" />
+          </e>
+          <e p="VictoryScript.cs" t="Include" />
+        </e>
+        <e p="Sequencing" t="Include">
+          <e p="DataUser.cs" t="Include" />
+          <e p="Editor" t="Include">
+            <e p="SequencerEditor.cs" t="Include" />
+          </e>
+          <e p="Sequencable.cs" t="Include" />
+          <e p="Sequencer.cs" t="Include" />
+        </e>
+        <e p="UI" t="Include">
+          <e p="Blink.cs" t="Include" />
+        </e>
+        <e p="WeighFolder" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="PrefabSpawnButtonScript.cs" t="Include" />
+            <e p="ProgressBarScript.cs" t="Include" />
+            <e p="ScaleBeamScript.cs" t="Include" />
+            <e p="ScaleHandScript.cs" t="Include" />
+            <e p="ScalesManagerScript.cs" t="Include" />
+            <e p="WeightedObjectScript.cs" t="Include" />
+            <e p="WeightPrefabScript.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="LeerBos.sln" t="IncludeFlat" />
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

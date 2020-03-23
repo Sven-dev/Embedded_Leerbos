@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - ScaleHand
+  - ConveyorBelt
+  - HandTarget
+  - CashRegister
+  - RegisterIgnore
+  - IndicatorBubble
+  - Bubble
+  - DontDestroyTillSumCreated
+  - Gold
+  - TrainPiece
+  - LinkPiece
+  - Kart
+  - KartBack
+  - KartTrain
+  - Canvas
+  - Arrow
+  - Instance
+  - Clones
+  - MenuItem
+  - Balloon
+  - Line
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - GroceriesItem
+  - DetectionException
+  - Coin
+  - MovingCoin
+  - Balloon
+  - 
+  - Background Image
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: bl_Background
+    uniqueID: 3761999767
+    locked: 0
+  - name: bl_Roof
+    uniqueID: 1495672859
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: bl_Lines
+    uniqueID: 3859571845
+    locked: 0
+  - name: bl_Clouds
+    uniqueID: 492055639
+    locked: 0
+  - name: bl_Balloons
+    uniqueID: 3213348077
+    locked: 0
+  - name: bl_Chimney
+    uniqueID: 230228227
+    locked: 0
+  - name: bl_UI
+    uniqueID: 418286821
+    locked: 0
+  - name: bl_Character
+    uniqueID: 1812501175
+    locked: 0
+  - name: bl_top_layer
+    uniqueID: 1607863095
+    locked: 0
